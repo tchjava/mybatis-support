@@ -2,6 +2,7 @@ package com.gaby.mybatis.auto.stu.entity;
 
 import com.baomidou.mybatisplus.annotations.TableField;
 import com.baomidou.mybatisplus.annotations.TableId;
+import com.baomidou.mybatisplus.annotations.TableName;
 import com.baomidou.mybatisplus.enums.IdType;
 import com.gaby.mybatis.base.entity.IEntity;
 
@@ -13,9 +14,10 @@ import java.io.Serializable;
  * </p>
  *
  * @author Gaby
- * @since 2019-03-19
+ * @since 2019-04-05
  */
-public class Teacher implements Serializable, IEntity {
+@TableName("teacher_info")
+public class TeacherInfo implements Serializable, IEntity {
 
     @TableId(value = "id", type = IdType.INPUT)
     @TableField("t_id")
@@ -29,7 +31,7 @@ public class Teacher implements Serializable, IEntity {
         return tId;
     }
 
-    public Teacher settId(String tId) {
+    public TeacherInfo settId(String tId) {
         if (tId != null)
             tId = tId.trim();
         this.tId = tId;
@@ -40,7 +42,7 @@ public class Teacher implements Serializable, IEntity {
         return tName;
     }
 
-    public Teacher settName(String tName) {
+    public TeacherInfo settName(String tName) {
         if (tName != null)
             tName = tName.trim();
         this.tName = tName;
@@ -51,7 +53,7 @@ public class Teacher implements Serializable, IEntity {
         return age;
     }
 
-    public Teacher setAge(Integer age) {
+    public TeacherInfo setAge(Integer age) {
         this.age = age;
         return this;
     }
@@ -60,7 +62,7 @@ public class Teacher implements Serializable, IEntity {
         return type;
     }
 
-    public Teacher setType(String type) {
+    public TeacherInfo setType(String type) {
         if (type != null)
             type = type.trim();
         this.type = type;
@@ -70,7 +72,7 @@ public class Teacher implements Serializable, IEntity {
     /**
      * 表名
      */
-    public static final String TABLE_NAME = "teacher";
+    public static final String TABLE_NAME = "teacher_info";
     public static final String T_ID = "t_id";
 
     public static final String T_NAME = "t_name";
@@ -80,7 +82,7 @@ public class Teacher implements Serializable, IEntity {
     public static final String TYPE = "type";
 
     @Override
-    public Teacher pkVal(Serializable val) {
+    public TeacherInfo pkVal(Serializable val) {
         this.tId = String.valueOf(val.toString());
         return this;
     }

@@ -1,6 +1,6 @@
 package   com.gaby.mybatis.auto.stu.service;
 
-import com.gaby.mybatis.auto.stu.entity.Teacher;
+import com.gaby.mybatis.auto.stu.entity.TeacherInfo;
 import com.baomidou.mybatisplus.service.IService;
 
 /**
@@ -9,8 +9,8 @@ import com.baomidou.mybatisplus.service.IService;
  * </p>
  *
  * @author Gaby
- * @since 2019-03-19
+ * @since 2019-04-05
  */
-public interface TeacherService extends IService<Teacher> {
+public interface TeacherInfoService extends IService<TeacherInfo> {
 
 }
