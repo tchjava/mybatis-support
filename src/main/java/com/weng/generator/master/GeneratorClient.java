@@ -24,7 +24,7 @@ public class GeneratorClient {
         config.setBaseResultMap(true);// XML ResultMap
         config.setBaseColumnList(true);// XML columList
         config.setAuthor("Gaby");
-        config.setIdType(IdType.AUTO);
+        config.setIdType(IdType.INPUT);
         // 自定义文件命名，注意 %s 会自动填充表实体属性！
         config.setMapperName("%sMapper");
         config.setXmlName("%sMapper");
@@ -35,7 +35,7 @@ public class GeneratorClient {
 
         // 数据源配置
         DataSourceConfig dataSourceConfig = new DataSourceConfig();
-        dataSourceConfig.setDbType(DbType.MYSQL);
+        dataSourceConfig.setDbType(DbType.ORACLE);
         dataSourceConfig.setDriverName(PropertiesUtil.getValue("jdbc.driverName"));
         dataSourceConfig.setUsername(PropertiesUtil.getValue("jdbc.username"));
         dataSourceConfig.setPassword(PropertiesUtil.getValue("jdbc.password"));

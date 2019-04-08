@@ -1,10 +1,10 @@
-package com.gaby.mybatis.base.service.impl;
+package com.tjlou.mybatis.base.service.impl;
 
 import com.baomidou.mybatisplus.mapper.BaseMapper;
 import com.baomidou.mybatisplus.service.impl.ServiceImpl;
-import com.gaby.mybatis.base.entity.IEntity;
-import com.gaby.mybatis.base.mapper.SqlDao;
-import com.gaby.mybatis.base.service.BaseService;
+import com.tjlou.mybatis.base.entity.IEntity;
+import com.tjlou.mybatis.base.mapper.SqlDao;
+import com.tjlou.mybatis.base.service.BaseService;
 import org.springframework.beans.factory.annotation.Autowired;
 /**
 *@discrption:service的顶层实现

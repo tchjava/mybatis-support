@@ -1,19 +1,14 @@
 package ${package.Entity};
 
     #if(${activeRecord})
-    import com.baomidou.mybatisplus.activerecord.Model;
     #end
     #foreach($pkg in ${table.importPackages})
     import ${pkg};
     #end
 
-import java.io.Serializable;
-
-import com.gaby.mybatis.base.entity.IEntity;
 import com.baomidou.mybatisplus.enums.IdType;
 import com.baomidou.mybatisplus.annotations.TableField;
 import com.baomidou.mybatisplus.annotations.TableId;
-import com.baomidou.mybatisplus.enums.FieldFill;
 
 /**
  * <p>

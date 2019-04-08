@@ -1,4 +1,4 @@
-package com.gaby.mybatis.base.service;
+package com.tjlou.mybatis.base.service;
 
 import com.baomidou.mybatisplus.service.IService;
 /**
