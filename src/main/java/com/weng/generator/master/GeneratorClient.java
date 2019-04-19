@@ -35,7 +35,7 @@ public class GeneratorClient {
 
         // 数据源配置
         DataSourceConfig dataSourceConfig = new DataSourceConfig();
-        dataSourceConfig.setDbType(DbType.MYSQL);
+        dataSourceConfig.setDbType(DbType.ORACLE);
         dataSourceConfig.setDriverName(PropertiesUtil.getValue("jdbc.driverName"));
         dataSourceConfig.setUsername(PropertiesUtil.getValue("jdbc.username"));
         dataSourceConfig.setPassword(PropertiesUtil.getValue("jdbc.password"));

@@ -58,7 +58,14 @@
       <groupId>org.apache.velocity</groupId>
       <artifactId>velocity</artifactId>
     </dependency>
+    <!--分页-->
+    <dependency>
+      <groupId>com.github.pagehelper</groupId>
+      <artifactId>pagehelper</artifactId>
+    </dependency>
   </dependencies>
+
+
   <build>
     <!-- 不拦截xml -->
     <resources>
