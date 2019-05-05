@@ -29,7 +29,7 @@ public class PermissionInfo implements Serializable, IEntity {
     /**
      * 资源类型:menu,button
      */
-    private String type;
+    private Integer type;
     /**
      * 访问地址
      */
@@ -81,13 +81,11 @@ public class PermissionInfo implements Serializable, IEntity {
         return this;
     }
 
-    public String getType() {
+    public Integer getType() {
         return type;
     }
 
-    public PermissionInfo setType(String type) {
-        if (type != null)
-            type = type.trim();
+    public PermissionInfo setType(Integer type) {
         this.type = type;
         return this;
     }
