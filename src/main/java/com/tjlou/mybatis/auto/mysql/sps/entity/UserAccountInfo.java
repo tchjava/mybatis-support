@@ -15,287 +15,304 @@ import java.util.Date;
  * </p>
  *
  * @author Gaby
- * @since 2019-06-09
+ * @since 2019-06-11
  */
 @TableName("user_account_info")
 public class UserAccountInfo implements Serializable, IEntity {
 
-
-                @TableId(value = "id", type = IdType.AUTO)
-        private Long id;
-            /**
-     * 用户昵称及微信昵称 
+    @TableId(value = "id", type = IdType.AUTO)
+    private Long id;
+    /**
+     * 用户昵称及微信昵称
      */
-            private String nickname;
-            /**
+    private String nickname;
+    /**
      * 微信 id
      */
-                @TableField("open_id")
+    @TableField("open_id")
     private String openId;
-            /**
-     * 用户 ID(可作为店铺 ID) 
+    /**
+     * 用户 ID(可作为店铺 ID)
      */
-                @TableField("user_id")
+    @TableField("user_id")
     private String userId;
-            /**
-     * 联系电话 
+    /**
+     * 联系电话
      */
-            private String phone;
-            /**
+    private String phone;
+    /**
      * 头像及微信头像
      */
-            private String headimg;
-            /**
-     * 入库时间 
+    private String headimg;
+    /**
+     * 入库时间
      */
-            private Date intime;
-            /**
-     * 用户等级(默认 V0) 
+    private Date intime;
+    /**
+     * 用户等级(默认 V0)
      */
-            private Integer level;
-            /**
-     * 积分(默认 0) 
+    private Integer level;
+    /**
+     * 积分(默认 0)
      */
-            private Integer score;
-            /**
-     * 退货率(默认 0) 
+    private Integer score;
+    /**
+     * 退货率(默认 0)
      */
-            private Integer rate;
-            /**
+    private Integer rate;
+    /**
      * 折扣百分比默认 100
      */
-            private Integer rebate;
-            /**
+    private Integer rebate;
+    /**
      * 身份 0 用户 1 商家 2 代理
      */
-            private String type;
-            /**
+    private String type;
+    /**
      * 所属供货商 ID
      */
-            private String shopUri;
-            /**
+    private String shopUri;
+    /**
      * 成为代理时间
      */
-                @TableField("agent_time")
+    @TableField("agent_time")
     private Date agentTime;
+    /**
+     * 状态 00A-已绑定  00B-未绑定  00Z-失效
+     */
+    private String status;
 
-        
-public Long getId(){
+    public Long getId() {
         return id;
-        }
+    }
 
-        public UserAccountInfo setId(Long id){
-                this.id = id;
-                return this;
-            }
-        
-public String getNickname(){
+    public UserAccountInfo setId(Long id) {
+        this.id = id;
+        return this;
+    }
+
+    public String getNickname() {
         return nickname;
-        }
+    }
 
-        public UserAccountInfo setNickname(String nickname){
-                    if(nickname != null)
-        nickname = nickname.trim();
-            this.nickname = nickname;
-                return this;
-            }
-        
-public String getOpenId(){
+    public UserAccountInfo setNickname(String nickname) {
+        if (nickname != null)
+            nickname = nickname.trim();
+        this.nickname = nickname;
+        return this;
+    }
+
+    public String getOpenId() {
         return openId;
-        }
+    }
 
-        public UserAccountInfo setOpenId(String openId){
-                    if(openId != null)
-        openId = openId.trim();
-            this.openId = openId;
-                return this;
-            }
-        
-public String getUserId(){
+    public UserAccountInfo setOpenId(String openId) {
+        if (openId != null)
+            openId = openId.trim();
+        this.openId = openId;
+        return this;
+    }
+
+    public String getUserId() {
         return userId;
-        }
+    }
 
-        public UserAccountInfo setUserId(String userId){
-                    if(userId != null)
-        userId = userId.trim();
-            this.userId = userId;
-                return this;
-            }
-        
-public String getPhone(){
+    public UserAccountInfo setUserId(String userId) {
+        if (userId != null)
+            userId = userId.trim();
+        this.userId = userId;
+        return this;
+    }
+
+    public String getPhone() {
         return phone;
-        }
+    }
 
-        public UserAccountInfo setPhone(String phone){
-                    if(phone != null)
-        phone = phone.trim();
-            this.phone = phone;
-                return this;
-            }
-        
-public String getHeadimg(){
+    public UserAccountInfo setPhone(String phone) {
+        if (phone != null)
+            phone = phone.trim();
+        this.phone = phone;
+        return this;
+    }
+
+    public String getHeadimg() {
         return headimg;
-        }
+    }
 
-        public UserAccountInfo setHeadimg(String headimg){
-                    if(headimg != null)
-        headimg = headimg.trim();
-            this.headimg = headimg;
-                return this;
-            }
-        
-public Date getIntime(){
+    public UserAccountInfo setHeadimg(String headimg) {
+        if (headimg != null)
+            headimg = headimg.trim();
+        this.headimg = headimg;
+        return this;
+    }
+
+    public Date getIntime() {
         return intime;
-        }
+    }
 
-        public UserAccountInfo setIntime(Date intime){
-                this.intime = intime;
-                return this;
-            }
-        
-public Integer getLevel(){
+    public UserAccountInfo setIntime(Date intime) {
+        this.intime = intime;
+        return this;
+    }
+
+    public Integer getLevel() {
         return level;
-        }
+    }
 
-        public UserAccountInfo setLevel(Integer level){
-                this.level = level;
-                return this;
-            }
-        
-public Integer getScore(){
+    public UserAccountInfo setLevel(Integer level) {
+        this.level = level;
+        return this;
+    }
+
+    public Integer getScore() {
         return score;
-        }
+    }
 
-        public UserAccountInfo setScore(Integer score){
-                this.score = score;
-                return this;
-            }
-        
-public Integer getRate(){
+    public UserAccountInfo setScore(Integer score) {
+        this.score = score;
+        return this;
+    }
+
+    public Integer getRate() {
         return rate;
-        }
+    }
 
-        public UserAccountInfo setRate(Integer rate){
-                this.rate = rate;
-                return this;
-            }
-        
-public Integer getRebate(){
+    public UserAccountInfo setRate(Integer rate) {
+        this.rate = rate;
+        return this;
+    }
+
+    public Integer getRebate() {
         return rebate;
-        }
+    }
 
-        public UserAccountInfo setRebate(Integer rebate){
-                this.rebate = rebate;
-                return this;
-            }
-        
-public String getType(){
+    public UserAccountInfo setRebate(Integer rebate) {
+        this.rebate = rebate;
+        return this;
+    }
+
+    public String getType() {
         return type;
-        }
+    }
 
-        public UserAccountInfo setType(String type){
-                    if(type != null)
-        type = type.trim();
-            this.type = type;
-                return this;
-            }
-        
-public String getShopUri(){
+    public UserAccountInfo setType(String type) {
+        if (type != null)
+            type = type.trim();
+        this.type = type;
+        return this;
+    }
+
+    public String getShopUri() {
         return shopUri;
-        }
+    }
 
-        public UserAccountInfo setShopUri(String shopUri){
-                    if(shopUri != null)
-        shopUri = shopUri.trim();
-            this.shopUri = shopUri;
-                return this;
-            }
-        
-public Date getAgentTime(){
+    public UserAccountInfo setShopUri(String shopUri) {
+        if (shopUri != null)
+            shopUri = shopUri.trim();
+        this.shopUri = shopUri;
+        return this;
+    }
+
+    public Date getAgentTime() {
         return agentTime;
-        }
+    }
 
-        public UserAccountInfo setAgentTime(Date agentTime){
-                this.agentTime = agentTime;
-                return this;
-            }
+    public UserAccountInfo setAgentTime(Date agentTime) {
+        this.agentTime = agentTime;
+        return this;
+    }
 
-/**
- * 表名
- */
-public static final String TABLE_NAME="user_account_info" ;
-                public static final String ID ="id" ;
+    public String getStatus() {
+        return status;
+    }
 
-                    /**
-         * 用户昵称及微信昵称 
-         */
-            public static final String NICKNAME ="nickname" ;
+    public UserAccountInfo setStatus(String status) {
+        if (status != null)
+            status = status.trim();
+        this.status = status;
+        return this;
+    }
 
-                    /**
-         * 微信 id
-         */
-            public static final String OPEN_ID ="open_id" ;
+    /**
+     * 表名
+     */
+    public static final String TABLE_NAME = "user_account_info";
+    public static final String ID = "id";
 
-                    /**
-         * 用户 ID(可作为店铺 ID) 
-         */
-            public static final String USER_ID ="user_id" ;
+    /**
+     * 用户昵称及微信昵称
+     */
+    public static final String NICKNAME = "nickname";
 
-                    /**
-         * 联系电话 
-         */
-            public static final String PHONE ="phone" ;
+    /**
+     * 微信 id
+     */
+    public static final String OPEN_ID = "open_id";
 
-                    /**
-         * 头像及微信头像
-         */
-            public static final String HEADIMG ="headimg" ;
+    /**
+     * 用户 ID(可作为店铺 ID)
+     */
+    public static final String USER_ID = "user_id";
 
-                    /**
-         * 入库时间 
-         */
-            public static final String INTIME ="intime" ;
+    /**
+     * 联系电话
+     */
+    public static final String PHONE = "phone";
 
-                    /**
-         * 用户等级(默认 V0) 
-         */
-            public static final String LEVEL ="level" ;
+    /**
+     * 头像及微信头像
+     */
+    public static final String HEADIMG = "headimg";
 
-                    /**
-         * 积分(默认 0) 
-         */
-            public static final String SCORE ="score" ;
+    /**
+     * 入库时间
+     */
+    public static final String INTIME = "intime";
 
-                    /**
-         * 退货率(默认 0) 
-         */
-            public static final String RATE ="rate" ;
+    /**
+     * 用户等级(默认 V0)
+     */
+    public static final String LEVEL = "level";
 
-                    /**
-         * 折扣百分比默认 100
-         */
-            public static final String REBATE ="rebate" ;
+    /**
+     * 积分(默认 0)
+     */
+    public static final String SCORE = "score";
 
-                    /**
-         * 身份 0 用户 1 商家 2 代理
-         */
-            public static final String TYPE ="type" ;
+    /**
+     * 退货率(默认 0)
+     */
+    public static final String RATE = "rate";
 
-                    /**
-         * 所属供货商 ID
-         */
-            public static final String SHOPURI ="shopUri" ;
+    /**
+     * 折扣百分比默认 100
+     */
+    public static final String REBATE = "rebate";
 
-                    /**
-         * 成为代理时间
-         */
-            public static final String AGENT_TIME ="agent_time" ;
+    /**
+     * 身份 0 用户 1 商家 2 代理
+     */
+    public static final String TYPE = "type";
 
-    
-@Override
-public UserAccountInfo pkVal(Serializable val){
-                this.id = Long.valueOf(val.toString());
-            return this;
-        }
-        }
+    /**
+     * 所属供货商 ID
+     */
+    public static final String SHOPURI = "shopUri";
+
+    /**
+     * 成为代理时间
+     */
+    public static final String AGENT_TIME = "agent_time";
+
+    /**
+     * 状态 00A-已绑定  00B-未绑定  00Z-失效
+     */
+    public static final String STATUS = "status";
+
+    @Override
+    public UserAccountInfo pkVal(Serializable val) {
+        this.id = Long.valueOf(val.toString());
+        return this;
+    }
+}
 
