@@ -23,6 +23,11 @@ public class GoodsInfo implements Serializable, IEntity {
     @TableId(value = "id", type = IdType.AUTO)
     private Long id;
     /**
+     * 分类标识
+     */
+    @TableField("category_id")
+    private Long categoryId;
+    /**
      * 商品编号
      */
     @TableField("sale_code")
@@ -79,6 +84,15 @@ public class GoodsInfo implements Serializable, IEntity {
 
     public GoodsInfo setId(Long id) {
         this.id = id;
+        return this;
+    }
+
+    public Long getCategoryId() {
+        return categoryId;
+    }
+
+    public GoodsInfo setCategoryId(Long categoryId) {
+        this.categoryId = categoryId;
         return this;
     }
 
@@ -205,6 +219,11 @@ public class GoodsInfo implements Serializable, IEntity {
      */
     public static final String TABLE_NAME = "goods_info";
     public static final String ID = "id";
+
+    /**
+     * 分类标识
+     */
+    public static final String CATEGORY_ID = "category_id";
 
     /**
      * 商品编号
