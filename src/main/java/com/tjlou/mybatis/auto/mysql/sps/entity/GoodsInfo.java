@@ -15,7 +15,7 @@ import java.util.Date;
  * </p>
  *
  * @author Gaby
- * @since 2019-06-12
+ * @since 2019-06-13
  */
 @TableName("goods_info")
 public class GoodsInfo implements Serializable, IEntity {
@@ -23,15 +23,15 @@ public class GoodsInfo implements Serializable, IEntity {
     @TableId(value = "id", type = IdType.AUTO)
     private Long id;
     /**
-     * 分类标识
-     */
-    @TableField("category_id")
-    private Long categoryId;
-    /**
      * 商品编号
      */
     @TableField("sale_code")
     private String saleCode;
+    /**
+     * 分类标识
+     */
+    @TableField("category_id")
+    private Long categoryId;
     /**
      * 店铺 ID
      */
@@ -77,6 +77,14 @@ public class GoodsInfo implements Serializable, IEntity {
      * 商品下载次数
      */
     private Integer downtimes;
+    /**
+     * 是否包邮
+     */
+    private Integer isFreeShip;
+    /**
+     * 运费
+     */
+    private Integer freight;
 
     public Long getId() {
         return id;
@@ -84,15 +92,6 @@ public class GoodsInfo implements Serializable, IEntity {
 
     public GoodsInfo setId(Long id) {
         this.id = id;
-        return this;
-    }
-
-    public Long getCategoryId() {
-        return categoryId;
-    }
-
-    public GoodsInfo setCategoryId(Long categoryId) {
-        this.categoryId = categoryId;
         return this;
     }
 
@@ -104,6 +103,15 @@ public class GoodsInfo implements Serializable, IEntity {
         if (saleCode != null)
             saleCode = saleCode.trim();
         this.saleCode = saleCode;
+        return this;
+    }
+
+    public Long getCategoryId() {
+        return categoryId;
+    }
+
+    public GoodsInfo setCategoryId(Long categoryId) {
+        this.categoryId = categoryId;
         return this;
     }
 
@@ -214,6 +222,24 @@ public class GoodsInfo implements Serializable, IEntity {
         return this;
     }
 
+    public Integer getIsFreeShip() {
+        return isFreeShip;
+    }
+
+    public GoodsInfo setIsFreeShip(Integer isFreeShip) {
+        this.isFreeShip = isFreeShip;
+        return this;
+    }
+
+    public Integer getFreight() {
+        return freight;
+    }
+
+    public GoodsInfo setFreight(Integer freight) {
+        this.freight = freight;
+        return this;
+    }
+
     /**
      * 表名
      */
@@ -221,14 +247,14 @@ public class GoodsInfo implements Serializable, IEntity {
     public static final String ID = "id";
 
     /**
-     * 分类标识
-     */
-    public static final String CATEGORY_ID = "category_id";
-
-    /**
      * 商品编号
      */
     public static final String SALE_CODE = "sale_code";
+
+    /**
+     * 分类标识
+     */
+    public static final String CATEGORY_ID = "category_id";
 
     /**
      * 店铺 ID
@@ -284,6 +310,16 @@ public class GoodsInfo implements Serializable, IEntity {
      * 商品下载次数
      */
     public static final String DOWNTIMES = "downtimes";
+
+    /**
+     * 是否包邮
+     */
+    public static final String ISFREESHIP = "isFreeShip";
+
+    /**
+     * 运费
+     */
+    public static final String FREIGHT = "freight";
 
     @Override
     public GoodsInfo pkVal(Serializable val) {
