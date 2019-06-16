@@ -35,6 +35,11 @@ public class FansInfo implements Serializable, IEntity {
      * 创建时间
      */
     private Date intime;
+    /**
+     * 供货商标识
+     */
+    @TableField("supplier_id")
+    private Long supplierId;
 
     public Long getId() {
         return id;
@@ -76,6 +81,15 @@ public class FansInfo implements Serializable, IEntity {
         return this;
     }
 
+    public Long getSupplierId() {
+        return supplierId;
+    }
+
+    public FansInfo setSupplierId(Long supplierId) {
+        this.supplierId = supplierId;
+        return this;
+    }
+
     /**
      * 表名
      */
@@ -96,6 +110,11 @@ public class FansInfo implements Serializable, IEntity {
      * 创建时间
      */
     public static final String INTIME = "intime";
+
+    /**
+     * 供货商标识
+     */
+    public static final String SUPPLIER_ID = "supplier_id";
 
     @Override
     public FansInfo pkVal(Serializable val) {

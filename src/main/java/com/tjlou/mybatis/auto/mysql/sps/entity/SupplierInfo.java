@@ -38,6 +38,8 @@ public class SupplierInfo implements Serializable, IEntity {
     @TableField("foot_safe")
     private Integer footSafe;
     private Long capacity;
+    @TableField("user_account_id")
+    private Long userAccountId;
 
     public Long getId() {
         return id;
@@ -179,6 +181,15 @@ public class SupplierInfo implements Serializable, IEntity {
         return this;
     }
 
+    public Long getUserAccountId() {
+        return userAccountId;
+    }
+
+    public SupplierInfo setUserAccountId(Long userAccountId) {
+        this.userAccountId = userAccountId;
+        return this;
+    }
+
     /**
      * 表名
      */
@@ -210,6 +221,8 @@ public class SupplierInfo implements Serializable, IEntity {
     public static final String FOOT_SAFE = "foot_safe";
 
     public static final String CAPACITY = "capacity";
+
+    public static final String USER_ACCOUNT_ID = "user_account_id";
 
     @Override
     public SupplierInfo pkVal(Serializable val) {
