@@ -15,7 +15,7 @@ import java.util.Date;
  * </p>
  *
  * @author Gaby
- * @since 2019-06-12
+ * @since 2019-06-17
  */
 @TableName("goods_resouces_info")
 public class GoodsResoucesInfo implements Serializable, IEntity {
@@ -39,6 +39,11 @@ public class GoodsResoucesInfo implements Serializable, IEntity {
      * 类型(0 图片 1 视频)
      */
     private String type;
+    /**
+     * 商品标识
+     */
+    @TableField("goods_id")
+    private Long goodsId;
 
     public Long getId() {
         return id;
@@ -91,6 +96,15 @@ public class GoodsResoucesInfo implements Serializable, IEntity {
         return this;
     }
 
+    public Long getGoodsId() {
+        return goodsId;
+    }
+
+    public GoodsResoucesInfo setGoodsId(Long goodsId) {
+        this.goodsId = goodsId;
+        return this;
+    }
+
     /**
      * 表名
      */
@@ -116,6 +130,11 @@ public class GoodsResoucesInfo implements Serializable, IEntity {
      * 类型(0 图片 1 视频)
      */
     public static final String TYPE = "type";
+
+    /**
+     * 商品标识
+     */
+    public static final String GOODS_ID = "goods_id";
 
     @Override
     public GoodsResoucesInfo pkVal(Serializable val) {
