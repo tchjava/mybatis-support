@@ -34,6 +34,10 @@ public class PlatformInfo implements Serializable, IEntity {
      * 状态
      */
     private String status;
+    /**
+     * 密钥
+     */
+    private String secret;
 
     public Long getId() {
         return id;
@@ -77,6 +81,17 @@ public class PlatformInfo implements Serializable, IEntity {
         return this;
     }
 
+    public String getSecret() {
+        return secret;
+    }
+
+    public PlatformInfo setSecret(String secret) {
+        if (secret != null)
+            secret = secret.trim();
+        this.secret = secret;
+        return this;
+    }
+
     /**
      * 表名
      */
@@ -97,6 +112,11 @@ public class PlatformInfo implements Serializable, IEntity {
      * 状态
      */
     public static final String STATUS = "status";
+
+    /**
+     * 密钥
+     */
+    public static final String SECRET = "secret";
 
     @Override
     public PlatformInfo pkVal(Serializable val) {
