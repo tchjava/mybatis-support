@@ -4,7 +4,6 @@ import com.baomidou.mybatisplus.annotations.TableName;
 import com.tjlou.mybatis.base.entity.IEntity;
 
 import java.io.Serializable;
-import java.math.BigDecimal;
 
 /**
  * <p>
@@ -12,7 +11,7 @@ import java.math.BigDecimal;
  * </p>
  *
  * @author Gaby
- * @since 2019-06-19
+ * @since 2019-06-20
  */
 @TableName("cfg_area_info")
 public class CfgAreaInfo implements Serializable, IEntity {
@@ -20,7 +19,7 @@ public class CfgAreaInfo implements Serializable, IEntity {
     /**
      * 行政区划代码
      */
-    private BigDecimal id;
+    private Integer id;
     /**
      * 行政区划名称简称，如“内蒙古”
      */
@@ -28,11 +27,11 @@ public class CfgAreaInfo implements Serializable, IEntity {
     /**
      * 行政区划等级
      */
-    private BigDecimal level;
+    private Integer level;
     /**
      * 上级行政区划
      */
-    private BigDecimal pid;
+    private Integer pid;
     /**
      * 纬度
      */
@@ -50,11 +49,11 @@ public class CfgAreaInfo implements Serializable, IEntity {
      */
     private String fullname;
 
-    public BigDecimal getId() {
+    public Integer getId() {
         return id;
     }
 
-    public CfgAreaInfo setId(BigDecimal id) {
+    public CfgAreaInfo setId(Integer id) {
         this.id = id;
         return this;
     }
@@ -70,20 +69,20 @@ public class CfgAreaInfo implements Serializable, IEntity {
         return this;
     }
 
-    public BigDecimal getLevel() {
+    public Integer getLevel() {
         return level;
     }
 
-    public CfgAreaInfo setLevel(BigDecimal level) {
+    public CfgAreaInfo setLevel(Integer level) {
         this.level = level;
         return this;
     }
 
-    public BigDecimal getPid() {
+    public Integer getPid() {
         return pid;
     }
 
-    public CfgAreaInfo setPid(BigDecimal pid) {
+    public CfgAreaInfo setPid(Integer pid) {
         this.pid = pid;
         return this;
     }
