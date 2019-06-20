@@ -15,7 +15,7 @@ import java.util.Date;
  * </p>
  *
  * @author Gaby
- * @since 2019-06-12
+ * @since 2019-06-20
  */
 @TableName("category_info")
 public class CategoryInfo implements Serializable, IEntity {
@@ -46,6 +46,7 @@ public class CategoryInfo implements Serializable, IEntity {
     /**
      * 店铺Id(预留)
      */
+    @TableField("shop_uri")
     private String shopUri;
 
     public Long getId() {
@@ -153,7 +154,7 @@ public class CategoryInfo implements Serializable, IEntity {
     /**
      * 店铺Id(预留)
      */
-    public static final String SHOPURI = "shopUri";
+    public static final String SHOP_URI = "shop_uri";
 
     @Override
     public CategoryInfo pkVal(Serializable val) {

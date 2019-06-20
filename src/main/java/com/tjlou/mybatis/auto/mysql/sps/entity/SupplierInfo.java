@@ -16,7 +16,7 @@ import java.util.Date;
  * </p>
  *
  * @author Gaby
- * @since 2019-06-17
+ * @since 2019-06-20
  */
 @TableName("supplier_info")
 public class SupplierInfo implements Serializable, IEntity {
@@ -34,6 +34,7 @@ public class SupplierInfo implements Serializable, IEntity {
     /**
      * 店铺ID
      */
+    @TableField("shop_uri")
     private String shopUri;
     /**
      * 联系电话
@@ -85,6 +86,7 @@ public class SupplierInfo implements Serializable, IEntity {
     /**
      * 平台标识
      */
+    @TableField("app_id")
     private Long appId;
 
     public Long getId() {
@@ -264,7 +266,7 @@ public class SupplierInfo implements Serializable, IEntity {
     /**
      * 店铺ID
      */
-    public static final String SHOPURI = "shopUri";
+    public static final String SHOP_URI = "shop_uri";
 
     /**
      * 联系电话
@@ -324,7 +326,7 @@ public class SupplierInfo implements Serializable, IEntity {
     /**
      * 平台标识
      */
-    public static final String APPID = "appId";
+    public static final String APP_ID = "app_id";
 
     @Override
     public SupplierInfo pkVal(Serializable val) {

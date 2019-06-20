@@ -15,7 +15,7 @@ import java.util.Date;
  * </p>
  *
  * @author Gaby
- * @since 2019-06-13
+ * @since 2019-06-20
  */
 @TableName("goods_attribute_instance")
 public class GoodsAttributeInstance implements Serializable, IEntity {
@@ -35,6 +35,7 @@ public class GoodsAttributeInstance implements Serializable, IEntity {
     /**
      * 店铺ID
      */
+    @TableField("shop_uri")
     private String shopUri;
     /**
      * 属性名称
@@ -137,7 +138,7 @@ public class GoodsAttributeInstance implements Serializable, IEntity {
     /**
      * 店铺ID
      */
-    public static final String SHOPURI = "shopUri";
+    public static final String SHOP_URI = "shop_uri";
 
     /**
      * 属性名称

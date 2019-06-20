@@ -15,7 +15,7 @@ import java.util.Date;
  * </p>
  *
  * @author Gaby
- * @since 2019-06-13
+ * @since 2019-06-20
  */
 @TableName("goods_info")
 public class GoodsInfo implements Serializable, IEntity {
@@ -35,6 +35,7 @@ public class GoodsInfo implements Serializable, IEntity {
     /**
      * 店铺 ID
      */
+    @TableField("shop_uri")
     private String shopUri;
     /**
      * 商品标题
@@ -62,7 +63,7 @@ public class GoodsInfo implements Serializable, IEntity {
     @TableField("agent_price")
     private Integer agentPrice;
     /**
-     * 商品状态
+     * 商品状态 00A-上架 00B-下架  00C-草稿箱 00Z-失效
      */
     private String status;
     /**
@@ -80,6 +81,7 @@ public class GoodsInfo implements Serializable, IEntity {
     /**
      * 是否包邮
      */
+    @TableField("is_free_ship")
     private Integer isFreeShip;
     /**
      * 运费
@@ -259,7 +261,7 @@ public class GoodsInfo implements Serializable, IEntity {
     /**
      * 店铺 ID
      */
-    public static final String SHOPURI = "shopUri";
+    public static final String SHOP_URI = "shop_uri";
 
     /**
      * 商品标题
@@ -292,7 +294,7 @@ public class GoodsInfo implements Serializable, IEntity {
     public static final String AGENT_PRICE = "agent_price";
 
     /**
-     * 商品状态
+     * 商品状态 00A-上架 00B-下架  00C-草稿箱 00Z-失效
      */
     public static final String STATUS = "status";
 
@@ -314,7 +316,7 @@ public class GoodsInfo implements Serializable, IEntity {
     /**
      * 是否包邮
      */
-    public static final String ISFREESHIP = "isFreeShip";
+    public static final String IS_FREE_SHIP = "is_free_ship";
 
     /**
      * 运费

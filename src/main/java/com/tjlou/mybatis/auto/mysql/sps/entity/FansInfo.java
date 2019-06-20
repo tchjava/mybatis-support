@@ -15,7 +15,7 @@ import java.util.Date;
  * </p>
  *
  * @author Gaby
- * @since 2019-06-16
+ * @since 2019-06-20
  */
 @TableName("fans_info")
 public class FansInfo implements Serializable, IEntity {
@@ -25,6 +25,7 @@ public class FansInfo implements Serializable, IEntity {
     /**
      * 店铺ID
      */
+    @TableField("shop_uri")
     private String shopUri;
     /**
      * 用户ID
@@ -99,7 +100,7 @@ public class FansInfo implements Serializable, IEntity {
     /**
      * 店铺ID
      */
-    public static final String SHOPURI = "shopUri";
+    public static final String SHOP_URI = "shop_uri";
 
     /**
      * 用户ID

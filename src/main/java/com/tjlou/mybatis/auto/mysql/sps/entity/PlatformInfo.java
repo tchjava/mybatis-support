@@ -14,7 +14,7 @@ import java.io.Serializable;
  * </p>
  *
  * @author Gaby
- * @since 2019-06-17
+ * @since 2019-06-20
  */
 @TableName("platform_info")
 public class PlatformInfo implements Serializable, IEntity {

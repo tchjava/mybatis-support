@@ -15,7 +15,7 @@ import java.util.Date;
  * </p>
  *
  * @author Gaby
- * @since 2019-06-17
+ * @since 2019-06-20
  */
 @TableName("goods_resouces_info")
 public class GoodsResoucesInfo implements Serializable, IEntity {
@@ -44,6 +44,10 @@ public class GoodsResoucesInfo implements Serializable, IEntity {
      */
     @TableField("goods_id")
     private Long goodsId;
+    /**
+     * 状态 00A-有效  00Z-失效
+     */
+    private String status;
 
     public Long getId() {
         return id;
@@ -105,6 +109,17 @@ public class GoodsResoucesInfo implements Serializable, IEntity {
         return this;
     }
 
+    public String getStatus() {
+        return status;
+    }
+
+    public GoodsResoucesInfo setStatus(String status) {
+        if (status != null)
+            status = status.trim();
+        this.status = status;
+        return this;
+    }
+
     /**
      * 表名
      */
@@ -135,6 +150,11 @@ public class GoodsResoucesInfo implements Serializable, IEntity {
      * 商品标识
      */
     public static final String GOODS_ID = "goods_id";
+
+    /**
+     * 状态 00A-有效  00Z-失效
+     */
+    public static final String STATUS = "status";
 
     @Override
     public GoodsResoucesInfo pkVal(Serializable val) {

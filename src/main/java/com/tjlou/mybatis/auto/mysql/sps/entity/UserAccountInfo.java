@@ -15,7 +15,7 @@ import java.util.Date;
  * </p>
  *
  * @author Gaby
- * @since 2019-06-11
+ * @since 2019-06-20
  */
 @TableName("user_account_info")
 public class UserAccountInfo implements Serializable, IEntity {
@@ -65,12 +65,13 @@ public class UserAccountInfo implements Serializable, IEntity {
      */
     private Integer rebate;
     /**
-     * 身份 0 用户 1 商家 2 代理
+     * 身份 0 用户 1 供货商 2 代理
      */
     private String type;
     /**
      * 所属供货商 ID
      */
+    @TableField("shop_uri")
     private String shopUri;
     /**
      * 成为代理时间
@@ -290,14 +291,14 @@ public class UserAccountInfo implements Serializable, IEntity {
     public static final String REBATE = "rebate";
 
     /**
-     * 身份 0 用户 1 商家 2 代理
+     * 身份 0 用户 1 供货商 2 代理
      */
     public static final String TYPE = "type";
 
     /**
      * 所属供货商 ID
      */
-    public static final String SHOPURI = "shopUri";
+    public static final String SHOP_URI = "shop_uri";
 
     /**
      * 成为代理时间

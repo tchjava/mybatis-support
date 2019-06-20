@@ -1,5 +1,6 @@
 package com.tjlou.mybatis.auto.mysql.sps.entity;
 
+import com.baomidou.mybatisplus.annotations.TableField;
 import com.baomidou.mybatisplus.annotations.TableId;
 import com.baomidou.mybatisplus.annotations.TableName;
 import com.baomidou.mybatisplus.enums.IdType;
@@ -14,7 +15,7 @@ import java.util.Date;
  * </p>
  *
  * @author Gaby
- * @since 2019-06-13
+ * @since 2019-06-20
  */
 @TableName("goods_attribute_rule")
 public class GoodsAttributeRule implements Serializable, IEntity {
@@ -28,10 +29,12 @@ public class GoodsAttributeRule implements Serializable, IEntity {
     /**
      * 店铺ID
      */
+    @TableField("shop_uri")
     private String shopUri;
     /**
      * 限定字符
      */
+    @TableField("character_num")
     private Integer characterNum;
     /**
      * 状态 00A-使用, 00B--未使用 00Z-失效
@@ -41,6 +44,11 @@ public class GoodsAttributeRule implements Serializable, IEntity {
      * 创建时间
      */
     private Date intime;
+    /**
+     * 显示名称
+     */
+    @TableField("value_name")
+    private String valueName;
 
     public Long getId() {
         return id;
@@ -102,6 +110,17 @@ public class GoodsAttributeRule implements Serializable, IEntity {
         return this;
     }
 
+    public String getValueName() {
+        return valueName;
+    }
+
+    public GoodsAttributeRule setValueName(String valueName) {
+        if (valueName != null)
+            valueName = valueName.trim();
+        this.valueName = valueName;
+        return this;
+    }
+
     /**
      * 表名
      */
@@ -116,12 +135,12 @@ public class GoodsAttributeRule implements Serializable, IEntity {
     /**
      * 店铺ID
      */
-    public static final String SHOPURI = "shopUri";
+    public static final String SHOP_URI = "shop_uri";
 
     /**
      * 限定字符
      */
-    public static final String CHARACTERNUM = "characterNum";
+    public static final String CHARACTER_NUM = "character_num";
 
     /**
      * 状态 00A-使用, 00B--未使用 00Z-失效
@@ -132,6 +151,11 @@ public class GoodsAttributeRule implements Serializable, IEntity {
      * 创建时间
      */
     public static final String INTIME = "intime";
+
+    /**
+     * 显示名称
+     */
+    public static final String VALUE_NAME = "value_name";
 
     @Override
     public GoodsAttributeRule pkVal(Serializable val) {
