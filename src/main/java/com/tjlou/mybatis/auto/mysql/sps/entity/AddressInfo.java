@@ -12,10 +12,11 @@ import java.util.Date;
 /**
  * <p>
  * 地址信息表
+ *
  * </p>
  *
  * @author Gaby
- * @since 2019-06-20
+ * @since 2019-06-21
  */
 @TableName("address_info")
 public class AddressInfo implements Serializable, IEntity {
@@ -59,6 +60,10 @@ public class AddressInfo implements Serializable, IEntity {
      * 创建时间
      */
     private Date intime;
+    /**
+     * 状态 00A-有效 00B-默认地址  00Z-无效
+     */
+    private String status;
 
     public Long getId() {
         return id;
@@ -158,6 +163,17 @@ public class AddressInfo implements Serializable, IEntity {
         return this;
     }
 
+    public String getStatus() {
+        return status;
+    }
+
+    public AddressInfo setStatus(String status) {
+        if (status != null)
+            status = status.trim();
+        this.status = status;
+        return this;
+    }
+
     /**
      * 表名
      */
@@ -208,6 +224,11 @@ public class AddressInfo implements Serializable, IEntity {
      * 创建时间
      */
     public static final String INTIME = "intime";
+
+    /**
+     * 状态 00A-有效 00B-默认地址  00Z-无效
+     */
+    public static final String STATUS = "status";
 
     @Override
     public AddressInfo pkVal(Serializable val) {
