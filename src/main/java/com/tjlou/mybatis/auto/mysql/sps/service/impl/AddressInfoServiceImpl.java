@@ -8,11 +8,12 @@ import org.springframework.stereotype.Service;
 
 /**
  * <p>
- * 地址信息表 服务实现类
+ * 地址信息表
+ 服务实现类
  * </p>
  *
  * @author Gaby
- * @since 2019-06-20
+ * @since 2019-06-21
  */
 @Service
 public class AddressInfoServiceImpl extends ServiceImpl<AddressInfoMapper, AddressInfo> implements AddressInfoService {

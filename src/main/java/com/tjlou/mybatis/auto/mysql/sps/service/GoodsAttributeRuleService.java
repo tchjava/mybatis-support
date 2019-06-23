@@ -9,7 +9,7 @@ import com.baomidou.mybatisplus.service.IService;
  * </p>
  *
  * @author Gaby
- * @since 2019-06-13
+ * @since 2019-06-20
  */
 public interface GoodsAttributeRuleService extends IService<GoodsAttributeRule> {
 

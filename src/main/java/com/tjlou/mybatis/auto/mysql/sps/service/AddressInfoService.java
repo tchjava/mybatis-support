@@ -5,11 +5,12 @@ import com.baomidou.mybatisplus.service.IService;
 
 /**
  * <p>
- * 地址信息表 服务类
+ * 地址信息表
+ 服务类
  * </p>
  *
  * @author Gaby
- * @since 2019-06-20
+ * @since 2019-06-21
  */
 public interface AddressInfoService extends IService<AddressInfo> {
 

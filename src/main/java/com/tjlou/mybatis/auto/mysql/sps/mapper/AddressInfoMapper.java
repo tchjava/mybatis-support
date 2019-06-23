@@ -5,11 +5,12 @@ import com.baomidou.mybatisplus.mapper.BaseMapper;
 
 /**
  * <p>
- * 地址信息表 Mapper 接口
+ * 地址信息表
+ Mapper 接口
  * </p>
  *
  * @author Gaby
- * @since 2019-06-20
+ * @since 2019-06-21
  */
 public interface AddressInfoMapper extends BaseMapper<AddressInfo> {
 

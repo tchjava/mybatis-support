@@ -15,7 +15,7 @@ import java.util.Date;
  * </p>
  *
  * @author Gaby
- * @since 2019-06-20
+ * @since 2019-06-24
  */
 @TableName("goods_info")
 public class GoodsInfo implements Serializable, IEntity {
@@ -50,7 +50,7 @@ public class GoodsInfo implements Serializable, IEntity {
      */
     private Date intime;
     /**
-     * 商品销售价格
+     * 商品销售价格 单位:分
      */
     private Integer price;
     /**
@@ -58,7 +58,7 @@ public class GoodsInfo implements Serializable, IEntity {
      */
     private Integer stock;
     /**
-     * 代理价
+     * 代理价  单位:分
      */
     @TableField("agent_price")
     private Integer agentPrice;
@@ -81,12 +81,14 @@ public class GoodsInfo implements Serializable, IEntity {
     /**
      * 是否包邮
      */
-    @TableField("is_free_ship")
-    private Integer isFreeShip;
+    @TableField("free_ship")
+    private Integer freeShip;
     /**
      * 运费
      */
     private Integer freight;
+    @TableField("comment_num")
+    private Integer commentNum;
 
     public Long getId() {
         return id;
@@ -224,12 +226,12 @@ public class GoodsInfo implements Serializable, IEntity {
         return this;
     }
 
-    public Integer getIsFreeShip() {
-        return isFreeShip;
+    public Integer getFreeShip() {
+        return freeShip;
     }
 
-    public GoodsInfo setIsFreeShip(Integer isFreeShip) {
-        this.isFreeShip = isFreeShip;
+    public GoodsInfo setFreeShip(Integer freeShip) {
+        this.freeShip = freeShip;
         return this;
     }
 
@@ -239,6 +241,15 @@ public class GoodsInfo implements Serializable, IEntity {
 
     public GoodsInfo setFreight(Integer freight) {
         this.freight = freight;
+        return this;
+    }
+
+    public Integer getCommentNum() {
+        return commentNum;
+    }
+
+    public GoodsInfo setCommentNum(Integer commentNum) {
+        this.commentNum = commentNum;
         return this;
     }
 
@@ -279,7 +290,7 @@ public class GoodsInfo implements Serializable, IEntity {
     public static final String INTIME = "intime";
 
     /**
-     * 商品销售价格
+     * 商品销售价格 单位:分
      */
     public static final String PRICE = "price";
 
@@ -289,7 +300,7 @@ public class GoodsInfo implements Serializable, IEntity {
     public static final String STOCK = "stock";
 
     /**
-     * 代理价
+     * 代理价  单位:分
      */
     public static final String AGENT_PRICE = "agent_price";
 
@@ -316,12 +327,14 @@ public class GoodsInfo implements Serializable, IEntity {
     /**
      * 是否包邮
      */
-    public static final String IS_FREE_SHIP = "is_free_ship";
+    public static final String FREE_SHIP = "free_ship";
 
     /**
      * 运费
      */
     public static final String FREIGHT = "freight";
+
+    public static final String COMMENT_NUM = "comment_num";
 
     @Override
     public GoodsInfo pkVal(Serializable val) {
