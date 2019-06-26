@@ -79,6 +79,11 @@ public class GoodsInfo implements Serializable, IEntity {
      */
     private Integer downtimes;
     /**
+     * 评论数
+     */
+    @TableField("comment_num")
+    private Integer commentNum;
+    /**
      * 是否包邮
      */
     @TableField("free_ship")
@@ -87,8 +92,6 @@ public class GoodsInfo implements Serializable, IEntity {
      * 运费
      */
     private Integer freight;
-    @TableField("comment_num")
-    private Integer commentNum;
 
     public Long getId() {
         return id;
@@ -226,6 +229,15 @@ public class GoodsInfo implements Serializable, IEntity {
         return this;
     }
 
+    public Integer getCommentNum() {
+        return commentNum;
+    }
+
+    public GoodsInfo setCommentNum(Integer commentNum) {
+        this.commentNum = commentNum;
+        return this;
+    }
+
     public Integer getFreeShip() {
         return freeShip;
     }
@@ -241,15 +253,6 @@ public class GoodsInfo implements Serializable, IEntity {
 
     public GoodsInfo setFreight(Integer freight) {
         this.freight = freight;
-        return this;
-    }
-
-    public Integer getCommentNum() {
-        return commentNum;
-    }
-
-    public GoodsInfo setCommentNum(Integer commentNum) {
-        this.commentNum = commentNum;
         return this;
     }
 
@@ -325,6 +328,11 @@ public class GoodsInfo implements Serializable, IEntity {
     public static final String DOWNTIMES = "downtimes";
 
     /**
+     * 评论数
+     */
+    public static final String COMMENT_NUM = "comment_num";
+
+    /**
      * 是否包邮
      */
     public static final String FREE_SHIP = "free_ship";
@@ -333,8 +341,6 @@ public class GoodsInfo implements Serializable, IEntity {
      * 运费
      */
     public static final String FREIGHT = "freight";
-
-    public static final String COMMENT_NUM = "comment_num";
 
     @Override
     public GoodsInfo pkVal(Serializable val) {
