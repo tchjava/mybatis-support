@@ -16,7 +16,7 @@ import java.util.Date;
  * </p>
  *
  * @author Gaby
- * @since 2019-06-20
+ * @since 2019-07-03
  */
 @TableName("supplier_info")
 public class SupplierInfo implements Serializable, IEntity {
@@ -30,6 +30,7 @@ public class SupplierInfo implements Serializable, IEntity {
     /**
      * 微信ID
      */
+    @TableField("open_id")
     private String openId;
     /**
      * 店铺ID
@@ -88,6 +89,16 @@ public class SupplierInfo implements Serializable, IEntity {
      */
     @TableField("app_id")
     private Long appId;
+    /**
+     * 商户号
+     */
+    @TableField("merchant_no")
+    private String merchantNo;
+    /**
+     * 商户密钥
+     */
+    @TableField("merchant_key")
+    private String merchantKey;
 
     public Long getId() {
         return id;
@@ -247,6 +258,28 @@ public class SupplierInfo implements Serializable, IEntity {
         return this;
     }
 
+    public String getMerchantNo() {
+        return merchantNo;
+    }
+
+    public SupplierInfo setMerchantNo(String merchantNo) {
+        if (merchantNo != null)
+            merchantNo = merchantNo.trim();
+        this.merchantNo = merchantNo;
+        return this;
+    }
+
+    public String getMerchantKey() {
+        return merchantKey;
+    }
+
+    public SupplierInfo setMerchantKey(String merchantKey) {
+        if (merchantKey != null)
+            merchantKey = merchantKey.trim();
+        this.merchantKey = merchantKey;
+        return this;
+    }
+
     /**
      * 表名
      */
@@ -261,7 +294,7 @@ public class SupplierInfo implements Serializable, IEntity {
     /**
      * 微信ID
      */
-    public static final String OPENID = "openId";
+    public static final String OPEN_ID = "open_id";
 
     /**
      * 店铺ID
@@ -327,6 +360,16 @@ public class SupplierInfo implements Serializable, IEntity {
      * 平台标识
      */
     public static final String APP_ID = "app_id";
+
+    /**
+     * 商户号
+     */
+    public static final String MERCHANT_NO = "merchant_no";
+
+    /**
+     * 商户密钥
+     */
+    public static final String MERCHANT_KEY = "merchant_key";
 
     @Override
     public SupplierInfo pkVal(Serializable val) {

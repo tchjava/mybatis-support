@@ -15,7 +15,7 @@ import java.util.Date;
  * </p>
  *
  * @author Gaby
- * @since 2019-06-26
+ * @since 2019-07-03
  */
 @TableName("order_info")
 public class OrderInfo implements Serializable, IEntity {
@@ -27,7 +27,7 @@ public class OrderInfo implements Serializable, IEntity {
      */
     private Integer payment;
     /**
-     * 订单编号
+     * 订单编号 前四位供货商ID(0填充)+12位(日期)+4位用户标识(0填充)+4位随机值
      */
     @TableField("order_code")
     private String orderCode;
@@ -52,9 +52,9 @@ public class OrderInfo implements Serializable, IEntity {
     @TableField("post_fee")
     private Integer postFee;
     /**
-     * 状态 00A-待付款 00B-已付款 00C-代发货 00D--已发货  00E--交易成功  00F--交易关闭 00G-待评价
+     * 状态 1-待付款 2-已付款 4--已发货  8--交易成功  16--交易关闭 32-待评价
      */
-    private String status;
+    private Integer status;
     /**
      * 订单创建时间
      */
@@ -157,6 +157,11 @@ public class OrderInfo implements Serializable, IEntity {
      */
     @TableField("sender_area_name")
     private String senderAreaName;
+    /**
+     * 发件人信息-文本格式
+     */
+    @TableField("sender_text")
+    private String senderText;
 
     public Long getId() {
         return id;
@@ -225,13 +230,11 @@ public class OrderInfo implements Serializable, IEntity {
         return this;
     }
 
-    public String getStatus() {
+    public Integer getStatus() {
         return status;
     }
 
-    public OrderInfo setStatus(String status) {
-        if (status != null)
-            status = status.trim();
+    public OrderInfo setStatus(Integer status) {
         this.status = status;
         return this;
     }
@@ -453,6 +456,17 @@ public class OrderInfo implements Serializable, IEntity {
         return this;
     }
 
+    public String getSenderText() {
+        return senderText;
+    }
+
+    public OrderInfo setSenderText(String senderText) {
+        if (senderText != null)
+            senderText = senderText.trim();
+        this.senderText = senderText;
+        return this;
+    }
+
     /**
      * 表名
      */
@@ -465,7 +479,7 @@ public class OrderInfo implements Serializable, IEntity {
     public static final String PAYMENT = "payment";
 
     /**
-     * 订单编号
+     * 订单编号 前四位供货商ID(0填充)+12位(日期)+4位用户标识(0填充)+4位随机值
      */
     public static final String ORDER_CODE = "order_code";
 
@@ -490,7 +504,7 @@ public class OrderInfo implements Serializable, IEntity {
     public static final String POST_FEE = "post_fee";
 
     /**
-     * 状态 00A-待付款 00B-已付款 00C-代发货 00D--已发货  00E--交易成功  00F--交易关闭 00G-待评价
+     * 状态 1-待付款 2-已付款 4--已发货  8--交易成功  16--交易关闭 32-待评价
      */
     public static final String STATUS = "status";
 
@@ -598,6 +612,11 @@ public class OrderInfo implements Serializable, IEntity {
      * 发件人地址
      */
     public static final String SENDER_AREA_NAME = "sender_area_name";
+
+    /**
+     * 发件人信息-文本格式
+     */
+    public static final String SENDER_TEXT = "sender_text";
 
     @Override
     public OrderInfo pkVal(Serializable val) {
