@@ -15,7 +15,7 @@ import java.util.Date;
  * </p>
  *
  * @author Gaby
- * @since 2019-06-20
+ * @since 2019-07-04
  */
 @TableName("goods_comment_info")
 public class GoodsCommentInfo implements Serializable, IEntity {
@@ -25,13 +25,13 @@ public class GoodsCommentInfo implements Serializable, IEntity {
     /**
      * 商品编号
      */
-    @TableField("sale_uri")
-    private String saleUri;
+    @TableField("sale_code")
+    private String saleCode;
     /**
      * 用户ID
      */
-    @TableField("user_id")
-    private String userId;
+    @TableField("user_account_id")
+    private Long userAccountId;
     /**
      * 用户昵称
      */
@@ -63,25 +63,23 @@ public class GoodsCommentInfo implements Serializable, IEntity {
         return this;
     }
 
-    public String getSaleUri() {
-        return saleUri;
+    public String getSaleCode() {
+        return saleCode;
     }
 
-    public GoodsCommentInfo setSaleUri(String saleUri) {
-        if (saleUri != null)
-            saleUri = saleUri.trim();
-        this.saleUri = saleUri;
+    public GoodsCommentInfo setSaleCode(String saleCode) {
+        if (saleCode != null)
+            saleCode = saleCode.trim();
+        this.saleCode = saleCode;
         return this;
     }
 
-    public String getUserId() {
-        return userId;
+    public Long getUserAccountId() {
+        return userAccountId;
     }
 
-    public GoodsCommentInfo setUserId(String userId) {
-        if (userId != null)
-            userId = userId.trim();
-        this.userId = userId;
+    public GoodsCommentInfo setUserAccountId(Long userAccountId) {
+        this.userAccountId = userAccountId;
         return this;
     }
 
@@ -145,12 +143,12 @@ public class GoodsCommentInfo implements Serializable, IEntity {
     /**
      * 商品编号
      */
-    public static final String SALE_URI = "sale_uri";
+    public static final String SALE_CODE = "sale_code";
 
     /**
      * 用户ID
      */
-    public static final String USER_ID = "user_id";
+    public static final String USER_ACCOUNT_ID = "user_account_id";
 
     /**
      * 用户昵称
