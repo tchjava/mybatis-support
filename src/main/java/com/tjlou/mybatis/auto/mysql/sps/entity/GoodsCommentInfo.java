@@ -11,11 +11,11 @@ import java.util.Date;
 
 /**
  * <p>
- * 商品评价表
+ *
  * </p>
  *
  * @author Gaby
- * @since 2019-07-04
+ * @since 2019-07-05
  */
 @TableName("goods_comment_info")
 public class GoodsCommentInfo implements Serializable, IEntity {
@@ -25,13 +25,13 @@ public class GoodsCommentInfo implements Serializable, IEntity {
     /**
      * 商品编号
      */
-    @TableField("sale_code")
-    private String saleCode;
+    @TableField("sale_uri")
+    private String saleUri;
     /**
-     * 用户ID
+     * 商品标识
      */
-    @TableField("user_account_id")
-    private Long userAccountId;
+    @TableField("goods_id")
+    private Long goodsId;
     /**
      * 用户昵称
      */
@@ -49,10 +49,21 @@ public class GoodsCommentInfo implements Serializable, IEntity {
      */
     private String status;
     /**
-     * 商品标识
+     * 评分
      */
-    @TableField("goods_id")
-    private Long goodsId;
+    private Integer score;
+    /**
+     * 标签  1-物超所值 2-物流给力 4-服务贴心 8-包装精美 16-捡到漏了 32-值得信赖
+     */
+    private Integer label;
+    /**
+     * 是否匿名  1-匿名  0-不匿名
+     */
+    private String anonymous;
+    /**
+     * 好中差评价  00A-好评  00B-中评 00C-差评
+     */
+    private String degree;
 
     public Long getId() {
         return id;
@@ -63,23 +74,23 @@ public class GoodsCommentInfo implements Serializable, IEntity {
         return this;
     }
 
-    public String getSaleCode() {
-        return saleCode;
+    public String getSaleUri() {
+        return saleUri;
     }
 
-    public GoodsCommentInfo setSaleCode(String saleCode) {
-        if (saleCode != null)
-            saleCode = saleCode.trim();
-        this.saleCode = saleCode;
+    public GoodsCommentInfo setSaleUri(String saleUri) {
+        if (saleUri != null)
+            saleUri = saleUri.trim();
+        this.saleUri = saleUri;
         return this;
     }
 
-    public Long getUserAccountId() {
-        return userAccountId;
+    public Long getGoodsId() {
+        return goodsId;
     }
 
-    public GoodsCommentInfo setUserAccountId(Long userAccountId) {
-        this.userAccountId = userAccountId;
+    public GoodsCommentInfo setGoodsId(Long goodsId) {
+        this.goodsId = goodsId;
         return this;
     }
 
@@ -125,12 +136,43 @@ public class GoodsCommentInfo implements Serializable, IEntity {
         return this;
     }
 
-    public Long getGoodsId() {
-        return goodsId;
+    public Integer getScore() {
+        return score;
     }
 
-    public GoodsCommentInfo setGoodsId(Long goodsId) {
-        this.goodsId = goodsId;
+    public GoodsCommentInfo setScore(Integer score) {
+        this.score = score;
+        return this;
+    }
+
+    public Integer getLabel() {
+        return label;
+    }
+
+    public GoodsCommentInfo setLabel(Integer label) {
+        this.label = label;
+        return this;
+    }
+
+    public String getAnonymous() {
+        return anonymous;
+    }
+
+    public GoodsCommentInfo setAnonymous(String anonymous) {
+        if (anonymous != null)
+            anonymous = anonymous.trim();
+        this.anonymous = anonymous;
+        return this;
+    }
+
+    public String getDegree() {
+        return degree;
+    }
+
+    public GoodsCommentInfo setDegree(String degree) {
+        if (degree != null)
+            degree = degree.trim();
+        this.degree = degree;
         return this;
     }
 
@@ -143,12 +185,12 @@ public class GoodsCommentInfo implements Serializable, IEntity {
     /**
      * 商品编号
      */
-    public static final String SALE_CODE = "sale_code";
+    public static final String SALE_URI = "sale_uri";
 
     /**
-     * 用户ID
+     * 商品标识
      */
-    public static final String USER_ACCOUNT_ID = "user_account_id";
+    public static final String GOODS_ID = "goods_id";
 
     /**
      * 用户昵称
@@ -171,9 +213,24 @@ public class GoodsCommentInfo implements Serializable, IEntity {
     public static final String STATUS = "status";
 
     /**
-     * 商品标识
+     * 评分
      */
-    public static final String GOODS_ID = "goods_id";
+    public static final String SCORE = "score";
+
+    /**
+     * 标签  1-物超所值 2-物流给力 4-服务贴心 8-包装精美 16-捡到漏了 32-值得信赖
+     */
+    public static final String LABEL = "label";
+
+    /**
+     * 是否匿名  1-匿名  0-不匿名
+     */
+    public static final String ANONYMOUS = "anonymous";
+
+    /**
+     * 好中差评价  00A-好评  00B-中评 00C-差评
+     */
+    public static final String DEGREE = "degree";
 
     @Override
     public GoodsCommentInfo pkVal(Serializable val) {
