@@ -89,6 +89,10 @@ public class SupplierInfo implements Serializable, IEntity {
      */
     @TableField("app_id")
     private Long appId;
+    /**
+     * 状态 00A-审核通过 00B-待审核 00Z-失效
+     */
+    private String status;
 
     public Long getId() {
         return id;
@@ -248,6 +252,17 @@ public class SupplierInfo implements Serializable, IEntity {
         return this;
     }
 
+    public String getStatus() {
+        return status;
+    }
+
+    public SupplierInfo setStatus(String status) {
+        if (status != null)
+            status = status.trim();
+        this.status = status;
+        return this;
+    }
+
     /**
      * 表名
      */
@@ -328,6 +343,11 @@ public class SupplierInfo implements Serializable, IEntity {
      * 平台标识
      */
     public static final String APP_ID = "app_id";
+
+    /**
+     * 状态 00A-审核通过 00B-待审核 00Z-失效
+     */
+    public static final String STATUS = "status";
 
     @Override
     public SupplierInfo pkVal(Serializable val) {
