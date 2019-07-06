@@ -14,7 +14,7 @@ import java.io.Serializable;
  * </p>
  *
  * @author Gaby
- * @since 2019-06-20
+ * @since 2019-07-06
  */
 @TableName("platform_info")
 public class PlatformInfo implements Serializable, IEntity {
@@ -38,6 +38,16 @@ public class PlatformInfo implements Serializable, IEntity {
      * 密钥
      */
     private String secret;
+    /**
+     * 商户号
+     */
+    @TableField("merchant_no")
+    private String merchantNo;
+    /**
+     * 商户密钥
+     */
+    @TableField("merchant_key")
+    private String merchantKey;
 
     public Long getId() {
         return id;
@@ -92,6 +102,28 @@ public class PlatformInfo implements Serializable, IEntity {
         return this;
     }
 
+    public String getMerchantNo() {
+        return merchantNo;
+    }
+
+    public PlatformInfo setMerchantNo(String merchantNo) {
+        if (merchantNo != null)
+            merchantNo = merchantNo.trim();
+        this.merchantNo = merchantNo;
+        return this;
+    }
+
+    public String getMerchantKey() {
+        return merchantKey;
+    }
+
+    public PlatformInfo setMerchantKey(String merchantKey) {
+        if (merchantKey != null)
+            merchantKey = merchantKey.trim();
+        this.merchantKey = merchantKey;
+        return this;
+    }
+
     /**
      * 表名
      */
@@ -117,6 +149,16 @@ public class PlatformInfo implements Serializable, IEntity {
      * 密钥
      */
     public static final String SECRET = "secret";
+
+    /**
+     * 商户号
+     */
+    public static final String MERCHANT_NO = "merchant_no";
+
+    /**
+     * 商户密钥
+     */
+    public static final String MERCHANT_KEY = "merchant_key";
 
     @Override
     public PlatformInfo pkVal(Serializable val) {
