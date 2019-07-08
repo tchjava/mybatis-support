@@ -16,13 +16,17 @@ import java.util.Date;
  * </p>
  *
  * @author Gaby
- * @since 2019-07-06
+ * @since 2019-07-08
  */
 @TableName("supplier_info")
 public class SupplierInfo implements Serializable, IEntity {
 
     @TableId(value = "id", type = IdType.AUTO)
     private Long id;
+    /**
+     * 真实姓名
+     */
+    private String username;
     /**
      * 店铺名称
      */
@@ -71,6 +75,11 @@ public class SupplierInfo implements Serializable, IEntity {
     @TableField("id_card")
     private String idCard;
     /**
+     * 银行卡号
+     */
+    @TableField("bank_card")
+    private String bankCard;
+    /**
      * 食品安全认证
      */
     @TableField("foot_safe")
@@ -93,6 +102,15 @@ public class SupplierInfo implements Serializable, IEntity {
      * 状态 00A-审核通过 00B-待审核 00Z-失效
      */
     private String status;
+    /**
+     * 认证有效期
+     */
+    @TableField("card_expire")
+    private Date cardExpire;
+    /**
+     * 审核未通过的原因
+     */
+    private Integer reason;
 
     public Long getId() {
         return id;
@@ -100,6 +118,17 @@ public class SupplierInfo implements Serializable, IEntity {
 
     public SupplierInfo setId(Long id) {
         this.id = id;
+        return this;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public SupplierInfo setUsername(String username) {
+        if (username != null)
+            username = username.trim();
+        this.username = username;
         return this;
     }
 
@@ -216,6 +245,17 @@ public class SupplierInfo implements Serializable, IEntity {
         return this;
     }
 
+    public String getBankCard() {
+        return bankCard;
+    }
+
+    public SupplierInfo setBankCard(String bankCard) {
+        if (bankCard != null)
+            bankCard = bankCard.trim();
+        this.bankCard = bankCard;
+        return this;
+    }
+
     public Integer getFootSafe() {
         return footSafe;
     }
@@ -263,11 +303,34 @@ public class SupplierInfo implements Serializable, IEntity {
         return this;
     }
 
+    public Date getCardExpire() {
+        return cardExpire;
+    }
+
+    public SupplierInfo setCardExpire(Date cardExpire) {
+        this.cardExpire = cardExpire;
+        return this;
+    }
+
+    public Integer getReason() {
+        return reason;
+    }
+
+    public SupplierInfo setReason(Integer reason) {
+        this.reason = reason;
+        return this;
+    }
+
     /**
      * 表名
      */
     public static final String TABLE_NAME = "supplier_info";
     public static final String ID = "id";
+
+    /**
+     * 真实姓名
+     */
+    public static final String USERNAME = "username";
 
     /**
      * 店铺名称
@@ -325,6 +388,11 @@ public class SupplierInfo implements Serializable, IEntity {
     public static final String ID_CARD = "id_card";
 
     /**
+     * 银行卡号
+     */
+    public static final String BANK_CARD = "bank_card";
+
+    /**
      * 食品安全认证
      */
     public static final String FOOT_SAFE = "foot_safe";
@@ -348,6 +416,16 @@ public class SupplierInfo implements Serializable, IEntity {
      * 状态 00A-审核通过 00B-待审核 00Z-失效
      */
     public static final String STATUS = "status";
+
+    /**
+     * 认证有效期
+     */
+    public static final String CARD_EXPIRE = "card_expire";
+
+    /**
+     * 审核未通过的原因
+     */
+    public static final String REASON = "reason";
 
     @Override
     public SupplierInfo pkVal(Serializable val) {
