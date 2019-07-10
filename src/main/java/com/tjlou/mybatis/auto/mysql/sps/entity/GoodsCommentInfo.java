@@ -15,13 +15,18 @@ import java.util.Date;
  * </p>
  *
  * @author Gaby
- * @since 2019-07-05
+ * @since 2019-07-09
  */
 @TableName("goods_comment_info")
 public class GoodsCommentInfo implements Serializable, IEntity {
 
     @TableId(value = "id", type = IdType.AUTO)
     private Long id;
+    /**
+     * 订单标识
+     */
+    @TableField("order_id")
+    private Long orderId;
     /**
      * 商品编号
      */
@@ -76,6 +81,15 @@ public class GoodsCommentInfo implements Serializable, IEntity {
 
     public GoodsCommentInfo setId(Long id) {
         this.id = id;
+        return this;
+    }
+
+    public Long getOrderId() {
+        return orderId;
+    }
+
+    public GoodsCommentInfo setOrderId(Long orderId) {
+        this.orderId = orderId;
         return this;
     }
 
@@ -195,6 +209,11 @@ public class GoodsCommentInfo implements Serializable, IEntity {
      */
     public static final String TABLE_NAME = "goods_comment_info";
     public static final String ID = "id";
+
+    /**
+     * 订单标识
+     */
+    public static final String ORDER_ID = "order_id";
 
     /**
      * 商品编号

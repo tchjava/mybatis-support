@@ -12,7 +12,7 @@ import org.springframework.stereotype.Service;
  * </p>
  *
  * @author Gaby
- * @since 2019-07-06
+ * @since 2019-07-09
  */
 @Service
 public class SupplierResourcesInfoServiceImpl extends ServiceImpl<SupplierResourcesInfoMapper, SupplierResourcesInfo> implements SupplierResourcesInfoService {

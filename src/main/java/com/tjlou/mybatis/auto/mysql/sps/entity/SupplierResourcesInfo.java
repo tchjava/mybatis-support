@@ -15,7 +15,7 @@ import java.util.Date;
  * </p>
  *
  * @author Gaby
- * @since 2019-07-06
+ * @since 2019-07-09
  */
 @TableName("supplier_resources_info")
 public class SupplierResourcesInfo implements Serializable, IEntity {
