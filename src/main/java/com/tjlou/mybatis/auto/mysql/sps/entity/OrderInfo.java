@@ -15,7 +15,7 @@ import java.util.Date;
  * </p>
  *
  * @author Gaby
- * @since 2019-07-03
+ * @since 2019-07-10
  */
 @TableName("order_info")
 public class OrderInfo implements Serializable, IEntity {
@@ -91,6 +91,11 @@ public class OrderInfo implements Serializable, IEntity {
     @TableField("shipping_name")
     private String shippingName;
     /**
+     * 快递编码
+     */
+    @TableField("express_code")
+    private String expressCode;
+    /**
      * 物流单号
      */
     @TableField("shipping_code")
@@ -157,11 +162,6 @@ public class OrderInfo implements Serializable, IEntity {
      */
     @TableField("sender_area_name")
     private String senderAreaName;
-    /**
-     * 发件人信息-文本格式
-     */
-    @TableField("sender_text")
-    private String senderText;
 
     public Long getId() {
         return id;
@@ -301,6 +301,17 @@ public class OrderInfo implements Serializable, IEntity {
         if (shippingName != null)
             shippingName = shippingName.trim();
         this.shippingName = shippingName;
+        return this;
+    }
+
+    public String getExpressCode() {
+        return expressCode;
+    }
+
+    public OrderInfo setExpressCode(String expressCode) {
+        if (expressCode != null)
+            expressCode = expressCode.trim();
+        this.expressCode = expressCode;
         return this;
     }
 
@@ -456,17 +467,6 @@ public class OrderInfo implements Serializable, IEntity {
         return this;
     }
 
-    public String getSenderText() {
-        return senderText;
-    }
-
-    public OrderInfo setSenderText(String senderText) {
-        if (senderText != null)
-            senderText = senderText.trim();
-        this.senderText = senderText;
-        return this;
-    }
-
     /**
      * 表名
      */
@@ -544,6 +544,11 @@ public class OrderInfo implements Serializable, IEntity {
     public static final String SHIPPING_NAME = "shipping_name";
 
     /**
+     * 快递编码
+     */
+    public static final String EXPRESS_CODE = "express_code";
+
+    /**
      * 物流单号
      */
     public static final String SHIPPING_CODE = "shipping_code";
@@ -612,11 +617,6 @@ public class OrderInfo implements Serializable, IEntity {
      * 发件人地址
      */
     public static final String SENDER_AREA_NAME = "sender_area_name";
-
-    /**
-     * 发件人信息-文本格式
-     */
-    public static final String SENDER_TEXT = "sender_text";
 
     @Override
     public OrderInfo pkVal(Serializable val) {
