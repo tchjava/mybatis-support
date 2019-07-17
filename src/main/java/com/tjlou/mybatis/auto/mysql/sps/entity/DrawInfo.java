@@ -26,7 +26,7 @@ public class DrawInfo implements Serializable, IEntity {
      * 订单标识
      */
     @TableField("order_id")
-    private String orderId;
+    private Long orderId;
     /**
      * 平台抽点数
      */
@@ -66,13 +66,11 @@ public class DrawInfo implements Serializable, IEntity {
         return this;
     }
 
-    public String getOrderId() {
+    public Long getOrderId() {
         return orderId;
     }
 
-    public DrawInfo setOrderId(String orderId) {
-        if (orderId != null)
-            orderId = orderId.trim();
+    public DrawInfo setOrderId(Long orderId) {
         this.orderId = orderId;
         return this;
     }
