@@ -28,6 +28,11 @@ public class BillBalanceInfo implements Serializable, IEntity {
     @TableField("user_account_id")
     private Long userAccountId;
     /**
+     * 关联的余额标识
+     */
+    @TableField("balance_rela_id")
+    private Long balanceRelaId;
+    /**
      * 余额  单位:分
      */
     private Integer blance;
@@ -61,6 +66,15 @@ public class BillBalanceInfo implements Serializable, IEntity {
 
     public BillBalanceInfo setUserAccountId(Long userAccountId) {
         this.userAccountId = userAccountId;
+        return this;
+    }
+
+    public Long getBalanceRelaId() {
+        return balanceRelaId;
+    }
+
+    public BillBalanceInfo setBalanceRelaId(Long balanceRelaId) {
+        this.balanceRelaId = balanceRelaId;
         return this;
     }
 
@@ -112,6 +126,11 @@ public class BillBalanceInfo implements Serializable, IEntity {
      * 帐号标识
      */
     public static final String USER_ACCOUNT_ID = "user_account_id";
+
+    /**
+     * 关联的余额标识
+     */
+    public static final String BALANCE_RELA_ID = "balance_rela_id";
 
     /**
      * 余额  单位:分
