@@ -15,7 +15,7 @@ import java.util.Date;
  * </p>
  *
  * @author Gaby
- * @since 2019-07-10
+ * @since 2019-07-17
  */
 @TableName("order_info")
 public class OrderInfo implements Serializable, IEntity {
@@ -52,7 +52,7 @@ public class OrderInfo implements Serializable, IEntity {
     @TableField("post_fee")
     private Integer postFee;
     /**
-     * 状态 1-待付款 2-已付款 4--已发货  8--交易成功  16--交易关闭 32-待评价
+     * 状态 1-待付款  2-已付款 4-已发货 8-交易成功  16-交易关闭 32-待评价 64-退款中
      */
     private Integer status;
     /**
@@ -162,6 +162,10 @@ public class OrderInfo implements Serializable, IEntity {
      */
     @TableField("sender_area_name")
     private String senderAreaName;
+    /**
+     * 代理
+     */
+    private Long agent;
 
     public Long getId() {
         return id;
@@ -467,6 +471,15 @@ public class OrderInfo implements Serializable, IEntity {
         return this;
     }
 
+    public Long getAgent() {
+        return agent;
+    }
+
+    public OrderInfo setAgent(Long agent) {
+        this.agent = agent;
+        return this;
+    }
+
     /**
      * 表名
      */
@@ -504,7 +517,7 @@ public class OrderInfo implements Serializable, IEntity {
     public static final String POST_FEE = "post_fee";
 
     /**
-     * 状态 1-待付款 2-已付款 4--已发货  8--交易成功  16--交易关闭 32-待评价
+     * 状态 1-待付款  2-已付款 4-已发货 8-交易成功  16-交易关闭 32-待评价 64-退款中
      */
     public static final String STATUS = "status";
 
@@ -617,6 +630,11 @@ public class OrderInfo implements Serializable, IEntity {
      * 发件人地址
      */
     public static final String SENDER_AREA_NAME = "sender_area_name";
+
+    /**
+     * 代理
+     */
+    public static final String AGENT = "agent";
 
     @Override
     public OrderInfo pkVal(Serializable val) {
