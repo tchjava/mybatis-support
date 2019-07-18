@@ -15,13 +15,18 @@ import java.util.Date;
  * </p>
  *
  * @author Gaby
- * @since 2019-07-15
+ * @since 2019-07-18
  */
 @TableName("refund_info")
 public class RefundInfo implements Serializable, IEntity {
 
     @TableId(value = "id", type = IdType.AUTO)
     private Long id;
+    /**
+     * 退款单号
+     */
+    @TableField("refund_code")
+    private String refundCode;
     /**
      * 订单标识
      */
@@ -52,7 +57,7 @@ public class RefundInfo implements Serializable, IEntity {
     /**
      * 是否平台介入
      */
-    private Boolean intervene;
+    private Integer intervene;
     /**
      * 创建时间
      */
@@ -159,6 +164,17 @@ public class RefundInfo implements Serializable, IEntity {
         return this;
     }
 
+    public String getRefundCode() {
+        return refundCode;
+    }
+
+    public RefundInfo setRefundCode(String refundCode) {
+        if (refundCode != null)
+            refundCode = refundCode.trim();
+        this.refundCode = refundCode;
+        return this;
+    }
+
     public Long getOrderId() {
         return orderId;
     }
@@ -215,11 +231,11 @@ public class RefundInfo implements Serializable, IEntity {
         return this;
     }
 
-    public Boolean getIntervene() {
+    public Integer getIntervene() {
         return intervene;
     }
 
-    public RefundInfo setIntervene(Boolean intervene) {
+    public RefundInfo setIntervene(Integer intervene) {
         this.intervene = intervene;
         return this;
     }
@@ -435,6 +451,11 @@ public class RefundInfo implements Serializable, IEntity {
      */
     public static final String TABLE_NAME = "refund_info";
     public static final String ID = "id";
+
+    /**
+     * 退款单号
+     */
+    public static final String REFUND_CODE = "refund_code";
 
     /**
      * 订单标识
