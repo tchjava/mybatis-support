@@ -15,7 +15,7 @@ import java.util.Date;
  * </p>
  *
  * @author Gaby
- * @since 2019-06-20
+ * @since 2019-07-18
  */
 @TableName("user_account_info")
 public class UserAccountInfo implements Serializable, IEntity {
@@ -69,7 +69,7 @@ public class UserAccountInfo implements Serializable, IEntity {
      */
     private String type;
     /**
-     * 所属供货商 ID
+     * 店铺ID
      */
     @TableField("shop_uri")
     private String shopUri;
@@ -82,6 +82,16 @@ public class UserAccountInfo implements Serializable, IEntity {
      * 状态 00A-已绑定  00B-未绑定  00Z-失效
      */
     private String status;
+    /**
+     * 成为代理的首位供货商标识
+     */
+    @TableField("supplier_id")
+    private Long supplierId;
+    /**
+     * 平台支付密码 MD5加密
+     */
+    @TableField("pay_pwd")
+    private String payPwd;
 
     public Long getId() {
         return id;
@@ -234,6 +244,26 @@ public class UserAccountInfo implements Serializable, IEntity {
         return this;
     }
 
+    public Long getSupplierId() {
+        return supplierId;
+    }
+
+    public UserAccountInfo setSupplierId(Long supplierId) {
+        this.supplierId = supplierId;
+        return this;
+    }
+
+    public String getPayPwd() {
+        return payPwd;
+    }
+
+    public UserAccountInfo setPayPwd(String payPwd) {
+        if (payPwd != null)
+            payPwd = payPwd.trim();
+        this.payPwd = payPwd;
+        return this;
+    }
+
     /**
      * 表名
      */
@@ -296,7 +326,7 @@ public class UserAccountInfo implements Serializable, IEntity {
     public static final String TYPE = "type";
 
     /**
-     * 所属供货商 ID
+     * 店铺ID
      */
     public static final String SHOP_URI = "shop_uri";
 
@@ -309,6 +339,16 @@ public class UserAccountInfo implements Serializable, IEntity {
      * 状态 00A-已绑定  00B-未绑定  00Z-失效
      */
     public static final String STATUS = "status";
+
+    /**
+     * 成为代理的首位供货商标识
+     */
+    public static final String SUPPLIER_ID = "supplier_id";
+
+    /**
+     * 平台支付密码 MD5加密
+     */
+    public static final String PAY_PWD = "pay_pwd";
 
     @Override
     public UserAccountInfo pkVal(Serializable val) {
