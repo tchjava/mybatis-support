@@ -15,7 +15,7 @@ import java.util.Date;
  * </p>
  *
  * @author Gaby
- * @since 2019-07-18
+ * @since 2019-07-23
  */
 @TableName("user_account_info")
 public class UserAccountInfo implements Serializable, IEntity {
@@ -92,6 +92,11 @@ public class UserAccountInfo implements Serializable, IEntity {
      */
     @TableField("pay_pwd")
     private String payPwd;
+    /**
+     * 余额免密
+     */
+    @TableField("balance_exempt")
+    private String balanceExempt;
 
     public Long getId() {
         return id;
@@ -264,6 +269,17 @@ public class UserAccountInfo implements Serializable, IEntity {
         return this;
     }
 
+    public String getBalanceExempt() {
+        return balanceExempt;
+    }
+
+    public UserAccountInfo setBalanceExempt(String balanceExempt) {
+        if (balanceExempt != null)
+            balanceExempt = balanceExempt.trim();
+        this.balanceExempt = balanceExempt;
+        return this;
+    }
+
     /**
      * 表名
      */
@@ -349,6 +365,11 @@ public class UserAccountInfo implements Serializable, IEntity {
      * 平台支付密码 MD5加密
      */
     public static final String PAY_PWD = "pay_pwd";
+
+    /**
+     * 余额免密
+     */
+    public static final String BALANCE_EXEMPT = "balance_exempt";
 
     @Override
     public UserAccountInfo pkVal(Serializable val) {

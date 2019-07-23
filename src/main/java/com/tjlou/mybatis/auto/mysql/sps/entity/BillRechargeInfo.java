@@ -15,7 +15,7 @@ import java.util.Date;
  * </p>
  *
  * @author Gaby
- * @since 2019-07-17
+ * @since 2019-07-23
  */
 @TableName("bill_recharge_info")
 public class BillRechargeInfo implements Serializable, IEntity {
@@ -27,6 +27,11 @@ public class BillRechargeInfo implements Serializable, IEntity {
      */
     @TableField("user_account_id")
     private Long userAccountId;
+    /**
+     * 充值订单号
+     */
+    @TableField("recharge_no")
+    private String rechargeNo;
     /**
      * 充值手机号
      */
@@ -80,6 +85,17 @@ public class BillRechargeInfo implements Serializable, IEntity {
 
     public BillRechargeInfo setUserAccountId(Long userAccountId) {
         this.userAccountId = userAccountId;
+        return this;
+    }
+
+    public String getRechargeNo() {
+        return rechargeNo;
+    }
+
+    public BillRechargeInfo setRechargeNo(String rechargeNo) {
+        if (rechargeNo != null)
+            rechargeNo = rechargeNo.trim();
+        this.rechargeNo = rechargeNo;
         return this;
     }
 
@@ -171,6 +187,11 @@ public class BillRechargeInfo implements Serializable, IEntity {
      * 帐号标识
      */
     public static final String USER_ACCOUNT_ID = "user_account_id";
+
+    /**
+     * 充值订单号
+     */
+    public static final String RECHARGE_NO = "recharge_no";
 
     /**
      * 充值手机号
