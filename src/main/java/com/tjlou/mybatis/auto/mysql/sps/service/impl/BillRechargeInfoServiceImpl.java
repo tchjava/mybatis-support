@@ -12,7 +12,7 @@ import org.springframework.stereotype.Service;
  * </p>
  *
  * @author Gaby
- * @since 2019-07-17
+ * @since 2019-07-23
  */
 @Service
 public class BillRechargeInfoServiceImpl extends ServiceImpl<BillRechargeInfoMapper, BillRechargeInfo> implements BillRechargeInfoService {

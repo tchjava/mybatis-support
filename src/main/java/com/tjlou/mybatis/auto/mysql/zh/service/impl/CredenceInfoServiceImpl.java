@@ -12,7 +12,7 @@ import org.springframework.stereotype.Service;
  * </p>
  *
  * @author Gaby
- * @since 2019-06-25
+ * @since 2019-06-26
  */
 @Service
 public class CredenceInfoServiceImpl extends ServiceImpl<CredenceInfoMapper, CredenceInfo> implements CredenceInfoService {

@@ -12,7 +12,7 @@ import org.springframework.stereotype.Service;
  * </p>
  *
  * @author Gaby
- * @since 2019-06-25
+ * @since 2019-07-09
  */
 @Service
 public class TallyInfoServiceImpl extends ServiceImpl<TallyInfoMapper, TallyInfo> implements TallyInfoService {

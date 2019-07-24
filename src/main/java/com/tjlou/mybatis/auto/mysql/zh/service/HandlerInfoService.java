@@ -1,6 +1,6 @@
 package   com.tjlou.mybatis.auto.mysql.zh.service;
 
-import com.tjlou.mybatis.auto.mysql.zh.entity.ProjectInfo;
+import com.tjlou.mybatis.auto.mysql.zh.entity.HandlerInfo;
 import com.baomidou.mybatisplus.service.IService;
 
 /**
@@ -11,6 +11,6 @@ import com.baomidou.mybatisplus.service.IService;
  * @author Gaby
  * @since 2019-06-26
  */
-public interface ProjectInfoService extends IService<ProjectInfo> {
+public interface HandlerInfoService extends IService<HandlerInfo> {
 
 }

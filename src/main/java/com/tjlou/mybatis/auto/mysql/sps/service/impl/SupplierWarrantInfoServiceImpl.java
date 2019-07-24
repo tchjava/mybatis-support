@@ -12,7 +12,7 @@ import org.springframework.stereotype.Service;
  * </p>
  *
  * @author Gaby
- * @since 2019-07-17
+ * @since 2019-07-24
  */
 @Service
 public class SupplierWarrantInfoServiceImpl extends ServiceImpl<SupplierWarrantInfoMapper, SupplierWarrantInfo> implements SupplierWarrantInfoService {

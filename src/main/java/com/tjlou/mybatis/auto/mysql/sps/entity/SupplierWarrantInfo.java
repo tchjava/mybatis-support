@@ -15,7 +15,7 @@ import java.util.Date;
  * </p>
  *
  * @author Gaby
- * @since 2019-07-17
+ * @since 2019-07-24
  */
 @TableName("supplier_warrant_info")
 public class SupplierWarrantInfo implements Serializable, IEntity {
@@ -33,9 +33,14 @@ public class SupplierWarrantInfo implements Serializable, IEntity {
     @TableField("user_account_id")
     private Long userAccountId;
     /**
-     * 缴纳金额
+     * 可用余额
      */
-    private Integer money;
+    @TableField("usable_balance")
+    private Integer usableBalance;
+    /**
+     * 总额
+     */
+    private Integer balance;
     /**
      * 创建时间
      */
@@ -46,10 +51,6 @@ public class SupplierWarrantInfo implements Serializable, IEntity {
      */
     @TableField("modify_time")
     private Date modifyTime;
-    /**
-     * 状态  00A-已缴纳  00Z-退保
-     */
-    private String status;
 
     public Long getId() {
         return id;
@@ -78,12 +79,21 @@ public class SupplierWarrantInfo implements Serializable, IEntity {
         return this;
     }
 
-    public Integer getMoney() {
-        return money;
+    public Integer getUsableBalance() {
+        return usableBalance;
     }
 
-    public SupplierWarrantInfo setMoney(Integer money) {
-        this.money = money;
+    public SupplierWarrantInfo setUsableBalance(Integer usableBalance) {
+        this.usableBalance = usableBalance;
+        return this;
+    }
+
+    public Integer getBalance() {
+        return balance;
+    }
+
+    public SupplierWarrantInfo setBalance(Integer balance) {
+        this.balance = balance;
         return this;
     }
 
@@ -105,17 +115,6 @@ public class SupplierWarrantInfo implements Serializable, IEntity {
         return this;
     }
 
-    public String getStatus() {
-        return status;
-    }
-
-    public SupplierWarrantInfo setStatus(String status) {
-        if (status != null)
-            status = status.trim();
-        this.status = status;
-        return this;
-    }
-
     /**
      * 表名
      */
@@ -133,9 +132,14 @@ public class SupplierWarrantInfo implements Serializable, IEntity {
     public static final String USER_ACCOUNT_ID = "user_account_id";
 
     /**
-     * 缴纳金额
+     * 可用余额
      */
-    public static final String MONEY = "money";
+    public static final String USABLE_BALANCE = "usable_balance";
+
+    /**
+     * 总额
+     */
+    public static final String BALANCE = "balance";
 
     /**
      * 创建时间
@@ -146,11 +150,6 @@ public class SupplierWarrantInfo implements Serializable, IEntity {
      * 修改时间
      */
     public static final String MODIFY_TIME = "modify_time";
-
-    /**
-     * 状态  00A-已缴纳  00Z-退保
-     */
-    public static final String STATUS = "status";
 
     @Override
     public SupplierWarrantInfo pkVal(Serializable val) {

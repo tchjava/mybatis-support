@@ -15,7 +15,7 @@ import java.util.Date;
  * </p>
  *
  * @author Gaby
- * @since 2019-06-25
+ * @since 2019-06-26
  */
 @TableName("credence_info")
 public class CredenceInfo implements Serializable, IEntity {
@@ -40,6 +40,10 @@ public class CredenceInfo implements Serializable, IEntity {
      */
     @TableField("create_time")
     private Date createTime;
+    /**
+     * 备注
+     */
+    private String comment;
 
     public Long getId() {
         return id;
@@ -90,6 +94,17 @@ public class CredenceInfo implements Serializable, IEntity {
         return this;
     }
 
+    public String getComment() {
+        return comment;
+    }
+
+    public CredenceInfo setComment(String comment) {
+        if (comment != null)
+            comment = comment.trim();
+        this.comment = comment;
+        return this;
+    }
+
     /**
      * 表名
      */
@@ -115,6 +130,11 @@ public class CredenceInfo implements Serializable, IEntity {
      * 创建时间
      */
     public static final String CREATE_TIME = "create_time";
+
+    /**
+     * 备注
+     */
+    public static final String COMMENT = "comment";
 
     @Override
     public CredenceInfo pkVal(Serializable val) {

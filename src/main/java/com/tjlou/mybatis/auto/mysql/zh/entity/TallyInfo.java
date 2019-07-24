@@ -15,7 +15,7 @@ import java.util.Date;
  * </p>
  *
  * @author Gaby
- * @since 2019-06-25
+ * @since 2019-07-09
  */
 @TableName("tally_info")
 public class TallyInfo implements Serializable, IEntity {
@@ -23,22 +23,17 @@ public class TallyInfo implements Serializable, IEntity {
     @TableId(value = "id", type = IdType.AUTO)
     private Long id;
     /**
-     * 父项目名称
+     * 项目名称
      */
-    @TableField("parent_name")
-    private String parentName;
-    /**
-     * 子项目名称
-     */
-    @TableField("children_name")
-    private String childrenName;
+    @TableField("project_name")
+    private String projectName;
     /**
      * 项目标识
      */
     @TableField("project_id")
     private Long projectId;
     /**
-     * 金额
+     * 金额  单位分
      */
     private Integer money;
     /**
@@ -59,6 +54,20 @@ public class TallyInfo implements Serializable, IEntity {
      */
     @TableField("update_time")
     private Date updateTime;
+    /**
+     * 备注
+     */
+    private String comment;
+    /**
+     * 经手人
+     */
+    @TableField("handler_id")
+    private Long handlerId;
+    /**
+     * 往来单位
+     */
+    @TableField("come_id")
+    private Long comeId;
 
     public Long getId() {
         return id;
@@ -69,25 +78,14 @@ public class TallyInfo implements Serializable, IEntity {
         return this;
     }
 
-    public String getParentName() {
-        return parentName;
+    public String getProjectName() {
+        return projectName;
     }
 
-    public TallyInfo setParentName(String parentName) {
-        if (parentName != null)
-            parentName = parentName.trim();
-        this.parentName = parentName;
-        return this;
-    }
-
-    public String getChildrenName() {
-        return childrenName;
-    }
-
-    public TallyInfo setChildrenName(String childrenName) {
-        if (childrenName != null)
-            childrenName = childrenName.trim();
-        this.childrenName = childrenName;
+    public TallyInfo setProjectName(String projectName) {
+        if (projectName != null)
+            projectName = projectName.trim();
+        this.projectName = projectName;
         return this;
     }
 
@@ -147,6 +145,35 @@ public class TallyInfo implements Serializable, IEntity {
         return this;
     }
 
+    public String getComment() {
+        return comment;
+    }
+
+    public TallyInfo setComment(String comment) {
+        if (comment != null)
+            comment = comment.trim();
+        this.comment = comment;
+        return this;
+    }
+
+    public Long getHandlerId() {
+        return handlerId;
+    }
+
+    public TallyInfo setHandlerId(Long handlerId) {
+        this.handlerId = handlerId;
+        return this;
+    }
+
+    public Long getComeId() {
+        return comeId;
+    }
+
+    public TallyInfo setComeId(Long comeId) {
+        this.comeId = comeId;
+        return this;
+    }
+
     /**
      * 表名
      */
@@ -154,14 +181,9 @@ public class TallyInfo implements Serializable, IEntity {
     public static final String ID = "id";
 
     /**
-     * 父项目名称
+     * 项目名称
      */
-    public static final String PARENT_NAME = "parent_name";
-
-    /**
-     * 子项目名称
-     */
-    public static final String CHILDREN_NAME = "children_name";
+    public static final String PROJECTNAME = "projectName";
 
     /**
      * 项目标识
@@ -169,7 +191,7 @@ public class TallyInfo implements Serializable, IEntity {
     public static final String PROJECT_ID = "project_id";
 
     /**
-     * 金额
+     * 金额  单位分
      */
     public static final String MONEY = "money";
 
@@ -192,6 +214,21 @@ public class TallyInfo implements Serializable, IEntity {
      * 更新时间
      */
     public static final String UPDATE_TIME = "update_time";
+
+    /**
+     * 备注
+     */
+    public static final String COMMENT = "comment";
+
+    /**
+     * 经手人
+     */
+    public static final String HANDLER_ID = "handler_id";
+
+    /**
+     * 往来单位
+     */
+    public static final String COME_ID = "come_id";
 
     @Override
     public TallyInfo pkVal(Serializable val) {

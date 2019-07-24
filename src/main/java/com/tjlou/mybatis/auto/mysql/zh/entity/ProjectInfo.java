@@ -15,7 +15,7 @@ import java.util.Date;
  * </p>
  *
  * @author Gaby
- * @since 2019-06-25
+ * @since 2019-06-26
  */
 @TableName("project_info")
 public class ProjectInfo implements Serializable, IEntity {
