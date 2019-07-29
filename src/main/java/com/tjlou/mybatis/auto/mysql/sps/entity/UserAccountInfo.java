@@ -15,7 +15,7 @@ import java.util.Date;
  * </p>
  *
  * @author Gaby
- * @since 2019-07-23
+ * @since 2019-07-29
  */
 @TableName("user_account_info")
 public class UserAccountInfo implements Serializable, IEntity {
@@ -97,6 +97,11 @@ public class UserAccountInfo implements Serializable, IEntity {
      */
     @TableField("balance_exempt")
     private String balanceExempt;
+    /**
+     * 固定[我的]为商家页面 -标识
+     */
+    @TableField("fixed_supplier")
+    private String fixedSupplier;
 
     public Long getId() {
         return id;
@@ -280,6 +285,17 @@ public class UserAccountInfo implements Serializable, IEntity {
         return this;
     }
 
+    public String getFixedSupplier() {
+        return fixedSupplier;
+    }
+
+    public UserAccountInfo setFixedSupplier(String fixedSupplier) {
+        if (fixedSupplier != null)
+            fixedSupplier = fixedSupplier.trim();
+        this.fixedSupplier = fixedSupplier;
+        return this;
+    }
+
     /**
      * 表名
      */
@@ -370,6 +386,11 @@ public class UserAccountInfo implements Serializable, IEntity {
      * 余额免密
      */
     public static final String BALANCE_EXEMPT = "balance_exempt";
+
+    /**
+     * 固定[我的]为商家页面 -标识
+     */
+    public static final String FIXED_SUPPLIER = "fixed_supplier";
 
     @Override
     public UserAccountInfo pkVal(Serializable val) {
