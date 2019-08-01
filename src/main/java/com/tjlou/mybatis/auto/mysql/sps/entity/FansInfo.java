@@ -26,7 +26,7 @@ public class FansInfo implements Serializable, IEntity {
      * 用户ID
      */
     @TableField("user_account_id")
-    private String userAccountId;
+    private Long userAccountId;
     /**
      * 店铺ID
      */
@@ -43,6 +43,11 @@ public class FansInfo implements Serializable, IEntity {
     @TableField("create_time")
     private Date createTime;
     /**
+     * 修改时间
+     */
+    @TableField("modify_time")
+    private Date modifyTime;
+    /**
      * 状态 00A-关注  00Z-取消关注
      */
     private String status;
@@ -56,13 +61,11 @@ public class FansInfo implements Serializable, IEntity {
         return this;
     }
 
-    public String getUserAccountId() {
+    public Long getUserAccountId() {
         return userAccountId;
     }
 
-    public FansInfo setUserAccountId(String userAccountId) {
-        if (userAccountId != null)
-            userAccountId = userAccountId.trim();
+    public FansInfo setUserAccountId(Long userAccountId) {
         this.userAccountId = userAccountId;
         return this;
     }
@@ -93,6 +96,15 @@ public class FansInfo implements Serializable, IEntity {
 
     public FansInfo setCreateTime(Date createTime) {
         this.createTime = createTime;
+        return this;
+    }
+
+    public Date getModifyTime() {
+        return modifyTime;
+    }
+
+    public FansInfo setModifyTime(Date modifyTime) {
+        this.modifyTime = modifyTime;
         return this;
     }
 
@@ -132,6 +144,11 @@ public class FansInfo implements Serializable, IEntity {
      * 创建时间
      */
     public static final String CREATE_TIME = "create_time";
+
+    /**
+     * 修改时间
+     */
+    public static final String MODIFY_TIME = "modify_time";
 
     /**
      * 状态 00A-关注  00Z-取消关注
