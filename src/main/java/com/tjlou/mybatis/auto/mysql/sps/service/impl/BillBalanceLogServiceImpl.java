@@ -12,7 +12,7 @@ import org.springframework.stereotype.Service;
  * </p>
  *
  * @author Gaby
- * @since 2019-07-17
+ * @since 2019-07-25
  */
 @Service
 public class BillBalanceLogServiceImpl extends ServiceImpl<BillBalanceLogMapper, BillBalanceLog> implements BillBalanceLogService {

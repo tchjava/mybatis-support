@@ -15,7 +15,7 @@ import java.util.Date;
  * </p>
  *
  * @author Gaby
- * @since 2019-07-17
+ * @since 2019-07-25
  */
 @TableName("bill_balance_info")
 public class BillBalanceInfo implements Serializable, IEntity {
@@ -28,28 +28,32 @@ public class BillBalanceInfo implements Serializable, IEntity {
     @TableField("user_account_id")
     private Long userAccountId;
     /**
-     * 关联的余额标识
+     * 最新结余 单位:分
      */
-    @TableField("balance_rela_id")
-    private Long balanceRelaId;
+    private Integer balance;
     /**
-     * 余额  单位:分
+     * 可用余额 单位:分
      */
-    private Integer blance;
-    /**
-     * 状态  00A-收入   00B-冻结   00C-支出   00Z-失效
-     */
-    private String status;
+    @TableField("usable_balance")
+    private Integer usableBalance;
     /**
      * 创建时间
      */
     @TableField("create_time")
     private Date createTime;
     /**
-     * 更新时间
+     * 修改时间
      */
     @TableField("modify_time")
     private Date modifyTime;
+    /**
+     * 状态 00A-有效  00Z-失效
+     */
+    private String status;
+    /**
+     * 备注
+     */
+    private String comment;
 
     public Long getId() {
         return id;
@@ -69,32 +73,21 @@ public class BillBalanceInfo implements Serializable, IEntity {
         return this;
     }
 
-    public Long getBalanceRelaId() {
-        return balanceRelaId;
+    public Integer getBalance() {
+        return balance;
     }
 
-    public BillBalanceInfo setBalanceRelaId(Long balanceRelaId) {
-        this.balanceRelaId = balanceRelaId;
+    public BillBalanceInfo setBalance(Integer balance) {
+        this.balance = balance;
         return this;
     }
 
-    public Integer getBlance() {
-        return blance;
+    public Integer getUsableBalance() {
+        return usableBalance;
     }
 
-    public BillBalanceInfo setBlance(Integer blance) {
-        this.blance = blance;
-        return this;
-    }
-
-    public String getStatus() {
-        return status;
-    }
-
-    public BillBalanceInfo setStatus(String status) {
-        if (status != null)
-            status = status.trim();
-        this.status = status;
+    public BillBalanceInfo setUsableBalance(Integer usableBalance) {
+        this.usableBalance = usableBalance;
         return this;
     }
 
@@ -116,6 +109,28 @@ public class BillBalanceInfo implements Serializable, IEntity {
         return this;
     }
 
+    public String getStatus() {
+        return status;
+    }
+
+    public BillBalanceInfo setStatus(String status) {
+        if (status != null)
+            status = status.trim();
+        this.status = status;
+        return this;
+    }
+
+    public String getComment() {
+        return comment;
+    }
+
+    public BillBalanceInfo setComment(String comment) {
+        if (comment != null)
+            comment = comment.trim();
+        this.comment = comment;
+        return this;
+    }
+
     /**
      * 表名
      */
@@ -128,19 +143,14 @@ public class BillBalanceInfo implements Serializable, IEntity {
     public static final String USER_ACCOUNT_ID = "user_account_id";
 
     /**
-     * 关联的余额标识
+     * 最新结余 单位:分
      */
-    public static final String BALANCE_RELA_ID = "balance_rela_id";
+    public static final String BALANCE = "balance";
 
     /**
-     * 余额  单位:分
+     * 可用余额 单位:分
      */
-    public static final String BLANCE = "blance";
-
-    /**
-     * 状态  00A-收入   00B-冻结   00C-支出   00Z-失效
-     */
-    public static final String STATUS = "status";
+    public static final String USABLE_BALANCE = "usable_balance";
 
     /**
      * 创建时间
@@ -148,9 +158,19 @@ public class BillBalanceInfo implements Serializable, IEntity {
     public static final String CREATE_TIME = "create_time";
 
     /**
-     * 更新时间
+     * 修改时间
      */
     public static final String MODIFY_TIME = "modify_time";
+
+    /**
+     * 状态 00A-有效  00Z-失效
+     */
+    public static final String STATUS = "status";
+
+    /**
+     * 备注
+     */
+    public static final String COMMENT = "comment";
 
     @Override
     public BillBalanceInfo pkVal(Serializable val) {

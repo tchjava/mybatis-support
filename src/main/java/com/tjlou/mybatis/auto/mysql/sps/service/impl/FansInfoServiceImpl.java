@@ -12,7 +12,7 @@ import org.springframework.stereotype.Service;
  * </p>
  *
  * @author Gaby
- * @since 2019-06-20
+ * @since 2019-08-01
  */
 @Service
 public class FansInfoServiceImpl extends ServiceImpl<FansInfoMapper, FansInfo> implements FansInfoService {

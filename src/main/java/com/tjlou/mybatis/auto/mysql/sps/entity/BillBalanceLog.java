@@ -15,7 +15,7 @@ import java.util.Date;
  * </p>
  *
  * @author Gaby
- * @since 2019-07-17
+ * @since 2019-07-25
  */
 @TableName("bill_balance_log")
 public class BillBalanceLog implements Serializable, IEntity {
@@ -25,30 +25,30 @@ public class BillBalanceLog implements Serializable, IEntity {
     /**
      * 余额标识
      */
-    @TableField("blance_id")
-    private Long blanceId;
+    @TableField("balance_id")
+    private Long balanceId;
     /**
      * 帐号标识
      */
     @TableField("user_account_id")
     private Long userAccountId;
     /**
-     * 来源标识   购物-订单标识     退款-退款标识
+     * 来源标识
      */
     @TableField("source_id")
     private Long sourceId;
     /**
-     * 变动类型  1-购物  2-收款  4-转账(转入)  8-转账(转出)  16-充值 32-退款 64-提现
+     * 变动类型 变动类型  1-购物  2-收款  4-转账(转入)  8-转账(转出)  16-充值 32-退款 64-提现 128-退还 256-待收款 512-缴纳消保金 1024-解冻消保金
      */
     @TableField("change_type")
     private Integer changeType;
     /**
-     * 变动金额  单位:分
+     * 变动金额
      */
     @TableField("change_num")
     private Integer changeNum;
     /**
-     * 变动结余  单位:分
+     * 结余金额  单位:分
      */
     @TableField("blance_num")
     private Integer blanceNum;
@@ -61,6 +61,10 @@ public class BillBalanceLog implements Serializable, IEntity {
      * 备注
      */
     private String comment;
+    /**
+     * 状态  00A-收入   00B-交易中冻结   00C-支出   00D-超消保金冻结  00Z-失效
+     */
+    private String status;
 
     public Long getId() {
         return id;
@@ -71,12 +75,12 @@ public class BillBalanceLog implements Serializable, IEntity {
         return this;
     }
 
-    public Long getBlanceId() {
-        return blanceId;
+    public Long getBalanceId() {
+        return balanceId;
     }
 
-    public BillBalanceLog setBlanceId(Long blanceId) {
-        this.blanceId = blanceId;
+    public BillBalanceLog setBalanceId(Long balanceId) {
+        this.balanceId = balanceId;
         return this;
     }
 
@@ -145,6 +149,17 @@ public class BillBalanceLog implements Serializable, IEntity {
         return this;
     }
 
+    public String getStatus() {
+        return status;
+    }
+
+    public BillBalanceLog setStatus(String status) {
+        if (status != null)
+            status = status.trim();
+        this.status = status;
+        return this;
+    }
+
     /**
      * 表名
      */
@@ -154,7 +169,7 @@ public class BillBalanceLog implements Serializable, IEntity {
     /**
      * 余额标识
      */
-    public static final String BLANCE_ID = "blance_id";
+    public static final String BALANCE_ID = "balance_id";
 
     /**
      * 帐号标识
@@ -162,22 +177,22 @@ public class BillBalanceLog implements Serializable, IEntity {
     public static final String USER_ACCOUNT_ID = "user_account_id";
 
     /**
-     * 来源标识   购物-订单标识     退款-退款标识
+     * 来源标识
      */
     public static final String SOURCE_ID = "source_id";
 
     /**
-     * 变动类型  1-购物  2-收款  4-转账(转入)  8-转账(转出)  16-充值 32-退款 64-提现
+     * 变动类型 变动类型  1-购物  2-收款  4-转账(转入)  8-转账(转出)  16-充值 32-退款 64-提现 128-退还 256-待收款 512-缴纳消保金 1024-解冻消保金
      */
     public static final String CHANGE_TYPE = "change_type";
 
     /**
-     * 变动金额  单位:分
+     * 变动金额
      */
     public static final String CHANGE_NUM = "change_num";
 
     /**
-     * 变动结余  单位:分
+     * 结余金额  单位:分
      */
     public static final String BLANCE_NUM = "blance_num";
 
@@ -190,6 +205,11 @@ public class BillBalanceLog implements Serializable, IEntity {
      * 备注
      */
     public static final String COMMENT = "comment";
+
+    /**
+     * 状态  00A-收入   00B-交易中冻结   00C-支出   00D-超消保金冻结  00Z-失效
+     */
+    public static final String STATUS = "status";
 
     @Override
     public BillBalanceLog pkVal(Serializable val) {

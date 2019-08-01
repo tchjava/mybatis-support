@@ -15,7 +15,7 @@ import java.util.Date;
  * </p>
  *
  * @author Gaby
- * @since 2019-06-20
+ * @since 2019-08-01
  */
 @TableName("fans_info")
 public class FansInfo implements Serializable, IEntity {
@@ -23,24 +23,29 @@ public class FansInfo implements Serializable, IEntity {
     @TableId(value = "id", type = IdType.AUTO)
     private Long id;
     /**
+     * 用户ID
+     */
+    @TableField("user_account_id")
+    private String userAccountId;
+    /**
      * 店铺ID
      */
     @TableField("shop_uri")
     private String shopUri;
     /**
-     * 用户ID
-     */
-    @TableField("user_id")
-    private String userId;
-    /**
-     * 创建时间
-     */
-    private Date intime;
-    /**
      * 供货商标识
      */
     @TableField("supplier_id")
     private Long supplierId;
+    /**
+     * 创建时间
+     */
+    @TableField("create_time")
+    private Date createTime;
+    /**
+     * 状态 00A-关注  00Z-取消关注
+     */
+    private String status;
 
     public Long getId() {
         return id;
@@ -48,6 +53,17 @@ public class FansInfo implements Serializable, IEntity {
 
     public FansInfo setId(Long id) {
         this.id = id;
+        return this;
+    }
+
+    public String getUserAccountId() {
+        return userAccountId;
+    }
+
+    public FansInfo setUserAccountId(String userAccountId) {
+        if (userAccountId != null)
+            userAccountId = userAccountId.trim();
+        this.userAccountId = userAccountId;
         return this;
     }
 
@@ -62,32 +78,32 @@ public class FansInfo implements Serializable, IEntity {
         return this;
     }
 
-    public String getUserId() {
-        return userId;
-    }
-
-    public FansInfo setUserId(String userId) {
-        if (userId != null)
-            userId = userId.trim();
-        this.userId = userId;
-        return this;
-    }
-
-    public Date getIntime() {
-        return intime;
-    }
-
-    public FansInfo setIntime(Date intime) {
-        this.intime = intime;
-        return this;
-    }
-
     public Long getSupplierId() {
         return supplierId;
     }
 
     public FansInfo setSupplierId(Long supplierId) {
         this.supplierId = supplierId;
+        return this;
+    }
+
+    public Date getCreateTime() {
+        return createTime;
+    }
+
+    public FansInfo setCreateTime(Date createTime) {
+        this.createTime = createTime;
+        return this;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public FansInfo setStatus(String status) {
+        if (status != null)
+            status = status.trim();
+        this.status = status;
         return this;
     }
 
@@ -98,24 +114,29 @@ public class FansInfo implements Serializable, IEntity {
     public static final String ID = "id";
 
     /**
+     * 用户ID
+     */
+    public static final String USER_ACCOUNT_ID = "user_account_id";
+
+    /**
      * 店铺ID
      */
     public static final String SHOP_URI = "shop_uri";
 
     /**
-     * 用户ID
+     * 供货商标识
      */
-    public static final String USER_ID = "user_id";
+    public static final String SUPPLIER_ID = "supplier_id";
 
     /**
      * 创建时间
      */
-    public static final String INTIME = "intime";
+    public static final String CREATE_TIME = "create_time";
 
     /**
-     * 供货商标识
+     * 状态 00A-关注  00Z-取消关注
      */
-    public static final String SUPPLIER_ID = "supplier_id";
+    public static final String STATUS = "status";
 
     @Override
     public FansInfo pkVal(Serializable val) {
