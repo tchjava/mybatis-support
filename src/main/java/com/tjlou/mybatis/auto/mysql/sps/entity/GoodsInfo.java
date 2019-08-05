@@ -15,7 +15,7 @@ import java.util.Date;
  * </p>
  *
  * @author Gaby
- * @since 2019-06-24
+ * @since 2019-08-03
  */
 @TableName("goods_info")
 public class GoodsInfo implements Serializable, IEntity {
@@ -92,6 +92,8 @@ public class GoodsInfo implements Serializable, IEntity {
      * 运费
      */
     private Integer freight;
+    @TableField("first_pic")
+    private String firstPic;
 
     public Long getId() {
         return id;
@@ -256,6 +258,17 @@ public class GoodsInfo implements Serializable, IEntity {
         return this;
     }
 
+    public String getFirstPic() {
+        return firstPic;
+    }
+
+    public GoodsInfo setFirstPic(String firstPic) {
+        if (firstPic != null)
+            firstPic = firstPic.trim();
+        this.firstPic = firstPic;
+        return this;
+    }
+
     /**
      * 表名
      */
@@ -341,6 +354,8 @@ public class GoodsInfo implements Serializable, IEntity {
      * 运费
      */
     public static final String FREIGHT = "freight";
+
+    public static final String FIRST_PIC = "first_pic";
 
     @Override
     public GoodsInfo pkVal(Serializable val) {

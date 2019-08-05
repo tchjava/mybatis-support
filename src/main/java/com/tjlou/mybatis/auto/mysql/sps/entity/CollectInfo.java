@@ -15,7 +15,7 @@ import java.util.Date;
  * </p>
  *
  * @author Gaby
- * @since 2019-08-03
+ * @since 2019-08-04
  */
 @TableName("collect_info")
 public class CollectInfo implements Serializable, IEntity {
@@ -28,15 +28,10 @@ public class CollectInfo implements Serializable, IEntity {
     @TableField("user_account_id")
     private Long userAccountId;
     /**
-     * 商户标识
+     * 商品标识
      */
-    @TableField("supplier_id")
-    private Long supplierId;
-    /**
-     * 商户ID
-     */
-    @TableField("shop_uri")
-    private String shopUri;
+    @TableField("goods_id")
+    private Long goodsId;
     /**
      * 状态 00A-已收藏 00Z-已取消
      */
@@ -70,23 +65,12 @@ public class CollectInfo implements Serializable, IEntity {
         return this;
     }
 
-    public Long getSupplierId() {
-        return supplierId;
+    public Long getGoodsId() {
+        return goodsId;
     }
 
-    public CollectInfo setSupplierId(Long supplierId) {
-        this.supplierId = supplierId;
-        return this;
-    }
-
-    public String getShopUri() {
-        return shopUri;
-    }
-
-    public CollectInfo setShopUri(String shopUri) {
-        if (shopUri != null)
-            shopUri = shopUri.trim();
-        this.shopUri = shopUri;
+    public CollectInfo setGoodsId(Long goodsId) {
+        this.goodsId = goodsId;
         return this;
     }
 
@@ -131,14 +115,9 @@ public class CollectInfo implements Serializable, IEntity {
     public static final String USER_ACCOUNT_ID = "user_account_id";
 
     /**
-     * 商户标识
+     * 商品标识
      */
-    public static final String SUPPLIER_ID = "supplier_id";
-
-    /**
-     * 商户ID
-     */
-    public static final String SHOP_URI = "shop_uri";
+    public static final String GOODS_ID = "goods_id";
 
     /**
      * 状态 00A-已收藏 00Z-已取消
