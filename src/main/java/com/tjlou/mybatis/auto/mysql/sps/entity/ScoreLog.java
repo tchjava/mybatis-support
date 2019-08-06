@@ -7,6 +7,7 @@ import com.baomidou.mybatisplus.enums.IdType;
 import com.tjlou.mybatis.base.entity.IEntity;
 
 import java.io.Serializable;
+import java.util.Date;
 
 /**
  * <p>
@@ -40,6 +41,21 @@ public class ScoreLog implements Serializable, IEntity {
      * 状态 00A-有效 00Z-失效
      */
     private String status;
+    /**
+     * 卖家标识
+     */
+    @TableField("supplier_id")
+    private Long supplierId;
+    /**
+     * 买家标识
+     */
+    @TableField("user_account_id")
+    private Long userAccountId;
+    /**
+     * 创建时间
+     */
+    @TableField("create_time")
+    private Date createTime;
 
     public Long getId() {
         return id;
@@ -88,6 +104,33 @@ public class ScoreLog implements Serializable, IEntity {
         return this;
     }
 
+    public Long getSupplierId() {
+        return supplierId;
+    }
+
+    public ScoreLog setSupplierId(Long supplierId) {
+        this.supplierId = supplierId;
+        return this;
+    }
+
+    public Long getUserAccountId() {
+        return userAccountId;
+    }
+
+    public ScoreLog setUserAccountId(Long userAccountId) {
+        this.userAccountId = userAccountId;
+        return this;
+    }
+
+    public Date getCreateTime() {
+        return createTime;
+    }
+
+    public ScoreLog setCreateTime(Date createTime) {
+        this.createTime = createTime;
+        return this;
+    }
+
     /**
      * 表名
      */
@@ -113,6 +156,21 @@ public class ScoreLog implements Serializable, IEntity {
      * 状态 00A-有效 00Z-失效
      */
     public static final String STATUS = "status";
+
+    /**
+     * 卖家标识
+     */
+    public static final String SUPPLIER_ID = "supplier_id";
+
+    /**
+     * 买家标识
+     */
+    public static final String USER_ACCOUNT_ID = "user_account_id";
+
+    /**
+     * 创建时间
+     */
+    public static final String CREATE_TIME = "create_time";
 
     @Override
     public ScoreLog pkVal(Serializable val) {
