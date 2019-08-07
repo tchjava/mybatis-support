@@ -40,7 +40,7 @@ public class GoodsLookLog implements Serializable, IEntity {
      * 点击次数
      */
     @TableField("look_num")
-    private Long lookNum;
+    private Integer lookNum;
     /**
      * 用户标识
      */
@@ -83,11 +83,11 @@ public class GoodsLookLog implements Serializable, IEntity {
         return this;
     }
 
-    public Long getLookNum() {
+    public Integer getLookNum() {
         return lookNum;
     }
 
-    public GoodsLookLog setLookNum(Long lookNum) {
+    public GoodsLookLog setLookNum(Integer lookNum) {
         this.lookNum = lookNum;
         return this;
     }
