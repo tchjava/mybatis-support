@@ -11,35 +11,26 @@ import java.util.Date;
 
 /**
  * <p>
- * 后台帐号信息表
+ * 代理信息表
  * </p>
  *
  * @author Gaby
  * @since 2019-08-08
  */
-@TableName("manage_account_info")
-public class ManageAccountInfo implements Serializable, IEntity {
+@TableName("user_agent_info")
+public class UserAgentInfo implements Serializable, IEntity {
 
     @TableId(value = "id", type = IdType.AUTO)
     private Long id;
     /**
-     * 所属平台
-     */
-    @TableField("app_id")
-    private Long appId;
-    /**
-     * 帐号标识
+     * 用户标识
      */
     @TableField("user_account_id")
     private Long userAccountId;
     /**
-     * 帐号
+     * 上级代理
      */
-    private String account;
-    /**
-     * 登录密码
-     */
-    private String pwd;
+    private Long agent;
     /**
      * 创建时间
      */
@@ -51,7 +42,7 @@ public class ManageAccountInfo implements Serializable, IEntity {
     @TableField("modify_time")
     private Date modifyTime;
     /**
-     * 状态 00A-有效   00B-禁用 00Z-失效
+     * 状态  00A-有效  00Z-失效
      */
     private String status;
 
@@ -59,17 +50,8 @@ public class ManageAccountInfo implements Serializable, IEntity {
         return id;
     }
 
-    public ManageAccountInfo setId(Long id) {
+    public UserAgentInfo setId(Long id) {
         this.id = id;
-        return this;
-    }
-
-    public Long getAppId() {
-        return appId;
-    }
-
-    public ManageAccountInfo setAppId(Long appId) {
-        this.appId = appId;
         return this;
     }
 
@@ -77,30 +59,17 @@ public class ManageAccountInfo implements Serializable, IEntity {
         return userAccountId;
     }
 
-    public ManageAccountInfo setUserAccountId(Long userAccountId) {
+    public UserAgentInfo setUserAccountId(Long userAccountId) {
         this.userAccountId = userAccountId;
         return this;
     }
 
-    public String getAccount() {
-        return account;
+    public Long getAgent() {
+        return agent;
     }
 
-    public ManageAccountInfo setAccount(String account) {
-        if (account != null)
-            account = account.trim();
-        this.account = account;
-        return this;
-    }
-
-    public String getPwd() {
-        return pwd;
-    }
-
-    public ManageAccountInfo setPwd(String pwd) {
-        if (pwd != null)
-            pwd = pwd.trim();
-        this.pwd = pwd;
+    public UserAgentInfo setAgent(Long agent) {
+        this.agent = agent;
         return this;
     }
 
@@ -108,7 +77,7 @@ public class ManageAccountInfo implements Serializable, IEntity {
         return createTime;
     }
 
-    public ManageAccountInfo setCreateTime(Date createTime) {
+    public UserAgentInfo setCreateTime(Date createTime) {
         this.createTime = createTime;
         return this;
     }
@@ -117,7 +86,7 @@ public class ManageAccountInfo implements Serializable, IEntity {
         return modifyTime;
     }
 
-    public ManageAccountInfo setModifyTime(Date modifyTime) {
+    public UserAgentInfo setModifyTime(Date modifyTime) {
         this.modifyTime = modifyTime;
         return this;
     }
@@ -126,7 +95,7 @@ public class ManageAccountInfo implements Serializable, IEntity {
         return status;
     }
 
-    public ManageAccountInfo setStatus(String status) {
+    public UserAgentInfo setStatus(String status) {
         if (status != null)
             status = status.trim();
         this.status = status;
@@ -136,28 +105,18 @@ public class ManageAccountInfo implements Serializable, IEntity {
     /**
      * 表名
      */
-    public static final String TABLE_NAME = "manage_account_info";
+    public static final String TABLE_NAME = "user_agent_info";
     public static final String ID = "id";
 
     /**
-     * 所属平台
-     */
-    public static final String APP_ID = "app_id";
-
-    /**
-     * 帐号标识
+     * 用户标识
      */
     public static final String USER_ACCOUNT_ID = "user_account_id";
 
     /**
-     * 帐号
+     * 上级代理
      */
-    public static final String ACCOUNT = "account";
-
-    /**
-     * 登录密码
-     */
-    public static final String PWD = "pwd";
+    public static final String AGENT = "agent";
 
     /**
      * 创建时间
@@ -170,12 +129,12 @@ public class ManageAccountInfo implements Serializable, IEntity {
     public static final String MODIFY_TIME = "modify_time";
 
     /**
-     * 状态 00A-有效   00B-禁用 00Z-失效
+     * 状态  00A-有效  00Z-失效
      */
     public static final String STATUS = "status";
 
     @Override
-    public ManageAccountInfo pkVal(Serializable val) {
+    public UserAgentInfo pkVal(Serializable val) {
         this.id = Long.valueOf(val.toString());
         return this;
     }
