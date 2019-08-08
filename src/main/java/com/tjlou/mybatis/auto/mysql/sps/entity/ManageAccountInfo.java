@@ -15,7 +15,7 @@ import java.util.Date;
  * </p>
  *
  * @author Gaby
- * @since 2019-08-07
+ * @since 2019-08-08
  */
 @TableName("manage_account_info")
 public class ManageAccountInfo implements Serializable, IEntity {
@@ -27,6 +27,10 @@ public class ManageAccountInfo implements Serializable, IEntity {
      */
     @TableField("user_account_id")
     private Long userAccountId;
+    /**
+     * 帐号
+     */
+    private String account;
     /**
      * 登录密码
      */
@@ -61,6 +65,17 @@ public class ManageAccountInfo implements Serializable, IEntity {
 
     public ManageAccountInfo setUserAccountId(Long userAccountId) {
         this.userAccountId = userAccountId;
+        return this;
+    }
+
+    public String getAccount() {
+        return account;
+    }
+
+    public ManageAccountInfo setAccount(String account) {
+        if (account != null)
+            account = account.trim();
+        this.account = account;
         return this;
     }
 
@@ -114,6 +129,11 @@ public class ManageAccountInfo implements Serializable, IEntity {
      * 帐号标识
      */
     public static final String USER_ACCOUNT_ID = "user_account_id";
+
+    /**
+     * 帐号
+     */
+    public static final String ACCOUNT = "account";
 
     /**
      * 登录密码
