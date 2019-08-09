@@ -1,16 +1,16 @@
 package   com.tjlou.mybatis.auto.mysql.sps.service;
 
-import com.tjlou.mybatis.auto.mysql.sps.entity.SupplierInfo;
+import com.tjlou.mybatis.auto.mysql.sps.entity.AttributeTagRela;
 import com.baomidou.mybatisplus.service.IService;
 
 /**
  * <p>
- * 供货商信息表 服务类
+ *  服务类
  * </p>
  *
  * @author Gaby
  * @since 2019-08-09
  */
-public interface SupplierInfoService extends IService<SupplierInfo> {
+public interface AttributeTagRelaService extends IService<AttributeTagRela> {
 
 }

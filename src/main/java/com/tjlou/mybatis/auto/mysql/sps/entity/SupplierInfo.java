@@ -16,7 +16,7 @@ import java.util.Date;
  * </p>
  *
  * @author Gaby
- * @since 2019-07-08
+ * @since 2019-08-09
  */
 @TableName("supplier_info")
 public class SupplierInfo implements Serializable, IEntity {
@@ -110,7 +110,7 @@ public class SupplierInfo implements Serializable, IEntity {
     /**
      * 审核未通过的原因
      */
-    private Integer reason;
+    private String reason;
 
     public Long getId() {
         return id;
@@ -312,11 +312,13 @@ public class SupplierInfo implements Serializable, IEntity {
         return this;
     }
 
-    public Integer getReason() {
+    public String getReason() {
         return reason;
     }
 
-    public SupplierInfo setReason(Integer reason) {
+    public SupplierInfo setReason(String reason) {
+        if (reason != null)
+            reason = reason.trim();
         this.reason = reason;
         return this;
     }
