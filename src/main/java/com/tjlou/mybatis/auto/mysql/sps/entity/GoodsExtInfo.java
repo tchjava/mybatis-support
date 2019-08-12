@@ -10,32 +10,29 @@ import java.io.Serializable;
 
 /**
  * <p>
- *
+ * 商品扩展信息表
  * </p>
  *
  * @author Gaby
- * @since 2019-08-10
+ * @since 2019-08-12
  */
-@TableName("attribute_tag_rela")
-public class AttributeTagRela implements Serializable, IEntity {
+@TableName("goods_ext_info")
+public class GoodsExtInfo implements Serializable, IEntity {
 
-    /**
-     * 主键标识
-     */
     @TableId(value = "id", type = IdType.AUTO)
     private Long id;
     /**
-     * 分类属性关联标识
+     * 商品标识
      */
-    @TableField("cat_atr_rela_id")
-    private Long catAtrRelaId;
+    @TableField("goods_id")
+    private Long goodsId;
     /**
-     * 标签标识
+     * 商品属性
      */
-    @TableField("tag_id")
-    private Long tagId;
+    @TableField("attribute_json")
+    private String attributeJson;
     /**
-     * 状态 00A-有效  00Z-失效
+     * 状态  00A-有效   00Z-失效
      */
     private String status;
 
@@ -43,26 +40,28 @@ public class AttributeTagRela implements Serializable, IEntity {
         return id;
     }
 
-    public AttributeTagRela setId(Long id) {
+    public GoodsExtInfo setId(Long id) {
         this.id = id;
         return this;
     }
 
-    public Long getCatAtrRelaId() {
-        return catAtrRelaId;
+    public Long getGoodsId() {
+        return goodsId;
     }
 
-    public AttributeTagRela setCatAtrRelaId(Long catAtrRelaId) {
-        this.catAtrRelaId = catAtrRelaId;
+    public GoodsExtInfo setGoodsId(Long goodsId) {
+        this.goodsId = goodsId;
         return this;
     }
 
-    public Long getTagId() {
-        return tagId;
+    public String getAttributeJson() {
+        return attributeJson;
     }
 
-    public AttributeTagRela setTagId(Long tagId) {
-        this.tagId = tagId;
+    public GoodsExtInfo setAttributeJson(String attributeJson) {
+        if (attributeJson != null)
+            attributeJson = attributeJson.trim();
+        this.attributeJson = attributeJson;
         return this;
     }
 
@@ -70,7 +69,7 @@ public class AttributeTagRela implements Serializable, IEntity {
         return status;
     }
 
-    public AttributeTagRela setStatus(String status) {
+    public GoodsExtInfo setStatus(String status) {
         if (status != null)
             status = status.trim();
         this.status = status;
@@ -80,29 +79,26 @@ public class AttributeTagRela implements Serializable, IEntity {
     /**
      * 表名
      */
-    public static final String TABLE_NAME = "attribute_tag_rela";
-    /**
-     * 主键标识
-     */
+    public static final String TABLE_NAME = "goods_ext_info";
     public static final String ID = "id";
 
     /**
-     * 分类属性关联标识
+     * 商品标识
      */
-    public static final String CAT_ATR_RELA_ID = "cat_atr_rela_id";
+    public static final String GOODS_ID = "goods_id";
 
     /**
-     * 标签标识
+     * 商品属性
      */
-    public static final String TAG_ID = "tag_id";
+    public static final String ATTRIBUTE_JSON = "attribute_json";
 
     /**
-     * 状态 00A-有效  00Z-失效
+     * 状态  00A-有效   00Z-失效
      */
     public static final String STATUS = "status";
 
     @Override
-    public AttributeTagRela pkVal(Serializable val) {
+    public GoodsExtInfo pkVal(Serializable val) {
         this.id = Long.valueOf(val.toString());
         return this;
     }

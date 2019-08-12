@@ -15,7 +15,7 @@ import java.util.Date;
  * </p>
  *
  * @author Gaby
- * @since 2019-08-09
+ * @since 2019-08-10
  */
 @TableName("goods_attribute_info")
 public class GoodsAttributeInfo implements Serializable, IEntity {
@@ -30,21 +30,9 @@ public class GoodsAttributeInfo implements Serializable, IEntity {
      */
     private String title;
     /**
-     * 描述
-     */
-    private String tab;
-    /**
      * 状态 00A-有效  00Z-失效
      */
     private String status;
-    /**
-     * 规定长度
-     */
-    private Integer length;
-    /**
-     * 可选/可不选 1-必选 0-非必选
-     */
-    private Integer option;
     /**
      * 创建时间
      */
@@ -71,17 +59,6 @@ public class GoodsAttributeInfo implements Serializable, IEntity {
         return this;
     }
 
-    public String getTab() {
-        return tab;
-    }
-
-    public GoodsAttributeInfo setTab(String tab) {
-        if (tab != null)
-            tab = tab.trim();
-        this.tab = tab;
-        return this;
-    }
-
     public String getStatus() {
         return status;
     }
@@ -90,24 +67,6 @@ public class GoodsAttributeInfo implements Serializable, IEntity {
         if (status != null)
             status = status.trim();
         this.status = status;
-        return this;
-    }
-
-    public Integer getLength() {
-        return length;
-    }
-
-    public GoodsAttributeInfo setLength(Integer length) {
-        this.length = length;
-        return this;
-    }
-
-    public Integer getOption() {
-        return option;
-    }
-
-    public GoodsAttributeInfo setOption(Integer option) {
-        this.option = option;
         return this;
     }
 
@@ -135,24 +94,9 @@ public class GoodsAttributeInfo implements Serializable, IEntity {
     public static final String TITLE = "title";
 
     /**
-     * 描述
-     */
-    public static final String TAB = "tab";
-
-    /**
      * 状态 00A-有效  00Z-失效
      */
     public static final String STATUS = "status";
-
-    /**
-     * 规定长度
-     */
-    public static final String LENGTH = "length";
-
-    /**
-     * 可选/可不选 1-必选 0-非必选
-     */
-    public static final String OPTION = "option";
 
     /**
      * 创建时间

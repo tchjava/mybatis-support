@@ -14,7 +14,7 @@ import java.io.Serializable;
  * </p>
  *
  * @author Gaby
- * @since 2019-08-09
+ * @since 2019-08-10
  */
 @TableName("category_attribute_rela")
 public class CategoryAttributeRela implements Serializable, IEntity {
@@ -40,6 +40,18 @@ public class CategoryAttributeRela implements Serializable, IEntity {
      * 状态 00A-有效  00Z-失效
      */
     private String status;
+    /**
+     * 描述
+     */
+    private String tab;
+    /**
+     * 规定长度
+     */
+    private Integer length;
+    /**
+     * 0-可选 1必选
+     */
+    private Integer option;
 
     public Long getId() {
         return id;
@@ -88,6 +100,35 @@ public class CategoryAttributeRela implements Serializable, IEntity {
         return this;
     }
 
+    public String getTab() {
+        return tab;
+    }
+
+    public CategoryAttributeRela setTab(String tab) {
+        if (tab != null)
+            tab = tab.trim();
+        this.tab = tab;
+        return this;
+    }
+
+    public Integer getLength() {
+        return length;
+    }
+
+    public CategoryAttributeRela setLength(Integer length) {
+        this.length = length;
+        return this;
+    }
+
+    public Integer getOption() {
+        return option;
+    }
+
+    public CategoryAttributeRela setOption(Integer option) {
+        this.option = option;
+        return this;
+    }
+
     /**
      * 表名
      */
@@ -113,6 +154,21 @@ public class CategoryAttributeRela implements Serializable, IEntity {
      * 状态 00A-有效  00Z-失效
      */
     public static final String STATUS = "status";
+
+    /**
+     * 描述
+     */
+    public static final String TAB = "tab";
+
+    /**
+     * 规定长度
+     */
+    public static final String LENGTH = "length";
+
+    /**
+     * 0-可选 1必选
+     */
+    public static final String OPTION = "option";
 
     @Override
     public CategoryAttributeRela pkVal(Serializable val) {
