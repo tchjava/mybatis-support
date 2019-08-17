@@ -14,7 +14,7 @@ import java.io.Serializable;
  * </p>
  *
  * @author Gaby
- * @since 2019-08-10
+ * @since 2019-08-13
  */
 @TableName("category_attribute_rela")
 public class CategoryAttributeRela implements Serializable, IEntity {
@@ -52,6 +52,10 @@ public class CategoryAttributeRela implements Serializable, IEntity {
      * 0-可选 1必选
      */
     private Integer option;
+    /**
+     * 排序
+     */
+    private Integer sort;
 
     public Long getId() {
         return id;
@@ -129,6 +133,15 @@ public class CategoryAttributeRela implements Serializable, IEntity {
         return this;
     }
 
+    public Integer getSort() {
+        return sort;
+    }
+
+    public CategoryAttributeRela setSort(Integer sort) {
+        this.sort = sort;
+        return this;
+    }
+
     /**
      * 表名
      */
@@ -169,6 +182,11 @@ public class CategoryAttributeRela implements Serializable, IEntity {
      * 0-可选 1必选
      */
     public static final String OPTION = "option";
+
+    /**
+     * 排序
+     */
+    public static final String SORT = "sort";
 
     @Override
     public CategoryAttributeRela pkVal(Serializable val) {

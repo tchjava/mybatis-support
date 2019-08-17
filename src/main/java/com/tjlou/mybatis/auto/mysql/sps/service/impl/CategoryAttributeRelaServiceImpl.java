@@ -12,7 +12,7 @@ import org.springframework.stereotype.Service;
  * </p>
  *
  * @author Gaby
- * @since 2019-08-10
+ * @since 2019-08-13
  */
 @Service
 public class CategoryAttributeRelaServiceImpl extends ServiceImpl<CategoryAttributeRelaMapper, CategoryAttributeRela> implements CategoryAttributeRelaService {

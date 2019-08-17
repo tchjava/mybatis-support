@@ -9,7 +9,7 @@ import com.baomidou.mybatisplus.mapper.BaseMapper;
  * </p>
  *
  * @author Gaby
- * @since 2019-08-07
+ * @since 2019-08-15
  */
 public interface ManagePermissionInfoMapper extends BaseMapper<ManagePermissionInfo> {
 

@@ -15,7 +15,7 @@ import java.util.Date;
  * </p>
  *
  * @author Gaby
- * @since 2019-08-07
+ * @since 2019-08-15
  */
 @TableName("manage_permission_info")
 public class ManagePermissionInfo implements Serializable, IEntity {
@@ -56,6 +56,10 @@ public class ManagePermissionInfo implements Serializable, IEntity {
      * 路径
      */
     private String path;
+    /**
+     * 图标
+     */
+    private String icon;
 
     public Long getId() {
         return id;
@@ -148,6 +152,17 @@ public class ManagePermissionInfo implements Serializable, IEntity {
         return this;
     }
 
+    public String getIcon() {
+        return icon;
+    }
+
+    public ManagePermissionInfo setIcon(String icon) {
+        if (icon != null)
+            icon = icon.trim();
+        this.icon = icon;
+        return this;
+    }
+
     /**
      * 表名
      */
@@ -193,6 +208,11 @@ public class ManagePermissionInfo implements Serializable, IEntity {
      * 路径
      */
     public static final String PATH = "path";
+
+    /**
+     * 图标
+     */
+    public static final String ICON = "icon";
 
     @Override
     public ManagePermissionInfo pkVal(Serializable val) {
