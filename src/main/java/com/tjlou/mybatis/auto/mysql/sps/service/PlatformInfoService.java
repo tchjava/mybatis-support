@@ -9,7 +9,7 @@ import com.baomidou.mybatisplus.service.IService;
  * </p>
  *
  * @author Gaby
- * @since 2019-07-06
+ * @since 2019-08-18
  */
 public interface PlatformInfoService extends IService<PlatformInfo> {
 

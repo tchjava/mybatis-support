@@ -14,7 +14,7 @@ import java.io.Serializable;
  * </p>
  *
  * @author Gaby
- * @since 2019-07-06
+ * @since 2019-08-18
  */
 @TableName("platform_info")
 public class PlatformInfo implements Serializable, IEntity {
@@ -48,6 +48,11 @@ public class PlatformInfo implements Serializable, IEntity {
      */
     @TableField("merchant_key")
     private String merchantKey;
+    /**
+     * 存放位置
+     */
+    @TableField("cert_path")
+    private String certPath;
 
     public Long getId() {
         return id;
@@ -124,6 +129,17 @@ public class PlatformInfo implements Serializable, IEntity {
         return this;
     }
 
+    public String getCertPath() {
+        return certPath;
+    }
+
+    public PlatformInfo setCertPath(String certPath) {
+        if (certPath != null)
+            certPath = certPath.trim();
+        this.certPath = certPath;
+        return this;
+    }
+
     /**
      * 表名
      */
@@ -159,6 +175,11 @@ public class PlatformInfo implements Serializable, IEntity {
      * 商户密钥
      */
     public static final String MERCHANT_KEY = "merchant_key";
+
+    /**
+     * 存放位置
+     */
+    public static final String CERT_PATH = "cert_path";
 
     @Override
     public PlatformInfo pkVal(Serializable val) {

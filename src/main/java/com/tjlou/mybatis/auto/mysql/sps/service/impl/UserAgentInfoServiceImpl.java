@@ -12,7 +12,7 @@ import org.springframework.stereotype.Service;
  * </p>
  *
  * @author Gaby
- * @since 2019-08-08
+ * @since 2019-08-20
  */
 @Service
 public class UserAgentInfoServiceImpl extends ServiceImpl<UserAgentInfoMapper, UserAgentInfo> implements UserAgentInfoService {

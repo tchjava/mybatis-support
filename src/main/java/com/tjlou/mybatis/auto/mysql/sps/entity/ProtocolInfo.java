@@ -31,6 +31,10 @@ public class ProtocolInfo implements Serializable, IEntity {
      */
     private String content;
     /**
+     * 类型
+     */
+    private String type;
+    /**
      * 创建时间
      */
     @TableField("create_time")
@@ -67,6 +71,17 @@ public class ProtocolInfo implements Serializable, IEntity {
         return this;
     }
 
+    public String getType() {
+        return type;
+    }
+
+    public ProtocolInfo setType(String type) {
+        if (type != null)
+            type = type.trim();
+        this.type = type;
+        return this;
+    }
+
     public Date getCreateTime() {
         return createTime;
     }
@@ -91,6 +106,11 @@ public class ProtocolInfo implements Serializable, IEntity {
      * 协议内容
      */
     public static final String CONTENT = "content";
+
+    /**
+     * 类型
+     */
+    public static final String TYPE = "type";
 
     /**
      * 创建时间

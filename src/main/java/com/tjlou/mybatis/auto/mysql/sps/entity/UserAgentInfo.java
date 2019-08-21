@@ -15,7 +15,7 @@ import java.util.Date;
  * </p>
  *
  * @author Gaby
- * @since 2019-08-08
+ * @since 2019-08-20
  */
 @TableName("user_agent_info")
 public class UserAgentInfo implements Serializable, IEntity {
@@ -45,6 +45,11 @@ public class UserAgentInfo implements Serializable, IEntity {
      * 状态  00A-有效  00Z-失效
      */
     private String status;
+    /**
+     * 递归上级是代理的用户标识
+     */
+    @TableField("agent_supplier")
+    private Long agentSupplier;
 
     public Long getId() {
         return id;
@@ -102,6 +107,15 @@ public class UserAgentInfo implements Serializable, IEntity {
         return this;
     }
 
+    public Long getAgentSupplier() {
+        return agentSupplier;
+    }
+
+    public UserAgentInfo setAgentSupplier(Long agentSupplier) {
+        this.agentSupplier = agentSupplier;
+        return this;
+    }
+
     /**
      * 表名
      */
@@ -132,6 +146,11 @@ public class UserAgentInfo implements Serializable, IEntity {
      * 状态  00A-有效  00Z-失效
      */
     public static final String STATUS = "status";
+
+    /**
+     * 递归上级是代理的用户标识
+     */
+    public static final String AGENT_SUPPLIER = "agent_supplier";
 
     @Override
     public UserAgentInfo pkVal(Serializable val) {

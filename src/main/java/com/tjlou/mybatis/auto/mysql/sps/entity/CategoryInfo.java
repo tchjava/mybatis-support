@@ -15,7 +15,7 @@ import java.util.Date;
  * </p>
  *
  * @author Gaby
- * @since 2019-06-20
+ * @since 2019-08-20
  */
 @TableName("category_info")
 public class CategoryInfo implements Serializable, IEntity {
@@ -48,6 +48,10 @@ public class CategoryInfo implements Serializable, IEntity {
      */
     @TableField("shop_uri")
     private String shopUri;
+    /**
+     * 分类图片
+     */
+    private String icon;
 
     public Long getId() {
         return id;
@@ -120,6 +124,17 @@ public class CategoryInfo implements Serializable, IEntity {
         return this;
     }
 
+    public String getIcon() {
+        return icon;
+    }
+
+    public CategoryInfo setIcon(String icon) {
+        if (icon != null)
+            icon = icon.trim();
+        this.icon = icon;
+        return this;
+    }
+
     /**
      * 表名
      */
@@ -155,6 +170,11 @@ public class CategoryInfo implements Serializable, IEntity {
      * 店铺Id(预留)
      */
     public static final String SHOP_URI = "shop_uri";
+
+    /**
+     * 分类图片
+     */
+    public static final String ICON = "icon";
 
     @Override
     public CategoryInfo pkVal(Serializable val) {
