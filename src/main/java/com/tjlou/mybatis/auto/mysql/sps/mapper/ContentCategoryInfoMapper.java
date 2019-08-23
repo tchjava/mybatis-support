@@ -9,7 +9,7 @@ import com.baomidou.mybatisplus.mapper.BaseMapper;
  * </p>
  *
  * @author Gaby
- * @since 2019-08-21
+ * @since 2019-08-22
  */
 public interface ContentCategoryInfoMapper extends BaseMapper<ContentCategoryInfo> {
 

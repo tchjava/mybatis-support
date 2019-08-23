@@ -6,6 +6,7 @@ import com.baomidou.mybatisplus.enums.IdType;
 import com.tjlou.mybatis.base.entity.IEntity;
 
 import java.io.Serializable;
+import java.util.Date;
 
 /**
  * <p>
@@ -13,7 +14,7 @@ import java.io.Serializable;
  * </p>
  *
  * @author Gaby
- * @since 2019-08-21
+ * @since 2019-08-22
  */
 @TableName("content_category_info")
 public class ContentCategoryInfo implements Serializable, IEntity {
@@ -31,7 +32,7 @@ public class ContentCategoryInfo implements Serializable, IEntity {
     /**
      * 排序
      */
-    private Integer sort;
+    private Date sort;
     /**
      * 状态 00A-有效 00Z-失效
      */
@@ -66,11 +67,11 @@ public class ContentCategoryInfo implements Serializable, IEntity {
         return this;
     }
 
-    public Integer getSort() {
+    public Date getSort() {
         return sort;
     }
 
-    public ContentCategoryInfo setSort(Integer sort) {
+    public ContentCategoryInfo setSort(Date sort) {
         this.sort = sort;
         return this;
     }

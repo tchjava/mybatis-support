@@ -51,7 +51,7 @@ public class ContentInfo implements Serializable, IEntity {
     /**
      * 排序
      */
-    private Integer sort;
+    private Date sort;
     /**
      * 创建时间
      */
@@ -136,11 +136,11 @@ public class ContentInfo implements Serializable, IEntity {
         return this;
     }
 
-    public Integer getSort() {
+    public Date getSort() {
         return sort;
     }
 
-    public ContentInfo setSort(Integer sort) {
+    public ContentInfo setSort(Date sort) {
         this.sort = sort;
         return this;
     }

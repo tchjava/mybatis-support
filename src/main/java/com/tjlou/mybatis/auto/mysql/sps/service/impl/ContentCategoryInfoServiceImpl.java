@@ -12,7 +12,7 @@ import org.springframework.stereotype.Service;
  * </p>
  *
  * @author Gaby
- * @since 2019-08-21
+ * @since 2019-08-22
  */
 @Service
 public class ContentCategoryInfoServiceImpl extends ServiceImpl<ContentCategoryInfoMapper, ContentCategoryInfo> implements ContentCategoryInfoService {
