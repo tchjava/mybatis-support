@@ -15,7 +15,7 @@ import java.util.Date;
  * </p>
  *
  * @author Gaby
- * @since 2019-08-08
+ * @since 2019-08-29
  */
 @TableName("goods_info")
 public class GoodsInfo implements Serializable, IEntity {
@@ -101,6 +101,15 @@ public class GoodsInfo implements Serializable, IEntity {
      * 销量
      */
     private Integer sales;
+    /**
+     * 更新时间
+     */
+    @TableField("modify_time")
+    private Date modifyTime;
+    /**
+     * 商品权重
+     */
+    private Double weight;
 
     public Long getId() {
         return id;
@@ -285,6 +294,24 @@ public class GoodsInfo implements Serializable, IEntity {
         return this;
     }
 
+    public Date getModifyTime() {
+        return modifyTime;
+    }
+
+    public GoodsInfo setModifyTime(Date modifyTime) {
+        this.modifyTime = modifyTime;
+        return this;
+    }
+
+    public Double getWeight() {
+        return weight;
+    }
+
+    public GoodsInfo setWeight(Double weight) {
+        this.weight = weight;
+        return this;
+    }
+
     /**
      * 表名
      */
@@ -380,6 +407,16 @@ public class GoodsInfo implements Serializable, IEntity {
      * 销量
      */
     public static final String SALES = "sales";
+
+    /**
+     * 更新时间
+     */
+    public static final String MODIFY_TIME = "modify_time";
+
+    /**
+     * 商品权重
+     */
+    public static final String WEIGHT = "weight";
 
     @Override
     public GoodsInfo pkVal(Serializable val) {

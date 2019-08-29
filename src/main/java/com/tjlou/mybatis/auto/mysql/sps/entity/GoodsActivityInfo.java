@@ -48,6 +48,11 @@ public class GoodsActivityInfo implements Serializable, IEntity {
     @TableField("goods_agent_price")
     private Integer goodsAgentPrice;
     /**
+     * 商品图片
+     */
+    @TableField("first_pic")
+    private String firstPic;
+    /**
      * 店铺ID
      */
     @TableField("shop_uri")
@@ -94,6 +99,10 @@ public class GoodsActivityInfo implements Serializable, IEntity {
      * 排序
      */
     private Date sort;
+    /**
+     * 是否是平台推荐
+     */
+    private String nominate;
 
     public Long getId() {
         return id;
@@ -148,6 +157,17 @@ public class GoodsActivityInfo implements Serializable, IEntity {
 
     public GoodsActivityInfo setGoodsAgentPrice(Integer goodsAgentPrice) {
         this.goodsAgentPrice = goodsAgentPrice;
+        return this;
+    }
+
+    public String getFirstPic() {
+        return firstPic;
+    }
+
+    public GoodsActivityInfo setFirstPic(String firstPic) {
+        if (firstPic != null)
+            firstPic = firstPic.trim();
+        this.firstPic = firstPic;
         return this;
     }
 
@@ -245,6 +265,17 @@ public class GoodsActivityInfo implements Serializable, IEntity {
         return this;
     }
 
+    public String getNominate() {
+        return nominate;
+    }
+
+    public GoodsActivityInfo setNominate(String nominate) {
+        if (nominate != null)
+            nominate = nominate.trim();
+        this.nominate = nominate;
+        return this;
+    }
+
     /**
      * 表名
      */
@@ -275,6 +306,11 @@ public class GoodsActivityInfo implements Serializable, IEntity {
      * 商品代理价 单位:分
      */
     public static final String GOODS_AGENT_PRICE = "goods_agent_price";
+
+    /**
+     * 商品图片
+     */
+    public static final String FIRST_PIC = "first_pic";
 
     /**
      * 店铺ID
@@ -325,6 +361,11 @@ public class GoodsActivityInfo implements Serializable, IEntity {
      * 排序
      */
     public static final String SORT = "sort";
+
+    /**
+     * 是否是平台推荐
+     */
+    public static final String NOMINATE = "nominate";
 
     @Override
     public GoodsActivityInfo pkVal(Serializable val) {
