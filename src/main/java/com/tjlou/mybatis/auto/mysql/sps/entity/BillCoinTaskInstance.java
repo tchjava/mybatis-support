@@ -37,6 +37,11 @@ public class BillCoinTaskInstance implements Serializable, IEntity {
      */
     @TableField("complete_time")
     private Date completeTime;
+    /**
+     * 签到奖励时间
+     */
+    @TableField("sign_time")
+    private Date signTime;
 
     public Long getId() {
         return id;
@@ -74,6 +79,15 @@ public class BillCoinTaskInstance implements Serializable, IEntity {
         return this;
     }
 
+    public Date getSignTime() {
+        return signTime;
+    }
+
+    public BillCoinTaskInstance setSignTime(Date signTime) {
+        this.signTime = signTime;
+        return this;
+    }
+
     /**
      * 表名
      */
@@ -94,6 +108,11 @@ public class BillCoinTaskInstance implements Serializable, IEntity {
      * 完成时间
      */
     public static final String COMPLETE_TIME = "complete_time";
+
+    /**
+     * 签到奖励时间
+     */
+    public static final String SIGN_TIME = "sign_time";
 
     @Override
     public BillCoinTaskInstance pkVal(Serializable val) {
