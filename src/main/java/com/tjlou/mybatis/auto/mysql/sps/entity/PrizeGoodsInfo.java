@@ -63,6 +63,11 @@ public class PrizeGoodsInfo implements Serializable, IEntity {
      */
     @TableField("modify_time")
     private Date modifyTime;
+    /**
+     * 主图
+     */
+    @TableField("first_pic")
+    private String firstPic;
 
     public Long getId() {
         return id;
@@ -164,6 +169,17 @@ public class PrizeGoodsInfo implements Serializable, IEntity {
         return this;
     }
 
+    public String getFirstPic() {
+        return firstPic;
+    }
+
+    public PrizeGoodsInfo setFirstPic(String firstPic) {
+        if (firstPic != null)
+            firstPic = firstPic.trim();
+        this.firstPic = firstPic;
+        return this;
+    }
+
     /**
      * 表名
      */
@@ -214,6 +230,11 @@ public class PrizeGoodsInfo implements Serializable, IEntity {
      * 修改时间
      */
     public static final String MODIFY_TIME = "modify_time";
+
+    /**
+     * 主图
+     */
+    public static final String FIRST_PIC = "first_pic";
 
     @Override
     public PrizeGoodsInfo pkVal(Serializable val) {

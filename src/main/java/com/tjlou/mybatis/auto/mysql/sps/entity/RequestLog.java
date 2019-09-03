@@ -15,7 +15,7 @@ import java.util.Date;
  * </p>
  *
  * @author Gaby
- * @since 2019-08-06
+ * @since 2019-09-02
  */
 @TableName("request_log")
 public class RequestLog implements Serializable, IEntity {
@@ -40,7 +40,10 @@ public class RequestLog implements Serializable, IEntity {
      * 消耗毫秒值
      */
     private Long consume;
-    private String ooio;
+    /**
+     * 错误标记
+     */
+    private String message;
 
     public Integer getId() {
         return id;
@@ -91,14 +94,14 @@ public class RequestLog implements Serializable, IEntity {
         return this;
     }
 
-    public String getOoio() {
-        return ooio;
+    public String getMessage() {
+        return message;
     }
 
-    public RequestLog setOoio(String ooio) {
-        if (ooio != null)
-            ooio = ooio.trim();
-        this.ooio = ooio;
+    public RequestLog setMessage(String message) {
+        if (message != null)
+            message = message.trim();
+        this.message = message;
         return this;
     }
 
@@ -128,7 +131,10 @@ public class RequestLog implements Serializable, IEntity {
      */
     public static final String CONSUME = "consume";
 
-    public static final String OOIO = "ooio";
+    /**
+     * 错误标记
+     */
+    public static final String MESSAGE = "message";
 
     @Override
     public RequestLog pkVal(Serializable val) {
