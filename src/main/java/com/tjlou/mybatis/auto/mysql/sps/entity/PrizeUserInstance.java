@@ -15,7 +15,7 @@ import java.util.Date;
  * </p>
  *
  * @author Gaby
- * @since 2019-08-31
+ * @since 2019-09-05
  */
 @TableName("prize_user_instance")
 public class PrizeUserInstance implements Serializable, IEntity {
@@ -38,9 +38,14 @@ public class PrizeUserInstance implements Serializable, IEntity {
     @TableField("user_account_id")
     private Long userAccountId;
     /**
-     * 重叠次数
+     * 重叠次数(弃用)
      */
     private Integer overlap;
+    /**
+     * 兑奖码
+     */
+    @TableField("redemption_code")
+    private String redemptionCode;
 
     public Long getId() {
         return id;
@@ -87,6 +92,17 @@ public class PrizeUserInstance implements Serializable, IEntity {
         return this;
     }
 
+    public String getRedemptionCode() {
+        return redemptionCode;
+    }
+
+    public PrizeUserInstance setRedemptionCode(String redemptionCode) {
+        if (redemptionCode != null)
+            redemptionCode = redemptionCode.trim();
+        this.redemptionCode = redemptionCode;
+        return this;
+    }
+
     /**
      * 表名
      */
@@ -109,9 +125,14 @@ public class PrizeUserInstance implements Serializable, IEntity {
     public static final String USER_ACCOUNT_ID = "user_account_id";
 
     /**
-     * 重叠次数
+     * 重叠次数(弃用)
      */
     public static final String OVERLAP = "overlap";
+
+    /**
+     * 兑奖码
+     */
+    public static final String REDEMPTION_CODE = "redemption_code";
 
     @Override
     public PrizeUserInstance pkVal(Serializable val) {

@@ -12,7 +12,7 @@ import org.springframework.stereotype.Service;
  * </p>
  *
  * @author Gaby
- * @since 2019-08-31
+ * @since 2019-09-05
  */
 @Service
 public class PrizeUserInstanceServiceImpl extends ServiceImpl<PrizeUserInstanceMapper, PrizeUserInstance> implements PrizeUserInstanceService {

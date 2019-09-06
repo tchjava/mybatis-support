@@ -15,7 +15,7 @@ import java.util.Date;
  * </p>
  *
  * @author Gaby
- * @since 2019-08-31
+ * @since 2019-09-05
  */
 @TableName("prize_win_info")
 public class PrizeWinInfo implements Serializable, IEntity {
@@ -37,6 +37,11 @@ public class PrizeWinInfo implements Serializable, IEntity {
      */
     @TableField("create_time")
     private Date createTime;
+    /**
+     * 兑奖码
+     */
+    @TableField("redemption_code")
+    private String redemptionCode;
 
     public Long getId() {
         return id;
@@ -74,6 +79,17 @@ public class PrizeWinInfo implements Serializable, IEntity {
         return this;
     }
 
+    public String getRedemptionCode() {
+        return redemptionCode;
+    }
+
+    public PrizeWinInfo setRedemptionCode(String redemptionCode) {
+        if (redemptionCode != null)
+            redemptionCode = redemptionCode.trim();
+        this.redemptionCode = redemptionCode;
+        return this;
+    }
+
     /**
      * 表名
      */
@@ -94,6 +110,11 @@ public class PrizeWinInfo implements Serializable, IEntity {
      * 中奖时间
      */
     public static final String CREATE_TIME = "create_time";
+
+    /**
+     * 兑奖码
+     */
+    public static final String REDEMPTION_CODE = "redemption_code";
 
     @Override
     public PrizeWinInfo pkVal(Serializable val) {
