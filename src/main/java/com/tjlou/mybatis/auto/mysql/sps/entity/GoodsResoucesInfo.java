@@ -15,7 +15,7 @@ import java.util.Date;
  * </p>
  *
  * @author Gaby
- * @since 2019-06-20
+ * @since 2019-09-11
  */
 @TableName("goods_resouces_info")
 public class GoodsResoucesInfo implements Serializable, IEntity {
@@ -36,7 +36,7 @@ public class GoodsResoucesInfo implements Serializable, IEntity {
      */
     private Date intime;
     /**
-     * 类型(0 图片 1 视频)
+     * 类型(0 图片 1 视频 2-视频的截帧图)
      */
     private String type;
     /**
@@ -48,6 +48,14 @@ public class GoodsResoucesInfo implements Serializable, IEntity {
      * 状态 00A-有效  00Z-失效
      */
     private String status;
+    /**
+     * 图片宽度
+     */
+    private Integer width;
+    /**
+     * 图片高度
+     */
+    private Integer height;
 
     public Long getId() {
         return id;
@@ -120,6 +128,24 @@ public class GoodsResoucesInfo implements Serializable, IEntity {
         return this;
     }
 
+    public Integer getWidth() {
+        return width;
+    }
+
+    public GoodsResoucesInfo setWidth(Integer width) {
+        this.width = width;
+        return this;
+    }
+
+    public Integer getHeight() {
+        return height;
+    }
+
+    public GoodsResoucesInfo setHeight(Integer height) {
+        this.height = height;
+        return this;
+    }
+
     /**
      * 表名
      */
@@ -142,7 +168,7 @@ public class GoodsResoucesInfo implements Serializable, IEntity {
     public static final String INTIME = "intime";
 
     /**
-     * 类型(0 图片 1 视频)
+     * 类型(0 图片 1 视频 2-视频的截帧图)
      */
     public static final String TYPE = "type";
 
@@ -155,6 +181,16 @@ public class GoodsResoucesInfo implements Serializable, IEntity {
      * 状态 00A-有效  00Z-失效
      */
     public static final String STATUS = "status";
+
+    /**
+     * 图片宽度
+     */
+    public static final String WIDTH = "width";
+
+    /**
+     * 图片高度
+     */
+    public static final String HEIGHT = "height";
 
     @Override
     public GoodsResoucesInfo pkVal(Serializable val) {
