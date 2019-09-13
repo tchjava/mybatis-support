@@ -46,7 +46,8 @@ public class CodeGenerator {
         tableFillList.add(new TableFill("ASDD_SS", FieldFill.INSERT_UPDATE));
 
         //输出目录
-        String outPutDir = "";
+        String outPutDir = "D:\\maven_project\\mybatis-support\\src\\main\\java";
+        String xmlOutPutDir = outPutDir+"\\com\\gaby\\auto\\mapper\\xml\\";
         //驱动
         String driverName = "com.mysql.jdbc.Driver";
         String url = "jdbc:mysql://127.0.0.1:3306/crm?characterEncoding=utf8";
@@ -155,7 +156,7 @@ public class CodeGenerator {
                     // 自定义输出文件目录
                     @Override
                     public String outputFile(TableInfo tableInfo) {
-                        return "D:\\maven_project\\mybatis-support\\src\\main\\java\\com\\gaby\\mybatis\\auto\\mapper\\xml" + tableInfo.getEntityName() + "Mapper.xml";
+                        return xmlOutPutDir + tableInfo.getEntityName() + "Mapper.xml";
                     }
                 }))
         ).setTemplate(
