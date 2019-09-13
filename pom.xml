@@ -15,58 +15,19 @@
     <version>1.0-SNAPSHOT</version>
   </parent>
   <dependencies>
-
-    <!--Mybatis-->
-    <!--mybatisplus自动会添加相对应的版本-->
     <dependency>
       <groupId>com.baomidou</groupId>
-      <artifactId>mybatis-plus</artifactId>
+      <artifactId>mybatis-plus-generator</artifactId>
+      <version>3.2.0</version>
     </dependency>
-
     <dependency>
-      <groupId>org.projectlombok</groupId>
-      <artifactId>lombok</artifactId>
+      <groupId>org.apache.velocity</groupId>
+      <artifactId>velocity-engine-core</artifactId>
+      <version>2.1</version>
     </dependency>
-    <!--spring-->
-    <!--spring-->
-    <dependency>
-      <groupId>org.springframework</groupId>
-      <artifactId>spring-webmvc</artifactId>
-    </dependency>
-
-    <dependency>
-      <groupId>org.springframework</groupId>
-      <artifactId>spring-jdbc</artifactId>
-    </dependency>
-    <!--slf4j-->
-    <dependency>
-      <groupId>org.slf4j</groupId>
-      <artifactId>slf4j-log4j12</artifactId>
-    </dependency>
-    <!--连接mysql包-->
     <dependency>
       <groupId>mysql</groupId>
       <artifactId>mysql-connector-java</artifactId>
     </dependency>
-    <!--模板-->
-    <dependency>
-      <groupId>org.apache.velocity</groupId>
-      <artifactId>velocity</artifactId>
-    </dependency>
   </dependencies>
-  <build>
-    <!-- 不拦截xml -->
-    <resources>
-      <resource>
-        <directory>src/main/java</directory>
-        <includes>
-          <include>**/*.xml</include>
-        </includes>
-        <filtering>false</filtering>
-      </resource>
-      <resource>
-        <directory>src/main/resources</directory>
-      </resource>
-    </resources>
-  </build>
 </project>
