@@ -15,7 +15,7 @@ import java.util.Date;
  * </p>
  *
  * @author Gaby
- * @since 2019-09-05
+ * @since 2019-09-12
  */
 @TableName("prize_goods_log")
 public class PrizeGoodsLog implements Serializable, IEntity {
@@ -54,6 +54,16 @@ public class PrizeGoodsLog implements Serializable, IEntity {
      */
     @TableField("win_code")
     private String winCode;
+    /**
+     * 参与人数
+     */
+    @TableField("active_num")
+    private Integer activeNum;
+    /**
+     * 奖品数量
+     */
+    @TableField("prize_num")
+    private Integer prizeNum;
 
     public Long getId() {
         return id;
@@ -133,6 +143,24 @@ public class PrizeGoodsLog implements Serializable, IEntity {
         return this;
     }
 
+    public Integer getActiveNum() {
+        return activeNum;
+    }
+
+    public PrizeGoodsLog setActiveNum(Integer activeNum) {
+        this.activeNum = activeNum;
+        return this;
+    }
+
+    public Integer getPrizeNum() {
+        return prizeNum;
+    }
+
+    public PrizeGoodsLog setPrizeNum(Integer prizeNum) {
+        this.prizeNum = prizeNum;
+        return this;
+    }
+
     /**
      * 表名
      */
@@ -173,6 +201,16 @@ public class PrizeGoodsLog implements Serializable, IEntity {
      * 中奖码
      */
     public static final String WIN_CODE = "win_code";
+
+    /**
+     * 参与人数
+     */
+    public static final String ACTIVE_NUM = "active_num";
+
+    /**
+     * 奖品数量
+     */
+    public static final String PRIZE_NUM = "prize_num";
 
     @Override
     public PrizeGoodsLog pkVal(Serializable val) {
