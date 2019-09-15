@@ -12,7 +12,7 @@ import org.springframework.stereotype.Service;
  * </p>
  *
  * @author Gaby
- * @since 2019-09-05
+ * @since 2019-09-15
  */
 @Service
 public class PrizeWinInfoServiceImpl extends ServiceImpl<PrizeWinInfoMapper, PrizeWinInfo> implements PrizeWinInfoService {
