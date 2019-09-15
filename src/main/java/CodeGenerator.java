@@ -46,16 +46,16 @@ public class CodeGenerator {
         tableFillList.add(new TableFill("ASDD_SS", FieldFill.INSERT_UPDATE));
 
         //输出目录
-        String outPutDir = "D:\\maven_project\\mybatis-support\\src\\main\\java";
-        String xmlOutPutDir = outPutDir+"\\com\\gaby\\auto\\mapper\\xml\\";
+        String outPutDir = "D:\\environment\\idea_workspace\\ut\\fish-store\\src\\main\\java";
+        String xmlOutPutDir = outPutDir+"/"+"com/gaby/fishstore/mapper/xml/";
         //驱动
         String driverName = "com.mysql.jdbc.Driver";
-        String url = "jdbc:mysql://127.0.0.1:3306/crm?characterEncoding=utf8";
+        String url = "jdbc:mysql://127.0.0.1:3306/fish_store?characterEncoding=utf8";
         String username = "root";
         String password = "123456";
         // 自定义包路径
         String parent = "com.gaby";
-        String moduleName = "auto";
+        String moduleName = "fishstore";
         String controller = "controller";
         String service = "service";
         String mapper = "mapper";
