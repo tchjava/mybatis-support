@@ -14,7 +14,7 @@ import java.io.Serializable;
  * </p>
  *
  * @author Gaby
- * @since 2019-08-12
+ * @since 2019-09-17
  */
 @TableName("goods_ext_info")
 public class GoodsExtInfo implements Serializable, IEntity {
@@ -35,6 +35,21 @@ public class GoodsExtInfo implements Serializable, IEntity {
      * 状态  00A-有效   00Z-失效
      */
     private String status;
+    /**
+     * 超级购活动权重值
+     */
+    @TableField("cjg_weight")
+    private Double cjgWeight;
+    /**
+     * 精选好货活动权重值
+     */
+    @TableField("jxhh_weight")
+    private Double jxhhWeight;
+    /**
+     * 超人气活动权重值
+     */
+    @TableField("crq_weight")
+    private Double crqWeight;
 
     public Long getId() {
         return id;
@@ -76,6 +91,33 @@ public class GoodsExtInfo implements Serializable, IEntity {
         return this;
     }
 
+    public Double getCjgWeight() {
+        return cjgWeight;
+    }
+
+    public GoodsExtInfo setCjgWeight(Double cjgWeight) {
+        this.cjgWeight = cjgWeight;
+        return this;
+    }
+
+    public Double getJxhhWeight() {
+        return jxhhWeight;
+    }
+
+    public GoodsExtInfo setJxhhWeight(Double jxhhWeight) {
+        this.jxhhWeight = jxhhWeight;
+        return this;
+    }
+
+    public Double getCrqWeight() {
+        return crqWeight;
+    }
+
+    public GoodsExtInfo setCrqWeight(Double crqWeight) {
+        this.crqWeight = crqWeight;
+        return this;
+    }
+
     /**
      * 表名
      */
@@ -96,6 +138,21 @@ public class GoodsExtInfo implements Serializable, IEntity {
      * 状态  00A-有效   00Z-失效
      */
     public static final String STATUS = "status";
+
+    /**
+     * 超级购活动权重值
+     */
+    public static final String CJG_WEIGHT = "cjg_weight";
+
+    /**
+     * 精选好货活动权重值
+     */
+    public static final String JXHH_WEIGHT = "jxhh_weight";
+
+    /**
+     * 超人气活动权重值
+     */
+    public static final String CRQ_WEIGHT = "crq_weight";
 
     @Override
     public GoodsExtInfo pkVal(Serializable val) {
