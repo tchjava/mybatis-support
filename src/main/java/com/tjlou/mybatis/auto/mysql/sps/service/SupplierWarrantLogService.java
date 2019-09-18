@@ -9,7 +9,7 @@ import com.baomidou.mybatisplus.service.IService;
  * </p>
  *
  * @author Gaby
- * @since 2019-07-24
+ * @since 2019-09-18
  */
 public interface SupplierWarrantLogService extends IService<SupplierWarrantLog> {
 

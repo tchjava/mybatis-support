@@ -15,7 +15,7 @@ import java.util.Date;
  * </p>
  *
  * @author Gaby
- * @since 2019-07-24
+ * @since 2019-09-18
  */
 @TableName("supplier_warrant_log")
 public class SupplierWarrantLog implements Serializable, IEntity {
@@ -38,6 +38,11 @@ public class SupplierWarrantLog implements Serializable, IEntity {
     @TableField("warrant_id")
     private Long warrantId;
     /**
+     * 缴纳成功记录标识
+     */
+    @TableField("success_id")
+    private Long successId;
+    /**
      * 变动金额 单位:分
      */
     @TableField("change_num")
@@ -48,7 +53,7 @@ public class SupplierWarrantLog implements Serializable, IEntity {
     @TableField("balance_num")
     private Integer balanceNum;
     /**
-     * 变动类型   1-首次  2-追加  4-退消
+     * 变动类型   1-首次  2-追加  4-退消 8-退消中
      */
     @TableField("change_type")
     private Integer changeType;
@@ -58,7 +63,7 @@ public class SupplierWarrantLog implements Serializable, IEntity {
     @TableField("change_time")
     private Date changeTime;
     /**
-     * 状态 00A-已缴纳 00B-待审核 00Z-退保
+     * 状态  00A-已缴纳 00B-待审核 00C-待支付-临时态 00D-已退保 00Z-失效
      */
     private String status;
     /**
@@ -104,6 +109,15 @@ public class SupplierWarrantLog implements Serializable, IEntity {
 
     public SupplierWarrantLog setWarrantId(Long warrantId) {
         this.warrantId = warrantId;
+        return this;
+    }
+
+    public Long getSuccessId() {
+        return successId;
+    }
+
+    public SupplierWarrantLog setSuccessId(Long successId) {
+        this.successId = successId;
         return this;
     }
 
@@ -198,6 +212,11 @@ public class SupplierWarrantLog implements Serializable, IEntity {
     public static final String WARRANT_ID = "warrant_id";
 
     /**
+     * 缴纳成功记录标识
+     */
+    public static final String SUCCESS_ID = "success_id";
+
+    /**
      * 变动金额 单位:分
      */
     public static final String CHANGE_NUM = "change_num";
@@ -208,7 +227,7 @@ public class SupplierWarrantLog implements Serializable, IEntity {
     public static final String BALANCE_NUM = "balance_num";
 
     /**
-     * 变动类型   1-首次  2-追加  4-退消
+     * 变动类型   1-首次  2-追加  4-退消 8-退消中
      */
     public static final String CHANGE_TYPE = "change_type";
 
@@ -218,7 +237,7 @@ public class SupplierWarrantLog implements Serializable, IEntity {
     public static final String CHANGE_TIME = "change_time";
 
     /**
-     * 状态 00A-已缴纳 00B-待审核 00Z-退保
+     * 状态  00A-已缴纳 00B-待审核 00C-待支付-临时态 00D-已退保 00Z-失效
      */
     public static final String STATUS = "status";
 
