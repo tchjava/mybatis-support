@@ -46,6 +46,10 @@ public class SupplierWarrantSuccess implements Serializable, IEntity {
      */
     private Integer total;
     /**
+     * 类型  0-余额支付 1-微信支付
+     */
+    private Long type;
+    /**
      * 已提现次数
      */
     @TableField("thaw_num")
@@ -119,6 +123,15 @@ public class SupplierWarrantSuccess implements Serializable, IEntity {
         return this;
     }
 
+    public Long getType() {
+        return type;
+    }
+
+    public SupplierWarrantSuccess setType(Long type) {
+        this.type = type;
+        return this;
+    }
+
     public Integer getThawNum() {
         return thawNum;
     }
@@ -187,6 +200,11 @@ public class SupplierWarrantSuccess implements Serializable, IEntity {
      * 单笔金额  单位：分
      */
     public static final String TOTAL = "total";
+
+    /**
+     * 类型  0-余额支付 1-微信支付
+     */
+    public static final String TYPE = "type";
 
     /**
      * 已提现次数
