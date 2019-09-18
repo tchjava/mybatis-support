@@ -15,7 +15,7 @@ import java.util.Date;
  * </p>
  *
  * @author Gaby
- * @since 2019-08-28
+ * @since 2019-09-17
  */
 @TableName("user_action_info")
 public class UserActionInfo implements Serializable, IEntity {
@@ -45,6 +45,10 @@ public class UserActionInfo implements Serializable, IEntity {
      */
     @TableField("create_time")
     private Date createTime;
+    /**
+     * 浏览次数
+     */
+    private Integer num;
 
     public Long getId() {
         return id;
@@ -100,6 +104,15 @@ public class UserActionInfo implements Serializable, IEntity {
         return this;
     }
 
+    public Integer getNum() {
+        return num;
+    }
+
+    public UserActionInfo setNum(Integer num) {
+        this.num = num;
+        return this;
+    }
+
     /**
      * 表名
      */
@@ -130,6 +143,11 @@ public class UserActionInfo implements Serializable, IEntity {
      * 创建时间
      */
     public static final String CREATE_TIME = "create_time";
+
+    /**
+     * 浏览次数
+     */
+    public static final String NUM = "num";
 
     @Override
     public UserActionInfo pkVal(Serializable val) {

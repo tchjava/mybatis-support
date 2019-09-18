@@ -9,7 +9,7 @@ import com.baomidou.mybatisplus.service.IService;
  * </p>
  *
  * @author Gaby
- * @since 2019-09-16
+ * @since 2019-09-18
  */
 public interface ShareQrcodeInfoService extends IService<ShareQrcodeInfo> {
 

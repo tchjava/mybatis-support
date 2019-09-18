@@ -15,7 +15,7 @@ import java.util.Date;
  * </p>
  *
  * @author Gaby
- * @since 2019-09-16
+ * @since 2019-09-18
  */
 @TableName("share_qrcode_info")
 public class ShareQrcodeInfo implements Serializable, IEntity {
@@ -28,9 +28,14 @@ public class ShareQrcodeInfo implements Serializable, IEntity {
     @TableField("source_id")
     private Long sourceId;
     /**
-     * 类型  1-奖品  2-商品
+     * 类型  1-抽奖实例  2-商品
      */
     private Integer type;
+    /**
+     * 用户标识
+     */
+    @TableField("user_account_id")
+    private Long userAccountId;
     /**
      * 二维码地址
      */
@@ -78,6 +83,15 @@ public class ShareQrcodeInfo implements Serializable, IEntity {
 
     public ShareQrcodeInfo setType(Integer type) {
         this.type = type;
+        return this;
+    }
+
+    public Long getUserAccountId() {
+        return userAccountId;
+    }
+
+    public ShareQrcodeInfo setUserAccountId(Long userAccountId) {
+        this.userAccountId = userAccountId;
         return this;
     }
 
@@ -144,9 +158,14 @@ public class ShareQrcodeInfo implements Serializable, IEntity {
     public static final String SOURCE_ID = "source_id";
 
     /**
-     * 类型  1-奖品  2-商品
+     * 类型  1-抽奖实例  2-商品
      */
     public static final String TYPE = "type";
+
+    /**
+     * 用户标识
+     */
+    public static final String USER_ACCOUNT_ID = "user_account_id";
 
     /**
      * 二维码地址

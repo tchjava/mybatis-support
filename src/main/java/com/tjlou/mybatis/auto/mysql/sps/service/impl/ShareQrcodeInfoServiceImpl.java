@@ -12,7 +12,7 @@ import org.springframework.stereotype.Service;
  * </p>
  *
  * @author Gaby
- * @since 2019-09-16
+ * @since 2019-09-18
  */
 @Service
 public class ShareQrcodeInfoServiceImpl extends ServiceImpl<ShareQrcodeInfoMapper, ShareQrcodeInfo> implements ShareQrcodeInfoService {
