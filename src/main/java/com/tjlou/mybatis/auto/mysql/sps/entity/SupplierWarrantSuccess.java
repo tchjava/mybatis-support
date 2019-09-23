@@ -48,7 +48,7 @@ public class SupplierWarrantSuccess implements Serializable, IEntity {
     /**
      * 类型  0-余额支付 1-微信支付
      */
-    private Long type;
+    private Integer type;
     /**
      * 已提现次数
      */
@@ -123,11 +123,11 @@ public class SupplierWarrantSuccess implements Serializable, IEntity {
         return this;
     }
 
-    public Long getType() {
+    public Integer getType() {
         return type;
     }
 
-    public SupplierWarrantSuccess setType(Long type) {
+    public SupplierWarrantSuccess setType(Integer type) {
         this.type = type;
         return this;
     }
