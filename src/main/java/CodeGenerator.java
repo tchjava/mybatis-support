@@ -46,11 +46,11 @@ public class CodeGenerator {
         tableFillList.add(new TableFill("ASDD_SS", FieldFill.INSERT_UPDATE));
 
         //输出目录
-        String outPutDir = "D:\\environment\\idea_workspace\\ut\\cloud-demo\\src\\main\\java";
+        String outPutDir = "D:\\environment\\idea_workspace\\ut\\cloud-demo\\user-service\\src\\main\\java";
         String xmlOutPutDir = outPutDir+"/"+"com/gaby/cloud/mapper/xml/";
         //驱动
         String driverName = "com.mysql.jdbc.Driver";
-        String url = "jdbc:mysql://127.0.0.1:3306/fish_store?characterEncoding=utf8";
+        String url = "jdbc:mysql://127.0.0.1:3306/stu_score?characterEncoding=utf8";
         String username = "root";
         String password = "123456";
         // 自定义包路径
@@ -59,6 +59,9 @@ public class CodeGenerator {
         String controller = "controller";
         String service = "service";
         String mapper = "mapper";
+
+        //要生成的表名
+        String[] tables = new String[]{"student_info"};
 
 
         // 代码生成器
@@ -114,6 +117,7 @@ public class CodeGenerator {
                         //.setSuperEntityColumns(new String[]{"test_id"})
                         .setTableFillList(tableFillList)
                         .setEntityColumnConstant(true)
+                        .setInclude(tables)
                 // 自定义 mapper 父类
                 // .setSuperMapperClass("com.baomidou.demo.TestMapper")
                 // 自定义 service 父类
