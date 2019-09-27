@@ -14,7 +14,7 @@ import java.io.Serializable;
  * </p>
  *
  * @author Gaby
- * @since 2019-07-17
+ * @since 2019-09-25
  */
 @TableName("platform_setting_info")
 public class PlatformSettingInfo implements Serializable, IEntity {
@@ -41,6 +41,16 @@ public class PlatformSettingInfo implements Serializable, IEntity {
      */
     @TableField("commission_ratio")
     private Integer commissionRatio;
+    /**
+     * 买家客服微信号
+     */
+    @TableField("buyer_kf")
+    private String buyerKf;
+    /**
+     * 买家客服微信号
+     */
+    @TableField("seller_kf")
+    private String sellerKf;
 
     public Long getId() {
         return id;
@@ -87,6 +97,28 @@ public class PlatformSettingInfo implements Serializable, IEntity {
         return this;
     }
 
+    public String getBuyerKf() {
+        return buyerKf;
+    }
+
+    public PlatformSettingInfo setBuyerKf(String buyerKf) {
+        if (buyerKf != null)
+            buyerKf = buyerKf.trim();
+        this.buyerKf = buyerKf;
+        return this;
+    }
+
+    public String getSellerKf() {
+        return sellerKf;
+    }
+
+    public PlatformSettingInfo setSellerKf(String sellerKf) {
+        if (sellerKf != null)
+            sellerKf = sellerKf.trim();
+        this.sellerKf = sellerKf;
+        return this;
+    }
+
     /**
      * 表名
      */
@@ -112,6 +144,16 @@ public class PlatformSettingInfo implements Serializable, IEntity {
      * 平台佣金比例:百分比
      */
     public static final String COMMISSION_RATIO = "commission_ratio";
+
+    /**
+     * 买家客服微信号
+     */
+    public static final String BUYER_KF = "buyer_kf";
+
+    /**
+     * 买家客服微信号
+     */
+    public static final String SELLER_KF = "seller_kf";
 
     @Override
     public PlatformSettingInfo pkVal(Serializable val) {
