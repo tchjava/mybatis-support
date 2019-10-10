@@ -15,7 +15,7 @@ import java.util.Date;
  * </p>
  *
  * @author Gaby
- * @since 2019-08-01
+ * @since 2019-10-10
  */
 @TableName("user_account_info")
 public class UserAccountInfo implements Serializable, IEntity {
@@ -102,6 +102,15 @@ public class UserAccountInfo implements Serializable, IEntity {
      */
     @TableField("fixed_supplier")
     private String fixedSupplier;
+    /**
+     * 用户在开放平台的唯一标识符
+     */
+    private String unionid;
+    /**
+     * 公众号下的openId
+     */
+    @TableField("pub_open_id")
+    private String pubOpenId;
 
     public Long getId() {
         return id;
@@ -296,6 +305,28 @@ public class UserAccountInfo implements Serializable, IEntity {
         return this;
     }
 
+    public String getUnionid() {
+        return unionid;
+    }
+
+    public UserAccountInfo setUnionid(String unionid) {
+        if (unionid != null)
+            unionid = unionid.trim();
+        this.unionid = unionid;
+        return this;
+    }
+
+    public String getPubOpenId() {
+        return pubOpenId;
+    }
+
+    public UserAccountInfo setPubOpenId(String pubOpenId) {
+        if (pubOpenId != null)
+            pubOpenId = pubOpenId.trim();
+        this.pubOpenId = pubOpenId;
+        return this;
+    }
+
     /**
      * 表名
      */
@@ -391,6 +422,16 @@ public class UserAccountInfo implements Serializable, IEntity {
      * 固定[我的]为商家页面 -标识
      */
     public static final String FIXED_SUPPLIER = "fixed_supplier";
+
+    /**
+     * 用户在开放平台的唯一标识符
+     */
+    public static final String UNIONID = "unionid";
+
+    /**
+     * 公众号下的openId
+     */
+    public static final String PUB_OPEN_ID = "pub_open_id";
 
     @Override
     public UserAccountInfo pkVal(Serializable val) {
