@@ -15,7 +15,7 @@ import java.util.Date;
  * </p>
  *
  * @author Gaby
- * @since 2019-09-19
+ * @since 2019-10-17
  */
 @TableName("goods_info")
 public class GoodsInfo implements Serializable, IEntity {
@@ -115,6 +115,10 @@ public class GoodsInfo implements Serializable, IEntity {
      */
     @TableField("to_pay")
     private Integer toPay;
+    /**
+     * 备注
+     */
+    private String comment;
 
     public Long getId() {
         return id;
@@ -326,6 +330,17 @@ public class GoodsInfo implements Serializable, IEntity {
         return this;
     }
 
+    public String getComment() {
+        return comment;
+    }
+
+    public GoodsInfo setComment(String comment) {
+        if (comment != null)
+            comment = comment.trim();
+        this.comment = comment;
+        return this;
+    }
+
     /**
      * 表名
      */
@@ -436,6 +451,11 @@ public class GoodsInfo implements Serializable, IEntity {
      * 邮费到付
      */
     public static final String TO_PAY = "to_pay";
+
+    /**
+     * 备注
+     */
+    public static final String COMMENT = "comment";
 
     @Override
     public GoodsInfo pkVal(Serializable val) {
