@@ -3,6 +3,7 @@ package com.tjlou.mybatis.auto.mysql.sps.entity;
 import com.baomidou.mybatisplus.annotations.TableField;
 import com.baomidou.mybatisplus.annotations.TableId;
 import com.baomidou.mybatisplus.annotations.TableName;
+import com.baomidou.mybatisplus.enums.FieldStrategy;
 import com.baomidou.mybatisplus.enums.IdType;
 import com.tjlou.mybatis.base.entity.IEntity;
 
@@ -39,6 +40,7 @@ public class AddressInfo implements Serializable, IEntity {
     /**
      * 区/县
      */
+    @TableField(strategy = FieldStrategy.IGNORED)
     private Integer addr3;
     /**
      * 具体地址
