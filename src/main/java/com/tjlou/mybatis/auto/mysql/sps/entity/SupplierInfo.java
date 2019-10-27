@@ -1,14 +1,22 @@
 package com.tjlou.mybatis.auto.mysql.sps.entity;
 
-import com.baomidou.mybatisplus.annotations.TableField;
-import com.baomidou.mybatisplus.annotations.TableId;
-import com.baomidou.mybatisplus.annotations.TableName;
 import com.baomidou.mybatisplus.enums.IdType;
-import com.tjlou.mybatis.base.entity.IEntity;
 
-import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Date;
+
+import com.baomidou.mybatisplus.annotations.TableId;
+import com.baomidou.mybatisplus.annotations.TableField;
+import com.baomidou.mybatisplus.annotations.TableId;
+import com.baomidou.mybatisplus.enums.IdType;
+import com.baomidou.mybatisplus.annotations.TableName;
+
+import java.io.Serializable;
+
+import com.baomidou.mybatisplus.enums.IdType;
+import com.baomidou.mybatisplus.annotations.TableField;
+import com.baomidou.mybatisplus.annotations.TableId;
+import com.tjlou.mybatis.base.entity.IEntity;
 
 /**
  * <p>
@@ -16,10 +24,11 @@ import java.util.Date;
  * </p>
  *
  * @author Gaby
- * @since 2019-08-09
+ * @since 2019-10-27
  */
 @TableName("supplier_info")
 public class SupplierInfo implements Serializable, IEntity {
+
 
     @TableId(value = "id", type = IdType.AUTO)
     private Long id;
@@ -111,6 +120,11 @@ public class SupplierInfo implements Serializable, IEntity {
      * 审核未通过的原因
      */
     private String reason;
+    /**
+     * 是否是内部店铺
+     */
+    private Integer inside;
+
 
     public Long getId() {
         return id;
@@ -323,6 +337,15 @@ public class SupplierInfo implements Serializable, IEntity {
         return this;
     }
 
+    public Integer getInside() {
+        return inside;
+    }
+
+    public SupplierInfo setInside(Integer inside) {
+        this.inside = inside;
+        return this;
+    }
+
     /**
      * 表名
      */
@@ -428,6 +451,12 @@ public class SupplierInfo implements Serializable, IEntity {
      * 审核未通过的原因
      */
     public static final String REASON = "reason";
+
+    /**
+     * 是否是内部店铺
+     */
+    public static final String INSIDE = "inside";
+
 
     @Override
     public SupplierInfo pkVal(Serializable val) {
