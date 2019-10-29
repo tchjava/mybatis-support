@@ -1,13 +1,21 @@
 package com.tjlou.mybatis.auto.mysql.sps.entity;
 
+import com.baomidou.mybatisplus.enums.IdType;
+
+import java.util.Date;
+
+import com.baomidou.mybatisplus.annotations.TableId;
 import com.baomidou.mybatisplus.annotations.TableField;
 import com.baomidou.mybatisplus.annotations.TableId;
-import com.baomidou.mybatisplus.annotations.TableName;
 import com.baomidou.mybatisplus.enums.IdType;
-import com.tjlou.mybatis.base.entity.IEntity;
+import com.baomidou.mybatisplus.annotations.TableName;
 
 import java.io.Serializable;
-import java.util.Date;
+
+import com.baomidou.mybatisplus.enums.IdType;
+import com.baomidou.mybatisplus.annotations.TableField;
+import com.baomidou.mybatisplus.annotations.TableId;
+import com.tjlou.mybatis.base.entity.IEntity;
 
 /**
  * <p>
@@ -15,10 +23,11 @@ import java.util.Date;
  * </p>
  *
  * @author Gaby
- * @since 2019-10-10
+ * @since 2019-10-29
  */
 @TableName("user_account_info")
 public class UserAccountInfo implements Serializable, IEntity {
+
 
     @TableId(value = "id", type = IdType.AUTO)
     private Long id;
@@ -79,7 +88,7 @@ public class UserAccountInfo implements Serializable, IEntity {
     @TableField("agent_time")
     private Date agentTime;
     /**
-     * 状态 00A-已绑定  00B-未绑定  00Z-失效
+     * 状态 00A-已绑定  00B-未绑定  00C-关注公众号但未进入小程序(临时态) 00Z-失效
      */
     private String status;
     /**
@@ -111,6 +120,11 @@ public class UserAccountInfo implements Serializable, IEntity {
      */
     @TableField("pub_open_id")
     private String pubOpenId;
+    /**
+     * 静默登录的密钥
+     */
+    private String token;
+
 
     public Long getId() {
         return id;
@@ -327,6 +341,17 @@ public class UserAccountInfo implements Serializable, IEntity {
         return this;
     }
 
+    public String getToken() {
+        return token;
+    }
+
+    public UserAccountInfo setToken(String token) {
+        if (token != null)
+            token = token.trim();
+        this.token = token;
+        return this;
+    }
+
     /**
      * 表名
      */
@@ -399,7 +424,7 @@ public class UserAccountInfo implements Serializable, IEntity {
     public static final String AGENT_TIME = "agent_time";
 
     /**
-     * 状态 00A-已绑定  00B-未绑定  00Z-失效
+     * 状态 00A-已绑定  00B-未绑定  00C-关注公众号但未进入小程序(临时态) 00Z-失效
      */
     public static final String STATUS = "status";
 
@@ -432,6 +457,12 @@ public class UserAccountInfo implements Serializable, IEntity {
      * 公众号下的openId
      */
     public static final String PUB_OPEN_ID = "pub_open_id";
+
+    /**
+     * 静默登录的密钥
+     */
+    public static final String TOKEN = "token";
+
 
     @Override
     public UserAccountInfo pkVal(Serializable val) {
