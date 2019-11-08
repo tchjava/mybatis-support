@@ -9,7 +9,11 @@ import com.baomidou.mybatisplus.generator.config.po.TableInfo;
 import com.baomidou.mybatisplus.generator.config.rules.IColumnType;
 import com.baomidou.mybatisplus.generator.config.rules.NamingStrategy;
 import com.baomidou.mybatisplus.generator.engine.FreemarkerTemplateEngine;
+import org.apache.commons.lang3.StringUtils;
+import org.junit.Test;
 
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.*;
 
 public class CodeGenerator {
@@ -45,23 +49,34 @@ public class CodeGenerator {
         List<TableFill> tableFillList = new ArrayList<>();
         tableFillList.add(new TableFill("ASDD_SS", FieldFill.INSERT_UPDATE));
 
+        //读取文件
+        Properties properties = new Properties();
+        InputStream is = CodeGenerator.class.getResourceAsStream("generator.properties");
+        try {
+            properties.load(is);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
         //输出目录
-        String outPutDir = "D:\\environment\\idea_workspace\\ut\\cloud-demo\\user-service\\src\\main\\java";
-        String xmlOutPutDir = outPutDir+"/"+"com/gaby/cloud/mapper/xml/";
+        String outPutDir =properties.get("project.path")+"\\src\\main\\java";
+
         //驱动
-        String driverName = "com.mysql.jdbc.Driver";
-        String url = "jdbc:mysql://127.0.0.1:3306/stu_score?characterEncoding=utf8";
-        String username = "root";
-        String password = "123456";
+        String driverName = properties.getProperty("jdbc.driverName");
+        String url = properties.getProperty("jdbc.url");
+        String username = properties.getProperty("jdbc.username");
+        String password = properties.getProperty("jdbc.password");
         // 自定义包路径
-        String parent = "com.gaby";
-        String moduleName = "cloud";
-        String controller = "controller";
-        String service = "service";
-        String mapper = "mapper";
+        String parent = properties.getProperty("mp.parent");
+        String moduleName = properties.getProperty("mp.module");
+        String controller = properties.getProperty("mp.controllerName");
+        String service = properties.getProperty("mp.serviceName");
+        String mapper = properties.getProperty("mp.mapperName");
+        //输出MapperXml的目录
+        String xmlOutPutDir = outPutDir+"/"+getPath(parent)+"/"+getPath(moduleName)+"/"+getPath(mapper)+"/xml/";
 
         //要生成的表名
-        String[] tables = new String[]{"student_info"};
+        String[] tables = properties.getProperty("tables").split(",");
 
 
         // 代码生成器
@@ -184,5 +199,29 @@ public class CodeGenerator {
 
         // 打印注入设置，这里演示模板里面怎么获取注入内容【可无】
         System.err.println(mpg.getCfg().getMap().get("abc"));
+    }
+
+    public static String getPath(String searchString) {
+        return StringUtils.replace(searchString, ".", "/");
+    }
+
+    @Test
+    public void f1() {
+        //读取文件
+        Properties properties = new Properties();
+        InputStream is = CodeGenerator.class.getResourceAsStream("generator.properties");
+        try {
+            properties.load(is);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        System.out.println(properties.get("project.path"));
+    }
+
+    @Test
+    public void f2() {
+        String parentName = "com.gaby";
+        String moduleName = "stu";
+        System.out.println(getPath(parentName)+"/"+getPath(moduleName));
     }
 }
