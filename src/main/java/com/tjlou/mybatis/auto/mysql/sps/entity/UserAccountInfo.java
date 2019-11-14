@@ -1,21 +1,13 @@
 package com.tjlou.mybatis.auto.mysql.sps.entity;
 
-import com.baomidou.mybatisplus.enums.IdType;
-
-import java.util.Date;
-
-import com.baomidou.mybatisplus.annotations.TableId;
 import com.baomidou.mybatisplus.annotations.TableField;
 import com.baomidou.mybatisplus.annotations.TableId;
-import com.baomidou.mybatisplus.enums.IdType;
 import com.baomidou.mybatisplus.annotations.TableName;
+import com.baomidou.mybatisplus.enums.IdType;
+import com.tjlou.mybatis.base.entity.IEntity;
 
 import java.io.Serializable;
-
-import com.baomidou.mybatisplus.enums.IdType;
-import com.baomidou.mybatisplus.annotations.TableField;
-import com.baomidou.mybatisplus.annotations.TableId;
-import com.tjlou.mybatis.base.entity.IEntity;
+import java.util.Date;
 
 /**
  * <p>
@@ -23,7 +15,7 @@ import com.tjlou.mybatis.base.entity.IEntity;
  * </p>
  *
  * @author Gaby
- * @since 2019-10-29
+ * @since 2019-11-14
  */
 @TableName("user_account_info")
 public class UserAccountInfo implements Serializable, IEntity {
@@ -124,6 +116,10 @@ public class UserAccountInfo implements Serializable, IEntity {
      * 静默登录的密钥
      */
     private String token;
+    /**
+     * 来源   1-JSAPI 2-IOS 3-Andrioid 4-WEB
+     */
+    private Integer sources;
 
 
     public Long getId() {
@@ -352,6 +348,15 @@ public class UserAccountInfo implements Serializable, IEntity {
         return this;
     }
 
+    public Integer getSources() {
+        return sources;
+    }
+
+    public UserAccountInfo setSources(Integer sources) {
+        this.sources = sources;
+        return this;
+    }
+
     /**
      * 表名
      */
@@ -462,6 +467,11 @@ public class UserAccountInfo implements Serializable, IEntity {
      * 静默登录的密钥
      */
     public static final String TOKEN = "token";
+
+    /**
+     * 来源   1-JSAPI 2-IOS 3-Andrioid 4-WEB
+     */
+    public static final String SOURCES = "sources";
 
 
     @Override
