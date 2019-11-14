@@ -122,7 +122,7 @@ public class CodeGenerator {
                 new StrategyConfig()
                         // .setCapitalMode(true)// 全局大写命名
                         // .setDbColumnUnderline(true)//全局下划线命名
-                        .setTablePrefix(new String[]{"bmd_", "mp_"})// 此处可以修改为您的表前缀
+                        .setTablePrefix(new String[]{"bmd_", "mp_","tb_"})// 此处可以修改为您的表前缀
                         .setNaming(NamingStrategy.underline_to_camel)// 表名生成策略
                         // .setInclude(new String[] { "user" }) // 需要生成的表
                         // .setExclude(new String[]{"test"}) // 排除生成的表
@@ -150,7 +150,7 @@ public class CodeGenerator {
                 // 【实体】是否为lombok模型（默认 false）<a href="https://projectlombok.org/">document</a>
                 // .setEntityLombokModel(true)
                 // Boolean类型字段是否移除is前缀处理
-                // .setEntityBooleanColumnRemoveIsPrefix(true)
+                 .setEntityBooleanColumnRemoveIsPrefix(true)
                 // .setRestControllerStyle(true)
                 // .setControllerMappingHyphenStyle(true)
         ).setPackageInfo(
