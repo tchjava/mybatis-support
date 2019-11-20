@@ -14,10 +14,11 @@ import java.io.Serializable;
  * </p>
  *
  * @author Gaby
- * @since 2019-08-18
+ * @since 2019-11-20
  */
 @TableName("platform_info")
 public class PlatformInfo implements Serializable, IEntity {
+
 
     @TableId(value = "id", type = IdType.AUTO)
     private Long id;
@@ -53,6 +54,17 @@ public class PlatformInfo implements Serializable, IEntity {
      */
     @TableField("cert_path")
     private String certPath;
+    /**
+     * 公众号的appid
+     */
+    @TableField("pub_appid")
+    private String pubAppid;
+    /**
+     * 公众号的密钥
+     */
+    @TableField("pub_secret")
+    private String pubSecret;
+
 
     public Long getId() {
         return id;
@@ -140,6 +152,28 @@ public class PlatformInfo implements Serializable, IEntity {
         return this;
     }
 
+    public String getPubAppid() {
+        return pubAppid;
+    }
+
+    public PlatformInfo setPubAppid(String pubAppid) {
+        if (pubAppid != null)
+            pubAppid = pubAppid.trim();
+        this.pubAppid = pubAppid;
+        return this;
+    }
+
+    public String getPubSecret() {
+        return pubSecret;
+    }
+
+    public PlatformInfo setPubSecret(String pubSecret) {
+        if (pubSecret != null)
+            pubSecret = pubSecret.trim();
+        this.pubSecret = pubSecret;
+        return this;
+    }
+
     /**
      * 表名
      */
@@ -180,6 +214,17 @@ public class PlatformInfo implements Serializable, IEntity {
      * 存放位置
      */
     public static final String CERT_PATH = "cert_path";
+
+    /**
+     * 公众号的appid
+     */
+    public static final String PUB_APPID = "pub_appid";
+
+    /**
+     * 公众号的密钥
+     */
+    public static final String PUB_SECRET = "pub_secret";
+
 
     @Override
     public PlatformInfo pkVal(Serializable val) {
