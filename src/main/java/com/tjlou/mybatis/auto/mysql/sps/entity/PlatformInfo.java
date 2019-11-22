@@ -14,7 +14,7 @@ import java.io.Serializable;
  * </p>
  *
  * @author Gaby
- * @since 2019-11-20
+ * @since 2019-11-22
  */
 @TableName("platform_info")
 public class PlatformInfo implements Serializable, IEntity {
@@ -64,6 +64,16 @@ public class PlatformInfo implements Serializable, IEntity {
      */
     @TableField("pub_secret")
     private String pubSecret;
+    /**
+     * 移动支付的appid
+     */
+    @TableField("app_appid")
+    private String appAppid;
+    /**
+     * 移动支付的密钥
+     */
+    @TableField("app_secret")
+    private String appSecret;
 
 
     public Long getId() {
@@ -174,6 +184,28 @@ public class PlatformInfo implements Serializable, IEntity {
         return this;
     }
 
+    public String getAppAppid() {
+        return appAppid;
+    }
+
+    public PlatformInfo setAppAppid(String appAppid) {
+        if (appAppid != null)
+            appAppid = appAppid.trim();
+        this.appAppid = appAppid;
+        return this;
+    }
+
+    public String getAppSecret() {
+        return appSecret;
+    }
+
+    public PlatformInfo setAppSecret(String appSecret) {
+        if (appSecret != null)
+            appSecret = appSecret.trim();
+        this.appSecret = appSecret;
+        return this;
+    }
+
     /**
      * 表名
      */
@@ -224,6 +256,16 @@ public class PlatformInfo implements Serializable, IEntity {
      * 公众号的密钥
      */
     public static final String PUB_SECRET = "pub_secret";
+
+    /**
+     * 移动支付的appid
+     */
+    public static final String APP_APPID = "app_appid";
+
+    /**
+     * 移动支付的密钥
+     */
+    public static final String APP_SECRET = "app_secret";
 
 
     @Override
