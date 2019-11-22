@@ -15,7 +15,7 @@ import java.util.Date;
  * </p>
  *
  * @author Gaby
- * @since 2019-11-14
+ * @since 2019-11-22
  */
 @TableName("user_account_info")
 public class UserAccountInfo implements Serializable, IEntity {
@@ -117,9 +117,14 @@ public class UserAccountInfo implements Serializable, IEntity {
      */
     private String token;
     /**
-     * 来源   1-JSAPI 2-IOS 3-Andrioid 4-WEB
+     * 来源  1-JSAPI  2-IOS 4-Android 8-WEB
      */
     private Integer sources;
+    /**
+     * 移动应用下的openid
+     */
+    @TableField("app_open_id")
+    private String appOpenId;
 
 
     public Long getId() {
@@ -357,6 +362,17 @@ public class UserAccountInfo implements Serializable, IEntity {
         return this;
     }
 
+    public String getAppOpenId() {
+        return appOpenId;
+    }
+
+    public UserAccountInfo setAppOpenId(String appOpenId) {
+        if (appOpenId != null)
+            appOpenId = appOpenId.trim();
+        this.appOpenId = appOpenId;
+        return this;
+    }
+
     /**
      * 表名
      */
@@ -469,9 +485,14 @@ public class UserAccountInfo implements Serializable, IEntity {
     public static final String TOKEN = "token";
 
     /**
-     * 来源   1-JSAPI 2-IOS 3-Andrioid 4-WEB
+     * 来源  1-JSAPI  2-IOS 4-Android 8-WEB
      */
     public static final String SOURCES = "sources";
+
+    /**
+     * 移动应用下的openid
+     */
+    public static final String APP_OPEN_ID = "app_open_id";
 
 
     @Override
