@@ -15,10 +15,11 @@ import java.util.Date;
  * </p>
  *
  * @author Gaby
- * @since 2019-09-06
+ * @since 2019-11-25
  */
 @TableName("prize_order_info")
 public class PrizeOrderInfo implements Serializable, IEntity {
+
 
     @TableId(value = "id", type = IdType.AUTO)
     private Long id;
@@ -42,7 +43,7 @@ public class PrizeOrderInfo implements Serializable, IEntity {
      */
     private Integer payment;
     /**
-     * 状态 1-待确认  2-已确认   4-已发货   8-交易成功  16-交易关闭  32-待评价
+     * 1-待付款  2-已付款 4-已发货 8-交易成功  16-交易关闭 32-已评价
      */
     private Integer status;
     /**
@@ -101,6 +102,11 @@ public class PrizeOrderInfo implements Serializable, IEntity {
     @TableField("buyer_rate")
     private String buyerRate;
     /**
+     * 买家是否修改过地址
+     */
+    @TableField("buyer_update")
+    private String buyerUpdate;
+    /**
      * 收货人手机号
      */
     @TableField("receiver_mobile")
@@ -158,6 +164,7 @@ public class PrizeOrderInfo implements Serializable, IEntity {
      */
     @TableField("prize_log_id")
     private Long prizeLogId;
+
 
     public Long getId() {
         return id;
@@ -326,6 +333,17 @@ public class PrizeOrderInfo implements Serializable, IEntity {
         return this;
     }
 
+    public String getBuyerUpdate() {
+        return buyerUpdate;
+    }
+
+    public PrizeOrderInfo setBuyerUpdate(String buyerUpdate) {
+        if (buyerUpdate != null)
+            buyerUpdate = buyerUpdate.trim();
+        this.buyerUpdate = buyerUpdate;
+        return this;
+    }
+
     public String getReceiverMobile() {
         return receiverMobile;
     }
@@ -477,7 +495,7 @@ public class PrizeOrderInfo implements Serializable, IEntity {
     public static final String PAYMENT = "payment";
 
     /**
-     * 状态 1-待确认  2-已确认   4-已发货   8-交易成功  16-交易关闭  32-待评价
+     * 1-待付款  2-已付款 4-已发货 8-交易成功  16-交易关闭 32-已评价
      */
     public static final String STATUS = "status";
 
@@ -535,6 +553,11 @@ public class PrizeOrderInfo implements Serializable, IEntity {
      * 买家是否已评价
      */
     public static final String BUYER_RATE = "buyer_rate";
+
+    /**
+     * 买家是否修改过地址
+     */
+    public static final String BUYER_UPDATE = "buyer_update";
 
     /**
      * 收货人手机号
@@ -595,6 +618,7 @@ public class PrizeOrderInfo implements Serializable, IEntity {
      * 抽奖标识
      */
     public static final String PRIZE_LOG_ID = "prize_log_id";
+
 
     @Override
     public PrizeOrderInfo pkVal(Serializable val) {

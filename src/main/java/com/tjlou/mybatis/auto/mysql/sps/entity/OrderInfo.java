@@ -15,10 +15,11 @@ import java.util.Date;
  * </p>
  *
  * @author Gaby
- * @since 2019-07-17
+ * @since 2019-11-25
  */
 @TableName("order_info")
 public class OrderInfo implements Serializable, IEntity {
+
 
     @TableId(value = "id", type = IdType.AUTO)
     private Long id;
@@ -42,7 +43,7 @@ public class OrderInfo implements Serializable, IEntity {
     @TableField("user_account_id")
     private Long userAccountId;
     /**
-     * 支付类型 1-在线支付 2-货到付款
+     * 支付类型 1-在线支付 2-余额支付
      */
     @TableField("payment_type")
     private String paymentType;
@@ -52,7 +53,7 @@ public class OrderInfo implements Serializable, IEntity {
     @TableField("post_fee")
     private Integer postFee;
     /**
-     * 状态 1-待付款  2-已付款 4-已发货 8-交易成功  16-交易关闭 32-待评价 64-退款中
+     * 状态 1-待付款  2-已付款 4-已发货 8-交易成功  16-交易关闭 32-已评价 64-退款中
      */
     private Integer status;
     /**
@@ -116,6 +117,11 @@ public class OrderInfo implements Serializable, IEntity {
     @TableField("buyer_rate")
     private String buyerRate;
     /**
+     * 买家是否修改过地址
+     */
+    @TableField("buyer_update")
+    private String buyerUpdate;
+    /**
      * 收货人手机号
      */
     @TableField("receiver_mobile")
@@ -166,6 +172,7 @@ public class OrderInfo implements Serializable, IEntity {
      * 代理
      */
     private Long agent;
+
 
     public Long getId() {
         return id;
@@ -363,6 +370,17 @@ public class OrderInfo implements Serializable, IEntity {
         return this;
     }
 
+    public String getBuyerUpdate() {
+        return buyerUpdate;
+    }
+
+    public OrderInfo setBuyerUpdate(String buyerUpdate) {
+        if (buyerUpdate != null)
+            buyerUpdate = buyerUpdate.trim();
+        this.buyerUpdate = buyerUpdate;
+        return this;
+    }
+
     public String getReceiverMobile() {
         return receiverMobile;
     }
@@ -507,7 +525,7 @@ public class OrderInfo implements Serializable, IEntity {
     public static final String USER_ACCOUNT_ID = "user_account_id";
 
     /**
-     * 支付类型 1-在线支付 2-货到付款
+     * 支付类型 1-在线支付 2-余额支付
      */
     public static final String PAYMENT_TYPE = "payment_type";
 
@@ -517,7 +535,7 @@ public class OrderInfo implements Serializable, IEntity {
     public static final String POST_FEE = "post_fee";
 
     /**
-     * 状态 1-待付款  2-已付款 4-已发货 8-交易成功  16-交易关闭 32-待评价 64-退款中
+     * 状态 1-待付款  2-已付款 4-已发货 8-交易成功  16-交易关闭 32-已评价 64-退款中
      */
     public static final String STATUS = "status";
 
@@ -582,6 +600,11 @@ public class OrderInfo implements Serializable, IEntity {
     public static final String BUYER_RATE = "buyer_rate";
 
     /**
+     * 买家是否修改过地址
+     */
+    public static final String BUYER_UPDATE = "buyer_update";
+
+    /**
      * 收货人手机号
      */
     public static final String RECEIVER_MOBILE = "receiver_mobile";
@@ -635,6 +658,7 @@ public class OrderInfo implements Serializable, IEntity {
      * 代理
      */
     public static final String AGENT = "agent";
+
 
     @Override
     public OrderInfo pkVal(Serializable val) {
