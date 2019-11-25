@@ -172,6 +172,11 @@ public class OrderInfo implements Serializable, IEntity {
      * 代理
      */
     private Long agent;
+    /**
+     * 取消原因
+     */
+    @TableField("cancel_reason")
+    private String cancelReason;
 
 
     public Long getId() {
@@ -498,6 +503,17 @@ public class OrderInfo implements Serializable, IEntity {
         return this;
     }
 
+    public String getCancelReason() {
+        return cancelReason;
+    }
+
+    public OrderInfo setCancelReason(String cancelReason) {
+        if (cancelReason != null)
+            cancelReason = cancelReason.trim();
+        this.cancelReason = cancelReason;
+        return this;
+    }
+
     /**
      * 表名
      */
@@ -658,6 +674,11 @@ public class OrderInfo implements Serializable, IEntity {
      * 代理
      */
     public static final String AGENT = "agent";
+
+    /**
+     * 取消原因
+     */
+    public static final String CANCEL_REASON = "cancel_reason";
 
 
     @Override
