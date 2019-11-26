@@ -15,10 +15,11 @@ import java.util.Date;
  * </p>
  *
  * @author Gaby
- * @since 2019-07-18
+ * @since 2019-11-26
  */
 @TableName("refund_info")
 public class RefundInfo implements Serializable, IEntity {
+
 
     @TableId(value = "id", type = IdType.AUTO)
     private Long id;
@@ -46,7 +47,7 @@ public class RefundInfo implements Serializable, IEntity {
      */
     private Integer type;
     /**
-     * 状态 1-申请退款 2-同意退货 4-买家已发货 8-退款成功 16-拒绝
+     * 状态 1-申请退款 2-同意退货 4-买家已发货 8-退款成功 16-拒绝 32-失效 64-介入中 128-平台拒绝
      */
     private Integer status;
     /**
@@ -154,6 +155,17 @@ public class RefundInfo implements Serializable, IEntity {
      * 退款凭证
      */
     private String credence;
+    /**
+     * 拒绝退款原因
+     */
+    @TableField("seller_reject_reason")
+    private String sellerRejectReason;
+    /**
+     * 拒绝凭证
+     */
+    @TableField("seller_credence")
+    private String sellerCredence;
+
 
     public Long getId() {
         return id;
@@ -446,6 +458,28 @@ public class RefundInfo implements Serializable, IEntity {
         return this;
     }
 
+    public String getSellerRejectReason() {
+        return sellerRejectReason;
+    }
+
+    public RefundInfo setSellerRejectReason(String sellerRejectReason) {
+        if (sellerRejectReason != null)
+            sellerRejectReason = sellerRejectReason.trim();
+        this.sellerRejectReason = sellerRejectReason;
+        return this;
+    }
+
+    public String getSellerCredence() {
+        return sellerCredence;
+    }
+
+    public RefundInfo setSellerCredence(String sellerCredence) {
+        if (sellerCredence != null)
+            sellerCredence = sellerCredence.trim();
+        this.sellerCredence = sellerCredence;
+        return this;
+    }
+
     /**
      * 表名
      */
@@ -478,7 +512,7 @@ public class RefundInfo implements Serializable, IEntity {
     public static final String TYPE = "type";
 
     /**
-     * 状态 1-申请退款 2-同意退货 4-买家已发货 8-退款成功 16-拒绝
+     * 状态 1-申请退款 2-同意退货 4-买家已发货 8-退款成功 16-拒绝 32-失效 64-介入中 128-平台拒绝
      */
     public static final String STATUS = "status";
 
@@ -591,6 +625,17 @@ public class RefundInfo implements Serializable, IEntity {
      * 退款凭证
      */
     public static final String CREDENCE = "credence";
+
+    /**
+     * 拒绝退款原因
+     */
+    public static final String SELLER_REJECT_REASON = "seller_reject_reason";
+
+    /**
+     * 拒绝凭证
+     */
+    public static final String SELLER_CREDENCE = "seller_credence";
+
 
     @Override
     public RefundInfo pkVal(Serializable val) {
