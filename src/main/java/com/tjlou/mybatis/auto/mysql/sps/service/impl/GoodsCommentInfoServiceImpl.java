@@ -12,7 +12,7 @@ import org.springframework.stereotype.Service;
  * </p>
  *
  * @author Gaby
- * @since 2019-07-09
+ * @since 2019-11-26
  */
 @Service
 public class GoodsCommentInfoServiceImpl extends ServiceImpl<GoodsCommentInfoMapper, GoodsCommentInfo> implements GoodsCommentInfoService {

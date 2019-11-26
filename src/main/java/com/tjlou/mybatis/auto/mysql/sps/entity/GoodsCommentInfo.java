@@ -15,10 +15,11 @@ import java.util.Date;
  * </p>
  *
  * @author Gaby
- * @since 2019-07-09
+ * @since 2019-11-26
  */
 @TableName("goods_comment_info")
 public class GoodsCommentInfo implements Serializable, IEntity {
+
 
     @TableId(value = "id", type = IdType.AUTO)
     private Long id;
@@ -74,6 +75,11 @@ public class GoodsCommentInfo implements Serializable, IEntity {
      * 好中差评价  00A-好评  00B-中评 00C-差评
      */
     private String degree;
+    /**
+     * 图片
+     */
+    private String images;
+
 
     public Long getId() {
         return id;
@@ -204,6 +210,17 @@ public class GoodsCommentInfo implements Serializable, IEntity {
         return this;
     }
 
+    public String getImages() {
+        return images;
+    }
+
+    public GoodsCommentInfo setImages(String images) {
+        if (images != null)
+            images = images.trim();
+        this.images = images;
+        return this;
+    }
+
     /**
      * 表名
      */
@@ -269,6 +286,12 @@ public class GoodsCommentInfo implements Serializable, IEntity {
      * 好中差评价  00A-好评  00B-中评 00C-差评
      */
     public static final String DEGREE = "degree";
+
+    /**
+     * 图片
+     */
+    public static final String IMAGES = "images";
+
 
     @Override
     public GoodsCommentInfo pkVal(Serializable val) {
