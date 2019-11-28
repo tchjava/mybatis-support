@@ -15,7 +15,7 @@ import java.util.Date;
  * </p>
  *
  * @author Gaby
- * @since 2019-11-25
+ * @since 2019-11-28
  */
 @TableName("order_info")
 public class OrderInfo implements Serializable, IEntity {
@@ -177,6 +177,11 @@ public class OrderInfo implements Serializable, IEntity {
      */
     @TableField("cancel_reason")
     private String cancelReason;
+    /**
+     * 修改单号次数
+     */
+    @TableField("express_update")
+    private Integer expressUpdate;
 
 
     public Long getId() {
@@ -514,6 +519,15 @@ public class OrderInfo implements Serializable, IEntity {
         return this;
     }
 
+    public Integer getExpressUpdate() {
+        return expressUpdate;
+    }
+
+    public OrderInfo setExpressUpdate(Integer expressUpdate) {
+        this.expressUpdate = expressUpdate;
+        return this;
+    }
+
     /**
      * 表名
      */
@@ -679,6 +693,11 @@ public class OrderInfo implements Serializable, IEntity {
      * 取消原因
      */
     public static final String CANCEL_REASON = "cancel_reason";
+
+    /**
+     * 修改单号次数
+     */
+    public static final String EXPRESS_UPDATE = "express_update";
 
 
     @Override
