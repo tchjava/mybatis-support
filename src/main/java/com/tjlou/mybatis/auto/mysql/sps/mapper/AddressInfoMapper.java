@@ -10,7 +10,7 @@ import com.baomidou.mybatisplus.mapper.BaseMapper;
  * </p>
  *
  * @author Gaby
- * @since 2019-06-21
+ * @since 2019-11-28
  */
 public interface AddressInfoMapper extends BaseMapper<AddressInfo> {
 

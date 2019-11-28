@@ -3,7 +3,6 @@ package com.tjlou.mybatis.auto.mysql.sps.entity;
 import com.baomidou.mybatisplus.annotations.TableField;
 import com.baomidou.mybatisplus.annotations.TableId;
 import com.baomidou.mybatisplus.annotations.TableName;
-import com.baomidou.mybatisplus.enums.FieldStrategy;
 import com.baomidou.mybatisplus.enums.IdType;
 import com.tjlou.mybatis.base.entity.IEntity;
 
@@ -17,10 +16,11 @@ import java.util.Date;
  * </p>
  *
  * @author Gaby
- * @since 2019-06-21
+ * @since 2019-11-28
  */
 @TableName("address_info")
 public class AddressInfo implements Serializable, IEntity {
+
 
     @TableId(value = "id", type = IdType.AUTO)
     private Long id;
@@ -40,7 +40,6 @@ public class AddressInfo implements Serializable, IEntity {
     /**
      * 区/县
      */
-    @TableField(strategy = FieldStrategy.IGNORED)
     private Integer addr3;
     /**
      * 具体地址
@@ -66,6 +65,11 @@ public class AddressInfo implements Serializable, IEntity {
      * 状态 00A-有效 00B-默认地址  00Z-无效
      */
     private String status;
+    /**
+     * 0-收货地址 1-退货地址
+     */
+    private Integer type;
+
 
     public Long getId() {
         return id;
@@ -176,6 +180,15 @@ public class AddressInfo implements Serializable, IEntity {
         return this;
     }
 
+    public Integer getType() {
+        return type;
+    }
+
+    public AddressInfo setType(Integer type) {
+        this.type = type;
+        return this;
+    }
+
     /**
      * 表名
      */
@@ -231,6 +244,12 @@ public class AddressInfo implements Serializable, IEntity {
      * 状态 00A-有效 00B-默认地址  00Z-无效
      */
     public static final String STATUS = "status";
+
+    /**
+     * 0-收货地址 1-退货地址
+     */
+    public static final String TYPE = "type";
+
 
     @Override
     public AddressInfo pkVal(Serializable val) {
