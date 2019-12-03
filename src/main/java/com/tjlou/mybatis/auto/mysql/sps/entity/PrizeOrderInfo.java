@@ -15,7 +15,7 @@ import java.util.Date;
  * </p>
  *
  * @author Gaby
- * @since 2019-11-25
+ * @since 2019-12-03
  */
 @TableName("prize_order_info")
 public class PrizeOrderInfo implements Serializable, IEntity {
@@ -164,6 +164,11 @@ public class PrizeOrderInfo implements Serializable, IEntity {
      */
     @TableField("prize_log_id")
     private Long prizeLogId;
+    /**
+     * 修改单号次数
+     */
+    @TableField("express_update")
+    private Integer expressUpdate;
 
 
     public Long getId() {
@@ -468,6 +473,15 @@ public class PrizeOrderInfo implements Serializable, IEntity {
         return this;
     }
 
+    public Integer getExpressUpdate() {
+        return expressUpdate;
+    }
+
+    public PrizeOrderInfo setExpressUpdate(Integer expressUpdate) {
+        this.expressUpdate = expressUpdate;
+        return this;
+    }
+
     /**
      * 表名
      */
@@ -618,6 +632,11 @@ public class PrizeOrderInfo implements Serializable, IEntity {
      * 抽奖标识
      */
     public static final String PRIZE_LOG_ID = "prize_log_id";
+
+    /**
+     * 修改单号次数
+     */
+    public static final String EXPRESS_UPDATE = "express_update";
 
 
     @Override
