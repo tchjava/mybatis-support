@@ -6,6 +6,7 @@ import com.baomidou.mybatisplus.generator.config.*;
 import com.baomidou.mybatisplus.generator.config.converts.MySqlTypeConvert;
 import com.baomidou.mybatisplus.generator.config.po.TableFill;
 import com.baomidou.mybatisplus.generator.config.po.TableInfo;
+import com.baomidou.mybatisplus.generator.config.rules.DbColumnType;
 import com.baomidou.mybatisplus.generator.config.rules.IColumnType;
 import com.baomidou.mybatisplus.generator.config.rules.NamingStrategy;
 import com.baomidou.mybatisplus.generator.engine.FreemarkerTemplateEngine;
@@ -112,6 +113,9 @@ public class CodeGenerator {
                                 // if ( fieldType.toLowerCase().contains( "tinyint" ) ) {
                                 //    return DbColumnType.BOOLEAN;
                                 // }
+                                if(fieldType.toLowerCase().contains("datetime")){
+                                    return DbColumnType.DATE;
+                                }
                                 return super.processTypeConvert(globalConfig, fieldType);
                             }
                         })
@@ -150,7 +154,7 @@ public class CodeGenerator {
                 // public User setName(String name) {this.name = name; return this;}
                 // .setEntityBuilderModel(true)
                 // 【实体】是否为lombok模型（默认 false）<a href="https://projectlombok.org/">document</a>
-                // .setEntityLombokModel(true)
+                 .setEntityLombokModel(true)
                 // Boolean类型字段是否移除is前缀处理
                  .setEntityBooleanColumnRemoveIsPrefix(true)
                 // .setRestControllerStyle(true)
