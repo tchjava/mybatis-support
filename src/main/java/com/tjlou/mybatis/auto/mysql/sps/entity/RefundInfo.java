@@ -15,7 +15,7 @@ import java.util.Date;
  * </p>
  *
  * @author Gaby
- * @since 2019-11-26
+ * @since 2019-12-05
  */
 @TableName("refund_info")
 public class RefundInfo implements Serializable, IEntity {
@@ -165,6 +165,11 @@ public class RefundInfo implements Serializable, IEntity {
      */
     @TableField("seller_credence")
     private String sellerCredence;
+    /**
+     * 退款原因
+     */
+    @TableField("refund_reason")
+    private String refundReason;
 
 
     public Long getId() {
@@ -480,6 +485,17 @@ public class RefundInfo implements Serializable, IEntity {
         return this;
     }
 
+    public String getRefundReason() {
+        return refundReason;
+    }
+
+    public RefundInfo setRefundReason(String refundReason) {
+        if (refundReason != null)
+            refundReason = refundReason.trim();
+        this.refundReason = refundReason;
+        return this;
+    }
+
     /**
      * 表名
      */
@@ -635,6 +651,11 @@ public class RefundInfo implements Serializable, IEntity {
      * 拒绝凭证
      */
     public static final String SELLER_CREDENCE = "seller_credence";
+
+    /**
+     * 退款原因
+     */
+    public static final String REFUND_REASON = "refund_reason";
 
 
     @Override

@@ -9,7 +9,7 @@ import com.baomidou.mybatisplus.mapper.BaseMapper;
  * </p>
  *
  * @author Gaby
- * @since 2019-11-26
+ * @since 2019-12-05
  */
 public interface RefundInfoMapper extends BaseMapper<RefundInfo> {
 
