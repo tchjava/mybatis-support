@@ -15,10 +15,11 @@ import java.util.Date;
  * </p>
  *
  * @author Gaby
- * @since 2019-09-18
+ * @since 2019-12-07
  */
 @TableName("supplier_warrant_success")
 public class SupplierWarrantSuccess implements Serializable, IEntity {
+
 
     @TableId(value = "id", type = IdType.AUTO)
     private Long id;
@@ -65,9 +66,15 @@ public class SupplierWarrantSuccess implements Serializable, IEntity {
     @TableField("modify_time")
     private Date modifyTime;
     /**
-     * 状态  00A-有效  00Z-失效
+     * 状态  00A-有效  00B-提现中 00C-提现完毕 00Z-失效
      */
     private String status;
+    /**
+     * 交易号
+     */
+    @TableField("transaction_id")
+    private String transactionId;
+
 
     public Long getId() {
         return id;
@@ -170,6 +177,17 @@ public class SupplierWarrantSuccess implements Serializable, IEntity {
         return this;
     }
 
+    public String getTransactionId() {
+        return transactionId;
+    }
+
+    public SupplierWarrantSuccess setTransactionId(String transactionId) {
+        if (transactionId != null)
+            transactionId = transactionId.trim();
+        this.transactionId = transactionId;
+        return this;
+    }
+
     /**
      * 表名
      */
@@ -222,9 +240,15 @@ public class SupplierWarrantSuccess implements Serializable, IEntity {
     public static final String MODIFY_TIME = "modify_time";
 
     /**
-     * 状态  00A-有效  00Z-失效
+     * 状态  00A-有效  00B-提现中 00C-提现完毕 00Z-失效
      */
     public static final String STATUS = "status";
+
+    /**
+     * 交易号
+     */
+    public static final String TRANSACTION_ID = "transaction_id";
+
 
     @Override
     public SupplierWarrantSuccess pkVal(Serializable val) {
