@@ -15,7 +15,7 @@ import java.util.Date;
  * </p>
  *
  * @author Gaby
- * @since 2019-12-05
+ * @since 2019-12-08
  */
 @TableName("refund_info")
 public class RefundInfo implements Serializable, IEntity {
@@ -170,6 +170,11 @@ public class RefundInfo implements Serializable, IEntity {
      */
     @TableField("refund_reason")
     private String refundReason;
+    /**
+     * 同意退货原因
+     */
+    @TableField("agree_comment")
+    private String agreeComment;
 
 
     public Long getId() {
@@ -496,6 +501,17 @@ public class RefundInfo implements Serializable, IEntity {
         return this;
     }
 
+    public String getAgreeComment() {
+        return agreeComment;
+    }
+
+    public RefundInfo setAgreeComment(String agreeComment) {
+        if (agreeComment != null)
+            agreeComment = agreeComment.trim();
+        this.agreeComment = agreeComment;
+        return this;
+    }
+
     /**
      * 表名
      */
@@ -656,6 +672,11 @@ public class RefundInfo implements Serializable, IEntity {
      * 退款原因
      */
     public static final String REFUND_REASON = "refund_reason";
+
+    /**
+     * 同意退货原因
+     */
+    public static final String AGREE_COMMENT = "agree_comment";
 
 
     @Override
