@@ -12,7 +12,7 @@ import org.springframework.stereotype.Service;
  * </p>
  *
  * @author Gaby
- * @since 2019-12-07
+ * @since 2019-12-09
  */
 @Service
 public class SupplierWarrantSuccessServiceImpl extends ServiceImpl<SupplierWarrantSuccessMapper, SupplierWarrantSuccess> implements SupplierWarrantSuccessService {

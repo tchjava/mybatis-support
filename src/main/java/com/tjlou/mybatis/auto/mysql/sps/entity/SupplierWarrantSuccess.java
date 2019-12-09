@@ -15,7 +15,7 @@ import java.util.Date;
  * </p>
  *
  * @author Gaby
- * @since 2019-12-07
+ * @since 2019-12-09
  */
 @TableName("supplier_warrant_success")
 public class SupplierWarrantSuccess implements Serializable, IEntity {
@@ -74,6 +74,11 @@ public class SupplierWarrantSuccess implements Serializable, IEntity {
      */
     @TableField("transaction_id")
     private String transactionId;
+    /**
+     * 退款单号[可能多个]
+     */
+    @TableField("refund_code")
+    private String refundCode;
 
 
     public Long getId() {
@@ -188,6 +193,17 @@ public class SupplierWarrantSuccess implements Serializable, IEntity {
         return this;
     }
 
+    public String getRefundCode() {
+        return refundCode;
+    }
+
+    public SupplierWarrantSuccess setRefundCode(String refundCode) {
+        if (refundCode != null)
+            refundCode = refundCode.trim();
+        this.refundCode = refundCode;
+        return this;
+    }
+
     /**
      * 表名
      */
@@ -248,6 +264,11 @@ public class SupplierWarrantSuccess implements Serializable, IEntity {
      * 交易号
      */
     public static final String TRANSACTION_ID = "transaction_id";
+
+    /**
+     * 退款单号[可能多个]
+     */
+    public static final String REFUND_CODE = "refund_code";
 
 
     @Override
