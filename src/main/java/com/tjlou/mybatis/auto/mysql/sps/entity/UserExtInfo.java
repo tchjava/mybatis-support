@@ -14,7 +14,7 @@ import java.io.Serializable;
  * </p>
  *
  * @author Gaby
- * @since 2019-11-09
+ * @since 2019-12-30
  */
 @TableName("user_ext_info")
 public class UserExtInfo implements Serializable, IEntity {
@@ -34,6 +34,11 @@ public class UserExtInfo implements Serializable, IEntity {
      */
     @TableField("home_qrcode")
     private String homeQrcode;
+    /**
+     * 代理申请二维码
+     */
+    @TableField("agent_qrcode")
+    private String agentQrcode;
 
 
     public Long getId() {
@@ -74,6 +79,17 @@ public class UserExtInfo implements Serializable, IEntity {
         return this;
     }
 
+    public String getAgentQrcode() {
+        return agentQrcode;
+    }
+
+    public UserExtInfo setAgentQrcode(String agentQrcode) {
+        if (agentQrcode != null)
+            agentQrcode = agentQrcode.trim();
+        this.agentQrcode = agentQrcode;
+        return this;
+    }
+
     /**
      * 表名
      */
@@ -91,6 +107,11 @@ public class UserExtInfo implements Serializable, IEntity {
      * 首页二维码
      */
     public static final String HOME_QRCODE = "home_qrcode";
+
+    /**
+     * 代理申请二维码
+     */
+    public static final String AGENT_QRCODE = "agent_qrcode";
 
 
     @Override
