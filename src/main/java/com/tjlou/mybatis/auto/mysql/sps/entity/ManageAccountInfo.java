@@ -15,10 +15,11 @@ import java.util.Date;
  * </p>
  *
  * @author Gaby
- * @since 2019-08-08
+ * @since 2020-01-06
  */
 @TableName("manage_account_info")
 public class ManageAccountInfo implements Serializable, IEntity {
+
 
     @TableId(value = "id", type = IdType.AUTO)
     private Long id;
@@ -54,6 +55,11 @@ public class ManageAccountInfo implements Serializable, IEntity {
      * 状态 00A-有效   00B-禁用 00Z-失效
      */
     private String status;
+    /**
+     * 后台昵称
+     */
+    private String nickname;
+
 
     public Long getId() {
         return id;
@@ -133,6 +139,17 @@ public class ManageAccountInfo implements Serializable, IEntity {
         return this;
     }
 
+    public String getNickname() {
+        return nickname;
+    }
+
+    public ManageAccountInfo setNickname(String nickname) {
+        if (nickname != null)
+            nickname = nickname.trim();
+        this.nickname = nickname;
+        return this;
+    }
+
     /**
      * 表名
      */
@@ -173,6 +190,12 @@ public class ManageAccountInfo implements Serializable, IEntity {
      * 状态 00A-有效   00B-禁用 00Z-失效
      */
     public static final String STATUS = "status";
+
+    /**
+     * 后台昵称
+     */
+    public static final String NICKNAME = "nickname";
+
 
     @Override
     public ManageAccountInfo pkVal(Serializable val) {

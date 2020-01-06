@@ -12,7 +12,7 @@ import org.springframework.stereotype.Service;
  * </p>
  *
  * @author Gaby
- * @since 2019-08-08
+ * @since 2020-01-06
  */
 @Service
 public class ManageAccountInfoServiceImpl extends ServiceImpl<ManageAccountInfoMapper, ManageAccountInfo> implements ManageAccountInfoService {
