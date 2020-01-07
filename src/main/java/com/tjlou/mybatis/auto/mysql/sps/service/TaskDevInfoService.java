@@ -9,7 +9,7 @@ import com.baomidou.mybatisplus.service.IService;
  * </p>
  *
  * @author Gaby
- * @since 2020-01-06
+ * @since 2020-01-07
  */
 public interface TaskDevInfoService extends IService<TaskDevInfo> {
 

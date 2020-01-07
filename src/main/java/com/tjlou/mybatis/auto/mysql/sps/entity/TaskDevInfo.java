@@ -15,7 +15,7 @@ import java.util.Date;
  * </p>
  *
  * @author Gaby
- * @since 2020-01-06
+ * @since 2020-01-07
  */
 @TableName("task_dev_info")
 public class TaskDevInfo implements Serializable, IEntity {
@@ -38,13 +38,13 @@ public class TaskDevInfo implements Serializable, IEntity {
     /**
      * 所属项目
      */
-    private String project;
+    private Long project;
     /**
      * 模块
      */
     private String module;
     /**
-     * 任务类型
+     * 任务类型  1-需求  2-缺陷
      */
     @TableField("task_type")
     private Integer taskType;
@@ -53,7 +53,7 @@ public class TaskDevInfo implements Serializable, IEntity {
      */
     private String content;
     /**
-     * 优先级
+     * 优先级 1-不重要 2-次要 4-主要 8-严重
      */
     private Integer priority;
     /**
@@ -71,7 +71,7 @@ public class TaskDevInfo implements Serializable, IEntity {
      */
     private Integer expect;
     /**
-     * 任务状态
+     * 任务状态  00A-未开发 00B-开发中  00C-开发完成 00D-测试中 00E-已测试
      */
     private String status;
     /**
@@ -110,13 +110,11 @@ public class TaskDevInfo implements Serializable, IEntity {
         return this;
     }
 
-    public String getProject() {
+    public Long getProject() {
         return project;
     }
 
-    public TaskDevInfo setProject(String project) {
-        if (project != null)
-            project = project.trim();
+    public TaskDevInfo setProject(Long project) {
         this.project = project;
         return this;
     }
@@ -238,7 +236,7 @@ public class TaskDevInfo implements Serializable, IEntity {
     public static final String MODULE = "module";
 
     /**
-     * 任务类型
+     * 任务类型  1-需求  2-缺陷
      */
     public static final String TASK_TYPE = "task_type";
 
@@ -248,7 +246,7 @@ public class TaskDevInfo implements Serializable, IEntity {
     public static final String CONTENT = "content";
 
     /**
-     * 优先级
+     * 优先级 1-不重要 2-次要 4-主要 8-严重
      */
     public static final String PRIORITY = "priority";
 
@@ -268,7 +266,7 @@ public class TaskDevInfo implements Serializable, IEntity {
     public static final String EXPECT = "expect";
 
     /**
-     * 任务状态
+     * 任务状态  00A-未开发 00B-开发中  00C-开发完成 00D-测试中 00E-已测试
      */
     public static final String STATUS = "status";
 
