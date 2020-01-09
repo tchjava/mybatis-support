@@ -15,7 +15,7 @@ import java.util.Date;
  * </p>
  *
  * @author Gaby
- * @since 2020-01-07
+ * @since 2020-01-10
  */
 @TableName("task_dev_info")
 public class TaskDevInfo implements Serializable, IEntity {
@@ -79,6 +79,10 @@ public class TaskDevInfo implements Serializable, IEntity {
      */
     @TableField("create_time")
     private Date createTime;
+    /**
+     * 任务单号
+     */
+    private String code;
 
 
     public Long getId() {
@@ -206,6 +210,17 @@ public class TaskDevInfo implements Serializable, IEntity {
         return this;
     }
 
+    public String getCode() {
+        return code;
+    }
+
+    public TaskDevInfo setCode(String code) {
+        if (code != null)
+            code = code.trim();
+        this.code = code;
+        return this;
+    }
+
     /**
      * 表名
      */
@@ -274,6 +289,11 @@ public class TaskDevInfo implements Serializable, IEntity {
      * 创建时间
      */
     public static final String CREATE_TIME = "create_time";
+
+    /**
+     * 任务单号
+     */
+    public static final String CODE = "code";
 
 
     @Override
