@@ -83,6 +83,10 @@ public class TaskDevInfo implements Serializable, IEntity {
      * 任务单号
      */
     private String code;
+    /**
+     * 被指派者
+     */
+    private Long nominator;
 
 
     public Long getId() {
@@ -221,6 +225,15 @@ public class TaskDevInfo implements Serializable, IEntity {
         return this;
     }
 
+    public Long getNominator() {
+        return nominator;
+    }
+
+    public TaskDevInfo setNominator(Long nominator) {
+        this.nominator = nominator;
+        return this;
+    }
+
     /**
      * 表名
      */
@@ -294,6 +307,11 @@ public class TaskDevInfo implements Serializable, IEntity {
      * 任务单号
      */
     public static final String CODE = "code";
+
+    /**
+     * 被指派者
+     */
+    public static final String NOMINATOR = "nominator";
 
 
     @Override
