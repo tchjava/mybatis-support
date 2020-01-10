@@ -15,7 +15,7 @@ import java.util.Date;
  * </p>
  *
  * @author Gaby
- * @since 2020-01-06
+ * @since 2020-01-10
  */
 @TableName("manage_account_info")
 public class ManageAccountInfo implements Serializable, IEntity {
@@ -59,6 +59,11 @@ public class ManageAccountInfo implements Serializable, IEntity {
      * 后台昵称
      */
     private String nickname;
+    /**
+     * 公众号open_id
+     */
+    @TableField("pub_open_id")
+    private String pubOpenId;
 
 
     public Long getId() {
@@ -150,6 +155,17 @@ public class ManageAccountInfo implements Serializable, IEntity {
         return this;
     }
 
+    public String getPubOpenId() {
+        return pubOpenId;
+    }
+
+    public ManageAccountInfo setPubOpenId(String pubOpenId) {
+        if (pubOpenId != null)
+            pubOpenId = pubOpenId.trim();
+        this.pubOpenId = pubOpenId;
+        return this;
+    }
+
     /**
      * 表名
      */
@@ -195,6 +211,11 @@ public class ManageAccountInfo implements Serializable, IEntity {
      * 后台昵称
      */
     public static final String NICKNAME = "nickname";
+
+    /**
+     * 公众号open_id
+     */
+    public static final String PUB_OPEN_ID = "pub_open_id";
 
 
     @Override
