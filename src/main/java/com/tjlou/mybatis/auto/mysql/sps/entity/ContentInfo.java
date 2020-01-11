@@ -15,7 +15,7 @@ import java.util.Date;
  * </p>
  *
  * @author Gaby
- * @since 2019-08-21
+ * @since 2020-01-11
  */
 @TableName("content_info")
 public class ContentInfo implements Serializable, IEntity {
@@ -62,6 +62,10 @@ public class ContentInfo implements Serializable, IEntity {
      */
     @TableField("modify_time")
     private Date modifyTime;
+    /**
+     * 跳转参数
+     */
+    private String redirect;
 
     public Long getId() {
         return id;
@@ -163,6 +167,17 @@ public class ContentInfo implements Serializable, IEntity {
         return this;
     }
 
+    public String getRedirect() {
+        return redirect;
+    }
+
+    public ContentInfo setRedirect(String redirect) {
+        if (redirect != null)
+            redirect = redirect.trim();
+        this.redirect = redirect;
+        return this;
+    }
+
     /**
      * 表名
      */
@@ -213,6 +228,11 @@ public class ContentInfo implements Serializable, IEntity {
      * 修改时间
      */
     public static final String MODIFY_TIME = "modify_time";
+
+    /**
+     * 跳转参数
+     */
+    public static final String REDIRECT = "redirect";
 
     @Override
     public ContentInfo pkVal(Serializable val) {

@@ -12,7 +12,7 @@ import org.springframework.stereotype.Service;
  * </p>
  *
  * @author Gaby
- * @since 2019-08-21
+ * @since 2020-01-11
  */
 @Service
 public class ContentInfoServiceImpl extends ServiceImpl<ContentInfoMapper, ContentInfo> implements ContentInfoService {
