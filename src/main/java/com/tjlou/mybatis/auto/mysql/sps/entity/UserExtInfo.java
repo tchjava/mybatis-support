@@ -14,11 +14,10 @@ import java.io.Serializable;
  * </p>
  *
  * @author Gaby
- * @since 2019-12-30
+ * @since 2020-01-15
  */
 @TableName("user_ext_info")
 public class UserExtInfo implements Serializable, IEntity {
-
 
     @TableId(value = "id", type = IdType.AUTO)
     private Long id;
@@ -39,7 +38,11 @@ public class UserExtInfo implements Serializable, IEntity {
      */
     @TableField("agent_qrcode")
     private String agentQrcode;
-
+    /**
+     * 商家申请二维码
+     */
+    @TableField("supplier_apply_qrcode")
+    private String supplierApplyQrcode;
 
     public Long getId() {
         return id;
@@ -90,6 +93,17 @@ public class UserExtInfo implements Serializable, IEntity {
         return this;
     }
 
+    public String getSupplierApplyQrcode() {
+        return supplierApplyQrcode;
+    }
+
+    public UserExtInfo setSupplierApplyQrcode(String supplierApplyQrcode) {
+        if (supplierApplyQrcode != null)
+            supplierApplyQrcode = supplierApplyQrcode.trim();
+        this.supplierApplyQrcode = supplierApplyQrcode;
+        return this;
+    }
+
     /**
      * 表名
      */
@@ -113,6 +127,10 @@ public class UserExtInfo implements Serializable, IEntity {
      */
     public static final String AGENT_QRCODE = "agent_qrcode";
 
+    /**
+     * 商家申请二维码
+     */
+    public static final String SUPPLIER_APPLY_QRCODE = "supplier_apply_qrcode";
 
     @Override
     public UserExtInfo pkVal(Serializable val) {
