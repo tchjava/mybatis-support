@@ -14,11 +14,10 @@ import java.io.Serializable;
  * </p>
  *
  * @author Gaby
- * @since 2020-01-20
+ * @since 2020-01-28
  */
 @TableName("freight_choose_info")
 public class FreightChooseInfo implements Serializable, IEntity {
-
 
     @TableId(value = "id", type = IdType.AUTO)
     private Long id;
@@ -35,7 +34,10 @@ public class FreightChooseInfo implements Serializable, IEntity {
      * 是否显示
      */
     private Integer show;
-
+    /**
+     * 价格
+     */
+    private Long price;
 
     public Long getId() {
         return id;
@@ -75,6 +77,15 @@ public class FreightChooseInfo implements Serializable, IEntity {
         return this;
     }
 
+    public Long getPrice() {
+        return price;
+    }
+
+    public FreightChooseInfo setPrice(Long price) {
+        this.price = price;
+        return this;
+    }
+
     /**
      * 表名
      */
@@ -96,6 +107,10 @@ public class FreightChooseInfo implements Serializable, IEntity {
      */
     public static final String SHOW = "show";
 
+    /**
+     * 价格
+     */
+    public static final String PRICE = "price";
 
     @Override
     public FreightChooseInfo pkVal(Serializable val) {
