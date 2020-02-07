@@ -14,7 +14,7 @@ import java.io.Serializable;
  * </p>
  *
  * @author Gaby
- * @since 2019-09-17
+ * @since 2020-02-07
  */
 @TableName("goods_ext_info")
 public class GoodsExtInfo implements Serializable, IEntity {
@@ -50,6 +50,19 @@ public class GoodsExtInfo implements Serializable, IEntity {
      */
     @TableField("crq_weight")
     private Double crqWeight;
+    /**
+     * 商品权重
+     */
+    private Double weight;
+    /**
+     * 商品热度值
+     */
+    private Integer heat;
+    /**
+     * 商品基础分
+     */
+    @TableField("base_score")
+    private Integer baseScore;
 
     public Long getId() {
         return id;
@@ -118,6 +131,33 @@ public class GoodsExtInfo implements Serializable, IEntity {
         return this;
     }
 
+    public Double getWeight() {
+        return weight;
+    }
+
+    public GoodsExtInfo setWeight(Double weight) {
+        this.weight = weight;
+        return this;
+    }
+
+    public Integer getHeat() {
+        return heat;
+    }
+
+    public GoodsExtInfo setHeat(Integer heat) {
+        this.heat = heat;
+        return this;
+    }
+
+    public Integer getBaseScore() {
+        return baseScore;
+    }
+
+    public GoodsExtInfo setBaseScore(Integer baseScore) {
+        this.baseScore = baseScore;
+        return this;
+    }
+
     /**
      * 表名
      */
@@ -153,6 +193,21 @@ public class GoodsExtInfo implements Serializable, IEntity {
      * 超人气活动权重值
      */
     public static final String CRQ_WEIGHT = "crq_weight";
+
+    /**
+     * 商品权重
+     */
+    public static final String WEIGHT = "weight";
+
+    /**
+     * 商品热度值
+     */
+    public static final String HEAT = "heat";
+
+    /**
+     * 商品基础分
+     */
+    public static final String BASE_SCORE = "base_score";
 
     @Override
     public GoodsExtInfo pkVal(Serializable val) {
