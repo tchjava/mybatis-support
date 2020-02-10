@@ -9,7 +9,7 @@ import com.baomidou.mybatisplus.mapper.BaseMapper;
  * </p>
  *
  * @author Gaby
- * @since 2020-02-07
+ * @since 2020-02-10
  */
 public interface ThresholdInfoMapper extends BaseMapper<ThresholdInfo> {
 

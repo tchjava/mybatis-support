@@ -14,7 +14,7 @@ import java.math.BigDecimal;
  * </p>
  *
  * @author Gaby
- * @since 2020-02-07
+ * @since 2020-02-10
  */
 @TableName("threshold_info")
 public class ThresholdInfo implements Serializable, IEntity {
@@ -36,6 +36,10 @@ public class ThresholdInfo implements Serializable, IEntity {
      * 是否开启
      */
     private Integer enable;
+    /**
+     * 类型名称
+     */
+    private String name;
 
     public Long getId() {
         return id;
@@ -73,6 +77,17 @@ public class ThresholdInfo implements Serializable, IEntity {
         return this;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public ThresholdInfo setName(String name) {
+        if (name != null)
+            name = name.trim();
+        this.name = name;
+        return this;
+    }
+
     /**
      * 表名
      */
@@ -96,6 +111,11 @@ public class ThresholdInfo implements Serializable, IEntity {
      * 是否开启
      */
     public static final String ENABLE = "enable";
+
+    /**
+     * 类型名称
+     */
+    public static final String NAME = "name";
 
     @Override
     public ThresholdInfo pkVal(Serializable val) {
