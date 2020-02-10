@@ -6,7 +6,6 @@ import com.baomidou.mybatisplus.enums.IdType;
 import com.tjlou.mybatis.base.entity.IEntity;
 
 import java.io.Serializable;
-import java.math.BigDecimal;
 
 /**
  * <p>
@@ -31,7 +30,7 @@ public class ThresholdInfo implements Serializable, IEntity {
     /**
      * 阈值
      */
-    private BigDecimal value;
+    private Double value;
     /**
      * 是否开启
      */
@@ -59,11 +58,11 @@ public class ThresholdInfo implements Serializable, IEntity {
         return this;
     }
 
-    public BigDecimal getValue() {
+    public Double getValue() {
         return value;
     }
 
-    public ThresholdInfo setValue(BigDecimal value) {
+    public ThresholdInfo setValue(Double value) {
         this.value = value;
         return this;
     }
