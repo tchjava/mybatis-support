@@ -9,7 +9,7 @@ import com.baomidou.mybatisplus.service.IService;
  * </p>
  *
  * @author Gaby
- * @since 2019-12-08
+ * @since 2020-02-11
  */
 public interface RefundInfoService extends IService<RefundInfo> {
 

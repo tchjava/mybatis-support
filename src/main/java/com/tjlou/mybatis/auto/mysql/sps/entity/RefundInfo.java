@@ -15,11 +15,10 @@ import java.util.Date;
  * </p>
  *
  * @author Gaby
- * @since 2019-12-08
+ * @since 2020-02-11
  */
 @TableName("refund_info")
 public class RefundInfo implements Serializable, IEntity {
-
 
     @TableId(value = "id", type = IdType.AUTO)
     private Long id;
@@ -79,6 +78,11 @@ public class RefundInfo implements Serializable, IEntity {
      */
     @TableField("refund_time")
     private Date refundTime;
+    /**
+     * 同意退货时间
+     */
+    @TableField("agree_return_time")
+    private Date agreeReturnTime;
     /**
      * 退款成功时间
      */
@@ -156,7 +160,7 @@ public class RefundInfo implements Serializable, IEntity {
      */
     private String credence;
     /**
-     * 拒绝退款原因
+     * 拒绝退款说明
      */
     @TableField("seller_reject_reason")
     private String sellerRejectReason;
@@ -171,11 +175,10 @@ public class RefundInfo implements Serializable, IEntity {
     @TableField("refund_reason")
     private String refundReason;
     /**
-     * 同意退货原因
+     * 同意退货备注
      */
     @TableField("agree_comment")
     private String agreeComment;
-
 
     public Long getId() {
         return id;
@@ -297,6 +300,15 @@ public class RefundInfo implements Serializable, IEntity {
 
     public RefundInfo setRefundTime(Date refundTime) {
         this.refundTime = refundTime;
+        return this;
+    }
+
+    public Date getAgreeReturnTime() {
+        return agreeReturnTime;
+    }
+
+    public RefundInfo setAgreeReturnTime(Date agreeReturnTime) {
+        this.agreeReturnTime = agreeReturnTime;
         return this;
     }
 
@@ -579,6 +591,11 @@ public class RefundInfo implements Serializable, IEntity {
     public static final String REFUND_TIME = "refund_time";
 
     /**
+     * 同意退货时间
+     */
+    public static final String AGREE_RETURN_TIME = "agree_return_time";
+
+    /**
      * 退款成功时间
      */
     public static final String END_TIME = "end_time";
@@ -659,7 +676,7 @@ public class RefundInfo implements Serializable, IEntity {
     public static final String CREDENCE = "credence";
 
     /**
-     * 拒绝退款原因
+     * 拒绝退款说明
      */
     public static final String SELLER_REJECT_REASON = "seller_reject_reason";
 
@@ -674,10 +691,9 @@ public class RefundInfo implements Serializable, IEntity {
     public static final String REFUND_REASON = "refund_reason";
 
     /**
-     * 同意退货原因
+     * 同意退货备注
      */
     public static final String AGREE_COMMENT = "agree_comment";
-
 
     @Override
     public RefundInfo pkVal(Serializable val) {
