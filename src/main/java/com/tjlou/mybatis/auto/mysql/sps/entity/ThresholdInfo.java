@@ -13,7 +13,7 @@ import java.io.Serializable;
  * </p>
  *
  * @author Gaby
- * @since 2020-02-10
+ * @since 2020-02-11
  */
 @TableName("threshold_info")
 public class ThresholdInfo implements Serializable, IEntity {
@@ -39,6 +39,10 @@ public class ThresholdInfo implements Serializable, IEntity {
      * 类型名称
      */
     private String name;
+    /**
+     * 随机种子
+     */
+    private Integer random;
 
     public Long getId() {
         return id;
@@ -87,6 +91,15 @@ public class ThresholdInfo implements Serializable, IEntity {
         return this;
     }
 
+    public Integer getRandom() {
+        return random;
+    }
+
+    public ThresholdInfo setRandom(Integer random) {
+        this.random = random;
+        return this;
+    }
+
     /**
      * 表名
      */
@@ -115,6 +128,11 @@ public class ThresholdInfo implements Serializable, IEntity {
      * 类型名称
      */
     public static final String NAME = "name";
+
+    /**
+     * 随机种子
+     */
+    public static final String RANDOM = "random";
 
     @Override
     public ThresholdInfo pkVal(Serializable val) {

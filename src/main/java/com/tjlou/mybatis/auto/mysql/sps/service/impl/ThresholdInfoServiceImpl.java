@@ -12,7 +12,7 @@ import org.springframework.stereotype.Service;
  * </p>
  *
  * @author Gaby
- * @since 2020-02-10
+ * @since 2020-02-11
  */
 @Service
 public class ThresholdInfoServiceImpl extends ServiceImpl<ThresholdInfoMapper, ThresholdInfo> implements ThresholdInfoService {
