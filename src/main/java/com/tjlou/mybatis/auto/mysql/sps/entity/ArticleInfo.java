@@ -15,10 +15,11 @@ import java.util.Date;
  * </p>
  *
  * @author Gaby
- * @since 2020-02-14
+ * @since 2020-02-24
  */
 @TableName("article_info")
 public class ArticleInfo implements Serializable, IEntity {
+
 
     @TableId(value = "id", type = IdType.AUTO)
     private Long id;
@@ -36,6 +37,14 @@ public class ArticleInfo implements Serializable, IEntity {
      */
     private String content;
     /**
+     * 文章封面
+     */
+    private String cover;
+    /**
+     * 文章描述
+     */
+    private String description;
+    /**
      * 状态 00A-有效  00Z-失效
      */
     private String status;
@@ -49,6 +58,7 @@ public class ArticleInfo implements Serializable, IEntity {
      */
     @TableField("relay_num")
     private Integer relayNum;
+
 
     public Long getId() {
         return id;
@@ -87,6 +97,28 @@ public class ArticleInfo implements Serializable, IEntity {
         if (content != null)
             content = content.trim();
         this.content = content;
+        return this;
+    }
+
+    public String getCover() {
+        return cover;
+    }
+
+    public ArticleInfo setCover(String cover) {
+        if (cover != null)
+            cover = cover.trim();
+        this.cover = cover;
+        return this;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public ArticleInfo setDescription(String description) {
+        if (description != null)
+            description = description.trim();
+        this.description = description;
         return this;
     }
 
@@ -141,6 +173,16 @@ public class ArticleInfo implements Serializable, IEntity {
     public static final String CONTENT = "content";
 
     /**
+     * 文章封面
+     */
+    public static final String COVER = "cover";
+
+    /**
+     * 文章描述
+     */
+    public static final String DESCRIPTION = "description";
+
+    /**
      * 状态 00A-有效  00Z-失效
      */
     public static final String STATUS = "status";
@@ -154,6 +196,7 @@ public class ArticleInfo implements Serializable, IEntity {
      * 转发数
      */
     public static final String RELAY_NUM = "relay_num";
+
 
     @Override
     public ArticleInfo pkVal(Serializable val) {
