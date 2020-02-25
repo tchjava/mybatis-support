@@ -15,7 +15,7 @@ import java.util.Date;
  * </p>
  *
  * @author Gaby
- * @since 2019-11-28
+ * @since 2020-02-25
  */
 @TableName("order_info")
 public class OrderInfo implements Serializable, IEntity {
@@ -43,7 +43,7 @@ public class OrderInfo implements Serializable, IEntity {
     @TableField("user_account_id")
     private Long userAccountId;
     /**
-     * 支付类型 1-在线支付 2-余额支付
+     * 支付类型 1-微信支付 2-余额支付
      */
     @TableField("payment_type")
     private String paymentType;
@@ -53,7 +53,7 @@ public class OrderInfo implements Serializable, IEntity {
     @TableField("post_fee")
     private Integer postFee;
     /**
-     * 状态 1-待付款  2-已付款 4-已发货 8-交易成功  16-交易关闭 32-已评价 64-退款中
+     * 状态 1-待付款  2-已付款 4-已发货 8-交易成功  16-交易关闭 32-待评价 64-退款中
      */
     private Integer status;
     /**
@@ -178,10 +178,15 @@ public class OrderInfo implements Serializable, IEntity {
     @TableField("cancel_reason")
     private String cancelReason;
     /**
-     * 修改单号次数
+     * 修改物流单号次数
      */
     @TableField("express_update")
     private Integer expressUpdate;
+    /**
+     * 物流异常
+     */
+    @TableField("express_error")
+    private Integer expressError;
 
 
     public Long getId() {
@@ -528,6 +533,15 @@ public class OrderInfo implements Serializable, IEntity {
         return this;
     }
 
+    public Integer getExpressError() {
+        return expressError;
+    }
+
+    public OrderInfo setExpressError(Integer expressError) {
+        this.expressError = expressError;
+        return this;
+    }
+
     /**
      * 表名
      */
@@ -555,7 +569,7 @@ public class OrderInfo implements Serializable, IEntity {
     public static final String USER_ACCOUNT_ID = "user_account_id";
 
     /**
-     * 支付类型 1-在线支付 2-余额支付
+     * 支付类型 1-微信支付 2-余额支付
      */
     public static final String PAYMENT_TYPE = "payment_type";
 
@@ -565,7 +579,7 @@ public class OrderInfo implements Serializable, IEntity {
     public static final String POST_FEE = "post_fee";
 
     /**
-     * 状态 1-待付款  2-已付款 4-已发货 8-交易成功  16-交易关闭 32-已评价 64-退款中
+     * 状态 1-待付款  2-已付款 4-已发货 8-交易成功  16-交易关闭 32-待评价 64-退款中
      */
     public static final String STATUS = "status";
 
@@ -695,9 +709,14 @@ public class OrderInfo implements Serializable, IEntity {
     public static final String CANCEL_REASON = "cancel_reason";
 
     /**
-     * 修改单号次数
+     * 修改物流单号次数
      */
     public static final String EXPRESS_UPDATE = "express_update";
+
+    /**
+     * 物流异常
+     */
+    public static final String EXPRESS_ERROR = "express_error";
 
 
     @Override
