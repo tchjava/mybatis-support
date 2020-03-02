@@ -15,10 +15,11 @@ import java.util.Date;
  * </p>
  *
  * @author Gaby
- * @since 2020-02-17
+ * @since 2020-03-02
  */
 @TableName("article_user_info")
 public class ArticleUserInfo implements Serializable, IEntity {
+
 
     @TableId(value = "id", type = IdType.AUTO)
     private Long id;
@@ -82,6 +83,16 @@ public class ArticleUserInfo implements Serializable, IEntity {
      * 状态 00A-已绑定  00B-未绑定  00C-关注公众号但未进入小程序(临时态) 00Z-失效
      */
     private String status;
+    /**
+     * 是否关注公众号
+     */
+    private Integer subscribe;
+    /**
+     * 是否采集过公众号关注事件
+     */
+    @TableField("collect_subscribe")
+    private Integer collectSubscribe;
+
 
     public Long getId() {
         return id;
@@ -238,6 +249,24 @@ public class ArticleUserInfo implements Serializable, IEntity {
         return this;
     }
 
+    public Integer getSubscribe() {
+        return subscribe;
+    }
+
+    public ArticleUserInfo setSubscribe(Integer subscribe) {
+        this.subscribe = subscribe;
+        return this;
+    }
+
+    public Integer getCollectSubscribe() {
+        return collectSubscribe;
+    }
+
+    public ArticleUserInfo setCollectSubscribe(Integer collectSubscribe) {
+        this.collectSubscribe = collectSubscribe;
+        return this;
+    }
+
     /**
      * 表名
      */
@@ -313,6 +342,17 @@ public class ArticleUserInfo implements Serializable, IEntity {
      * 状态 00A-已绑定  00B-未绑定  00C-关注公众号但未进入小程序(临时态) 00Z-失效
      */
     public static final String STATUS = "status";
+
+    /**
+     * 是否关注公众号
+     */
+    public static final String SUBSCRIBE = "subscribe";
+
+    /**
+     * 是否采集过公众号关注事件
+     */
+    public static final String COLLECT_SUBSCRIBE = "collect_subscribe";
+
 
     @Override
     public ArticleUserInfo pkVal(Serializable val) {

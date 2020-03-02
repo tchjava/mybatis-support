@@ -9,7 +9,7 @@ import com.baomidou.mybatisplus.service.IService;
  * </p>
  *
  * @author Gaby
- * @since 2020-02-17
+ * @since 2020-03-02
  */
 public interface ArticleUserInfoService extends IService<ArticleUserInfo> {
 
