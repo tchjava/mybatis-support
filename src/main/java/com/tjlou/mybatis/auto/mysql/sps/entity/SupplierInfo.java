@@ -16,7 +16,7 @@ import java.util.Date;
  * </p>
  *
  * @author Gaby
- * @since 2019-12-20
+ * @since 2020-03-03
  */
 @TableName("supplier_info")
 public class SupplierInfo implements Serializable, IEntity {
@@ -100,7 +100,7 @@ public class SupplierInfo implements Serializable, IEntity {
     @TableField("app_id")
     private Long appId;
     /**
-     * 状态 00A-审核通过 00B-待审核 00C-拒绝 00Z-失效
+     * 状态 00A-审核通过 00B-待审核 00Z-失效
      */
     private String status;
     /**
@@ -120,6 +120,11 @@ public class SupplierInfo implements Serializable, IEntity {
      * 是否允许发布商品
      */
     private Integer publish;
+    /**
+     * 发货平均响应时长(小时)
+     */
+    @TableField("response_consign_time")
+    private Double responseConsignTime;
 
 
     public Long getId() {
@@ -351,6 +356,15 @@ public class SupplierInfo implements Serializable, IEntity {
         return this;
     }
 
+    public Double getResponseConsignTime() {
+        return responseConsignTime;
+    }
+
+    public SupplierInfo setResponseConsignTime(Double responseConsignTime) {
+        this.responseConsignTime = responseConsignTime;
+        return this;
+    }
+
     /**
      * 表名
      */
@@ -443,7 +457,7 @@ public class SupplierInfo implements Serializable, IEntity {
     public static final String APP_ID = "app_id";
 
     /**
-     * 状态 00A-审核通过 00B-待审核 00C-拒绝 00Z-失效
+     * 状态 00A-审核通过 00B-待审核 00Z-失效
      */
     public static final String STATUS = "status";
 
@@ -466,6 +480,11 @@ public class SupplierInfo implements Serializable, IEntity {
      * 是否允许发布商品
      */
     public static final String PUBLISH = "publish";
+
+    /**
+     * 发货平均响应时长(小时)
+     */
+    public static final String RESPONSE_CONSIGN_TIME = "response_consign_time";
 
 
     @Override
