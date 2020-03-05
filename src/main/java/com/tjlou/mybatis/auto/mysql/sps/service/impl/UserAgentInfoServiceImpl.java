@@ -8,11 +8,11 @@ import org.springframework.stereotype.Service;
 
 /**
  * <p>
- * 代理信息表 服务实现类
+ * 推荐人信息表 服务实现类
  * </p>
  *
  * @author Gaby
- * @since 2019-08-20
+ * @since 2020-03-05
  */
 @Service
 public class UserAgentInfoServiceImpl extends ServiceImpl<UserAgentInfoMapper, UserAgentInfo> implements UserAgentInfoService {

@@ -11,16 +11,19 @@ import java.util.Date;
 
 /**
  * <p>
- * 推荐人信息表
+ * 合伙人-余额信息表
  * </p>
  *
  * @author Gaby
  * @since 2020-03-05
  */
-@TableName("user_agent_info")
-public class UserAgentInfo implements Serializable, IEntity {
+@TableName("partner_balance_info")
+public class PartnerBalanceInfo implements Serializable, IEntity {
 
 
+    /**
+     * 主键
+     */
     @TableId(value = "id", type = IdType.AUTO)
     private Long id;
     /**
@@ -29,9 +32,13 @@ public class UserAgentInfo implements Serializable, IEntity {
     @TableField("user_account_id")
     private Long userAccountId;
     /**
-     * 上级代理
+     * 余额(单位:分)
      */
-    private Long agent;
+    private Long balance;
+    /**
+     * 状态  00A-有效  00Z-失效
+     */
+    private String status;
     /**
      * 创建时间
      */
@@ -43,25 +50,16 @@ public class UserAgentInfo implements Serializable, IEntity {
     @TableField("modify_time")
     private Date modifyTime;
     /**
-     * 状态  00A-有效  00Z-失效
+     * 备注
      */
-    private String status;
-    /**
-     * 递归上级是代理的用户标识
-     */
-    @TableField("agent_supplier")
-    private Long agentSupplier;
-    /**
-     * 上级合伙人
-     */
-    private Long partner;
+    private String comment;
 
 
     public Long getId() {
         return id;
     }
 
-    public UserAgentInfo setId(Long id) {
+    public PartnerBalanceInfo setId(Long id) {
         this.id = id;
         return this;
     }
@@ -70,17 +68,28 @@ public class UserAgentInfo implements Serializable, IEntity {
         return userAccountId;
     }
 
-    public UserAgentInfo setUserAccountId(Long userAccountId) {
+    public PartnerBalanceInfo setUserAccountId(Long userAccountId) {
         this.userAccountId = userAccountId;
         return this;
     }
 
-    public Long getAgent() {
-        return agent;
+    public Long getBalance() {
+        return balance;
     }
 
-    public UserAgentInfo setAgent(Long agent) {
-        this.agent = agent;
+    public PartnerBalanceInfo setBalance(Long balance) {
+        this.balance = balance;
+        return this;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public PartnerBalanceInfo setStatus(String status) {
+        if (status != null)
+            status = status.trim();
+        this.status = status;
         return this;
     }
 
@@ -88,7 +97,7 @@ public class UserAgentInfo implements Serializable, IEntity {
         return createTime;
     }
 
-    public UserAgentInfo setCreateTime(Date createTime) {
+    public PartnerBalanceInfo setCreateTime(Date createTime) {
         this.createTime = createTime;
         return this;
     }
@@ -97,44 +106,29 @@ public class UserAgentInfo implements Serializable, IEntity {
         return modifyTime;
     }
 
-    public UserAgentInfo setModifyTime(Date modifyTime) {
+    public PartnerBalanceInfo setModifyTime(Date modifyTime) {
         this.modifyTime = modifyTime;
         return this;
     }
 
-    public String getStatus() {
-        return status;
+    public String getComment() {
+        return comment;
     }
 
-    public UserAgentInfo setStatus(String status) {
-        if (status != null)
-            status = status.trim();
-        this.status = status;
-        return this;
-    }
-
-    public Long getAgentSupplier() {
-        return agentSupplier;
-    }
-
-    public UserAgentInfo setAgentSupplier(Long agentSupplier) {
-        this.agentSupplier = agentSupplier;
-        return this;
-    }
-
-    public Long getPartner() {
-        return partner;
-    }
-
-    public UserAgentInfo setPartner(Long partner) {
-        this.partner = partner;
+    public PartnerBalanceInfo setComment(String comment) {
+        if (comment != null)
+            comment = comment.trim();
+        this.comment = comment;
         return this;
     }
 
     /**
      * 表名
      */
-    public static final String TABLE_NAME = "user_agent_info";
+    public static final String TABLE_NAME = "partner_balance_info";
+    /**
+     * 主键
+     */
     public static final String ID = "id";
 
     /**
@@ -143,9 +137,14 @@ public class UserAgentInfo implements Serializable, IEntity {
     public static final String USER_ACCOUNT_ID = "user_account_id";
 
     /**
-     * 上级代理
+     * 余额(单位:分)
      */
-    public static final String AGENT = "agent";
+    public static final String BALANCE = "balance";
+
+    /**
+     * 状态  00A-有效  00Z-失效
+     */
+    public static final String STATUS = "status";
 
     /**
      * 创建时间
@@ -158,23 +157,13 @@ public class UserAgentInfo implements Serializable, IEntity {
     public static final String MODIFY_TIME = "modify_time";
 
     /**
-     * 状态  00A-有效  00Z-失效
+     * 备注
      */
-    public static final String STATUS = "status";
-
-    /**
-     * 递归上级是代理的用户标识
-     */
-    public static final String AGENT_SUPPLIER = "agent_supplier";
-
-    /**
-     * 上级合伙人
-     */
-    public static final String PARTNER = "partner";
+    public static final String COMMENT = "comment";
 
 
     @Override
-    public UserAgentInfo pkVal(Serializable val) {
+    public PartnerBalanceInfo pkVal(Serializable val) {
         this.id = Long.valueOf(val.toString());
         return this;
     }
