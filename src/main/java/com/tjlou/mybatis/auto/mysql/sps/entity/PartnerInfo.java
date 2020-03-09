@@ -15,11 +15,10 @@ import java.util.Date;
  * </p>
  *
  * @author Gaby
- * @since 2020-03-05
+ * @since 2020-03-09
  */
 @TableName("partner_info")
 public class PartnerInfo implements Serializable, IEntity {
-
 
     /**
      * 主键
@@ -58,7 +57,11 @@ public class PartnerInfo implements Serializable, IEntity {
      * 状态 00A-有效 00Z-失效
      */
     private String status;
-
+    /**
+     * 下级人数
+     */
+    @TableField("next_num")
+    private Integer nextNum;
 
     public Long getId() {
         return id;
@@ -134,6 +137,15 @@ public class PartnerInfo implements Serializable, IEntity {
         return this;
     }
 
+    public Integer getNextNum() {
+        return nextNum;
+    }
+
+    public PartnerInfo setNextNum(Integer nextNum) {
+        this.nextNum = nextNum;
+        return this;
+    }
+
     /**
      * 表名
      */
@@ -178,6 +190,10 @@ public class PartnerInfo implements Serializable, IEntity {
      */
     public static final String STATUS = "status";
 
+    /**
+     * 下级人数
+     */
+    public static final String NEXT_NUM = "next_num";
 
     @Override
     public PartnerInfo pkVal(Serializable val) {
