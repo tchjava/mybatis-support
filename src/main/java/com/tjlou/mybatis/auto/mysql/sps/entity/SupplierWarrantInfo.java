@@ -15,10 +15,11 @@ import java.util.Date;
  * </p>
  *
  * @author Gaby
- * @since 2019-07-24
+ * @since 2020-03-10
  */
 @TableName("supplier_warrant_info")
 public class SupplierWarrantInfo implements Serializable, IEntity {
+
 
     @TableId(value = "id", type = IdType.AUTO)
     private Long id;
@@ -51,6 +52,16 @@ public class SupplierWarrantInfo implements Serializable, IEntity {
      */
     @TableField("modify_time")
     private Date modifyTime;
+    /**
+     * 备注
+     */
+    private String comment;
+    /**
+     * 信用额度 默认与可用余额一致
+     */
+    @TableField("credit_limit")
+    private Integer creditLimit;
+
 
     public Long getId() {
         return id;
@@ -115,6 +126,26 @@ public class SupplierWarrantInfo implements Serializable, IEntity {
         return this;
     }
 
+    public String getComment() {
+        return comment;
+    }
+
+    public SupplierWarrantInfo setComment(String comment) {
+        if (comment != null)
+            comment = comment.trim();
+        this.comment = comment;
+        return this;
+    }
+
+    public Integer getCreditLimit() {
+        return creditLimit;
+    }
+
+    public SupplierWarrantInfo setCreditLimit(Integer creditLimit) {
+        this.creditLimit = creditLimit;
+        return this;
+    }
+
     /**
      * 表名
      */
@@ -150,6 +181,17 @@ public class SupplierWarrantInfo implements Serializable, IEntity {
      * 修改时间
      */
     public static final String MODIFY_TIME = "modify_time";
+
+    /**
+     * 备注
+     */
+    public static final String COMMENT = "comment";
+
+    /**
+     * 信用额度 默认与可用余额一致
+     */
+    public static final String CREDIT_LIMIT = "credit_limit";
+
 
     @Override
     public SupplierWarrantInfo pkVal(Serializable val) {
