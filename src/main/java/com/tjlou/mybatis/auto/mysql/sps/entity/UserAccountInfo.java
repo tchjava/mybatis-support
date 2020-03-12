@@ -15,7 +15,7 @@ import java.util.Date;
  * </p>
  *
  * @author Gaby
- * @since 2020-03-11
+ * @since 2020-03-12
  */
 @TableName("user_account_info")
 public class UserAccountInfo implements Serializable, IEntity {
@@ -130,6 +130,15 @@ public class UserAccountInfo implements Serializable, IEntity {
      */
     @TableField("dialog_connect")
     private Integer dialogConnect;
+    /**
+     * 真实姓名
+     */
+    private String username;
+    /**
+     * 身份证号
+     */
+    @TableField("id_card")
+    private String idCard;
 
 
     public Long getId() {
@@ -387,6 +396,28 @@ public class UserAccountInfo implements Serializable, IEntity {
         return this;
     }
 
+    public String getUsername() {
+        return username;
+    }
+
+    public UserAccountInfo setUsername(String username) {
+        if (username != null)
+            username = username.trim();
+        this.username = username;
+        return this;
+    }
+
+    public String getIdCard() {
+        return idCard;
+    }
+
+    public UserAccountInfo setIdCard(String idCard) {
+        if (idCard != null)
+            idCard = idCard.trim();
+        this.idCard = idCard;
+        return this;
+    }
+
     /**
      * 表名
      */
@@ -512,6 +543,16 @@ public class UserAccountInfo implements Serializable, IEntity {
      * 通话连接
      */
     public static final String DIALOG_CONNECT = "dialog_connect";
+
+    /**
+     * 真实姓名
+     */
+    public static final String USERNAME = "username";
+
+    /**
+     * 身份证号
+     */
+    public static final String ID_CARD = "id_card";
 
 
     @Override
