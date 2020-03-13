@@ -9,7 +9,7 @@ import com.baomidou.mybatisplus.service.IService;
  * </p>
  *
  * @author Gaby
- * @since 2020-02-11
+ * @since 2020-03-13
  */
 public interface ThresholdInfoService extends IService<ThresholdInfo> {
 

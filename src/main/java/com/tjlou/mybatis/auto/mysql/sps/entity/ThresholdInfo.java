@@ -13,10 +13,11 @@ import java.io.Serializable;
  * </p>
  *
  * @author Gaby
- * @since 2020-02-11
+ * @since 2020-03-13
  */
 @TableName("threshold_info")
 public class ThresholdInfo implements Serializable, IEntity {
+
 
     /**
      * 主键
@@ -43,6 +44,11 @@ public class ThresholdInfo implements Serializable, IEntity {
      * 随机种子
      */
     private Integer random;
+    /**
+     * 上限值
+     */
+    private Double upper;
+
 
     public Long getId() {
         return id;
@@ -100,6 +106,15 @@ public class ThresholdInfo implements Serializable, IEntity {
         return this;
     }
 
+    public Double getUpper() {
+        return upper;
+    }
+
+    public ThresholdInfo setUpper(Double upper) {
+        this.upper = upper;
+        return this;
+    }
+
     /**
      * 表名
      */
@@ -133,6 +148,12 @@ public class ThresholdInfo implements Serializable, IEntity {
      * 随机种子
      */
     public static final String RANDOM = "random";
+
+    /**
+     * 上限值
+     */
+    public static final String UPPER = "upper";
+
 
     @Override
     public ThresholdInfo pkVal(Serializable val) {
