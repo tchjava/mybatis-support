@@ -9,7 +9,7 @@ import com.baomidou.mybatisplus.service.IService;
  * </p>
  *
  * @author Gaby
- * @since 2020-03-22
+ * @since 2020-03-23
  */
 public interface MessageNoticeInfoService extends IService<MessageNoticeInfo> {
 

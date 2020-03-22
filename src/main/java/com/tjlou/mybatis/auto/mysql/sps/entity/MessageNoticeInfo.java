@@ -15,7 +15,7 @@ import java.util.Date;
  * </p>
  *
  * @author Gaby
- * @since 2020-03-22
+ * @since 2020-03-23
  */
 @TableName("message_notice_info")
 public class MessageNoticeInfo implements Serializable, IEntity {
