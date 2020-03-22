@@ -62,6 +62,10 @@ public class MessageNoticeInfo implements Serializable, IEntity {
      */
     @TableField("message_token")
     private String messageToken;
+    /**
+     * 状态 00A-有效  00Z-失效
+     */
+    private String status;
 
     public Long getId() {
         return id;
@@ -154,6 +158,17 @@ public class MessageNoticeInfo implements Serializable, IEntity {
         return this;
     }
 
+    public String getStatus() {
+        return status;
+    }
+
+    public MessageNoticeInfo setStatus(String status) {
+        if (status != null)
+            status = status.trim();
+        this.status = status;
+        return this;
+    }
+
     /**
      * 表名
      */
@@ -202,6 +217,11 @@ public class MessageNoticeInfo implements Serializable, IEntity {
      * 第三方通知token
      */
     public static final String MESSAGE_TOKEN = "message_token";
+
+    /**
+     * 状态 00A-有效  00Z-失效
+     */
+    public static final String STATUS = "status";
 
     @Override
     public MessageNoticeInfo pkVal(Serializable val) {
