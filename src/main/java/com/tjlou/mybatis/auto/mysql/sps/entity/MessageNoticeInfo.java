@@ -20,6 +20,7 @@ import java.util.Date;
 @TableName("message_notice_info")
 public class MessageNoticeInfo implements Serializable, IEntity {
 
+
     /**
      * 主键
      */
@@ -66,6 +67,11 @@ public class MessageNoticeInfo implements Serializable, IEntity {
      * 状态 00A-有效  00Z-失效
      */
     private String status;
+    /**
+     * 类型  1-系统消息 2-官方公告
+     */
+    private Integer type;
+
 
     public Long getId() {
         return id;
@@ -169,6 +175,15 @@ public class MessageNoticeInfo implements Serializable, IEntity {
         return this;
     }
 
+    public Integer getType() {
+        return type;
+    }
+
+    public MessageNoticeInfo setType(Integer type) {
+        this.type = type;
+        return this;
+    }
+
     /**
      * 表名
      */
@@ -222,6 +237,12 @@ public class MessageNoticeInfo implements Serializable, IEntity {
      * 状态 00A-有效  00Z-失效
      */
     public static final String STATUS = "status";
+
+    /**
+     * 类型  1-系统消息 2-官方公告
+     */
+    public static final String TYPE = "type";
+
 
     @Override
     public MessageNoticeInfo pkVal(Serializable val) {
