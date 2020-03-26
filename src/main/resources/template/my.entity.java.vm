@@ -43,9 +43,9 @@ public class ${entity} implements Serializable,IEntity{
     #end
     #if(${field.keyFlag})
 #if(${idType} == 'AUTO' && ${keyPropertyType}!='String')
-@TableId(value = "id", type = IdType.AUTO)
+@TableId(value = "${field.name}", type = IdType.AUTO)
 #else
-@TableId(value = "id", type = IdType.INPUT)
+@TableId(value = "${field.name}", type = IdType.INPUT)
 #end
     #end
     #if(${field.convert})
