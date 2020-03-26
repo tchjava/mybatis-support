@@ -20,7 +20,7 @@ import java.io.Serializable;
 public class ChatRecordExtInfo implements Serializable, IEntity {
 
 
-    @TableId(value = "chat_id", type = IdType.AUTO)
+    @TableId(value = "chat_id", type = IdType.INPUT)
     @TableField("chat_id")
     private Long chatId;
     /**
