@@ -44,6 +44,11 @@ public class GoodsLowerShelfLog implements Serializable, IEntity {
      * 00A-有效  00Z-失效
      */
     private String status;
+    /**
+     * 操作者
+     */
+    @TableField("operator_id")
+    private Long operatorId;
 
 
     public Long getId() {
@@ -95,6 +100,15 @@ public class GoodsLowerShelfLog implements Serializable, IEntity {
         return this;
     }
 
+    public Long getOperatorId() {
+        return operatorId;
+    }
+
+    public GoodsLowerShelfLog setOperatorId(Long operatorId) {
+        this.operatorId = operatorId;
+        return this;
+    }
+
     /**
      * 表名
      */
@@ -123,6 +137,11 @@ public class GoodsLowerShelfLog implements Serializable, IEntity {
      * 00A-有效  00Z-失效
      */
     public static final String STATUS = "status";
+
+    /**
+     * 操作者
+     */
+    public static final String OPERATOR_ID = "operator_id";
 
 
     @Override
