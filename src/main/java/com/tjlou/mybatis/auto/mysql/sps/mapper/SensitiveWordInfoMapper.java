@@ -9,7 +9,7 @@ import com.baomidou.mybatisplus.mapper.BaseMapper;
  * </p>
  *
  * @author Gaby
- * @since 2019-08-26
+ * @since 2020-03-27
  */
 public interface SensitiveWordInfoMapper extends BaseMapper<SensitiveWordInfo> {
 

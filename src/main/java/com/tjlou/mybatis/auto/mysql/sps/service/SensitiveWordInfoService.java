@@ -9,7 +9,7 @@ import com.baomidou.mybatisplus.service.IService;
  * </p>
  *
  * @author Gaby
- * @since 2019-08-26
+ * @since 2020-03-27
  */
 public interface SensitiveWordInfoService extends IService<SensitiveWordInfo> {
 

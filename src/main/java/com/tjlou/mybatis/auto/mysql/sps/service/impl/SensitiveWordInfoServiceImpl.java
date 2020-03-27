@@ -12,7 +12,7 @@ import org.springframework.stereotype.Service;
  * </p>
  *
  * @author Gaby
- * @since 2019-08-26
+ * @since 2020-03-27
  */
 @Service
 public class SensitiveWordInfoServiceImpl extends ServiceImpl<SensitiveWordInfoMapper, SensitiveWordInfo> implements SensitiveWordInfoService {
