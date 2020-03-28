@@ -1,6 +1,6 @@
 package    com.tjlou.mybatis.auto.mysql.sps.mapper;
 
-import com.tjlou.mybatis.auto.mysql.sps.entity.TempletInfo;
+import com.tjlou.mybatis.auto.mysql.sps.entity.TempleteInfo;
 import com.baomidou.mybatisplus.mapper.BaseMapper;
 
 /**
@@ -11,6 +11,6 @@ import com.baomidou.mybatisplus.mapper.BaseMapper;
  * @author Gaby
  * @since 2020-03-28
  */
-public interface TempletInfoMapper extends BaseMapper<TempletInfo> {
+public interface TempleteInfoMapper extends BaseMapper<TempleteInfo> {
 
 }

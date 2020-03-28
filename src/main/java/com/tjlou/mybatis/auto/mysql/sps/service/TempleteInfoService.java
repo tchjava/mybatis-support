@@ -1,6 +1,6 @@
 package   com.tjlou.mybatis.auto.mysql.sps.service;
 
-import com.tjlou.mybatis.auto.mysql.sps.entity.TempletInfo;
+import com.tjlou.mybatis.auto.mysql.sps.entity.TempleteInfo;
 import com.baomidou.mybatisplus.service.IService;
 
 /**
@@ -11,6 +11,6 @@ import com.baomidou.mybatisplus.service.IService;
  * @author Gaby
  * @since 2020-03-28
  */
-public interface TempletInfoService extends IService<TempletInfo> {
+public interface TempleteInfoService extends IService<TempleteInfo> {
 
 }

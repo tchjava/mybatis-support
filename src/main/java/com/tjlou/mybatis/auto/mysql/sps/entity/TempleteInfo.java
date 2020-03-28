@@ -17,8 +17,8 @@ import java.util.Date;
  * @author Gaby
  * @since 2020-03-28
  */
-@TableName("templet_info")
-public class TempletInfo implements Serializable, IEntity {
+@TableName("templete_info")
+public class TempleteInfo implements Serializable, IEntity {
 
 
     @TableId(value = "id", type = IdType.AUTO)
@@ -39,7 +39,7 @@ public class TempletInfo implements Serializable, IEntity {
         return id;
     }
 
-    public TempletInfo setId(Long id) {
+    public TempleteInfo setId(Long id) {
         this.id = id;
         return this;
     }
@@ -48,7 +48,7 @@ public class TempletInfo implements Serializable, IEntity {
         return name;
     }
 
-    public TempletInfo setName(String name) {
+    public TempleteInfo setName(String name) {
         if (name != null)
             name = name.trim();
         this.name = name;
@@ -59,7 +59,7 @@ public class TempletInfo implements Serializable, IEntity {
         return path;
     }
 
-    public TempletInfo setPath(String path) {
+    public TempleteInfo setPath(String path) {
         if (path != null)
             path = path.trim();
         this.path = path;
@@ -70,7 +70,7 @@ public class TempletInfo implements Serializable, IEntity {
         return createTime;
     }
 
-    public TempletInfo setCreateTime(Date createTime) {
+    public TempleteInfo setCreateTime(Date createTime) {
         this.createTime = createTime;
         return this;
     }
@@ -79,7 +79,7 @@ public class TempletInfo implements Serializable, IEntity {
         return operatorId;
     }
 
-    public TempletInfo setOperatorId(Long operatorId) {
+    public TempleteInfo setOperatorId(Long operatorId) {
         this.operatorId = operatorId;
         return this;
     }
@@ -88,7 +88,7 @@ public class TempletInfo implements Serializable, IEntity {
         return status;
     }
 
-    public TempletInfo setStatus(String status) {
+    public TempleteInfo setStatus(String status) {
         if (status != null)
             status = status.trim();
         this.status = status;
@@ -98,7 +98,7 @@ public class TempletInfo implements Serializable, IEntity {
     /**
      * 表名
      */
-    public static final String TABLE_NAME = "templet_info";
+    public static final String TABLE_NAME = "templete_info";
     public static final String ID = "id";
 
     public static final String NAME = "name";
@@ -116,7 +116,7 @@ public class TempletInfo implements Serializable, IEntity {
 
 
     @Override
-    public TempletInfo pkVal(Serializable val) {
+    public TempleteInfo pkVal(Serializable val) {
         this.id = Long.valueOf(val.toString());
         return this;
     }
