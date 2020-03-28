@@ -1,0 +1,124 @@
+package com.tjlou.mybatis.auto.mysql.sps.entity;
+
+import com.baomidou.mybatisplus.annotations.TableField;
+import com.baomidou.mybatisplus.annotations.TableId;
+import com.baomidou.mybatisplus.annotations.TableName;
+import com.baomidou.mybatisplus.enums.IdType;
+import com.tjlou.mybatis.base.entity.IEntity;
+
+import java.io.Serializable;
+import java.util.Date;
+
+/**
+ * <p>
+ * 模板信息表
+ * </p>
+ *
+ * @author Gaby
+ * @since 2020-03-28
+ */
+@TableName("templet_info")
+public class TempletInfo implements Serializable, IEntity {
+
+
+    @TableId(value = "id", type = IdType.AUTO)
+    private Long id;
+    private String name;
+    private String path;
+    @TableField("create_time")
+    private Date createTime;
+    @TableField("operator_id")
+    private Long operatorId;
+    /**
+     * 状态 00A-有效 00Z-无效
+     */
+    private String status;
+
+
+    public Long getId() {
+        return id;
+    }
+
+    public TempletInfo setId(Long id) {
+        this.id = id;
+        return this;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public TempletInfo setName(String name) {
+        if (name != null)
+            name = name.trim();
+        this.name = name;
+        return this;
+    }
+
+    public String getPath() {
+        return path;
+    }
+
+    public TempletInfo setPath(String path) {
+        if (path != null)
+            path = path.trim();
+        this.path = path;
+        return this;
+    }
+
+    public Date getCreateTime() {
+        return createTime;
+    }
+
+    public TempletInfo setCreateTime(Date createTime) {
+        this.createTime = createTime;
+        return this;
+    }
+
+    public Long getOperatorId() {
+        return operatorId;
+    }
+
+    public TempletInfo setOperatorId(Long operatorId) {
+        this.operatorId = operatorId;
+        return this;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public TempletInfo setStatus(String status) {
+        if (status != null)
+            status = status.trim();
+        this.status = status;
+        return this;
+    }
+
+    /**
+     * 表名
+     */
+    public static final String TABLE_NAME = "templet_info";
+    public static final String ID = "id";
+
+    public static final String NAME = "name";
+
+    public static final String PATH = "path";
+
+    public static final String CREATE_TIME = "create_time";
+
+    public static final String OPERATOR_ID = "operator_id";
+
+    /**
+     * 状态 00A-有效 00Z-无效
+     */
+    public static final String STATUS = "status";
+
+
+    @Override
+    public TempletInfo pkVal(Serializable val) {
+        this.id = Long.valueOf(val.toString());
+        return this;
+    }
+}
+
