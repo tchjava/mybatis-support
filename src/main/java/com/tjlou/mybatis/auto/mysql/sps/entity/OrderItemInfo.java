@@ -15,10 +15,11 @@ import java.util.Date;
  * </p>
  *
  * @author Gaby
- * @since 2019-06-26
+ * @since 2020-04-01
  */
 @TableName("order_item_info")
 public class OrderItemInfo implements Serializable, IEntity {
+
 
     @TableId(value = "id", type = IdType.AUTO)
     private Long id;
@@ -64,6 +65,17 @@ public class OrderItemInfo implements Serializable, IEntity {
      */
     @TableField("create_time")
     private Date createTime;
+    /**
+     * 商品原来的价格 单位:分
+     */
+    @TableField("goods_price")
+    private Integer goodsPrice;
+    /**
+     * 原来的供货价  单位:分
+     */
+    @TableField("goods_agent_price")
+    private Integer goodsAgentPrice;
+
 
     public Long getId() {
         return id;
@@ -159,6 +171,24 @@ public class OrderItemInfo implements Serializable, IEntity {
         return this;
     }
 
+    public Integer getGoodsPrice() {
+        return goodsPrice;
+    }
+
+    public OrderItemInfo setGoodsPrice(Integer goodsPrice) {
+        this.goodsPrice = goodsPrice;
+        return this;
+    }
+
+    public Integer getGoodsAgentPrice() {
+        return goodsAgentPrice;
+    }
+
+    public OrderItemInfo setGoodsAgentPrice(Integer goodsAgentPrice) {
+        this.goodsAgentPrice = goodsAgentPrice;
+        return this;
+    }
+
     /**
      * 表名
      */
@@ -209,6 +239,17 @@ public class OrderItemInfo implements Serializable, IEntity {
      * 创建时间
      */
     public static final String CREATE_TIME = "create_time";
+
+    /**
+     * 商品原来的价格 单位:元
+     */
+    public static final String GOODS_PRICE = "goods_price";
+
+    /**
+     * 原来的供货价  单位:元
+     */
+    public static final String GOODS_AGENT_PRICE = "goods_agent_price";
+
 
     @Override
     public OrderItemInfo pkVal(Serializable val) {

@@ -12,7 +12,7 @@ import org.springframework.stereotype.Service;
  * </p>
  *
  * @author Gaby
- * @since 2019-06-26
+ * @since 2020-04-01
  */
 @Service
 public class OrderItemInfoServiceImpl extends ServiceImpl<OrderItemInfoMapper, OrderItemInfo> implements OrderItemInfoService {
