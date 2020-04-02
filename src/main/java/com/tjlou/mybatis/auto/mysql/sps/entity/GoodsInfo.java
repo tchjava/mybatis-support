@@ -15,10 +15,11 @@ import java.util.Date;
  * </p>
  *
  * @author Gaby
- * @since 2019-10-17
+ * @since 2020-04-02
  */
 @TableName("goods_info")
 public class GoodsInfo implements Serializable, IEntity {
+
 
     @TableId(value = "id", type = IdType.AUTO)
     private Long id;
@@ -119,6 +120,12 @@ public class GoodsInfo implements Serializable, IEntity {
      * 备注
      */
     private String comment;
+    /**
+     * 搜索屏蔽 1-屏蔽 0-正常
+     */
+    @TableField("search_shield")
+    private Integer searchShield;
+
 
     public Long getId() {
         return id;
@@ -341,6 +348,15 @@ public class GoodsInfo implements Serializable, IEntity {
         return this;
     }
 
+    public Integer getSearchShield() {
+        return searchShield;
+    }
+
+    public GoodsInfo setSearchShield(Integer searchShield) {
+        this.searchShield = searchShield;
+        return this;
+    }
+
     /**
      * 表名
      */
@@ -456,6 +472,12 @@ public class GoodsInfo implements Serializable, IEntity {
      * 备注
      */
     public static final String COMMENT = "comment";
+
+    /**
+     * 搜索屏蔽 1-屏蔽 0-正常
+     */
+    public static final String SEARCH_SHIELD = "search_shield";
+
 
     @Override
     public GoodsInfo pkVal(Serializable val) {

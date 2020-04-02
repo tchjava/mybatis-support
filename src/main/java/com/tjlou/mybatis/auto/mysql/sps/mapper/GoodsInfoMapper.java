@@ -9,7 +9,7 @@ import com.baomidou.mybatisplus.mapper.BaseMapper;
  * </p>
  *
  * @author Gaby
- * @since 2019-10-17
+ * @since 2020-04-02
  */
 public interface GoodsInfoMapper extends BaseMapper<GoodsInfo> {
 

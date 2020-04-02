@@ -16,7 +16,7 @@ import java.util.Date;
  * </p>
  *
  * @author Gaby
- * @since 2020-03-03
+ * @since 2020-04-02
  */
 @TableName("supplier_info")
 public class SupplierInfo implements Serializable, IEntity {
@@ -125,6 +125,11 @@ public class SupplierInfo implements Serializable, IEntity {
      */
     @TableField("response_consign_time")
     private Double responseConsignTime;
+    /**
+     * 店铺屏蔽  1-屏蔽 0-正常
+     */
+    @TableField("store_shield")
+    private Integer storeShield;
 
 
     public Long getId() {
@@ -365,6 +370,15 @@ public class SupplierInfo implements Serializable, IEntity {
         return this;
     }
 
+    public Integer getStoreShield() {
+        return storeShield;
+    }
+
+    public SupplierInfo setStoreShield(Integer storeShield) {
+        this.storeShield = storeShield;
+        return this;
+    }
+
     /**
      * 表名
      */
@@ -485,6 +499,11 @@ public class SupplierInfo implements Serializable, IEntity {
      * 发货平均响应时长(小时)
      */
     public static final String RESPONSE_CONSIGN_TIME = "response_consign_time";
+
+    /**
+     * 店铺屏蔽  1-屏蔽 0-正常
+     */
+    public static final String STORE_SHIELD = "store_shield";
 
 
     @Override
