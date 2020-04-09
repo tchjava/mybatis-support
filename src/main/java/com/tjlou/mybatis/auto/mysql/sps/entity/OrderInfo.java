@@ -15,7 +15,7 @@ import java.util.Date;
  * </p>
  *
  * @author Gaby
- * @since 2020-02-25
+ * @since 2020-04-09
  */
 @TableName("order_info")
 public class OrderInfo implements Serializable, IEntity {
@@ -183,10 +183,15 @@ public class OrderInfo implements Serializable, IEntity {
     @TableField("express_update")
     private Integer expressUpdate;
     /**
-     * 物流异常
+     * 物流异常  0-待确认  1-异常  2-已确认
      */
     @TableField("express_error")
     private Integer expressError;
+    /**
+     * 综合业务单号 -可支持多订单支付
+     */
+    @TableField("trade_no")
+    private String tradeNo;
 
 
     public Long getId() {
@@ -542,6 +547,17 @@ public class OrderInfo implements Serializable, IEntity {
         return this;
     }
 
+    public String getTradeNo() {
+        return tradeNo;
+    }
+
+    public OrderInfo setTradeNo(String tradeNo) {
+        if (tradeNo != null)
+            tradeNo = tradeNo.trim();
+        this.tradeNo = tradeNo;
+        return this;
+    }
+
     /**
      * 表名
      */
@@ -714,9 +730,14 @@ public class OrderInfo implements Serializable, IEntity {
     public static final String EXPRESS_UPDATE = "express_update";
 
     /**
-     * 物流异常
+     * 物流异常  0-待确认  1-异常  2-已确认
      */
     public static final String EXPRESS_ERROR = "express_error";
+
+    /**
+     * 综合业务单号 -可支持多订单支付
+     */
+    public static final String TRADE_NO = "trade_no";
 
 
     @Override
