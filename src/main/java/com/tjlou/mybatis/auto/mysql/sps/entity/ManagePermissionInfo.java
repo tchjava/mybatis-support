@@ -15,10 +15,11 @@ import java.util.Date;
  * </p>
  *
  * @author Gaby
- * @since 2019-08-15
+ * @since 2020-04-15
  */
 @TableName("manage_permission_info")
 public class ManagePermissionInfo implements Serializable, IEntity {
+
 
     @TableId(value = "id", type = IdType.AUTO)
     private Long id;
@@ -36,7 +37,7 @@ public class ManagePermissionInfo implements Serializable, IEntity {
      */
     private String percode;
     /**
-     * 类型  0-按钮 1-菜单
+     * 类型  0-菜单 1-按钮
      */
     private Integer type;
     /**
@@ -60,6 +61,11 @@ public class ManagePermissionInfo implements Serializable, IEntity {
      * 图标
      */
     private String icon;
+    /**
+     * 排序
+     */
+    private Integer sort;
+
 
     public Long getId() {
         return id;
@@ -163,6 +169,15 @@ public class ManagePermissionInfo implements Serializable, IEntity {
         return this;
     }
 
+    public Integer getSort() {
+        return sort;
+    }
+
+    public ManagePermissionInfo setSort(Integer sort) {
+        this.sort = sort;
+        return this;
+    }
+
     /**
      * 表名
      */
@@ -185,7 +200,7 @@ public class ManagePermissionInfo implements Serializable, IEntity {
     public static final String PERCODE = "percode";
 
     /**
-     * 类型  0-按钮 1-菜单
+     * 类型  0-菜单 1-按钮
      */
     public static final String TYPE = "type";
 
@@ -213,6 +228,12 @@ public class ManagePermissionInfo implements Serializable, IEntity {
      * 图标
      */
     public static final String ICON = "icon";
+
+    /**
+     * 排序
+     */
+    public static final String SORT = "sort";
+
 
     @Override
     public ManagePermissionInfo pkVal(Serializable val) {

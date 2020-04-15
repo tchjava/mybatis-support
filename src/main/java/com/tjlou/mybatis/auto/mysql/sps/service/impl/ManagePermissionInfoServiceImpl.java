@@ -12,7 +12,7 @@ import org.springframework.stereotype.Service;
  * </p>
  *
  * @author Gaby
- * @since 2019-08-15
+ * @since 2020-04-15
  */
 @Service
 public class ManagePermissionInfoServiceImpl extends ServiceImpl<ManagePermissionInfoMapper, ManagePermissionInfo> implements ManagePermissionInfoService {
