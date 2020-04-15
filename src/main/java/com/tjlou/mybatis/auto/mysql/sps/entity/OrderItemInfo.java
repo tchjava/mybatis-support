@@ -15,7 +15,7 @@ import java.util.Date;
  * </p>
  *
  * @author Gaby
- * @since 2020-04-01
+ * @since 2020-04-15
  */
 @TableName("order_item_info")
 public class OrderItemInfo implements Serializable, IEntity {
@@ -75,6 +75,16 @@ public class OrderItemInfo implements Serializable, IEntity {
      */
     @TableField("goods_agent_price")
     private Integer goodsAgentPrice;
+    /**
+     * 是否到付
+     */
+    @TableField("to_pay")
+    private Integer toPay;
+    /**
+     * 是否包邮
+     */
+    @TableField("free_ship")
+    private Integer freeShip;
 
 
     public Long getId() {
@@ -189,6 +199,24 @@ public class OrderItemInfo implements Serializable, IEntity {
         return this;
     }
 
+    public Integer getToPay() {
+        return toPay;
+    }
+
+    public OrderItemInfo setToPay(Integer toPay) {
+        this.toPay = toPay;
+        return this;
+    }
+
+    public Integer getFreeShip() {
+        return freeShip;
+    }
+
+    public OrderItemInfo setFreeShip(Integer freeShip) {
+        this.freeShip = freeShip;
+        return this;
+    }
+
     /**
      * 表名
      */
@@ -241,14 +269,24 @@ public class OrderItemInfo implements Serializable, IEntity {
     public static final String CREATE_TIME = "create_time";
 
     /**
-     * 商品原来的价格 单位:元
+     * 商品原来的价格 单位:分
      */
     public static final String GOODS_PRICE = "goods_price";
 
     /**
-     * 原来的供货价  单位:元
+     * 原来的供货价  单位:分
      */
     public static final String GOODS_AGENT_PRICE = "goods_agent_price";
+
+    /**
+     * 是否到付
+     */
+    public static final String TO_PAY = "to_pay";
+
+    /**
+     * 是否包邮
+     */
+    public static final String FREE_SHIP = "free_ship";
 
 
     @Override
