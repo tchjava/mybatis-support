@@ -15,10 +15,11 @@ import java.util.Date;
  * </p>
  *
  * @author Gaby
- * @since 2019-09-02
+ * @since 2020-04-15
  */
 @TableName("request_log")
 public class RequestLog implements Serializable, IEntity {
+
 
     @TableId(value = "id", type = IdType.AUTO)
     private Integer id;
@@ -44,6 +45,12 @@ public class RequestLog implements Serializable, IEntity {
      * 错误标记
      */
     private String message;
+    /**
+     * 用户标识
+     */
+    @TableField("user_account_id")
+    private Long userAccountId;
+
 
     public Integer getId() {
         return id;
@@ -105,6 +112,15 @@ public class RequestLog implements Serializable, IEntity {
         return this;
     }
 
+    public Long getUserAccountId() {
+        return userAccountId;
+    }
+
+    public RequestLog setUserAccountId(Long userAccountId) {
+        this.userAccountId = userAccountId;
+        return this;
+    }
+
     /**
      * 表名
      */
@@ -135,6 +151,12 @@ public class RequestLog implements Serializable, IEntity {
      * 错误标记
      */
     public static final String MESSAGE = "message";
+
+    /**
+     * 用户标识
+     */
+    public static final String USER_ACCOUNT_ID = "user_account_id";
+
 
     @Override
     public RequestLog pkVal(Serializable val) {
