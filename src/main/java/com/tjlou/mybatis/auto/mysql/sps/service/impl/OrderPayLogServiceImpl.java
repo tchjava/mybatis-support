@@ -12,7 +12,7 @@ import org.springframework.stereotype.Service;
  * </p>
  *
  * @author Gaby
- * @since 2019-06-26
+ * @since 2020-04-15
  */
 @Service
 public class OrderPayLogServiceImpl extends ServiceImpl<OrderPayLogMapper, OrderPayLog> implements OrderPayLogService {

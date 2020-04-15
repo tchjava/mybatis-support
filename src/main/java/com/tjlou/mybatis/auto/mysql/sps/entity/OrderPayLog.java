@@ -15,10 +15,11 @@ import java.util.Date;
  * </p>
  *
  * @author Gaby
- * @since 2019-06-26
+ * @since 2020-04-15
  */
 @TableName("order_pay_log")
 public class OrderPayLog implements Serializable, IEntity {
+
 
     @TableId(value = "id", type = IdType.AUTO)
     private Long id;
@@ -28,10 +29,15 @@ public class OrderPayLog implements Serializable, IEntity {
     @TableField("order_code")
     private String orderCode;
     /**
-     * 支付金额
+     * 支付金额(单笔订单支付)
      */
     @TableField("total_fee")
     private Integer totalFee;
+    /**
+     * 总支付金额 (可能含有合并付款情况)
+     */
+    @TableField("transaction_total")
+    private Integer transactionTotal;
     /**
      * 用户标识
      */
@@ -68,6 +74,7 @@ public class OrderPayLog implements Serializable, IEntity {
     @TableField("create_time")
     private Date createTime;
 
+
     public Long getId() {
         return id;
     }
@@ -94,6 +101,15 @@ public class OrderPayLog implements Serializable, IEntity {
 
     public OrderPayLog setTotalFee(Integer totalFee) {
         this.totalFee = totalFee;
+        return this;
+    }
+
+    public Integer getTransactionTotal() {
+        return transactionTotal;
+    }
+
+    public OrderPayLog setTransactionTotal(Integer transactionTotal) {
+        this.transactionTotal = transactionTotal;
         return this;
     }
 
@@ -180,9 +196,14 @@ public class OrderPayLog implements Serializable, IEntity {
     public static final String ORDER_CODE = "order_code";
 
     /**
-     * 支付金额
+     * 支付金额(单笔订单支付)
      */
     public static final String TOTAL_FEE = "total_fee";
+
+    /**
+     * 总支付金额 (可能含有合并付款情况)
+     */
+    public static final String TRANSACTION_TOTAL = "transaction_total";
 
     /**
      * 用户标识
@@ -218,6 +239,7 @@ public class OrderPayLog implements Serializable, IEntity {
      * 创建时间
      */
     public static final String CREATE_TIME = "create_time";
+
 
     @Override
     public OrderPayLog pkVal(Serializable val) {
