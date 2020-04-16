@@ -15,7 +15,7 @@ import java.util.Date;
  * </p>
  *
  * @author Gaby
- * @since 2020-04-15
+ * @since 2020-04-16
  */
 @TableName("request_log")
 public class RequestLog implements Serializable, IEntity {
@@ -50,6 +50,14 @@ public class RequestLog implements Serializable, IEntity {
      */
     @TableField("user_account_id")
     private Long userAccountId;
+    /**
+     * 请求的客户端 1-小程序 2-IOS 4-安卓 8-公众号 16-H5
+     */
+    private Integer client;
+    /**
+     * os系统 1-小程序  2-app项目  3-后台系统 4-文案系统
+     */
+    private Integer os;
 
 
     public Integer getId() {
@@ -121,6 +129,24 @@ public class RequestLog implements Serializable, IEntity {
         return this;
     }
 
+    public Integer getClient() {
+        return client;
+    }
+
+    public RequestLog setClient(Integer client) {
+        this.client = client;
+        return this;
+    }
+
+    public Integer getOs() {
+        return os;
+    }
+
+    public RequestLog setOs(Integer os) {
+        this.os = os;
+        return this;
+    }
+
     /**
      * 表名
      */
@@ -156,6 +182,16 @@ public class RequestLog implements Serializable, IEntity {
      * 用户标识
      */
     public static final String USER_ACCOUNT_ID = "user_account_id";
+
+    /**
+     * 请求的客户端 1-小程序 2-IOS 4-安卓 8-公众号 16-H5
+     */
+    public static final String CLIENT = "client";
+
+    /**
+     * os系统 1-小程序  2-app项目  3-后台系统 4-文案系统
+     */
+    public static final String OS = "os";
 
 
     @Override
