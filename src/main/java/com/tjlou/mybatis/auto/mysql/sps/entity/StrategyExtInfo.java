@@ -14,7 +14,7 @@ import java.io.Serializable;
  * </p>
  *
  * @author Gaby
- * @since 2020-04-16
+ * @since 2020-04-17
  */
 @TableName("strategy_ext_info")
 public class StrategyExtInfo implements Serializable, IEntity {

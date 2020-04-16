@@ -15,7 +15,7 @@ import java.util.Date;
  * </p>
  *
  * @author Gaby
- * @since 2020-04-16
+ * @since 2020-04-17
  */
 @TableName("strategy_info")
 public class StrategyInfo implements Serializable, IEntity {
@@ -63,6 +63,11 @@ public class StrategyInfo implements Serializable, IEntity {
      * 状态 00A-有效 00Z-失效
      */
     private String status;
+    /**
+     * H5页面地址
+     */
+    @TableField("h5_url")
+    private String h5Url;
 
 
     public Long getId() {
@@ -154,6 +159,17 @@ public class StrategyInfo implements Serializable, IEntity {
         return this;
     }
 
+    public String getH5Url() {
+        return h5Url;
+    }
+
+    public StrategyInfo setH5Url(String h5Url) {
+        if (h5Url != null)
+            h5Url = h5Url.trim();
+        this.h5Url = h5Url;
+        return this;
+    }
+
     /**
      * 表名
      */
@@ -202,6 +218,11 @@ public class StrategyInfo implements Serializable, IEntity {
      * 状态 00A-有效 00Z-失效
      */
     public static final String STATUS = "status";
+
+    /**
+     * H5页面地址
+     */
+    public static final String H5_URL = "h5_url";
 
 
     @Override
