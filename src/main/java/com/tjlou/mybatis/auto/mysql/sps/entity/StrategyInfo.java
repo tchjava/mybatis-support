@@ -15,11 +15,10 @@ import java.util.Date;
  * </p>
  *
  * @author Gaby
- * @since 2020-04-17
+ * @since 2020-04-18
  */
 @TableName("strategy_info")
 public class StrategyInfo implements Serializable, IEntity {
-
 
     /**
      * 主键
@@ -68,7 +67,11 @@ public class StrategyInfo implements Serializable, IEntity {
      */
     @TableField("h5_url")
     private String h5Url;
-
+    /**
+     * 动作名字
+     */
+    @TableField("action_name")
+    private String actionName;
 
     public Long getId() {
         return id;
@@ -170,6 +173,17 @@ public class StrategyInfo implements Serializable, IEntity {
         return this;
     }
 
+    public String getActionName() {
+        return actionName;
+    }
+
+    public StrategyInfo setActionName(String actionName) {
+        if (actionName != null)
+            actionName = actionName.trim();
+        this.actionName = actionName;
+        return this;
+    }
+
     /**
      * 表名
      */
@@ -224,6 +238,10 @@ public class StrategyInfo implements Serializable, IEntity {
      */
     public static final String H5_URL = "h5_url";
 
+    /**
+     * 动作名字
+     */
+    public static final String ACTION_NAME = "action_name";
 
     @Override
     public StrategyInfo pkVal(Serializable val) {

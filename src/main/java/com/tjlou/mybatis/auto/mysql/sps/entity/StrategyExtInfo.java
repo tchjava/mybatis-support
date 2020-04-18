@@ -23,7 +23,7 @@ public class StrategyExtInfo implements Serializable, IEntity {
     /**
      * 主键
      */
-    @TableId(value = "id", type = IdType.AUTO)
+    @TableId(value = "id", type = IdType.INPUT)
     private Long id;
     /**
      * h5地址
