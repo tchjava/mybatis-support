@@ -14,7 +14,7 @@ import java.io.Serializable;
  * </p>
  *
  * @author Gaby
- * @since 2020-04-17
+ * @since 2020-04-20
  */
 @TableName("strategy_ext_info")
 public class StrategyExtInfo implements Serializable, IEntity {
@@ -23,13 +23,8 @@ public class StrategyExtInfo implements Serializable, IEntity {
     /**
      * 主键
      */
-    @TableId(value = "id", type = IdType.INPUT)
+    @TableId(value = "id", type = IdType.AUTO)
     private Long id;
-    /**
-     * h5地址
-     */
-    @TableField("h5_url")
-    private String h5Url;
     /**
      * 内容
      */
@@ -51,17 +46,6 @@ public class StrategyExtInfo implements Serializable, IEntity {
 
     public StrategyExtInfo setId(Long id) {
         this.id = id;
-        return this;
-    }
-
-    public String getH5Url() {
-        return h5Url;
-    }
-
-    public StrategyExtInfo setH5Url(String h5Url) {
-        if (h5Url != null)
-            h5Url = h5Url.trim();
-        this.h5Url = h5Url;
         return this;
     }
 
@@ -106,11 +90,6 @@ public class StrategyExtInfo implements Serializable, IEntity {
      * 主键
      */
     public static final String ID = "id";
-
-    /**
-     * h5地址
-     */
-    public static final String H5_URL = "h5_url";
 
     /**
      * 内容
