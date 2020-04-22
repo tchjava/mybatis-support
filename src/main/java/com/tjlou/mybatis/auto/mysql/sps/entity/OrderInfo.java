@@ -15,7 +15,7 @@ import java.util.Date;
  * </p>
  *
  * @author Gaby
- * @since 2020-04-09
+ * @since 2020-04-22
  */
 @TableName("order_info")
 public class OrderInfo implements Serializable, IEntity {
@@ -192,6 +192,11 @@ public class OrderInfo implements Serializable, IEntity {
      */
     @TableField("trade_no")
     private String tradeNo;
+    /**
+     * 配送方式 1-快递包邮 2-快递运费 4-到付
+     */
+    @TableField("distribute_type")
+    private Integer distributeType;
 
 
     public Long getId() {
@@ -558,6 +563,15 @@ public class OrderInfo implements Serializable, IEntity {
         return this;
     }
 
+    public Integer getDistributeType() {
+        return distributeType;
+    }
+
+    public OrderInfo setDistributeType(Integer distributeType) {
+        this.distributeType = distributeType;
+        return this;
+    }
+
     /**
      * 表名
      */
@@ -738,6 +752,11 @@ public class OrderInfo implements Serializable, IEntity {
      * 综合业务单号 -可支持多订单支付
      */
     public static final String TRADE_NO = "trade_no";
+
+    /**
+     * 配送方式 1-快递包邮 2-快递运费 4-到付
+     */
+    public static final String DISTRIBUTE_TYPE = "distribute_type";
 
 
     @Override
