@@ -12,7 +12,7 @@ import org.springframework.stereotype.Service;
  * </p>
  *
  * @author Gaby
- * @since 2020-04-27
+ * @since 2020-04-28
  */
 @Service
 public class BorrowInventoryInfoServiceImpl extends ServiceImpl<BorrowInventoryInfoMapper, BorrowInventoryInfo> implements BorrowInventoryInfoService {

@@ -9,7 +9,7 @@ import com.baomidou.mybatisplus.service.IService;
  * </p>
  *
  * @author Gaby
- * @since 2020-04-27
+ * @since 2020-04-28
  */
 public interface BorrowInventoryInfoService extends IService<BorrowInventoryInfo> {
 

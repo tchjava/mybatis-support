@@ -15,7 +15,7 @@ import java.util.Date;
  * </p>
  *
  * @author Gaby
- * @since 2020-04-27
+ * @since 2020-04-28
  */
 @TableName("borrow_inventory_info")
 public class BorrowInventoryInfo implements Serializable, IEntity {
@@ -109,9 +109,14 @@ public class BorrowInventoryInfo implements Serializable, IEntity {
     @TableField("transaction_type")
     private Integer transactionType;
     /**
-     * 状态 4-已发货 8-已确认 16-已退回 64-退货中
+     * 状态 4-已发货 8-已确认 16-已退回 64-退货中 128-平台退回
      */
     private Integer status;
+    /**
+     * 站点店铺
+     */
+    @TableField("supplier_id")
+    private Long supplierId;
 
 
     public Long getId() {
@@ -299,6 +304,15 @@ public class BorrowInventoryInfo implements Serializable, IEntity {
         return this;
     }
 
+    public Long getSupplierId() {
+        return supplierId;
+    }
+
+    public BorrowInventoryInfo setSupplierId(Long supplierId) {
+        this.supplierId = supplierId;
+        return this;
+    }
+
     /**
      * 表名
      */
@@ -394,9 +408,14 @@ public class BorrowInventoryInfo implements Serializable, IEntity {
     public static final String TRANSACTION_TYPE = "transaction_type";
 
     /**
-     * 状态 4-已发货 8-已确认 16-已退回 64-退货中
+     * 状态 4-已发货 8-已确认 16-已退回 64-退货中 128-平台退回
      */
     public static final String STATUS = "status";
+
+    /**
+     * 站点店铺
+     */
+    public static final String SUPPLIER_ID = "supplier_id";
 
 
     @Override
