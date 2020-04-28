@@ -15,7 +15,7 @@ import java.util.Date;
  * </p>
  *
  * @author Gaby
- * @since 2020-04-02
+ * @since 2020-04-28
  */
 @TableName("goods_info")
 public class GoodsInfo implements Serializable, IEntity {
@@ -125,6 +125,11 @@ public class GoodsInfo implements Serializable, IEntity {
      */
     @TableField("search_shield")
     private Integer searchShield;
+    /**
+     * 原商品标识
+     */
+    @TableField("origin_goods_id")
+    private Long originGoodsId;
 
 
     public Long getId() {
@@ -357,6 +362,15 @@ public class GoodsInfo implements Serializable, IEntity {
         return this;
     }
 
+    public Long getOriginGoodsId() {
+        return originGoodsId;
+    }
+
+    public GoodsInfo setOriginGoodsId(Long originGoodsId) {
+        this.originGoodsId = originGoodsId;
+        return this;
+    }
+
     /**
      * 表名
      */
@@ -477,6 +491,11 @@ public class GoodsInfo implements Serializable, IEntity {
      * 搜索屏蔽 1-屏蔽 0-正常
      */
     public static final String SEARCH_SHIELD = "search_shield";
+
+    /**
+     * 原商品标识
+     */
+    public static final String ORIGIN_GOODS_ID = "origin_goods_id";
 
 
     @Override

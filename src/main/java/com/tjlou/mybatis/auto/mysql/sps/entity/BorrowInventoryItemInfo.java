@@ -15,7 +15,7 @@ import java.util.Date;
  * </p>
  *
  * @author Gaby
- * @since 2020-04-27
+ * @since 2020-04-28
  */
 @TableName("borrow_inventory_item_info")
 public class BorrowInventoryItemInfo implements Serializable, IEntity {
@@ -68,6 +68,15 @@ public class BorrowInventoryItemInfo implements Serializable, IEntity {
      * 总价(单位:分)
      */
     private Long total;
+    /**
+     * 已入库数量
+     */
+    @TableField("put_storage")
+    private Integer putStorage;
+    /**
+     * 状态  1-未入库 2-未完全入库 4-已入库
+     */
+    private Integer status;
 
 
     public Long getId() {
@@ -162,6 +171,24 @@ public class BorrowInventoryItemInfo implements Serializable, IEntity {
         return this;
     }
 
+    public Integer getPutStorage() {
+        return putStorage;
+    }
+
+    public BorrowInventoryItemInfo setPutStorage(Integer putStorage) {
+        this.putStorage = putStorage;
+        return this;
+    }
+
+    public Integer getStatus() {
+        return status;
+    }
+
+    public BorrowInventoryItemInfo setStatus(Integer status) {
+        this.status = status;
+        return this;
+    }
+
     /**
      * 表名
      */
@@ -215,6 +242,16 @@ public class BorrowInventoryItemInfo implements Serializable, IEntity {
      * 总价(单位:分)
      */
     public static final String TOTAL = "total";
+
+    /**
+     * 已入库数量
+     */
+    public static final String PUT_STORAGE = "put_storage";
+
+    /**
+     * 状态  1-未入库 2-未完全入库 4-已入库
+     */
+    public static final String STATUS = "status";
 
 
     @Override
