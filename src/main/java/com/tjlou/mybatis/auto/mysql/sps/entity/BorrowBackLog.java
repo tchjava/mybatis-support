@@ -32,7 +32,7 @@ public class BorrowBackLog implements Serializable, IEntity {
     @TableField("inventory_id")
     private Long inventoryId;
     /**
-     * 状态 1-申请退回 2-已退回 4-拒绝退回
+     * 状态 1-申请退回 2-已退回 4-拒绝退回 8-申请关闭
      */
     private Integer status;
     /**
@@ -74,6 +74,11 @@ public class BorrowBackLog implements Serializable, IEntity {
      * 备注
      */
     private String comment;
+    /**
+     * 申请次数
+     */
+    @TableField("application_num")
+    private Integer applicationNum;
 
 
     public Long getId() {
@@ -183,6 +188,15 @@ public class BorrowBackLog implements Serializable, IEntity {
         return this;
     }
 
+    public Integer getApplicationNum() {
+        return applicationNum;
+    }
+
+    public BorrowBackLog setApplicationNum(Integer applicationNum) {
+        this.applicationNum = applicationNum;
+        return this;
+    }
+
     /**
      * 表名
      */
@@ -198,7 +212,7 @@ public class BorrowBackLog implements Serializable, IEntity {
     public static final String INVENTORY_ID = "inventory_id";
 
     /**
-     * 状态 1-申请退回 2-已退回 4-拒绝退回
+     * 状态 1-申请退回 2-已退回 4-拒绝退回 8-申请关闭
      */
     public static final String STATUS = "status";
 
@@ -241,6 +255,11 @@ public class BorrowBackLog implements Serializable, IEntity {
      * 备注
      */
     public static final String COMMENT = "comment";
+
+    /**
+     * 申请次数
+     */
+    public static final String APPLICATION_NUM = "application_num";
 
 
     @Override
