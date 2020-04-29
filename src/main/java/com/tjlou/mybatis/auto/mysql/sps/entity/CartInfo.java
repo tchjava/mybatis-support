@@ -15,7 +15,7 @@ import java.util.Date;
  * </p>
  *
  * @author Gaby
- * @since 2019-11-27
+ * @since 2020-04-29
  */
 @TableName("cart_info")
 public class CartInfo implements Serializable, IEntity {
@@ -60,6 +60,10 @@ public class CartInfo implements Serializable, IEntity {
      * 备注
      */
     private String comment;
+    /**
+     * 购物车类型 1-普通商品 2-直播借货商品
+     */
+    private Integer type;
 
 
     public Long getId() {
@@ -149,6 +153,15 @@ public class CartInfo implements Serializable, IEntity {
         return this;
     }
 
+    public Integer getType() {
+        return type;
+    }
+
+    public CartInfo setType(Integer type) {
+        this.type = type;
+        return this;
+    }
+
     /**
      * 表名
      */
@@ -194,6 +207,11 @@ public class CartInfo implements Serializable, IEntity {
      * 备注
      */
     public static final String COMMENT = "comment";
+
+    /**
+     * 购物车类型 1-普通商品 2-直播借货商品
+     */
+    public static final String TYPE = "type";
 
 
     @Override
