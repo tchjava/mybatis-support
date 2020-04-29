@@ -9,7 +9,7 @@ import com.baomidou.mybatisplus.mapper.BaseMapper;
  * </p>
  *
  * @author Gaby
- * @since 2020-04-28
+ * @since 2020-04-29
  */
 public interface BorrowInventoryItemInfoMapper extends BaseMapper<BorrowInventoryItemInfo> {
 

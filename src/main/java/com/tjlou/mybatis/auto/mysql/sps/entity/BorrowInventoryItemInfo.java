@@ -15,7 +15,7 @@ import java.util.Date;
  * </p>
  *
  * @author Gaby
- * @since 2020-04-28
+ * @since 2020-04-29
  */
 @TableName("borrow_inventory_item_info")
 public class BorrowInventoryItemInfo implements Serializable, IEntity {
@@ -77,6 +77,11 @@ public class BorrowInventoryItemInfo implements Serializable, IEntity {
      * 状态  1-未入库 2-未完全入库 4-已入库
      */
     private Integer status;
+    /**
+     * 退回数量
+     */
+    @TableField("back_num")
+    private Integer backNum;
 
 
     public Long getId() {
@@ -189,6 +194,15 @@ public class BorrowInventoryItemInfo implements Serializable, IEntity {
         return this;
     }
 
+    public Integer getBackNum() {
+        return backNum;
+    }
+
+    public BorrowInventoryItemInfo setBackNum(Integer backNum) {
+        this.backNum = backNum;
+        return this;
+    }
+
     /**
      * 表名
      */
@@ -252,6 +266,11 @@ public class BorrowInventoryItemInfo implements Serializable, IEntity {
      * 状态  1-未入库 2-未完全入库 4-已入库
      */
     public static final String STATUS = "status";
+
+    /**
+     * 退回数量
+     */
+    public static final String BACK_NUM = "back_num";
 
 
     @Override
