@@ -15,7 +15,7 @@ import java.util.Date;
  * </p>
  *
  * @author Gaby
- * @since 2020-04-28
+ * @since 2020-04-29
  */
 @TableName("goods_info")
 public class GoodsInfo implements Serializable, IEntity {
@@ -130,6 +130,11 @@ public class GoodsInfo implements Serializable, IEntity {
      */
     @TableField("origin_goods_id")
     private Long originGoodsId;
+    /**
+     * 商品类型  1-普通商品 2-直播借货商品
+     */
+    @TableField("goods_type")
+    private Integer goodsType;
 
 
     public Long getId() {
@@ -371,6 +376,15 @@ public class GoodsInfo implements Serializable, IEntity {
         return this;
     }
 
+    public Integer getGoodsType() {
+        return goodsType;
+    }
+
+    public GoodsInfo setGoodsType(Integer goodsType) {
+        this.goodsType = goodsType;
+        return this;
+    }
+
     /**
      * 表名
      */
@@ -496,6 +510,11 @@ public class GoodsInfo implements Serializable, IEntity {
      * 原商品标识
      */
     public static final String ORIGIN_GOODS_ID = "origin_goods_id";
+
+    /**
+     * 商品类型  1-普通商品 2-直播借货商品
+     */
+    public static final String GOODS_TYPE = "goods_type";
 
 
     @Override
