@@ -15,7 +15,7 @@ import java.util.Date;
  * </p>
  *
  * @author Gaby
- * @since 2020-04-22
+ * @since 2020-04-30
  */
 @TableName("order_info")
 public class OrderInfo implements Serializable, IEntity {
@@ -197,6 +197,16 @@ public class OrderInfo implements Serializable, IEntity {
      */
     @TableField("distribute_type")
     private Integer distributeType;
+    /**
+     * 订单类型 1-普通订单  4-直播借货
+     */
+    @TableField("order_type")
+    private Integer orderType;
+    /**
+     * 原商家用户标识
+     */
+    @TableField("origin_seller_id")
+    private Long originSellerId;
 
 
     public Long getId() {
@@ -572,6 +582,24 @@ public class OrderInfo implements Serializable, IEntity {
         return this;
     }
 
+    public Integer getOrderType() {
+        return orderType;
+    }
+
+    public OrderInfo setOrderType(Integer orderType) {
+        this.orderType = orderType;
+        return this;
+    }
+
+    public Long getOriginSellerId() {
+        return originSellerId;
+    }
+
+    public OrderInfo setOriginSellerId(Long originSellerId) {
+        this.originSellerId = originSellerId;
+        return this;
+    }
+
     /**
      * 表名
      */
@@ -757,6 +785,16 @@ public class OrderInfo implements Serializable, IEntity {
      * 配送方式 1-快递包邮 2-快递运费 4-到付
      */
     public static final String DISTRIBUTE_TYPE = "distribute_type";
+
+    /**
+     * 订单类型 1-普通订单  4-直播借货
+     */
+    public static final String ORDER_TYPE = "order_type";
+
+    /**
+     * 原商家用户标识
+     */
+    public static final String ORIGIN_SELLER_ID = "origin_seller_id";
 
 
     @Override
