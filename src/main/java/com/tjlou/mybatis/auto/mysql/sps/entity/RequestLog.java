@@ -15,7 +15,7 @@ import java.util.Date;
  * </p>
  *
  * @author Gaby
- * @since 2020-04-16
+ * @since 2020-05-13
  */
 @TableName("request_log")
 public class RequestLog implements Serializable, IEntity {
@@ -58,6 +58,10 @@ public class RequestLog implements Serializable, IEntity {
      * os系统 1-小程序  2-app项目  3-后台系统 4-文案系统
      */
     private Integer os;
+    /**
+     * ip地址
+     */
+    private String ip;
 
 
     public Integer getId() {
@@ -147,6 +151,17 @@ public class RequestLog implements Serializable, IEntity {
         return this;
     }
 
+    public String getIp() {
+        return ip;
+    }
+
+    public RequestLog setIp(String ip) {
+        if (ip != null)
+            ip = ip.trim();
+        this.ip = ip;
+        return this;
+    }
+
     /**
      * 表名
      */
@@ -192,6 +207,11 @@ public class RequestLog implements Serializable, IEntity {
      * os系统 1-小程序  2-app项目  3-后台系统 4-文案系统
      */
     public static final String OS = "os";
+
+    /**
+     * ip地址
+     */
+    public static final String IP = "ip";
 
 
     @Override
