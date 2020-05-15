@@ -12,7 +12,7 @@ import org.springframework.stereotype.Service;
  * </p>
  *
  * @author Gaby
- * @since 2020-03-28
+ * @since 2020-05-15
  */
 @Service
 public class TempleteInfoServiceImpl extends ServiceImpl<TempleteInfoMapper, TempleteInfo> implements TempleteInfoService {

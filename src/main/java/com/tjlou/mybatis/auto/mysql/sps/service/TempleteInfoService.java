@@ -9,7 +9,7 @@ import com.baomidou.mybatisplus.service.IService;
  * </p>
  *
  * @author Gaby
- * @since 2020-03-28
+ * @since 2020-05-15
  */
 public interface TempleteInfoService extends IService<TempleteInfo> {
 

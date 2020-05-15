@@ -15,7 +15,7 @@ import java.util.Date;
  * </p>
  *
  * @author Gaby
- * @since 2020-03-28
+ * @since 2020-05-15
  */
 @TableName("templete_info")
 public class TempleteInfo implements Serializable, IEntity {
@@ -33,6 +33,10 @@ public class TempleteInfo implements Serializable, IEntity {
      * 状态 00A-有效 00Z-无效
      */
     private String status;
+    /**
+     * 类型 1-模板  2-开发文档
+     */
+    private Integer type;
 
 
     public Long getId() {
@@ -95,6 +99,15 @@ public class TempleteInfo implements Serializable, IEntity {
         return this;
     }
 
+    public Integer getType() {
+        return type;
+    }
+
+    public TempleteInfo setType(Integer type) {
+        this.type = type;
+        return this;
+    }
+
     /**
      * 表名
      */
@@ -113,6 +126,11 @@ public class TempleteInfo implements Serializable, IEntity {
      * 状态 00A-有效 00Z-无效
      */
     public static final String STATUS = "status";
+
+    /**
+     * 类型 1-模板  2-开发文档
+     */
+    public static final String TYPE = "type";
 
 
     @Override
