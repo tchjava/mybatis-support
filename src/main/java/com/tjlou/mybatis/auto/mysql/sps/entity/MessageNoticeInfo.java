@@ -15,7 +15,7 @@ import java.util.Date;
  * </p>
  *
  * @author Gaby
- * @since 2020-03-23
+ * @since 2020-05-15
  */
 @TableName("message_notice_info")
 public class MessageNoticeInfo implements Serializable, IEntity {
@@ -71,6 +71,11 @@ public class MessageNoticeInfo implements Serializable, IEntity {
      * 类型  1-系统消息 2-官方公告
      */
     private Integer type;
+    /**
+     * 主体类型 1-用户 2-代理  4-商家
+     */
+    @TableField("body_type")
+    private Integer bodyType;
 
 
     public Long getId() {
@@ -184,6 +189,15 @@ public class MessageNoticeInfo implements Serializable, IEntity {
         return this;
     }
 
+    public Integer getBodyType() {
+        return bodyType;
+    }
+
+    public MessageNoticeInfo setBodyType(Integer bodyType) {
+        this.bodyType = bodyType;
+        return this;
+    }
+
     /**
      * 表名
      */
@@ -242,6 +256,11 @@ public class MessageNoticeInfo implements Serializable, IEntity {
      * 类型  1-系统消息 2-官方公告
      */
     public static final String TYPE = "type";
+
+    /**
+     * 主体类型 1-用户 2-代理  4-商家
+     */
+    public static final String BODY_TYPE = "body_type";
 
 
     @Override
