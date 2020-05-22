@@ -14,10 +14,11 @@ import java.io.Serializable;
  * </p>
  *
  * @author Gaby
- * @since 2020-02-07
+ * @since 2020-05-22
  */
 @TableName("goods_ext_info")
 public class GoodsExtInfo implements Serializable, IEntity {
+
 
     @TableId(value = "id", type = IdType.AUTO)
     private Long id;
@@ -63,6 +64,12 @@ public class GoodsExtInfo implements Serializable, IEntity {
      */
     @TableField("base_score")
     private Integer baseScore;
+    /**
+     * 存储属性的值
+     */
+    @TableField("attribute_value")
+    private String attributeValue;
+
 
     public Long getId() {
         return id;
@@ -158,6 +165,17 @@ public class GoodsExtInfo implements Serializable, IEntity {
         return this;
     }
 
+    public String getAttributeValue() {
+        return attributeValue;
+    }
+
+    public GoodsExtInfo setAttributeValue(String attributeValue) {
+        if (attributeValue != null)
+            attributeValue = attributeValue.trim();
+        this.attributeValue = attributeValue;
+        return this;
+    }
+
     /**
      * 表名
      */
@@ -208,6 +226,12 @@ public class GoodsExtInfo implements Serializable, IEntity {
      * 商品基础分
      */
     public static final String BASE_SCORE = "base_score";
+
+    /**
+     * 存储属性的值
+     */
+    public static final String ATTRIBUTE_VALUE = "attribute_value";
+
 
     @Override
     public GoodsExtInfo pkVal(Serializable val) {
