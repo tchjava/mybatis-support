@@ -9,7 +9,7 @@ import com.baomidou.mybatisplus.service.IService;
  * </p>
  *
  * @author Gaby
- * @since 2020-04-15
+ * @since 2020-05-27
  */
 public interface ManagePermissionInfoService extends IService<ManagePermissionInfo> {
 

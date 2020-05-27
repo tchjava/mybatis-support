@@ -15,7 +15,7 @@ import java.util.Date;
  * </p>
  *
  * @author Gaby
- * @since 2020-04-15
+ * @since 2020-05-27
  */
 @TableName("manage_permission_info")
 public class ManagePermissionInfo implements Serializable, IEntity {
@@ -65,6 +65,11 @@ public class ManagePermissionInfo implements Serializable, IEntity {
      * 排序
      */
     private Integer sort;
+    /**
+     * 系统类型  1-超级仓库  2-超级拍卖
+     */
+    @TableField("system_type")
+    private Integer systemType;
 
 
     public Long getId() {
@@ -178,6 +183,15 @@ public class ManagePermissionInfo implements Serializable, IEntity {
         return this;
     }
 
+    public Integer getSystemType() {
+        return systemType;
+    }
+
+    public ManagePermissionInfo setSystemType(Integer systemType) {
+        this.systemType = systemType;
+        return this;
+    }
+
     /**
      * 表名
      */
@@ -233,6 +247,11 @@ public class ManagePermissionInfo implements Serializable, IEntity {
      * 排序
      */
     public static final String SORT = "sort";
+
+    /**
+     * 系统类型  1-超级仓库  2-超级拍卖
+     */
+    public static final String SYSTEM_TYPE = "system_type";
 
 
     @Override
