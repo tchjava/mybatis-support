@@ -7,6 +7,7 @@ import com.baomidou.mybatisplus.enums.IdType;
 import com.tjlou.mybatis.base.entity.IEntity;
 
 import java.io.Serializable;
+import java.util.Date;
 
 /**
  * <p>
@@ -54,9 +55,28 @@ public class AuctionUserExtInfo implements Serializable, IEntity {
      */
     private Integer score;
     /**
+     * 卖家积分
+     */
+    @TableField("seller_score")
+    private Integer sellerScore;
+    /**
      * 拍卖身份  1-用户  2-商家
      */
     private Integer type;
+    /**
+     * 买家等级
+     */
+    private Integer level;
+    /**
+     * 卖家等级
+     */
+    @TableField("seller_level")
+    private Integer sellerLevel;
+    /**
+     * 创建时间
+     */
+    @TableField("create_time")
+    private Date createTime;
 
 
     public Long getId() {
@@ -126,12 +146,48 @@ public class AuctionUserExtInfo implements Serializable, IEntity {
         return this;
     }
 
+    public Integer getSellerScore() {
+        return sellerScore;
+    }
+
+    public AuctionUserExtInfo setSellerScore(Integer sellerScore) {
+        this.sellerScore = sellerScore;
+        return this;
+    }
+
     public Integer getType() {
         return type;
     }
 
     public AuctionUserExtInfo setType(Integer type) {
         this.type = type;
+        return this;
+    }
+
+    public Integer getLevel() {
+        return level;
+    }
+
+    public AuctionUserExtInfo setLevel(Integer level) {
+        this.level = level;
+        return this;
+    }
+
+    public Integer getSellerLevel() {
+        return sellerLevel;
+    }
+
+    public AuctionUserExtInfo setSellerLevel(Integer sellerLevel) {
+        this.sellerLevel = sellerLevel;
+        return this;
+    }
+
+    public Date getCreateTime() {
+        return createTime;
+    }
+
+    public AuctionUserExtInfo setCreateTime(Date createTime) {
+        this.createTime = createTime;
         return this;
     }
 
@@ -175,9 +231,29 @@ public class AuctionUserExtInfo implements Serializable, IEntity {
     public static final String SCORE = "score";
 
     /**
+     * 卖家积分
+     */
+    public static final String SELLER_SCORE = "seller_score";
+
+    /**
      * 拍卖身份  1-用户  2-商家
      */
     public static final String TYPE = "type";
+
+    /**
+     * 买家等级
+     */
+    public static final String LEVEL = "level";
+
+    /**
+     * 卖家等级
+     */
+    public static final String SELLER_LEVEL = "seller_level";
+
+    /**
+     * 创建时间
+     */
+    public static final String CREATE_TIME = "create_time";
 
 
     @Override
