@@ -14,7 +14,7 @@ import java.io.Serializable;
  * </p>
  *
  * @author Gaby
- * @since 2020-04-07
+ * @since 2020-05-28
  */
 @TableName("auction_user_ext_info")
 public class AuctionUserExtInfo implements Serializable, IEntity {
@@ -35,15 +35,28 @@ public class AuctionUserExtInfo implements Serializable, IEntity {
      */
     private String token;
     /**
+     * 环信通信标识
+     */
+    @TableField("hx_id")
+    private String hxId;
+    /**
      * 聊天是否连接
      */
     @TableField("dialog_connect")
     private Integer dialogConnect;
     /**
-     * 1-限制上拍  2-限制出价
+     * 0-正常  1-限制上拍  2-限制出价
      */
     @TableField("limit_type")
     private Integer limitType;
+    /**
+     * 积分
+     */
+    private Integer score;
+    /**
+     * 拍卖身份  1-用户  2-商家
+     */
+    private Integer type;
 
 
     public Long getId() {
@@ -75,6 +88,17 @@ public class AuctionUserExtInfo implements Serializable, IEntity {
         return this;
     }
 
+    public String getHxId() {
+        return hxId;
+    }
+
+    public AuctionUserExtInfo setHxId(String hxId) {
+        if (hxId != null)
+            hxId = hxId.trim();
+        this.hxId = hxId;
+        return this;
+    }
+
     public Integer getDialogConnect() {
         return dialogConnect;
     }
@@ -90,6 +114,24 @@ public class AuctionUserExtInfo implements Serializable, IEntity {
 
     public AuctionUserExtInfo setLimitType(Integer limitType) {
         this.limitType = limitType;
+        return this;
+    }
+
+    public Integer getScore() {
+        return score;
+    }
+
+    public AuctionUserExtInfo setScore(Integer score) {
+        this.score = score;
+        return this;
+    }
+
+    public Integer getType() {
+        return type;
+    }
+
+    public AuctionUserExtInfo setType(Integer type) {
+        this.type = type;
         return this;
     }
 
@@ -113,14 +155,29 @@ public class AuctionUserExtInfo implements Serializable, IEntity {
     public static final String TOKEN = "token";
 
     /**
+     * 环信通信标识
+     */
+    public static final String HX_ID = "hx_id";
+
+    /**
      * 聊天是否连接
      */
     public static final String DIALOG_CONNECT = "dialog_connect";
 
     /**
-     * 1-限制上拍  2-限制出价
+     * 0-正常  1-限制上拍  2-限制出价
      */
     public static final String LIMIT_TYPE = "limit_type";
+
+    /**
+     * 积分
+     */
+    public static final String SCORE = "score";
+
+    /**
+     * 拍卖身份  1-用户  2-商家
+     */
+    public static final String TYPE = "type";
 
 
     @Override
