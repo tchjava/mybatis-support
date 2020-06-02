@@ -15,7 +15,7 @@ import java.util.Date;
  * </p>
  *
  * @author Gaby
- * @since 2020-04-15
+ * @since 2020-06-02
  */
 @TableName("order_item_info")
 public class OrderItemInfo implements Serializable, IEntity {
@@ -85,6 +85,10 @@ public class OrderItemInfo implements Serializable, IEntity {
      */
     @TableField("free_ship")
     private Integer freeShip;
+    /**
+     * 商品描述
+     */
+    private String content;
 
 
     public Long getId() {
@@ -217,6 +221,17 @@ public class OrderItemInfo implements Serializable, IEntity {
         return this;
     }
 
+    public String getContent() {
+        return content;
+    }
+
+    public OrderItemInfo setContent(String content) {
+        if (content != null)
+            content = content.trim();
+        this.content = content;
+        return this;
+    }
+
     /**
      * 表名
      */
@@ -287,6 +302,11 @@ public class OrderItemInfo implements Serializable, IEntity {
      * 是否包邮
      */
     public static final String FREE_SHIP = "free_ship";
+
+    /**
+     * 商品描述
+     */
+    public static final String CONTENT = "content";
 
 
     @Override
