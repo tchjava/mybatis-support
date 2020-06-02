@@ -11,14 +11,14 @@ import java.util.Date;
 
 /**
  * <p>
- * 拍品信息表
+ * 拍品实例表
  * </p>
  *
  * @author Gaby
  * @since 2020-06-02
  */
-@TableName("auction_product_info")
-public class AuctionProductInfo implements Serializable, IEntity {
+@TableName("auction_product_instance")
+public class AuctionProductInstance implements Serializable, IEntity {
 
 
     /**
@@ -41,25 +41,25 @@ public class AuctionProductInfo implements Serializable, IEntity {
     @TableField("category_id")
     private Long categoryId;
     /**
-     * 拍品编号
-     */
-    @TableField("product_code")
-    private String productCode;
-    /**
      * 主图
      */
     @TableField("first_pic")
     private String firstPic;
     /**
-     * 起拍价
+     * 起拍价(单价:分)
      */
     @TableField("start_price")
     private Long startPrice;
     /**
-     * 加价幅度
+     * 加价幅度(单位:分)
      */
     @TableField("markup_range")
     private Long markupRange;
+    /**
+     * 当前价格
+     */
+    @TableField("current_price")
+    private Long currentPrice;
     /**
      * 备注
      */
@@ -80,20 +80,26 @@ public class AuctionProductInfo implements Serializable, IEntity {
     @TableField("intercept_time")
     private Date interceptTime;
     /**
-     * 状态  00A-有效  00Z-失效
+     * 状态
      */
-    private String status;
+    private Integer status;
     /**
-     * 版本号
+     * 类型   1-自行发布 2-产品库
      */
-    private Integer version;
+    @TableField("source_type")
+    private Integer sourceType;
+    /**
+     * 产品标识
+     */
+    @TableField("product_id")
+    private Long productId;
 
 
     public Long getId() {
         return id;
     }
 
-    public AuctionProductInfo setId(Long id) {
+    public AuctionProductInstance setId(Long id) {
         this.id = id;
         return this;
     }
@@ -102,7 +108,7 @@ public class AuctionProductInfo implements Serializable, IEntity {
         return userAccountId;
     }
 
-    public AuctionProductInfo setUserAccountId(Long userAccountId) {
+    public AuctionProductInstance setUserAccountId(Long userAccountId) {
         this.userAccountId = userAccountId;
         return this;
     }
@@ -111,7 +117,7 @@ public class AuctionProductInfo implements Serializable, IEntity {
         return title;
     }
 
-    public AuctionProductInfo setTitle(String title) {
+    public AuctionProductInstance setTitle(String title) {
         if (title != null)
             title = title.trim();
         this.title = title;
@@ -122,19 +128,8 @@ public class AuctionProductInfo implements Serializable, IEntity {
         return categoryId;
     }
 
-    public AuctionProductInfo setCategoryId(Long categoryId) {
+    public AuctionProductInstance setCategoryId(Long categoryId) {
         this.categoryId = categoryId;
-        return this;
-    }
-
-    public String getProductCode() {
-        return productCode;
-    }
-
-    public AuctionProductInfo setProductCode(String productCode) {
-        if (productCode != null)
-            productCode = productCode.trim();
-        this.productCode = productCode;
         return this;
     }
 
@@ -142,7 +137,7 @@ public class AuctionProductInfo implements Serializable, IEntity {
         return firstPic;
     }
 
-    public AuctionProductInfo setFirstPic(String firstPic) {
+    public AuctionProductInstance setFirstPic(String firstPic) {
         if (firstPic != null)
             firstPic = firstPic.trim();
         this.firstPic = firstPic;
@@ -153,7 +148,7 @@ public class AuctionProductInfo implements Serializable, IEntity {
         return startPrice;
     }
 
-    public AuctionProductInfo setStartPrice(Long startPrice) {
+    public AuctionProductInstance setStartPrice(Long startPrice) {
         this.startPrice = startPrice;
         return this;
     }
@@ -162,8 +157,17 @@ public class AuctionProductInfo implements Serializable, IEntity {
         return markupRange;
     }
 
-    public AuctionProductInfo setMarkupRange(Long markupRange) {
+    public AuctionProductInstance setMarkupRange(Long markupRange) {
         this.markupRange = markupRange;
+        return this;
+    }
+
+    public Long getCurrentPrice() {
+        return currentPrice;
+    }
+
+    public AuctionProductInstance setCurrentPrice(Long currentPrice) {
+        this.currentPrice = currentPrice;
         return this;
     }
 
@@ -171,7 +175,7 @@ public class AuctionProductInfo implements Serializable, IEntity {
         return comment;
     }
 
-    public AuctionProductInfo setComment(String comment) {
+    public AuctionProductInstance setComment(String comment) {
         if (comment != null)
             comment = comment.trim();
         this.comment = comment;
@@ -182,7 +186,7 @@ public class AuctionProductInfo implements Serializable, IEntity {
         return createTime;
     }
 
-    public AuctionProductInfo setCreateTime(Date createTime) {
+    public AuctionProductInstance setCreateTime(Date createTime) {
         this.createTime = createTime;
         return this;
     }
@@ -191,7 +195,7 @@ public class AuctionProductInfo implements Serializable, IEntity {
         return modifyTime;
     }
 
-    public AuctionProductInfo setModifyTime(Date modifyTime) {
+    public AuctionProductInstance setModifyTime(Date modifyTime) {
         this.modifyTime = modifyTime;
         return this;
     }
@@ -200,35 +204,42 @@ public class AuctionProductInfo implements Serializable, IEntity {
         return interceptTime;
     }
 
-    public AuctionProductInfo setInterceptTime(Date interceptTime) {
+    public AuctionProductInstance setInterceptTime(Date interceptTime) {
         this.interceptTime = interceptTime;
         return this;
     }
 
-    public String getStatus() {
+    public Integer getStatus() {
         return status;
     }
 
-    public AuctionProductInfo setStatus(String status) {
-        if (status != null)
-            status = status.trim();
+    public AuctionProductInstance setStatus(Integer status) {
         this.status = status;
         return this;
     }
 
-    public Integer getVersion() {
-        return version;
+    public Integer getSourceType() {
+        return sourceType;
     }
 
-    public AuctionProductInfo setVersion(Integer version) {
-        this.version = version;
+    public AuctionProductInstance setSourceType(Integer sourceType) {
+        this.sourceType = sourceType;
+        return this;
+    }
+
+    public Long getProductId() {
+        return productId;
+    }
+
+    public AuctionProductInstance setProductId(Long productId) {
+        this.productId = productId;
         return this;
     }
 
     /**
      * 表名
      */
-    public static final String TABLE_NAME = "auction_product_info";
+    public static final String TABLE_NAME = "auction_product_instance";
     /**
      * 主键
      */
@@ -250,24 +261,24 @@ public class AuctionProductInfo implements Serializable, IEntity {
     public static final String CATEGORY_ID = "category_id";
 
     /**
-     * 拍品编号
-     */
-    public static final String PRODUCT_CODE = "product_code";
-
-    /**
      * 主图
      */
     public static final String FIRST_PIC = "first_pic";
 
     /**
-     * 起拍价
+     * 起拍价(单价:分)
      */
     public static final String START_PRICE = "start_price";
 
     /**
-     * 加价幅度
+     * 加价幅度(单位:分)
      */
     public static final String MARKUP_RANGE = "markup_range";
+
+    /**
+     * 当前价格
+     */
+    public static final String CURRENT_PRICE = "current_price";
 
     /**
      * 备注
@@ -290,18 +301,23 @@ public class AuctionProductInfo implements Serializable, IEntity {
     public static final String INTERCEPT_TIME = "intercept_time";
 
     /**
-     * 状态  00A-有效  00Z-失效
+     * 状态
      */
     public static final String STATUS = "status";
 
     /**
-     * 版本号
+     * 类型   1-自行发布 2-产品库
      */
-    public static final String VERSION = "version";
+    public static final String SOURCE_TYPE = "source_type";
+
+    /**
+     * 产品标识
+     */
+    public static final String PRODUCT_ID = "product_id";
 
 
     @Override
-    public AuctionProductInfo pkVal(Serializable val) {
+    public AuctionProductInstance pkVal(Serializable val) {
         this.id = Long.valueOf(val.toString());
         return this;
     }
