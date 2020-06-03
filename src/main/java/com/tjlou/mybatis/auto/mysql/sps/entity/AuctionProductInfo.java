@@ -75,11 +75,6 @@ public class AuctionProductInfo implements Serializable, IEntity {
     @TableField("modify_time")
     private Date modifyTime;
     /**
-     * 截拍时间
-     */
-    @TableField("intercept_time")
-    private Date interceptTime;
-    /**
      * 状态  00A-有效  00Z-失效
      */
     private String status;
@@ -201,15 +196,6 @@ public class AuctionProductInfo implements Serializable, IEntity {
         return this;
     }
 
-    public Date getInterceptTime() {
-        return interceptTime;
-    }
-
-    public AuctionProductInfo setInterceptTime(Date interceptTime) {
-        this.interceptTime = interceptTime;
-        return this;
-    }
-
     public String getStatus() {
         return status;
     }
@@ -297,11 +283,6 @@ public class AuctionProductInfo implements Serializable, IEntity {
      * 修改时间
      */
     public static final String MODIFY_TIME = "modify_time";
-
-    /**
-     * 截拍时间
-     */
-    public static final String INTERCEPT_TIME = "intercept_time";
 
     /**
      * 状态  00A-有效  00Z-失效
