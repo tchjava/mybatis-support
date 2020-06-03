@@ -92,10 +92,6 @@ public class AuctionProductInfo implements Serializable, IEntity {
      */
     @TableField("delay_time")
     private Integer delayTime;
-    /**
-     * 库存
-     */
-    private Integer stock;
 
 
     public Long getId() {
@@ -243,15 +239,6 @@ public class AuctionProductInfo implements Serializable, IEntity {
         return this;
     }
 
-    public Integer getStock() {
-        return stock;
-    }
-
-    public AuctionProductInfo setStock(Integer stock) {
-        this.stock = stock;
-        return this;
-    }
-
     /**
      * 表名
      */
@@ -330,11 +317,6 @@ public class AuctionProductInfo implements Serializable, IEntity {
      * 延迟时间 单位(秒)
      */
     public static final String DELAY_TIME = "delay_time";
-
-    /**
-     * 库存
-     */
-    public static final String STOCK = "stock";
 
 
     @Override
