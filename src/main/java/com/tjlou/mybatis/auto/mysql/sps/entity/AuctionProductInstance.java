@@ -80,6 +80,16 @@ public class AuctionProductInstance implements Serializable, IEntity {
     @TableField("intercept_time")
     private Date interceptTime;
     /**
+     * 中拍时间
+     */
+    @TableField("success_time")
+    private Date successTime;
+    /**
+     * 流拍时间
+     */
+    @TableField("lose_time")
+    private Date loseTime;
+    /**
      * 状态
      */
     private Integer status;
@@ -219,6 +229,24 @@ public class AuctionProductInstance implements Serializable, IEntity {
         return this;
     }
 
+    public Date getSuccessTime() {
+        return successTime;
+    }
+
+    public AuctionProductInstance setSuccessTime(Date successTime) {
+        this.successTime = successTime;
+        return this;
+    }
+
+    public Date getLoseTime() {
+        return loseTime;
+    }
+
+    public AuctionProductInstance setLoseTime(Date loseTime) {
+        this.loseTime = loseTime;
+        return this;
+    }
+
     public Integer getStatus() {
         return status;
     }
@@ -327,6 +355,16 @@ public class AuctionProductInstance implements Serializable, IEntity {
      * 截拍时间
      */
     public static final String INTERCEPT_TIME = "intercept_time";
+
+    /**
+     * 中拍时间
+     */
+    public static final String SUCCESS_TIME = "success_time";
+
+    /**
+     * 流拍时间
+     */
+    public static final String LOSE_TIME = "lose_time";
 
     /**
      * 状态
