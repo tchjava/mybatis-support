@@ -98,6 +98,11 @@ public class AuctionProductInstance implements Serializable, IEntity {
      */
     @TableField("bid_num")
     private Integer bidNum;
+    /**
+     * 延迟时间 单位(秒)
+     */
+    @TableField("delay_time")
+    private Integer delayTime;
 
 
     public Long getId() {
@@ -250,6 +255,15 @@ public class AuctionProductInstance implements Serializable, IEntity {
         return this;
     }
 
+    public Integer getDelayTime() {
+        return delayTime;
+    }
+
+    public AuctionProductInstance setDelayTime(Integer delayTime) {
+        this.delayTime = delayTime;
+        return this;
+    }
+
     /**
      * 表名
      */
@@ -333,6 +347,11 @@ public class AuctionProductInstance implements Serializable, IEntity {
      * 出价次数
      */
     public static final String BID_NUM = "bid_num";
+
+    /**
+     * 延迟时间 单位(秒)
+     */
+    public static final String DELAY_TIME = "delay_time";
 
 
     @Override

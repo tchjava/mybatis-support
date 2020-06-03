@@ -15,7 +15,7 @@ import java.util.Date;
  * </p>
  *
  * @author Gaby
- * @since 2020-06-02
+ * @since 2020-06-03
  */
 @TableName("auction_product_info")
 public class AuctionProductInfo implements Serializable, IEntity {
@@ -87,6 +87,11 @@ public class AuctionProductInfo implements Serializable, IEntity {
      * 版本号
      */
     private Integer version;
+    /**
+     * 延迟时间 单位(秒)
+     */
+    @TableField("delay_time")
+    private Integer delayTime;
 
 
     public Long getId() {
@@ -225,6 +230,15 @@ public class AuctionProductInfo implements Serializable, IEntity {
         return this;
     }
 
+    public Integer getDelayTime() {
+        return delayTime;
+    }
+
+    public AuctionProductInfo setDelayTime(Integer delayTime) {
+        this.delayTime = delayTime;
+        return this;
+    }
+
     /**
      * 表名
      */
@@ -298,6 +312,11 @@ public class AuctionProductInfo implements Serializable, IEntity {
      * 版本号
      */
     public static final String VERSION = "version";
+
+    /**
+     * 延迟时间 单位(秒)
+     */
+    public static final String DELAY_TIME = "delay_time";
 
 
     @Override
