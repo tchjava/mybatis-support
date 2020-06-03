@@ -15,10 +15,11 @@ import java.util.Date;
  * </p>
  *
  * @author Gaby
- * @since 2019-08-20
+ * @since 2020-06-03
  */
 @TableName("category_info")
 public class CategoryInfo implements Serializable, IEntity {
+
 
     @TableId(value = "id", type = IdType.AUTO)
     private Long id;
@@ -36,7 +37,7 @@ public class CategoryInfo implements Serializable, IEntity {
      */
     private Date intime;
     /**
-     * 状态 00A-有效,00B-失效
+     * 状态 00A-有效,00B-失效,00Z-已删除
      */
     private String status;
     /**
@@ -52,6 +53,11 @@ public class CategoryInfo implements Serializable, IEntity {
      * 分类图片
      */
     private String icon;
+    /**
+     * 范围 1-超级仓库  2-拍卖
+     */
+    private Integer type;
+
 
     public Long getId() {
         return id;
@@ -135,6 +141,15 @@ public class CategoryInfo implements Serializable, IEntity {
         return this;
     }
 
+    public Integer getType() {
+        return type;
+    }
+
+    public CategoryInfo setType(Integer type) {
+        this.type = type;
+        return this;
+    }
+
     /**
      * 表名
      */
@@ -157,7 +172,7 @@ public class CategoryInfo implements Serializable, IEntity {
     public static final String INTIME = "intime";
 
     /**
-     * 状态 00A-有效,00B-失效
+     * 状态 00A-有效,00B-失效,00Z-已删除
      */
     public static final String STATUS = "status";
 
@@ -175,6 +190,12 @@ public class CategoryInfo implements Serializable, IEntity {
      * 分类图片
      */
     public static final String ICON = "icon";
+
+    /**
+     * 范围 1-超级仓库  2-拍卖
+     */
+    public static final String TYPE = "type";
+
 
     @Override
     public CategoryInfo pkVal(Serializable val) {
