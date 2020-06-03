@@ -14,10 +14,11 @@ import java.io.Serializable;
  * </p>
  *
  * @author Gaby
- * @since 2020-05-30
+ * @since 2020-06-03
  */
 @TableName("auction_product_ext_info")
 public class AuctionProductExtInfo implements Serializable, IEntity {
+
 
     @TableId(value = "id", type = IdType.AUTO)
     private Long id;
@@ -30,6 +31,17 @@ public class AuctionProductExtInfo implements Serializable, IEntity {
      * 描述
      */
     private String content;
+    /**
+     * 属性信息
+     */
+    @TableField("attribute_json")
+    private String attributeJson;
+    /**
+     * 属性值
+     */
+    @TableField("attribute_value")
+    private String attributeValue;
+
 
     public Long getId() {
         return id;
@@ -60,6 +72,28 @@ public class AuctionProductExtInfo implements Serializable, IEntity {
         return this;
     }
 
+    public String getAttributeJson() {
+        return attributeJson;
+    }
+
+    public AuctionProductExtInfo setAttributeJson(String attributeJson) {
+        if (attributeJson != null)
+            attributeJson = attributeJson.trim();
+        this.attributeJson = attributeJson;
+        return this;
+    }
+
+    public String getAttributeValue() {
+        return attributeValue;
+    }
+
+    public AuctionProductExtInfo setAttributeValue(String attributeValue) {
+        if (attributeValue != null)
+            attributeValue = attributeValue.trim();
+        this.attributeValue = attributeValue;
+        return this;
+    }
+
     /**
      * 表名
      */
@@ -75,6 +109,17 @@ public class AuctionProductExtInfo implements Serializable, IEntity {
      * 描述
      */
     public static final String CONTENT = "content";
+
+    /**
+     * 属性信息
+     */
+    public static final String ATTRIBUTE_JSON = "attribute_json";
+
+    /**
+     * 属性值
+     */
+    public static final String ATTRIBUTE_VALUE = "attribute_value";
+
 
     @Override
     public AuctionProductExtInfo pkVal(Serializable val) {

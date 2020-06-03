@@ -14,7 +14,7 @@ import java.io.Serializable;
  * </p>
  *
  * @author Gaby
- * @since 2020-06-02
+ * @since 2020-06-03
  */
 @TableName("product_instance_ext_info")
 public class ProductInstanceExtInfo implements Serializable, IEntity {
@@ -25,6 +25,16 @@ public class ProductInstanceExtInfo implements Serializable, IEntity {
     @TableField("instance_id")
     private Long instanceId;
     private String content;
+    /**
+     * 属性信息
+     */
+    @TableField("attribute_json")
+    private String attributeJson;
+    /**
+     * 属性值
+     */
+    @TableField("attribute_value")
+    private String attributeValue;
 
 
     public Long getId() {
@@ -56,6 +66,28 @@ public class ProductInstanceExtInfo implements Serializable, IEntity {
         return this;
     }
 
+    public String getAttributeJson() {
+        return attributeJson;
+    }
+
+    public ProductInstanceExtInfo setAttributeJson(String attributeJson) {
+        if (attributeJson != null)
+            attributeJson = attributeJson.trim();
+        this.attributeJson = attributeJson;
+        return this;
+    }
+
+    public String getAttributeValue() {
+        return attributeValue;
+    }
+
+    public ProductInstanceExtInfo setAttributeValue(String attributeValue) {
+        if (attributeValue != null)
+            attributeValue = attributeValue.trim();
+        this.attributeValue = attributeValue;
+        return this;
+    }
+
     /**
      * 表名
      */
@@ -65,6 +97,16 @@ public class ProductInstanceExtInfo implements Serializable, IEntity {
     public static final String INSTANCE_ID = "instance_id";
 
     public static final String CONTENT = "content";
+
+    /**
+     * 属性信息
+     */
+    public static final String ATTRIBUTE_JSON = "attribute_json";
+
+    /**
+     * 属性值
+     */
+    public static final String ATTRIBUTE_VALUE = "attribute_value";
 
 
     @Override
