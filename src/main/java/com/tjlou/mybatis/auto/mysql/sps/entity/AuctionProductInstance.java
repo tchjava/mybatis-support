@@ -113,6 +113,11 @@ public class AuctionProductInstance implements Serializable, IEntity {
      */
     @TableField("delay_time")
     private Integer delayTime;
+    /**
+     * 延迟天数
+     */
+    @TableField("delay_day")
+    private Integer delayDay;
 
 
     public Long getId() {
@@ -292,6 +297,15 @@ public class AuctionProductInstance implements Serializable, IEntity {
         return this;
     }
 
+    public Integer getDelayDay() {
+        return delayDay;
+    }
+
+    public AuctionProductInstance setDelayDay(Integer delayDay) {
+        this.delayDay = delayDay;
+        return this;
+    }
+
     /**
      * 表名
      */
@@ -390,6 +404,11 @@ public class AuctionProductInstance implements Serializable, IEntity {
      * 延迟时间 单位(秒)
      */
     public static final String DELAY_TIME = "delay_time";
+
+    /**
+     * 延迟天数
+     */
+    public static final String DELAY_DAY = "delay_day";
 
 
     @Override
