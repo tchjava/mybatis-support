@@ -15,7 +15,7 @@ import java.util.Date;
  * </p>
  *
  * @author Gaby
- * @since 2020-06-02
+ * @since 2020-06-03
  */
 @TableName("auction_product_instance")
 public class AuctionProductInstance implements Serializable, IEntity {
@@ -93,6 +93,11 @@ public class AuctionProductInstance implements Serializable, IEntity {
      */
     @TableField("product_id")
     private Long productId;
+    /**
+     * 出价次数
+     */
+    @TableField("bid_num")
+    private Integer bidNum;
 
 
     public Long getId() {
@@ -236,6 +241,15 @@ public class AuctionProductInstance implements Serializable, IEntity {
         return this;
     }
 
+    public Integer getBidNum() {
+        return bidNum;
+    }
+
+    public AuctionProductInstance setBidNum(Integer bidNum) {
+        this.bidNum = bidNum;
+        return this;
+    }
+
     /**
      * 表名
      */
@@ -314,6 +328,11 @@ public class AuctionProductInstance implements Serializable, IEntity {
      * 产品标识
      */
     public static final String PRODUCT_ID = "product_id";
+
+    /**
+     * 出价次数
+     */
+    public static final String BID_NUM = "bid_num";
 
 
     @Override
