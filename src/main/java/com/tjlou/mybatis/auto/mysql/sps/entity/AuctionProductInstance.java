@@ -15,7 +15,7 @@ import java.util.Date;
  * </p>
  *
  * @author Gaby
- * @since 2020-06-03
+ * @since 2020-06-05
  */
 @TableName("auction_product_instance")
 public class AuctionProductInstance implements Serializable, IEntity {
@@ -90,7 +90,7 @@ public class AuctionProductInstance implements Serializable, IEntity {
     @TableField("lose_time")
     private Date loseTime;
     /**
-     * 状态
+     * 状态  1-竞拍中  2-在线付款 4-当面交易 8-未付款  16-流拍 32-未及时付款 64-已下架 128-退款
      */
     private Integer status;
     /**
@@ -118,6 +118,21 @@ public class AuctionProductInstance implements Serializable, IEntity {
      */
     @TableField("delay_day")
     private Integer delayDay;
+    /**
+     * 商品标识(选择产品库时存在该值)
+     */
+    @TableField("goods_id")
+    private Long goodsId;
+    /**
+     * 商品销售价
+     */
+    @TableField("goods_price")
+    private Long goodsPrice;
+    /**
+     * 商品供货价
+     */
+    @TableField("goods_agent_price")
+    private Long goodsAgentPrice;
 
 
     public Long getId() {
@@ -306,6 +321,33 @@ public class AuctionProductInstance implements Serializable, IEntity {
         return this;
     }
 
+    public Long getGoodsId() {
+        return goodsId;
+    }
+
+    public AuctionProductInstance setGoodsId(Long goodsId) {
+        this.goodsId = goodsId;
+        return this;
+    }
+
+    public Long getGoodsPrice() {
+        return goodsPrice;
+    }
+
+    public AuctionProductInstance setGoodsPrice(Long goodsPrice) {
+        this.goodsPrice = goodsPrice;
+        return this;
+    }
+
+    public Long getGoodsAgentPrice() {
+        return goodsAgentPrice;
+    }
+
+    public AuctionProductInstance setGoodsAgentPrice(Long goodsAgentPrice) {
+        this.goodsAgentPrice = goodsAgentPrice;
+        return this;
+    }
+
     /**
      * 表名
      */
@@ -381,7 +423,7 @@ public class AuctionProductInstance implements Serializable, IEntity {
     public static final String LOSE_TIME = "lose_time";
 
     /**
-     * 状态
+     * 状态  1-竞拍中  2-在线付款 4-当面交易 8-未付款  16-流拍 32-未及时付款 64-已下架 128-退款
      */
     public static final String STATUS = "status";
 
@@ -409,6 +451,21 @@ public class AuctionProductInstance implements Serializable, IEntity {
      * 延迟天数
      */
     public static final String DELAY_DAY = "delay_day";
+
+    /**
+     * 商品标识(选择产品库时存在该值)
+     */
+    public static final String GOODS_ID = "goods_id";
+
+    /**
+     * 商品销售价
+     */
+    public static final String GOODS_PRICE = "goods_price";
+
+    /**
+     * 商品供货价
+     */
+    public static final String GOODS_AGENT_PRICE = "goods_agent_price";
 
 
     @Override
