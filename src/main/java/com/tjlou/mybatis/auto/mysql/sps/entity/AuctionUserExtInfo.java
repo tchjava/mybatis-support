@@ -15,10 +15,11 @@ import java.util.Date;
  * </p>
  *
  * @author Gaby
- * @since 2020-05-30
+ * @since 2020-06-05
  */
 @TableName("auction_user_ext_info")
 public class AuctionUserExtInfo implements Serializable, IEntity {
+
 
     /**
      * 主键
@@ -91,6 +92,11 @@ public class AuctionUserExtInfo implements Serializable, IEntity {
      */
     @TableField("app_open_id")
     private String appOpenId;
+    /**
+     * 评分
+     */
+    private Double rate;
+
 
     public Long getId() {
         return id;
@@ -237,6 +243,15 @@ public class AuctionUserExtInfo implements Serializable, IEntity {
         return this;
     }
 
+    public Double getRate() {
+        return rate;
+    }
+
+    public AuctionUserExtInfo setRate(Double rate) {
+        this.rate = rate;
+        return this;
+    }
+
     /**
      * 表名
      */
@@ -315,6 +330,12 @@ public class AuctionUserExtInfo implements Serializable, IEntity {
      * 移动端open_id
      */
     public static final String APP_OPEN_ID = "app_open_id";
+
+    /**
+     * 评分
+     */
+    public static final String RATE = "rate";
+
 
     @Override
     public AuctionUserExtInfo pkVal(Serializable val) {

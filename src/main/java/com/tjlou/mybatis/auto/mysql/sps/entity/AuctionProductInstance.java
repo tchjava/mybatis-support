@@ -27,6 +27,11 @@ public class AuctionProductInstance implements Serializable, IEntity {
     @TableId(value = "id", type = IdType.AUTO)
     private Long id;
     /**
+     * 拍品实例编号
+     */
+    @TableField("instance_code")
+    private String instanceCode;
+    /**
      * 所属用户
      */
     @TableField("user_account_id")
@@ -141,6 +146,17 @@ public class AuctionProductInstance implements Serializable, IEntity {
 
     public AuctionProductInstance setId(Long id) {
         this.id = id;
+        return this;
+    }
+
+    public String getInstanceCode() {
+        return instanceCode;
+    }
+
+    public AuctionProductInstance setInstanceCode(String instanceCode) {
+        if (instanceCode != null)
+            instanceCode = instanceCode.trim();
+        this.instanceCode = instanceCode;
         return this;
     }
 
@@ -356,6 +372,11 @@ public class AuctionProductInstance implements Serializable, IEntity {
      * 主键
      */
     public static final String ID = "id";
+
+    /**
+     * 拍品实例编号
+     */
+    public static final String INSTANCE_CODE = "instance_code";
 
     /**
      * 所属用户

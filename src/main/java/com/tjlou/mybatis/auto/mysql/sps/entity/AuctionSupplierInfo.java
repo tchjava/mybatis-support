@@ -40,22 +40,10 @@ public class AuctionSupplierInfo implements Serializable, IEntity {
     @TableField("create_time")
     private Date createTime;
     /**
-     * 等级
-     */
-    private Integer level;
-    /**
-     * 积分
-     */
-    private Integer score;
-    /**
      * 店铺二维码
      */
     @TableField("qr_code")
     private String qrCode;
-    /**
-     * 评分
-     */
-    private Double rate;
     /**
      * 身份证
      */
@@ -120,24 +108,6 @@ public class AuctionSupplierInfo implements Serializable, IEntity {
         return this;
     }
 
-    public Integer getLevel() {
-        return level;
-    }
-
-    public AuctionSupplierInfo setLevel(Integer level) {
-        this.level = level;
-        return this;
-    }
-
-    public Integer getScore() {
-        return score;
-    }
-
-    public AuctionSupplierInfo setScore(Integer score) {
-        this.score = score;
-        return this;
-    }
-
     public String getQrCode() {
         return qrCode;
     }
@@ -146,15 +116,6 @@ public class AuctionSupplierInfo implements Serializable, IEntity {
         if (qrCode != null)
             qrCode = qrCode.trim();
         this.qrCode = qrCode;
-        return this;
-    }
-
-    public Double getRate() {
-        return rate;
-    }
-
-    public AuctionSupplierInfo setRate(Double rate) {
-        this.rate = rate;
         return this;
     }
 
@@ -234,24 +195,9 @@ public class AuctionSupplierInfo implements Serializable, IEntity {
     public static final String CREATE_TIME = "create_time";
 
     /**
-     * 等级
-     */
-    public static final String LEVEL = "level";
-
-    /**
-     * 积分
-     */
-    public static final String SCORE = "score";
-
-    /**
      * 店铺二维码
      */
     public static final String QR_CODE = "qr_code";
-
-    /**
-     * 评分
-     */
-    public static final String RATE = "rate";
 
     /**
      * 身份证
