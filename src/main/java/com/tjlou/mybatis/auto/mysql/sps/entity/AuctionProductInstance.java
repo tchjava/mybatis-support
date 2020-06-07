@@ -15,7 +15,7 @@ import java.util.Date;
  * </p>
  *
  * @author Gaby
- * @since 2020-06-05
+ * @since 2020-06-07
  */
 @TableName("auction_product_instance")
 public class AuctionProductInstance implements Serializable, IEntity {
@@ -119,10 +119,15 @@ public class AuctionProductInstance implements Serializable, IEntity {
     @TableField("delay_time")
     private Integer delayTime;
     /**
-     * 延迟天数
+     * 截拍时间节点
      */
-    @TableField("delay_day")
-    private Integer delayDay;
+    @TableField("intercept_time_node")
+    private Integer interceptTimeNode;
+    /**
+     * 截拍节点天数
+     */
+    @TableField("intercept_time_day")
+    private Integer interceptTimeDay;
     /**
      * 商品标识(选择产品库时存在该值)
      */
@@ -328,12 +333,21 @@ public class AuctionProductInstance implements Serializable, IEntity {
         return this;
     }
 
-    public Integer getDelayDay() {
-        return delayDay;
+    public Integer getInterceptTimeNode() {
+        return interceptTimeNode;
     }
 
-    public AuctionProductInstance setDelayDay(Integer delayDay) {
-        this.delayDay = delayDay;
+    public AuctionProductInstance setInterceptTimeNode(Integer interceptTimeNode) {
+        this.interceptTimeNode = interceptTimeNode;
+        return this;
+    }
+
+    public Integer getInterceptTimeDay() {
+        return interceptTimeDay;
+    }
+
+    public AuctionProductInstance setInterceptTimeDay(Integer interceptTimeDay) {
+        this.interceptTimeDay = interceptTimeDay;
         return this;
     }
 
@@ -469,9 +483,14 @@ public class AuctionProductInstance implements Serializable, IEntity {
     public static final String DELAY_TIME = "delay_time";
 
     /**
-     * 延迟天数
+     * 截拍时间节点
      */
-    public static final String DELAY_DAY = "delay_day";
+    public static final String INTERCEPT_TIME_NODE = "intercept_time_node";
+
+    /**
+     * 截拍节点天数
+     */
+    public static final String INTERCEPT_TIME_DAY = "intercept_time_day";
 
     /**
      * 商品标识(选择产品库时存在该值)

@@ -15,7 +15,7 @@ import java.util.Date;
  * </p>
  *
  * @author Gaby
- * @since 2020-06-04
+ * @since 2020-06-06
  */
 @TableName("auction_product_info")
 public class AuctionProductInfo implements Serializable, IEntity {
@@ -82,6 +82,11 @@ public class AuctionProductInfo implements Serializable, IEntity {
      * 版本号
      */
     private Integer version;
+    /**
+     * 时间节点标识
+     */
+    @TableField("time_node_id")
+    private Long timeNodeId;
 
 
     public Long getId() {
@@ -211,6 +216,15 @@ public class AuctionProductInfo implements Serializable, IEntity {
         return this;
     }
 
+    public Long getTimeNodeId() {
+        return timeNodeId;
+    }
+
+    public AuctionProductInfo setTimeNodeId(Long timeNodeId) {
+        this.timeNodeId = timeNodeId;
+        return this;
+    }
+
     /**
      * 表名
      */
@@ -279,6 +293,11 @@ public class AuctionProductInfo implements Serializable, IEntity {
      * 版本号
      */
     public static final String VERSION = "version";
+
+    /**
+     * 时间节点标识
+     */
+    public static final String TIME_NODE_ID = "time_node_id";
 
 
     @Override
