@@ -15,7 +15,7 @@ import java.util.Date;
  * </p>
  *
  * @author Gaby
- * @since 2020-03-26
+ * @since 2020-06-09
  */
 @TableName("chat_record_info")
 public class ChatRecordInfo implements Serializable, IEntity {
@@ -48,6 +48,10 @@ public class ChatRecordInfo implements Serializable, IEntity {
      * 00A-有效 00Z-失效
      */
     private String status;
+    /**
+     * 类型 1-敏感词  2-正常
+     */
+    private Integer type;
 
 
     public Long getId() {
@@ -108,6 +112,15 @@ public class ChatRecordInfo implements Serializable, IEntity {
         return this;
     }
 
+    public Integer getType() {
+        return type;
+    }
+
+    public ChatRecordInfo setType(Integer type) {
+        this.type = type;
+        return this;
+    }
+
     /**
      * 表名
      */
@@ -141,6 +154,11 @@ public class ChatRecordInfo implements Serializable, IEntity {
      * 00A-有效 00Z-失效
      */
     public static final String STATUS = "status";
+
+    /**
+     * 类型 1-敏感词  2-正常
+     */
+    public static final String TYPE = "type";
 
 
     @Override

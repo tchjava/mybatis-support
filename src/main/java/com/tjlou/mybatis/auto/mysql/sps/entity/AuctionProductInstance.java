@@ -15,7 +15,7 @@ import java.util.Date;
  * </p>
  *
  * @author Gaby
- * @since 2020-06-07
+ * @since 2020-06-08
  */
 @TableName("auction_product_instance")
 public class AuctionProductInstance implements Serializable, IEntity {
@@ -143,6 +143,15 @@ public class AuctionProductInstance implements Serializable, IEntity {
      */
     @TableField("goods_agent_price")
     private Long goodsAgentPrice;
+    /**
+     * 配送方式 1-包邮 2-到付
+     */
+    @TableField("distribute_type")
+    private Integer distributeType;
+    /**
+     * 是否包退  1-包退 0-不包退
+     */
+    private Integer refund;
 
 
     public Long getId() {
@@ -378,6 +387,24 @@ public class AuctionProductInstance implements Serializable, IEntity {
         return this;
     }
 
+    public Integer getDistributeType() {
+        return distributeType;
+    }
+
+    public AuctionProductInstance setDistributeType(Integer distributeType) {
+        this.distributeType = distributeType;
+        return this;
+    }
+
+    public Integer getRefund() {
+        return refund;
+    }
+
+    public AuctionProductInstance setRefund(Integer refund) {
+        this.refund = refund;
+        return this;
+    }
+
     /**
      * 表名
      */
@@ -506,6 +533,16 @@ public class AuctionProductInstance implements Serializable, IEntity {
      * 商品供货价
      */
     public static final String GOODS_AGENT_PRICE = "goods_agent_price";
+
+    /**
+     * 配送方式 1-包邮 2-到付
+     */
+    public static final String DISTRIBUTE_TYPE = "distribute_type";
+
+    /**
+     * 是否包退  1-包退 0-不包退
+     */
+    public static final String REFUND = "refund";
 
 
     @Override

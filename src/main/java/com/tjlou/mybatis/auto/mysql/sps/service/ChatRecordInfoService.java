@@ -9,7 +9,7 @@ import com.baomidou.mybatisplus.service.IService;
  * </p>
  *
  * @author Gaby
- * @since 2020-03-26
+ * @since 2020-06-09
  */
 public interface ChatRecordInfoService extends IService<ChatRecordInfo> {
 

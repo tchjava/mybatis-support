@@ -15,7 +15,7 @@ import java.util.Date;
  * </p>
  *
  * @author Gaby
- * @since 2020-06-06
+ * @since 2020-06-09
  */
 @TableName("auction_product_info")
 public class AuctionProductInfo implements Serializable, IEntity {
@@ -87,6 +87,20 @@ public class AuctionProductInfo implements Serializable, IEntity {
      */
     @TableField("time_node_id")
     private Long timeNodeId;
+    /**
+     * 截拍节点天数
+     */
+    @TableField("intercept_time_day")
+    private Integer interceptTimeDay;
+    /**
+     * 配送方式  1-包邮  2-到付
+     */
+    @TableField("distribute_type")
+    private Integer distributeType;
+    /**
+     * 是否包退  1-包退 2-不包退
+     */
+    private Integer refund;
 
 
     public Long getId() {
@@ -225,6 +239,33 @@ public class AuctionProductInfo implements Serializable, IEntity {
         return this;
     }
 
+    public Integer getInterceptTimeDay() {
+        return interceptTimeDay;
+    }
+
+    public AuctionProductInfo setInterceptTimeDay(Integer interceptTimeDay) {
+        this.interceptTimeDay = interceptTimeDay;
+        return this;
+    }
+
+    public Integer getDistributeType() {
+        return distributeType;
+    }
+
+    public AuctionProductInfo setDistributeType(Integer distributeType) {
+        this.distributeType = distributeType;
+        return this;
+    }
+
+    public Integer getRefund() {
+        return refund;
+    }
+
+    public AuctionProductInfo setRefund(Integer refund) {
+        this.refund = refund;
+        return this;
+    }
+
     /**
      * 表名
      */
@@ -298,6 +339,21 @@ public class AuctionProductInfo implements Serializable, IEntity {
      * 时间节点标识
      */
     public static final String TIME_NODE_ID = "time_node_id";
+
+    /**
+     * 截拍节点天数
+     */
+    public static final String INTERCEPT_TIME_DAY = "intercept_time_day";
+
+    /**
+     * 配送方式  1-包邮  2-到付
+     */
+    public static final String DISTRIBUTE_TYPE = "distribute_type";
+
+    /**
+     * 是否包退  1-包退 2-不包退
+     */
+    public static final String REFUND = "refund";
 
 
     @Override
