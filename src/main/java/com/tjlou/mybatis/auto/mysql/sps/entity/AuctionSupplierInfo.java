@@ -15,7 +15,7 @@ import java.util.Date;
  * </p>
  *
  * @author Gaby
- * @since 2020-06-05
+ * @since 2020-06-11
  */
 @TableName("auction_supplier_info")
 public class AuctionSupplierInfo implements Serializable, IEntity {
@@ -54,7 +54,7 @@ public class AuctionSupplierInfo implements Serializable, IEntity {
     @TableField("user_account_id")
     private Long userAccountId;
     /**
-     * 状态 00A-有效 00B-待审核  00C-已拒绝  00Z-失效
+     * 状态 00A-有效 00B-待审核  00C-已拒绝  00D-待支付 00Z-失效
      */
     private String status;
     /**
@@ -66,6 +66,21 @@ public class AuctionSupplierInfo implements Serializable, IEntity {
      */
     @TableField("store_shield")
     private Integer storeShield;
+    /**
+     * 业务单号
+     */
+    @TableField("trade_no")
+    private String tradeNo;
+    /**
+     * 交易单号
+     */
+    @TableField("transction_id")
+    private String transctionId;
+    /**
+     * 认证费 (单位：分)
+     */
+    @TableField("auth_money")
+    private Integer authMoney;
 
 
     public Long getId() {
@@ -170,6 +185,37 @@ public class AuctionSupplierInfo implements Serializable, IEntity {
         return this;
     }
 
+    public String getTradeNo() {
+        return tradeNo;
+    }
+
+    public AuctionSupplierInfo setTradeNo(String tradeNo) {
+        if (tradeNo != null)
+            tradeNo = tradeNo.trim();
+        this.tradeNo = tradeNo;
+        return this;
+    }
+
+    public String getTransctionId() {
+        return transctionId;
+    }
+
+    public AuctionSupplierInfo setTransctionId(String transctionId) {
+        if (transctionId != null)
+            transctionId = transctionId.trim();
+        this.transctionId = transctionId;
+        return this;
+    }
+
+    public Integer getAuthMoney() {
+        return authMoney;
+    }
+
+    public AuctionSupplierInfo setAuthMoney(Integer authMoney) {
+        this.authMoney = authMoney;
+        return this;
+    }
+
     /**
      * 表名
      */
@@ -210,7 +256,7 @@ public class AuctionSupplierInfo implements Serializable, IEntity {
     public static final String USER_ACCOUNT_ID = "user_account_id";
 
     /**
-     * 状态 00A-有效 00B-待审核  00C-已拒绝  00Z-失效
+     * 状态 00A-有效 00B-待审核  00C-已拒绝  00D-待支付 00Z-失效
      */
     public static final String STATUS = "status";
 
@@ -223,6 +269,21 @@ public class AuctionSupplierInfo implements Serializable, IEntity {
      * 店铺屏蔽 0-正常 1-屏蔽
      */
     public static final String STORE_SHIELD = "store_shield";
+
+    /**
+     * 业务单号
+     */
+    public static final String TRADE_NO = "trade_no";
+
+    /**
+     * 交易单号
+     */
+    public static final String TRANSCTION_ID = "transction_id";
+
+    /**
+     * 认证费 (单位：分)
+     */
+    public static final String AUTH_MONEY = "auth_money";
 
 
     @Override

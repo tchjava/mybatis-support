@@ -15,7 +15,7 @@ import java.util.Date;
  * </p>
  *
  * @author Gaby
- * @since 2020-06-05
+ * @since 2020-06-10
  */
 @TableName("auction_user_ext_info")
 public class AuctionUserExtInfo implements Serializable, IEntity {
@@ -26,6 +26,10 @@ public class AuctionUserExtInfo implements Serializable, IEntity {
      */
     @TableId(value = "id", type = IdType.AUTO)
     private Long id;
+    /**
+     * 昵称
+     */
+    private String nickname;
     /**
      * 用户标识
      */
@@ -96,6 +100,11 @@ public class AuctionUserExtInfo implements Serializable, IEntity {
      * 评分
      */
     private Double rate;
+    /**
+     * 头像
+     */
+    @TableField("head_img")
+    private String headImg;
 
 
     public Long getId() {
@@ -104,6 +113,17 @@ public class AuctionUserExtInfo implements Serializable, IEntity {
 
     public AuctionUserExtInfo setId(Long id) {
         this.id = id;
+        return this;
+    }
+
+    public String getNickname() {
+        return nickname;
+    }
+
+    public AuctionUserExtInfo setNickname(String nickname) {
+        if (nickname != null)
+            nickname = nickname.trim();
+        this.nickname = nickname;
         return this;
     }
 
@@ -252,6 +272,17 @@ public class AuctionUserExtInfo implements Serializable, IEntity {
         return this;
     }
 
+    public String getHeadImg() {
+        return headImg;
+    }
+
+    public AuctionUserExtInfo setHeadImg(String headImg) {
+        if (headImg != null)
+            headImg = headImg.trim();
+        this.headImg = headImg;
+        return this;
+    }
+
     /**
      * 表名
      */
@@ -260,6 +291,11 @@ public class AuctionUserExtInfo implements Serializable, IEntity {
      * 主键
      */
     public static final String ID = "id";
+
+    /**
+     * 昵称
+     */
+    public static final String NICKNAME = "nickname";
 
     /**
      * 用户标识
@@ -335,6 +371,11 @@ public class AuctionUserExtInfo implements Serializable, IEntity {
      * 评分
      */
     public static final String RATE = "rate";
+
+    /**
+     * 头像
+     */
+    public static final String HEAD_IMG = "head_img";
 
 
     @Override
