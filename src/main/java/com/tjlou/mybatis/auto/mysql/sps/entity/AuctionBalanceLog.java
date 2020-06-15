@@ -1,0 +1,229 @@
+package com.tjlou.mybatis.auto.mysql.sps.entity;
+
+import com.baomidou.mybatisplus.annotations.TableField;
+import com.baomidou.mybatisplus.annotations.TableId;
+import com.baomidou.mybatisplus.annotations.TableName;
+import com.baomidou.mybatisplus.enums.IdType;
+import com.tjlou.mybatis.base.entity.IEntity;
+
+import java.io.Serializable;
+import java.util.Date;
+
+/**
+ * <p>
+ * 拍卖-余额日志表
+ * </p>
+ *
+ * @author Gaby
+ * @since 2020-06-15
+ */
+@TableName("auction_balance_log")
+public class AuctionBalanceLog implements Serializable, IEntity {
+
+
+    /**
+     * 主键
+     */
+    @TableId(value = "id", type = IdType.AUTO)
+    private Long id;
+    /**
+     * 所属余额信息
+     */
+    @TableField("balance_id")
+    private Long balanceId;
+    /**
+     * 所属用户
+     */
+    @TableField("user_account_id")
+    private Long userAccountId;
+    /**
+     * 来源标识
+     */
+    @TableField("source_id")
+    private Long sourceId;
+    /**
+     * 变动类型 1-交易 2-赔偿(收入) 4-交易冻结 8-安全冻结 16-提现中 32-已提现 64-购物 128-赔偿(支出) 256-退款  512-退还 1024-缴纳保证金 2048-充值
+     */
+    @TableField("change_type")
+    private Long changeType;
+    /**
+     * 变动金额 单位:分
+     */
+    @TableField("change_num")
+    private Long changeNum;
+    /**
+     * 结余金额 单位:分
+     */
+    @TableField("balance_num")
+    private Long balanceNum;
+    /**
+     * 变动时间
+     */
+    @TableField("change_time")
+    private Date changeTime;
+    /**
+     * 备注
+     */
+    private String comment;
+    /**
+     * 状态 00A-有效 00C-支出 00Z-失效
+     */
+    private String status;
+
+
+    public Long getId() {
+        return id;
+    }
+
+    public AuctionBalanceLog setId(Long id) {
+        this.id = id;
+        return this;
+    }
+
+    public Long getBalanceId() {
+        return balanceId;
+    }
+
+    public AuctionBalanceLog setBalanceId(Long balanceId) {
+        this.balanceId = balanceId;
+        return this;
+    }
+
+    public Long getUserAccountId() {
+        return userAccountId;
+    }
+
+    public AuctionBalanceLog setUserAccountId(Long userAccountId) {
+        this.userAccountId = userAccountId;
+        return this;
+    }
+
+    public Long getSourceId() {
+        return sourceId;
+    }
+
+    public AuctionBalanceLog setSourceId(Long sourceId) {
+        this.sourceId = sourceId;
+        return this;
+    }
+
+    public Long getChangeType() {
+        return changeType;
+    }
+
+    public AuctionBalanceLog setChangeType(Long changeType) {
+        this.changeType = changeType;
+        return this;
+    }
+
+    public Long getChangeNum() {
+        return changeNum;
+    }
+
+    public AuctionBalanceLog setChangeNum(Long changeNum) {
+        this.changeNum = changeNum;
+        return this;
+    }
+
+    public Long getBalanceNum() {
+        return balanceNum;
+    }
+
+    public AuctionBalanceLog setBalanceNum(Long balanceNum) {
+        this.balanceNum = balanceNum;
+        return this;
+    }
+
+    public Date getChangeTime() {
+        return changeTime;
+    }
+
+    public AuctionBalanceLog setChangeTime(Date changeTime) {
+        this.changeTime = changeTime;
+        return this;
+    }
+
+    public String getComment() {
+        return comment;
+    }
+
+    public AuctionBalanceLog setComment(String comment) {
+        if (comment != null)
+            comment = comment.trim();
+        this.comment = comment;
+        return this;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public AuctionBalanceLog setStatus(String status) {
+        if (status != null)
+            status = status.trim();
+        this.status = status;
+        return this;
+    }
+
+    /**
+     * 表名
+     */
+    public static final String TABLE_NAME = "auction_balance_log";
+    /**
+     * 主键
+     */
+    public static final String ID = "id";
+
+    /**
+     * 所属余额信息
+     */
+    public static final String BALANCE_ID = "balance_id";
+
+    /**
+     * 所属用户
+     */
+    public static final String USER_ACCOUNT_ID = "user_account_id";
+
+    /**
+     * 来源标识
+     */
+    public static final String SOURCE_ID = "source_id";
+
+    /**
+     * 变动类型 1-交易 2-赔偿(收入) 4-交易冻结 8-安全冻结 16-提现中 32-已提现 64-购物 128-赔偿(支出) 256-退款  512-退还 1024-缴纳保证金 2048-充值
+     */
+    public static final String CHANGE_TYPE = "change_type";
+
+    /**
+     * 变动金额 单位:分
+     */
+    public static final String CHANGE_NUM = "change_num";
+
+    /**
+     * 结余金额 单位:分
+     */
+    public static final String BALANCE_NUM = "balance_num";
+
+    /**
+     * 变动时间
+     */
+    public static final String CHANGE_TIME = "change_time";
+
+    /**
+     * 备注
+     */
+    public static final String COMMENT = "comment";
+
+    /**
+     * 状态 00A-有效 00C-支出 00Z-失效
+     */
+    public static final String STATUS = "status";
+
+
+    @Override
+    public AuctionBalanceLog pkVal(Serializable val) {
+        this.id = Long.valueOf(val.toString());
+        return this;
+    }
+}
+
