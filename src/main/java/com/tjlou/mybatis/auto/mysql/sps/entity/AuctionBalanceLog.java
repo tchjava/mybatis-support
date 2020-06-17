@@ -15,7 +15,7 @@ import java.util.Date;
  * </p>
  *
  * @author Gaby
- * @since 2020-06-15
+ * @since 2020-06-17
  */
 @TableName("auction_balance_log")
 public class AuctionBalanceLog implements Serializable, IEntity {
@@ -42,25 +42,30 @@ public class AuctionBalanceLog implements Serializable, IEntity {
     @TableField("source_id")
     private Long sourceId;
     /**
-     * 变动类型 1-交易 2-赔偿(收入) 4-交易冻结 8-安全冻结 16-提现中 32-已提现 64-购物 128-赔偿(支出) 256-退款  512-退还 1024-缴纳保证金 2048-充值
+     * 变动类型 1-交易 2-赔偿(收入) 4-待收款 8-冻结 16-提现中 32-已提现 64-购物 128-赔偿(支出) 256-退款  512-退还 1024-消保金 2048-充值 4096-保证金
      */
     @TableField("change_type")
     private Long changeType;
+    /**
+     * 变动名称
+     */
+    @TableField("change_name")
+    private String changeName;
     /**
      * 变动金额 单位:分
      */
     @TableField("change_num")
     private Long changeNum;
     /**
-     * 结余金额 单位:分
-     */
-    @TableField("balance_num")
-    private Long balanceNum;
-    /**
      * 变动时间
      */
     @TableField("change_time")
     private Date changeTime;
+    /**
+     * 结余金额 单位:分
+     */
+    @TableField("balance_num")
+    private Long balanceNum;
     /**
      * 备注
      */
@@ -69,6 +74,17 @@ public class AuctionBalanceLog implements Serializable, IEntity {
      * 状态 00A-有效 00C-支出 00Z-失效
      */
     private String status;
+    /**
+     * 解释类型  1-拍品货款  2-待收货-拍品货款  3-退款拍品货款 4-支付-买家保证金 5-退还-买家保证金
+     * 6-提现中 7-已到账
+     */
+    @TableField("explain_type")
+    private Integer explainType;
+    /**
+     * 跳转类型  1-订单  2-上拍拍品详情
+     */
+    @TableField("skip_type")
+    private Integer skipType;
 
 
     public Long getId() {
@@ -116,6 +132,17 @@ public class AuctionBalanceLog implements Serializable, IEntity {
         return this;
     }
 
+    public String getChangeName() {
+        return changeName;
+    }
+
+    public AuctionBalanceLog setChangeName(String changeName) {
+        if (changeName != null)
+            changeName = changeName.trim();
+        this.changeName = changeName;
+        return this;
+    }
+
     public Long getChangeNum() {
         return changeNum;
     }
@@ -125,21 +152,21 @@ public class AuctionBalanceLog implements Serializable, IEntity {
         return this;
     }
 
-    public Long getBalanceNum() {
-        return balanceNum;
-    }
-
-    public AuctionBalanceLog setBalanceNum(Long balanceNum) {
-        this.balanceNum = balanceNum;
-        return this;
-    }
-
     public Date getChangeTime() {
         return changeTime;
     }
 
     public AuctionBalanceLog setChangeTime(Date changeTime) {
         this.changeTime = changeTime;
+        return this;
+    }
+
+    public Long getBalanceNum() {
+        return balanceNum;
+    }
+
+    public AuctionBalanceLog setBalanceNum(Long balanceNum) {
+        this.balanceNum = balanceNum;
         return this;
     }
 
@@ -162,6 +189,24 @@ public class AuctionBalanceLog implements Serializable, IEntity {
         if (status != null)
             status = status.trim();
         this.status = status;
+        return this;
+    }
+
+    public Integer getExplainType() {
+        return explainType;
+    }
+
+    public AuctionBalanceLog setExplainType(Integer explainType) {
+        this.explainType = explainType;
+        return this;
+    }
+
+    public Integer getSkipType() {
+        return skipType;
+    }
+
+    public AuctionBalanceLog setSkipType(Integer skipType) {
+        this.skipType = skipType;
         return this;
     }
 
@@ -190,9 +235,14 @@ public class AuctionBalanceLog implements Serializable, IEntity {
     public static final String SOURCE_ID = "source_id";
 
     /**
-     * 变动类型 1-交易 2-赔偿(收入) 4-交易冻结 8-安全冻结 16-提现中 32-已提现 64-购物 128-赔偿(支出) 256-退款  512-退还 1024-缴纳保证金 2048-充值
+     * 变动类型 1-交易 2-赔偿(收入) 4-待收款 8-冻结 16-提现中 32-已提现 64-购物 128-赔偿(支出) 256-退款  512-退还 1024-消保金 2048-充值 4096-保证金
      */
     public static final String CHANGE_TYPE = "change_type";
+
+    /**
+     * 变动名称
+     */
+    public static final String CHANGE_NAME = "change_name";
 
     /**
      * 变动金额 单位:分
@@ -200,14 +250,14 @@ public class AuctionBalanceLog implements Serializable, IEntity {
     public static final String CHANGE_NUM = "change_num";
 
     /**
-     * 结余金额 单位:分
-     */
-    public static final String BALANCE_NUM = "balance_num";
-
-    /**
      * 变动时间
      */
     public static final String CHANGE_TIME = "change_time";
+
+    /**
+     * 结余金额 单位:分
+     */
+    public static final String BALANCE_NUM = "balance_num";
 
     /**
      * 备注
@@ -218,6 +268,17 @@ public class AuctionBalanceLog implements Serializable, IEntity {
      * 状态 00A-有效 00C-支出 00Z-失效
      */
     public static final String STATUS = "status";
+
+    /**
+     * 解释类型  1-拍品货款  2-待收货-拍品货款  3-退款拍品货款 4-支付-买家保证金 5-退还-买家保证金
+     * 6-提现中 7-已到账
+     */
+    public static final String EXPLAIN_TYPE = "explain_type";
+
+    /**
+     * 跳转类型  1-订单  2-上拍拍品详情
+     */
+    public static final String SKIP_TYPE = "skip_type";
 
 
     @Override
