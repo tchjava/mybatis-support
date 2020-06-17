@@ -15,7 +15,7 @@ import java.util.Date;
  * </p>
  *
  * @author Gaby
- * @since 2020-06-10
+ * @since 2020-06-16
  */
 @TableName("auction_user_ext_info")
 public class AuctionUserExtInfo implements Serializable, IEntity {
@@ -105,6 +105,16 @@ public class AuctionUserExtInfo implements Serializable, IEntity {
      */
     @TableField("head_img")
     private String headImg;
+    /**
+     * 余额免密标识
+     */
+    @TableField("balance_exempt")
+    private String balanceExempt;
+    /**
+     * 支付密码
+     */
+    @TableField("pay_pwd")
+    private String payPwd;
 
 
     public Long getId() {
@@ -283,6 +293,28 @@ public class AuctionUserExtInfo implements Serializable, IEntity {
         return this;
     }
 
+    public String getBalanceExempt() {
+        return balanceExempt;
+    }
+
+    public AuctionUserExtInfo setBalanceExempt(String balanceExempt) {
+        if (balanceExempt != null)
+            balanceExempt = balanceExempt.trim();
+        this.balanceExempt = balanceExempt;
+        return this;
+    }
+
+    public String getPayPwd() {
+        return payPwd;
+    }
+
+    public AuctionUserExtInfo setPayPwd(String payPwd) {
+        if (payPwd != null)
+            payPwd = payPwd.trim();
+        this.payPwd = payPwd;
+        return this;
+    }
+
     /**
      * 表名
      */
@@ -376,6 +408,16 @@ public class AuctionUserExtInfo implements Serializable, IEntity {
      * 头像
      */
     public static final String HEAD_IMG = "head_img";
+
+    /**
+     * 余额免密标识
+     */
+    public static final String BALANCE_EXEMPT = "balance_exempt";
+
+    /**
+     * 支付密码
+     */
+    public static final String PAY_PWD = "pay_pwd";
 
 
     @Override
