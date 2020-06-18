@@ -85,6 +85,16 @@ public class AuctionBalanceLog implements Serializable, IEntity {
      */
     @TableField("skip_type")
     private Integer skipType;
+    /**
+     * 交易号
+     */
+    @TableField("transaction_id")
+    private String transactionId;
+    /**
+     * 业务单号
+     */
+    @TableField("trade_no")
+    private String tradeNo;
 
 
     public Long getId() {
@@ -210,6 +220,28 @@ public class AuctionBalanceLog implements Serializable, IEntity {
         return this;
     }
 
+    public String getTransactionId() {
+        return transactionId;
+    }
+
+    public AuctionBalanceLog setTransactionId(String transactionId) {
+        if (transactionId != null)
+            transactionId = transactionId.trim();
+        this.transactionId = transactionId;
+        return this;
+    }
+
+    public String getTradeNo() {
+        return tradeNo;
+    }
+
+    public AuctionBalanceLog setTradeNo(String tradeNo) {
+        if (tradeNo != null)
+            tradeNo = tradeNo.trim();
+        this.tradeNo = tradeNo;
+        return this;
+    }
+
     /**
      * 表名
      */
@@ -279,6 +311,16 @@ public class AuctionBalanceLog implements Serializable, IEntity {
      * 跳转类型  1-订单  2-上拍拍品详情
      */
     public static final String SKIP_TYPE = "skip_type";
+
+    /**
+     * 交易号
+     */
+    public static final String TRANSACTION_ID = "transaction_id";
+
+    /**
+     * 业务单号
+     */
+    public static final String TRADE_NO = "trade_no";
 
 
     @Override
