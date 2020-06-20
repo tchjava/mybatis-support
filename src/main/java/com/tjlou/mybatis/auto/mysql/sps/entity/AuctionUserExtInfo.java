@@ -15,7 +15,7 @@ import java.util.Date;
  * </p>
  *
  * @author Gaby
- * @since 2020-06-16
+ * @since 2020-06-20
  */
 @TableName("auction_user_ext_info")
 public class AuctionUserExtInfo implements Serializable, IEntity {
@@ -50,7 +50,7 @@ public class AuctionUserExtInfo implements Serializable, IEntity {
     @TableField("dialog_connect")
     private Integer dialogConnect;
     /**
-     * 0-正常  1-限制上拍  2-限制出价  4-全站拉黑
+     * 0-正常  1-限制上拍  2-限制出价  4-全站拉黑   8-公众号临时生成
      */
     @TableField("limit_type")
     private Integer limitType;
@@ -115,6 +115,21 @@ public class AuctionUserExtInfo implements Serializable, IEntity {
      */
     @TableField("pay_pwd")
     private String payPwd;
+    /**
+     * 友盟推送信息标识
+     */
+    @TableField("ym_id")
+    private String ymId;
+    /**
+     * 公众号静默登录token
+     */
+    @TableField("h5_token")
+    private String h5Token;
+    /**
+     * 小程序静默登录token
+     */
+    @TableField("mp_token")
+    private String mpToken;
 
 
     public Long getId() {
@@ -315,6 +330,39 @@ public class AuctionUserExtInfo implements Serializable, IEntity {
         return this;
     }
 
+    public String getYmId() {
+        return ymId;
+    }
+
+    public AuctionUserExtInfo setYmId(String ymId) {
+        if (ymId != null)
+            ymId = ymId.trim();
+        this.ymId = ymId;
+        return this;
+    }
+
+    public String getH5Token() {
+        return h5Token;
+    }
+
+    public AuctionUserExtInfo setH5Token(String h5Token) {
+        if (h5Token != null)
+            h5Token = h5Token.trim();
+        this.h5Token = h5Token;
+        return this;
+    }
+
+    public String getMpToken() {
+        return mpToken;
+    }
+
+    public AuctionUserExtInfo setMpToken(String mpToken) {
+        if (mpToken != null)
+            mpToken = mpToken.trim();
+        this.mpToken = mpToken;
+        return this;
+    }
+
     /**
      * 表名
      */
@@ -350,7 +398,7 @@ public class AuctionUserExtInfo implements Serializable, IEntity {
     public static final String DIALOG_CONNECT = "dialog_connect";
 
     /**
-     * 0-正常  1-限制上拍  2-限制出价  4-全站拉黑
+     * 0-正常  1-限制上拍  2-限制出价  4-全站拉黑   8-公众号临时生成
      */
     public static final String LIMIT_TYPE = "limit_type";
 
@@ -418,6 +466,21 @@ public class AuctionUserExtInfo implements Serializable, IEntity {
      * 支付密码
      */
     public static final String PAY_PWD = "pay_pwd";
+
+    /**
+     * 友盟推送信息标识
+     */
+    public static final String YM_ID = "ym_id";
+
+    /**
+     * 公众号静默登录token
+     */
+    public static final String H5_TOKEN = "h5_token";
+
+    /**
+     * 小程序静默登录token
+     */
+    public static final String MP_TOKEN = "mp_token";
 
 
     @Override

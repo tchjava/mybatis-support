@@ -15,7 +15,7 @@ import java.util.Date;
  * </p>
  *
  * @author Gaby
- * @since 2020-06-17
+ * @since 2020-06-18
  */
 @TableName("auction_balance_log")
 public class AuctionBalanceLog implements Serializable, IEntity {
@@ -71,7 +71,7 @@ public class AuctionBalanceLog implements Serializable, IEntity {
      */
     private String comment;
     /**
-     * 状态 00A-有效 00C-支出 00Z-失效
+     * 状态 00A-收入 00C-支出  00D-待支付  00E-已退款  00Z-失效
      */
     private String status;
     /**
@@ -95,6 +95,11 @@ public class AuctionBalanceLog implements Serializable, IEntity {
      */
     @TableField("trade_no")
     private String tradeNo;
+    /**
+     * 支付方式 1-微信支付 2-余额支付
+     */
+    @TableField("pay_type")
+    private Integer payType;
 
 
     public Long getId() {
@@ -242,6 +247,15 @@ public class AuctionBalanceLog implements Serializable, IEntity {
         return this;
     }
 
+    public Integer getPayType() {
+        return payType;
+    }
+
+    public AuctionBalanceLog setPayType(Integer payType) {
+        this.payType = payType;
+        return this;
+    }
+
     /**
      * 表名
      */
@@ -297,7 +311,7 @@ public class AuctionBalanceLog implements Serializable, IEntity {
     public static final String COMMENT = "comment";
 
     /**
-     * 状态 00A-有效 00C-支出 00Z-失效
+     * 状态 00A-收入 00C-支出  00D-待支付  00E-已退款  00Z-失效
      */
     public static final String STATUS = "status";
 
@@ -321,6 +335,11 @@ public class AuctionBalanceLog implements Serializable, IEntity {
      * 业务单号
      */
     public static final String TRADE_NO = "trade_no";
+
+    /**
+     * 支付方式 1-微信支付 2-余额支付
+     */
+    public static final String PAY_TYPE = "pay_type";
 
 
     @Override
