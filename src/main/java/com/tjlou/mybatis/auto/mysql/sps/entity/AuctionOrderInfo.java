@@ -98,7 +98,7 @@ public class AuctionOrderInfo implements Serializable, IEntity {
     /**
      * 失效时间
      */
-    private Date exipre;
+    private Date expire;
     /**
      * 快递名称
      */
@@ -337,12 +337,12 @@ public class AuctionOrderInfo implements Serializable, IEntity {
         return this;
     }
 
-    public Date getExipre() {
-        return exipre;
+    public Date getExpire() {
+        return expire;
     }
 
-    public AuctionOrderInfo setExipre(Date exipre) {
-        this.exipre = exipre;
+    public AuctionOrderInfo setExpire(Date expire) {
+        this.expire = expire;
         return this;
     }
 
@@ -637,7 +637,7 @@ public class AuctionOrderInfo implements Serializable, IEntity {
     /**
      * 失效时间
      */
-    public static final String EXIPRE = "exipre";
+    public static final String EXPIRE = "expire";
 
     /**
      * 快递名称
