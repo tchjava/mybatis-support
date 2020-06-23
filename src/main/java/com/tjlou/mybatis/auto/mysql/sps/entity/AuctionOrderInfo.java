@@ -15,7 +15,7 @@ import java.util.Date;
  * </p>
  *
  * @author Gaby
- * @since 2020-06-22
+ * @since 2020-06-23
  */
 @TableName("auction_order_info")
 public class AuctionOrderInfo implements Serializable, IEntity {
@@ -46,7 +46,7 @@ public class AuctionOrderInfo implements Serializable, IEntity {
     @TableField("buyer_account_id")
     private Long buyerAccountId;
     /**
-     * 支付类型 1-微信支付 2-余额支付
+     * 支付类型 0-当面交易  1-微信支付 2-余额支付
      */
     @TableField("pay_type")
     private Integer payType;
@@ -56,8 +56,7 @@ public class AuctionOrderInfo implements Serializable, IEntity {
     @TableField("post_fee")
     private Long postFee;
     /**
-     * 状态 1-待付款  2-已付款 4-已发货  8-交易成功 16-交易关闭  32-已评价  64-售后 128-
-     * 退款导致关闭
+     * 状态 1-待付款  2-已付款 4-已发货  8-交易成功 16-交易关闭  32-已评价  64-售后 128- 退款导致关闭
      */
     private Long status;
     /**
@@ -164,6 +163,10 @@ public class AuctionOrderInfo implements Serializable, IEntity {
     @TableField("receiver_mobile")
     private String receiverMobile;
     /**
+     * 收货人
+     */
+    private String receiver;
+    /**
      * 收货地址
      */
     @TableField("receiver_area_name")
@@ -189,7 +192,7 @@ public class AuctionOrderInfo implements Serializable, IEntity {
     @TableField("trade_no")
     private String tradeNo;
     /**
-     * 配送方式  1-快递包邮  2-快递运费 4-到付
+     * 配送方式  1-快递包邮  2-快递运费 4-到付 8-当面交易
      */
     @TableField("distribute_type")
     private Integer distributeType;
@@ -485,6 +488,17 @@ public class AuctionOrderInfo implements Serializable, IEntity {
         return this;
     }
 
+    public String getReceiver() {
+        return receiver;
+    }
+
+    public AuctionOrderInfo setReceiver(String receiver) {
+        if (receiver != null)
+            receiver = receiver.trim();
+        this.receiver = receiver;
+        return this;
+    }
+
     public String getReceiverAreaName() {
         return receiverAreaName;
     }
@@ -584,7 +598,7 @@ public class AuctionOrderInfo implements Serializable, IEntity {
     public static final String BUYER_ACCOUNT_ID = "buyer_account_id";
 
     /**
-     * 支付类型 1-微信支付 2-余额支付
+     * 支付类型 0-当面交易  1-微信支付 2-余额支付
      */
     public static final String PAY_TYPE = "pay_type";
 
@@ -594,8 +608,7 @@ public class AuctionOrderInfo implements Serializable, IEntity {
     public static final String POST_FEE = "post_fee";
 
     /**
-     * 状态 1-待付款  2-已付款 4-已发货  8-交易成功 16-交易关闭  32-已评价  64-售后 128-
-     * 退款导致关闭
+     * 状态 1-待付款  2-已付款 4-已发货  8-交易成功 16-交易关闭  32-已评价  64-售后 128- 退款导致关闭
      */
     public static final String STATUS = "status";
 
@@ -705,6 +718,11 @@ public class AuctionOrderInfo implements Serializable, IEntity {
     public static final String RECEIVER_MOBILE = "receiver_mobile";
 
     /**
+     * 收货人
+     */
+    public static final String RECEIVER = "receiver";
+
+    /**
      * 收货地址
      */
     public static final String RECEIVER_AREA_NAME = "receiver_area_name";
@@ -730,7 +748,7 @@ public class AuctionOrderInfo implements Serializable, IEntity {
     public static final String TRADE_NO = "trade_no";
 
     /**
-     * 配送方式  1-快递包邮  2-快递运费 4-到付
+     * 配送方式  1-快递包邮  2-快递运费 4-到付 8-当面交易
      */
     public static final String DISTRIBUTE_TYPE = "distribute_type";
 
