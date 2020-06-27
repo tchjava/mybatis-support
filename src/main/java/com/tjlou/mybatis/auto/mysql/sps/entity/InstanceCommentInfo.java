@@ -64,7 +64,7 @@ public class InstanceCommentInfo implements Serializable, IEntity {
     /**
      * 是否匿名  1-匿名  0-不匿名
      */
-    private String anonymous;
+    private Integer anonymous;
     /**
      * 好中差评价  00A-好评  00B-中评 00C-差评
      */
@@ -170,13 +170,11 @@ public class InstanceCommentInfo implements Serializable, IEntity {
         return this;
     }
 
-    public String getAnonymous() {
+    public Integer getAnonymous() {
         return anonymous;
     }
 
-    public InstanceCommentInfo setAnonymous(String anonymous) {
-        if (anonymous != null)
-            anonymous = anonymous.trim();
+    public InstanceCommentInfo setAnonymous(Integer anonymous) {
         this.anonymous = anonymous;
         return this;
     }

@@ -15,11 +15,10 @@ import java.util.Date;
  * </p>
  *
  * @author Gaby
- * @since 2020-06-23
+ * @since 2020-06-26
  */
 @TableName("auction_order_info")
 public class AuctionOrderInfo implements Serializable, IEntity {
-
 
     /**
      * 主键
@@ -201,7 +200,11 @@ public class AuctionOrderInfo implements Serializable, IEntity {
      */
     @TableField("order_type")
     private Integer orderType;
-
+    /**
+     * 延迟收货时间
+     */
+    @TableField("delay_end_time")
+    private Date delayEndTime;
 
     public Long getId() {
         return id;
@@ -568,6 +571,15 @@ public class AuctionOrderInfo implements Serializable, IEntity {
         return this;
     }
 
+    public Date getDelayEndTime() {
+        return delayEndTime;
+    }
+
+    public AuctionOrderInfo setDelayEndTime(Date delayEndTime) {
+        this.delayEndTime = delayEndTime;
+        return this;
+    }
+
     /**
      * 表名
      */
@@ -757,6 +769,10 @@ public class AuctionOrderInfo implements Serializable, IEntity {
      */
     public static final String ORDER_TYPE = "order_type";
 
+    /**
+     * 延迟收货时间
+     */
+    public static final String DELAY_END_TIME = "delay_end_time";
 
     @Override
     public AuctionOrderInfo pkVal(Serializable val) {
