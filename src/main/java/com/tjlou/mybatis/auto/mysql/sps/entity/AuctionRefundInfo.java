@@ -159,6 +159,11 @@ public class AuctionRefundInfo implements Serializable, IEntity {
      */
     @TableField("refund_reason")
     private String refundReason;
+    /**
+     * 订单单号
+     */
+    @TableField("order_code")
+    private String orderCode;
 
     public Long getId() {
         return id;
@@ -460,6 +465,17 @@ public class AuctionRefundInfo implements Serializable, IEntity {
         return this;
     }
 
+    public String getOrderCode() {
+        return orderCode;
+    }
+
+    public AuctionRefundInfo setOrderCode(String orderCode) {
+        if (orderCode != null)
+            orderCode = orderCode.trim();
+        this.orderCode = orderCode;
+        return this;
+    }
+
     /**
      * 表名
      */
@@ -610,6 +626,11 @@ public class AuctionRefundInfo implements Serializable, IEntity {
      * 退款原因
      */
     public static final String REFUND_REASON = "refund_reason";
+
+    /**
+     * 订单单号
+     */
+    public static final String ORDER_CODE = "order_code";
 
     @Override
     public AuctionRefundInfo pkVal(Serializable val) {
