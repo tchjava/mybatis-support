@@ -54,6 +54,10 @@ public class AuctionScoreLog implements Serializable, IEntity {
      */
     @TableField("seller_account_id")
     private Long sellerAccountId;
+    /**
+     * 状态 00A-有效 00Z-失效
+     */
+    private String status;
 
 
     public Long getId() {
@@ -119,6 +123,17 @@ public class AuctionScoreLog implements Serializable, IEntity {
         return this;
     }
 
+    public String getStatus() {
+        return status;
+    }
+
+    public AuctionScoreLog setStatus(String status) {
+        if (status != null)
+            status = status.trim();
+        this.status = status;
+        return this;
+    }
+
     /**
      * 表名
      */
@@ -157,6 +172,11 @@ public class AuctionScoreLog implements Serializable, IEntity {
      * 所属卖家
      */
     public static final String SELLER_ACCOUNT_ID = "seller_account_id";
+
+    /**
+     * 状态 00A-有效 00Z-失效
+     */
+    public static final String STATUS = "status";
 
 
     @Override

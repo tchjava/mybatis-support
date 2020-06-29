@@ -15,7 +15,7 @@ import java.util.Date;
  * </p>
  *
  * @author Gaby
- * @since 2020-06-22
+ * @since 2020-06-29
  */
 @TableName("auction_order_cycle_info")
 public class AuctionOrderCycleInfo implements Serializable, IEntity {
@@ -54,6 +54,11 @@ public class AuctionOrderCycleInfo implements Serializable, IEntity {
      * 备注
      */
     private String comment;
+    /**
+     * 用户标识
+     */
+    @TableField("user_account_id")
+    private Long userAccountId;
 
 
     public Long getId() {
@@ -123,6 +128,15 @@ public class AuctionOrderCycleInfo implements Serializable, IEntity {
         return this;
     }
 
+    public Long getUserAccountId() {
+        return userAccountId;
+    }
+
+    public AuctionOrderCycleInfo setUserAccountId(Long userAccountId) {
+        this.userAccountId = userAccountId;
+        return this;
+    }
+
     /**
      * 表名
      */
@@ -161,6 +175,11 @@ public class AuctionOrderCycleInfo implements Serializable, IEntity {
      * 备注
      */
     public static final String COMMENT = "comment";
+
+    /**
+     * 用户标识
+     */
+    public static final String USER_ACCOUNT_ID = "user_account_id";
 
 
     @Override
