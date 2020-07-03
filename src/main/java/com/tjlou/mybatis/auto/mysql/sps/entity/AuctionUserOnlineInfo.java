@@ -50,6 +50,10 @@ public class AuctionUserOnlineInfo implements Serializable, IEntity {
      * 安卓
      */
     private Integer android;
+    /**
+     * 公众号
+     */
+    private Integer web;
 
 
     public Long getId() {
@@ -115,6 +119,15 @@ public class AuctionUserOnlineInfo implements Serializable, IEntity {
         return this;
     }
 
+    public Integer getWeb() {
+        return web;
+    }
+
+    public AuctionUserOnlineInfo setWeb(Integer web) {
+        this.web = web;
+        return this;
+    }
+
     /**
      * 表名
      */
@@ -153,6 +166,11 @@ public class AuctionUserOnlineInfo implements Serializable, IEntity {
      * 安卓
      */
     public static final String ANDROID = "android";
+
+    /**
+     * 公众号
+     */
+    public static final String WEB = "web";
 
 
     @Override
