@@ -15,7 +15,7 @@ import java.util.Date;
  * </p>
  *
  * @author Gaby
- * @since 2020-06-20
+ * @since 2020-07-04
  */
 @TableName("auction_user_ext_info")
 public class AuctionUserExtInfo implements Serializable, IEntity {
@@ -121,7 +121,7 @@ public class AuctionUserExtInfo implements Serializable, IEntity {
     @TableField("ym_id")
     private String ymId;
     /**
-     * 公众号静默登录token
+     * H5静默登录token
      */
     @TableField("h5_token")
     private String h5Token;
@@ -130,6 +130,11 @@ public class AuctionUserExtInfo implements Serializable, IEntity {
      */
     @TableField("mp_token")
     private String mpToken;
+    /**
+     * 公众号静默登录token
+     */
+    @TableField("web_token")
+    private String webToken;
 
 
     public Long getId() {
@@ -363,6 +368,17 @@ public class AuctionUserExtInfo implements Serializable, IEntity {
         return this;
     }
 
+    public String getWebToken() {
+        return webToken;
+    }
+
+    public AuctionUserExtInfo setWebToken(String webToken) {
+        if (webToken != null)
+            webToken = webToken.trim();
+        this.webToken = webToken;
+        return this;
+    }
+
     /**
      * 表名
      */
@@ -473,7 +489,7 @@ public class AuctionUserExtInfo implements Serializable, IEntity {
     public static final String YM_ID = "ym_id";
 
     /**
-     * 公众号静默登录token
+     * H5静默登录token
      */
     public static final String H5_TOKEN = "h5_token";
 
@@ -481,6 +497,11 @@ public class AuctionUserExtInfo implements Serializable, IEntity {
      * 小程序静默登录token
      */
     public static final String MP_TOKEN = "mp_token";
+
+    /**
+     * 公众号静默登录token
+     */
+    public static final String WEB_TOKEN = "web_token";
 
 
     @Override
