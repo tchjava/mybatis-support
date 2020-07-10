@@ -15,10 +15,11 @@ import java.util.Date;
  * </p>
  *
  * @author Gaby
- * @since 2020-06-26
+ * @since 2020-07-10
  */
 @TableName("auction_order_info")
 public class AuctionOrderInfo implements Serializable, IEntity {
+
 
     /**
      * 主键
@@ -191,7 +192,7 @@ public class AuctionOrderInfo implements Serializable, IEntity {
     @TableField("trade_no")
     private String tradeNo;
     /**
-     * 配送方式  1-快递包邮  2-快递运费 4-到付 8-当面交易
+     * 配送方式  1-快递包邮  2-到付 4-快递运费 8-当面交易
      */
     @TableField("distribute_type")
     private Integer distributeType;
@@ -205,6 +206,12 @@ public class AuctionOrderInfo implements Serializable, IEntity {
      */
     @TableField("delay_end_time")
     private Date delayEndTime;
+    /**
+     * 支付来源 1-微信小程序  2-IOS  4-安卓  8-公众号 16-网页
+     */
+    @TableField("pay_client")
+    private Integer payClient;
+
 
     public Long getId() {
         return id;
@@ -580,6 +587,15 @@ public class AuctionOrderInfo implements Serializable, IEntity {
         return this;
     }
 
+    public Integer getPayClient() {
+        return payClient;
+    }
+
+    public AuctionOrderInfo setPayClient(Integer payClient) {
+        this.payClient = payClient;
+        return this;
+    }
+
     /**
      * 表名
      */
@@ -760,7 +776,7 @@ public class AuctionOrderInfo implements Serializable, IEntity {
     public static final String TRADE_NO = "trade_no";
 
     /**
-     * 配送方式  1-快递包邮  2-快递运费 4-到付 8-当面交易
+     * 配送方式  1-快递包邮  2-到付 4-快递运费 8-当面交易
      */
     public static final String DISTRIBUTE_TYPE = "distribute_type";
 
@@ -773,6 +789,12 @@ public class AuctionOrderInfo implements Serializable, IEntity {
      * 延迟收货时间
      */
     public static final String DELAY_END_TIME = "delay_end_time";
+
+    /**
+     * 支付来源 1-微信小程序  2-IOS  4-安卓  8-公众号 16-网页
+     */
+    public static final String PAY_CLIENT = "pay_client";
+
 
     @Override
     public AuctionOrderInfo pkVal(Serializable val) {
