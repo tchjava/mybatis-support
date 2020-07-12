@@ -15,7 +15,7 @@ import java.util.Date;
  * </p>
  *
  * @author Gaby
- * @since 2020-04-18
+ * @since 2020-07-12
  */
 @TableName("strategy_info")
 public class StrategyInfo implements Serializable, IEntity {
@@ -72,6 +72,11 @@ public class StrategyInfo implements Serializable, IEntity {
      */
     @TableField("action_name")
     private String actionName;
+    /**
+     * 系统类型 1-超级仓库 2-拍卖
+     */
+    @TableField("system_type")
+    private Integer systemType;
 
     public Long getId() {
         return id;
@@ -184,6 +189,15 @@ public class StrategyInfo implements Serializable, IEntity {
         return this;
     }
 
+    public Integer getSystemType() {
+        return systemType;
+    }
+
+    public StrategyInfo setSystemType(Integer systemType) {
+        this.systemType = systemType;
+        return this;
+    }
+
     /**
      * 表名
      */
@@ -242,6 +256,11 @@ public class StrategyInfo implements Serializable, IEntity {
      * 动作名字
      */
     public static final String ACTION_NAME = "action_name";
+
+    /**
+     * 系统类型 1-超级仓库 2-拍卖
+     */
+    public static final String SYSTEM_TYPE = "system_type";
 
     @Override
     public StrategyInfo pkVal(Serializable val) {

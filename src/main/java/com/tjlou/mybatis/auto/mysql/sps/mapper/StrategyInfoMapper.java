@@ -9,7 +9,7 @@ import com.baomidou.mybatisplus.mapper.BaseMapper;
  * </p>
  *
  * @author Gaby
- * @since 2020-04-18
+ * @since 2020-07-12
  */
 public interface StrategyInfoMapper extends BaseMapper<StrategyInfo> {
 

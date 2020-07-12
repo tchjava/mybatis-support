@@ -12,7 +12,7 @@ import org.springframework.stereotype.Service;
  * </p>
  *
  * @author Gaby
- * @since 2020-04-18
+ * @since 2020-07-12
  */
 @Service
 public class StrategyInfoServiceImpl extends ServiceImpl<StrategyInfoMapper, StrategyInfo> implements StrategyInfoService {

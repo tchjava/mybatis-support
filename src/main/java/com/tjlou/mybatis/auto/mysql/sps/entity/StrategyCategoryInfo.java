@@ -15,11 +15,10 @@ import java.util.Date;
  * </p>
  *
  * @author Gaby
- * @since 2020-04-16
+ * @since 2020-07-12
  */
 @TableName("strategy_category_info")
 public class StrategyCategoryInfo implements Serializable, IEntity {
-
 
     /**
      * 主键
@@ -48,7 +47,11 @@ public class StrategyCategoryInfo implements Serializable, IEntity {
      */
     @TableField("create_time")
     private Date createTime;
-
+    /**
+     * 系统类型 1-超级超酷 2-拍卖
+     */
+    @TableField("system_type")
+    private Integer systemType;
 
     public Long getId() {
         return id;
@@ -108,6 +111,15 @@ public class StrategyCategoryInfo implements Serializable, IEntity {
         return this;
     }
 
+    public Integer getSystemType() {
+        return systemType;
+    }
+
+    public StrategyCategoryInfo setSystemType(Integer systemType) {
+        this.systemType = systemType;
+        return this;
+    }
+
     /**
      * 表名
      */
@@ -142,6 +154,10 @@ public class StrategyCategoryInfo implements Serializable, IEntity {
      */
     public static final String CREATE_TIME = "create_time";
 
+    /**
+     * 系统类型 1-超级超酷 2-拍卖
+     */
+    public static final String SYSTEM_TYPE = "system_type";
 
     @Override
     public StrategyCategoryInfo pkVal(Serializable val) {
