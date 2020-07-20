@@ -12,7 +12,7 @@ import org.springframework.stereotype.Service;
  * </p>
  *
  * @author Gaby
- * @since 2020-07-03
+ * @since 2020-07-19
  */
 @Service
 public class CustomServiceInfoServiceImpl extends ServiceImpl<CustomServiceInfoMapper, CustomServiceInfo> implements CustomServiceInfoService {

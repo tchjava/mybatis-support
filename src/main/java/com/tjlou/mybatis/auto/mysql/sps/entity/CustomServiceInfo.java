@@ -15,7 +15,7 @@ import java.util.Date;
  * </p>
  *
  * @author Gaby
- * @since 2020-07-03
+ * @since 2020-07-19
  */
 @TableName("custom_service_info")
 public class CustomServiceInfo implements Serializable, IEntity {
@@ -50,6 +50,10 @@ public class CustomServiceInfo implements Serializable, IEntity {
      */
     @TableField("system_type")
     private Integer systemType;
+    /**
+     * 客服名称
+     */
+    private String nickname;
 
 
     public Long getId() {
@@ -108,6 +112,17 @@ public class CustomServiceInfo implements Serializable, IEntity {
         return this;
     }
 
+    public String getNickname() {
+        return nickname;
+    }
+
+    public CustomServiceInfo setNickname(String nickname) {
+        if (nickname != null)
+            nickname = nickname.trim();
+        this.nickname = nickname;
+        return this;
+    }
+
     /**
      * 表名
      */
@@ -141,6 +156,11 @@ public class CustomServiceInfo implements Serializable, IEntity {
      * 系统类型  1-超级仓库  2-拍卖
      */
     public static final String SYSTEM_TYPE = "system_type";
+
+    /**
+     * 客服名称
+     */
+    public static final String NICKNAME = "nickname";
 
 
     @Override
