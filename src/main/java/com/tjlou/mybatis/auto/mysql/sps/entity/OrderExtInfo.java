@@ -14,7 +14,7 @@ import java.io.Serializable;
  * </p>
  *
  * @author Gaby
- * @since 2020-06-02
+ * @since 2020-08-01
  */
 @TableName("order_ext_info")
 public class OrderExtInfo implements Serializable, IEntity {
@@ -29,6 +29,10 @@ public class OrderExtInfo implements Serializable, IEntity {
      */
     @TableField("flag_color")
     private String flagColor;
+    /**
+     * 后台客服用来备注
+     */
+    private String comment;
 
 
     public Long getId() {
@@ -60,6 +64,17 @@ public class OrderExtInfo implements Serializable, IEntity {
         return this;
     }
 
+    public String getComment() {
+        return comment;
+    }
+
+    public OrderExtInfo setComment(String comment) {
+        if (comment != null)
+            comment = comment.trim();
+        this.comment = comment;
+        return this;
+    }
+
     /**
      * 表名
      */
@@ -72,6 +87,11 @@ public class OrderExtInfo implements Serializable, IEntity {
      * 标记颜色
      */
     public static final String FLAG_COLOR = "flag_color";
+
+    /**
+     * 后台客服用来备注
+     */
+    public static final String COMMENT = "comment";
 
 
     @Override
