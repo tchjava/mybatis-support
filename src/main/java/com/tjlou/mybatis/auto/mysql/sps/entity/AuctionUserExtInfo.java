@@ -15,7 +15,7 @@ import java.util.Date;
  * </p>
  *
  * @author Gaby
- * @since 2020-07-04
+ * @since 2020-08-01
  */
 @TableName("auction_user_ext_info")
 public class AuctionUserExtInfo implements Serializable, IEntity {
@@ -135,6 +135,16 @@ public class AuctionUserExtInfo implements Serializable, IEntity {
      */
     @TableField("web_token")
     private String webToken;
+    /**
+     * 工具token
+     */
+    @TableField("tool_token")
+    private String toolToken;
+    /**
+     * 嵌套token
+     */
+    @TableField("nested_token")
+    private String nestedToken;
 
 
     public Long getId() {
@@ -379,6 +389,28 @@ public class AuctionUserExtInfo implements Serializable, IEntity {
         return this;
     }
 
+    public String getToolToken() {
+        return toolToken;
+    }
+
+    public AuctionUserExtInfo setToolToken(String toolToken) {
+        if (toolToken != null)
+            toolToken = toolToken.trim();
+        this.toolToken = toolToken;
+        return this;
+    }
+
+    public String getNestedToken() {
+        return nestedToken;
+    }
+
+    public AuctionUserExtInfo setNestedToken(String nestedToken) {
+        if (nestedToken != null)
+            nestedToken = nestedToken.trim();
+        this.nestedToken = nestedToken;
+        return this;
+    }
+
     /**
      * 表名
      */
@@ -502,6 +534,16 @@ public class AuctionUserExtInfo implements Serializable, IEntity {
      * 公众号静默登录token
      */
     public static final String WEB_TOKEN = "web_token";
+
+    /**
+     * 工具token
+     */
+    public static final String TOOL_TOKEN = "tool_token";
+
+    /**
+     * 嵌套token
+     */
+    public static final String NESTED_TOKEN = "nested_token";
 
 
     @Override
