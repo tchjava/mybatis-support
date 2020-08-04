@@ -15,7 +15,7 @@ import java.util.Date;
  * </p>
  *
  * @author Gaby
- * @since 2020-08-01
+ * @since 2020-08-04
  */
 @TableName("auction_user_ext_info")
 public class AuctionUserExtInfo implements Serializable, IEntity {
@@ -145,6 +145,10 @@ public class AuctionUserExtInfo implements Serializable, IEntity {
      */
     @TableField("nested_token")
     private String nestedToken;
+    /**
+     * 是否关注公众号
+     */
+    private Integer subscribe;
 
 
     public Long getId() {
@@ -411,6 +415,15 @@ public class AuctionUserExtInfo implements Serializable, IEntity {
         return this;
     }
 
+    public Integer getSubscribe() {
+        return subscribe;
+    }
+
+    public AuctionUserExtInfo setSubscribe(Integer subscribe) {
+        this.subscribe = subscribe;
+        return this;
+    }
+
     /**
      * 表名
      */
@@ -544,6 +557,11 @@ public class AuctionUserExtInfo implements Serializable, IEntity {
      * 嵌套token
      */
     public static final String NESTED_TOKEN = "nested_token";
+
+    /**
+     * 是否关注公众号
+     */
+    public static final String SUBSCRIBE = "subscribe";
 
 
     @Override
