@@ -15,7 +15,7 @@ import java.util.Date;
  * </p>
  *
  * @author Gaby
- * @since 2020-08-04
+ * @since 2020-08-06
  */
 @TableName("auction_user_ext_info")
 public class AuctionUserExtInfo implements Serializable, IEntity {
@@ -149,6 +149,11 @@ public class AuctionUserExtInfo implements Serializable, IEntity {
      * 是否关注公众号
      */
     private Integer subscribe;
+    /**
+     * 店铺昵称
+     */
+    @TableField("shop_name")
+    private String shopName;
 
 
     public Long getId() {
@@ -424,6 +429,17 @@ public class AuctionUserExtInfo implements Serializable, IEntity {
         return this;
     }
 
+    public String getShopName() {
+        return shopName;
+    }
+
+    public AuctionUserExtInfo setShopName(String shopName) {
+        if (shopName != null)
+            shopName = shopName.trim();
+        this.shopName = shopName;
+        return this;
+    }
+
     /**
      * 表名
      */
@@ -562,6 +578,11 @@ public class AuctionUserExtInfo implements Serializable, IEntity {
      * 是否关注公众号
      */
     public static final String SUBSCRIBE = "subscribe";
+
+    /**
+     * 店铺昵称
+     */
+    public static final String SHOP_NAME = "shop_name";
 
 
     @Override
