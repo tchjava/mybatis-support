@@ -15,7 +15,7 @@ import java.util.Date;
  * </p>
  *
  * @author Gaby
- * @since 2020-07-13
+ * @since 2020-08-10
  */
 @TableName("auction_spread_info")
 public class AuctionSpreadInfo implements Serializable, IEntity {
@@ -32,7 +32,7 @@ public class AuctionSpreadInfo implements Serializable, IEntity {
     @TableField("user_account_id")
     private Long userAccountId;
     /**
-     * 类型  1-首页推广  2-申请代理   3-百亿补贴
+     * 类型  1-推荐粉丝 2-推荐商家 3-拍品详情  4-超级仓库商品详情  5-永久二维码
      */
     private Long type;
     /**
@@ -44,6 +44,10 @@ public class AuctionSpreadInfo implements Serializable, IEntity {
      */
     @TableField("create_time")
     private Date createTime;
+    /**
+     * 唯一key
+     */
+    private String key;
 
 
     public Long getId() {
@@ -93,6 +97,17 @@ public class AuctionSpreadInfo implements Serializable, IEntity {
         return this;
     }
 
+    public String getKey() {
+        return key;
+    }
+
+    public AuctionSpreadInfo setKey(String key) {
+        if (key != null)
+            key = key.trim();
+        this.key = key;
+        return this;
+    }
+
     /**
      * 表名
      */
@@ -108,7 +123,7 @@ public class AuctionSpreadInfo implements Serializable, IEntity {
     public static final String USER_ACCOUNT_ID = "user_account_id";
 
     /**
-     * 类型  1-首页推广  2-申请代理   3-百亿补贴
+     * 类型  1-推荐粉丝 2-推荐商家 3-拍品详情  4-超级仓库商品详情  5-永久二维码
      */
     public static final String TYPE = "type";
 
@@ -121,6 +136,11 @@ public class AuctionSpreadInfo implements Serializable, IEntity {
      * 创建时间
      */
     public static final String CREATE_TIME = "create_time";
+
+    /**
+     * 唯一key
+     */
+    public static final String KEY = "key";
 
 
     @Override

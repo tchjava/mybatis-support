@@ -120,7 +120,7 @@ public class CustomParamsInfo implements Serializable, IEntity {
     /**
      * 唯一key
      */
-    public static final String KEY = "key";
+    public static final String KEY = "`key`";
 
     /**
      * 自定义参数
