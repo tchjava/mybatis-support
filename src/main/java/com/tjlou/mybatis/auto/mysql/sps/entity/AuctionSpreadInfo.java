@@ -15,7 +15,7 @@ import java.util.Date;
  * </p>
  *
  * @author Gaby
- * @since 2020-08-10
+ * @since 2020-08-11
  */
 @TableName("auction_spread_info")
 public class AuctionSpreadInfo implements Serializable, IEntity {
@@ -48,6 +48,11 @@ public class AuctionSpreadInfo implements Serializable, IEntity {
      * 唯一key
      */
     private String key;
+    /**
+     * 来源标识
+     */
+    @TableField("source_id")
+    private Long sourceId;
 
 
     public Long getId() {
@@ -108,6 +113,15 @@ public class AuctionSpreadInfo implements Serializable, IEntity {
         return this;
     }
 
+    public Long getSourceId() {
+        return sourceId;
+    }
+
+    public AuctionSpreadInfo setSourceId(Long sourceId) {
+        this.sourceId = sourceId;
+        return this;
+    }
+
     /**
      * 表名
      */
@@ -141,6 +155,11 @@ public class AuctionSpreadInfo implements Serializable, IEntity {
      * 唯一key
      */
     public static final String KEY = "key";
+
+    /**
+     * 来源标识
+     */
+    public static final String SOURCE_ID = "source_id";
 
 
     @Override
