@@ -33,8 +33,8 @@ public class AuctionOrderExtInfo implements Serializable, IEntity {
     /**
      * 标记颜色
      */
-    @TableField("flag_colr")
-    private Long flagColr;
+    @TableField("flag_color")
+    private Long flagColor;
     /**
      * 备注
      */
@@ -59,12 +59,12 @@ public class AuctionOrderExtInfo implements Serializable, IEntity {
         return this;
     }
 
-    public Long getFlagColr() {
-        return flagColr;
+    public Long getFlagColor() {
+        return flagColor;
     }
 
-    public AuctionOrderExtInfo setFlagColr(Long flagColr) {
-        this.flagColr = flagColr;
+    public AuctionOrderExtInfo setFlagColor(Long flagColor) {
+        this.flagColor = flagColor;
         return this;
     }
 
@@ -96,7 +96,7 @@ public class AuctionOrderExtInfo implements Serializable, IEntity {
     /**
      * 标记颜色
      */
-    public static final String FLAG_COLR = "flag_colr";
+    public static final String FLAG_COLOR = "flag_color";
 
     /**
      * 备注
