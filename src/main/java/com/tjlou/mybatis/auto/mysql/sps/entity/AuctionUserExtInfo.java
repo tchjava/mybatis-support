@@ -7,6 +7,7 @@ import com.baomidou.mybatisplus.enums.IdType;
 import com.tjlou.mybatis.base.entity.IEntity;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
 import java.util.Date;
 
 /**
@@ -15,7 +16,7 @@ import java.util.Date;
  * </p>
  *
  * @author Gaby
- * @since 2020-08-06
+ * @since 2020-08-14
  */
 @TableName("auction_user_ext_info")
 public class AuctionUserExtInfo implements Serializable, IEntity {
@@ -50,7 +51,7 @@ public class AuctionUserExtInfo implements Serializable, IEntity {
     @TableField("dialog_connect")
     private Integer dialogConnect;
     /**
-     * 0-正常  1-限制上拍  2-限制出价  4-全站拉黑   8-公众号临时生成
+     * 0-正常  1-限制上拍  2-限制出价  4-全站拉黑   8-公众号临时生成  16-店铺屏蔽
      */
     @TableField("limit_type")
     private Integer limitType;
@@ -154,6 +155,11 @@ public class AuctionUserExtInfo implements Serializable, IEntity {
      */
     @TableField("shop_name")
     private String shopName;
+    /**
+     * 违约率
+     */
+    @TableField("default_rate")
+    private BigDecimal defaultRate;
 
 
     public Long getId() {
@@ -440,6 +446,15 @@ public class AuctionUserExtInfo implements Serializable, IEntity {
         return this;
     }
 
+    public BigDecimal getDefaultRate() {
+        return defaultRate;
+    }
+
+    public AuctionUserExtInfo setDefaultRate(BigDecimal defaultRate) {
+        this.defaultRate = defaultRate;
+        return this;
+    }
+
     /**
      * 表名
      */
@@ -475,7 +490,7 @@ public class AuctionUserExtInfo implements Serializable, IEntity {
     public static final String DIALOG_CONNECT = "dialog_connect";
 
     /**
-     * 0-正常  1-限制上拍  2-限制出价  4-全站拉黑   8-公众号临时生成
+     * 0-正常  1-限制上拍  2-限制出价  4-全站拉黑   8-公众号临时生成  16-店铺屏蔽
      */
     public static final String LIMIT_TYPE = "limit_type";
 
@@ -583,6 +598,11 @@ public class AuctionUserExtInfo implements Serializable, IEntity {
      * 店铺昵称
      */
     public static final String SHOP_NAME = "shop_name";
+
+    /**
+     * 违约率
+     */
+    public static final String DEFAULT_RATE = "default_rate";
 
 
     @Override
