@@ -68,6 +68,11 @@ public class AuctionUserLimitLog implements Serializable, IEntity {
      * 状态 00A-有效  00B-解除限制
      */
     private String status;
+    /**
+     * 是否下架所有拍品
+     */
+    @TableField("lower_shelf")
+    private Integer lowerShelf;
 
 
     public Long getId() {
@@ -164,6 +169,15 @@ public class AuctionUserLimitLog implements Serializable, IEntity {
         return this;
     }
 
+    public Integer getLowerShelf() {
+        return lowerShelf;
+    }
+
+    public AuctionUserLimitLog setLowerShelf(Integer lowerShelf) {
+        this.lowerShelf = lowerShelf;
+        return this;
+    }
+
     /**
      * 表名
      */
@@ -217,6 +231,11 @@ public class AuctionUserLimitLog implements Serializable, IEntity {
      * 状态 00A-有效  00B-解除限制
      */
     public static final String STATUS = "status";
+
+    /**
+     * 是否下架所有拍品
+     */
+    public static final String LOWER_SHELF = "lower_shelf";
 
 
     @Override
