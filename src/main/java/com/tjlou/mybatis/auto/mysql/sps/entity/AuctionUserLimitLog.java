@@ -37,6 +37,10 @@ public class AuctionUserLimitLog implements Serializable, IEntity {
     @TableField("limit_type")
     private Integer limitType;
     /**
+     * 操作类型 1-限制类型 2-屏蔽类型
+     */
+    private Integer type;
+    /**
      * 限制原因
      */
     private String reason;
@@ -90,6 +94,15 @@ public class AuctionUserLimitLog implements Serializable, IEntity {
 
     public AuctionUserLimitLog setLimitType(Integer limitType) {
         this.limitType = limitType;
+        return this;
+    }
+
+    public Integer getType() {
+        return type;
+    }
+
+    public AuctionUserLimitLog setType(Integer type) {
+        this.type = type;
         return this;
     }
 
@@ -169,6 +182,11 @@ public class AuctionUserLimitLog implements Serializable, IEntity {
      * 限制类型
      */
     public static final String LIMIT_TYPE = "limit_type";
+
+    /**
+     * 操作类型 1-限制类型 2-屏蔽类型
+     */
+    public static final String TYPE = "type";
 
     /**
      * 限制原因
