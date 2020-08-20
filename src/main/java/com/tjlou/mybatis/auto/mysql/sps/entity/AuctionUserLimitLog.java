@@ -15,7 +15,7 @@ import java.util.Date;
  * </p>
  *
  * @author Gaby
- * @since 2020-08-19
+ * @since 2020-08-20
  */
 @TableName("auction_user_limit_log")
 public class AuctionUserLimitLog implements Serializable, IEntity {
