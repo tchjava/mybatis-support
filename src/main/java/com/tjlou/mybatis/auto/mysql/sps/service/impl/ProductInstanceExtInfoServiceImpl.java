@@ -12,7 +12,7 @@ import org.springframework.stereotype.Service;
  * </p>
  *
  * @author Gaby
- * @since 2020-06-03
+ * @since 2020-08-20
  */
 @Service
 public class ProductInstanceExtInfoServiceImpl extends ServiceImpl<ProductInstanceExtInfoMapper, ProductInstanceExtInfo> implements ProductInstanceExtInfoService {

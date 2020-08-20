@@ -14,7 +14,7 @@ import java.io.Serializable;
  * </p>
  *
  * @author Gaby
- * @since 2020-06-03
+ * @since 2020-08-20
  */
 @TableName("product_instance_ext_info")
 public class ProductInstanceExtInfo implements Serializable, IEntity {
@@ -35,6 +35,11 @@ public class ProductInstanceExtInfo implements Serializable, IEntity {
      */
     @TableField("attribute_value")
     private String attributeValue;
+    /**
+     * 下架类型  0-正常  1-售假下架 2-违规下架
+     */
+    @TableField("lower_shelf_type")
+    private Integer lowerShelfType;
 
 
     public Long getId() {
@@ -88,6 +93,15 @@ public class ProductInstanceExtInfo implements Serializable, IEntity {
         return this;
     }
 
+    public Integer getLowerShelfType() {
+        return lowerShelfType;
+    }
+
+    public ProductInstanceExtInfo setLowerShelfType(Integer lowerShelfType) {
+        this.lowerShelfType = lowerShelfType;
+        return this;
+    }
+
     /**
      * 表名
      */
@@ -107,6 +121,11 @@ public class ProductInstanceExtInfo implements Serializable, IEntity {
      * 属性值
      */
     public static final String ATTRIBUTE_VALUE = "attribute_value";
+
+    /**
+     * 下架类型  0-正常  1-售假下架 2-违规下架
+     */
+    public static final String LOWER_SHELF_TYPE = "lower_shelf_type";
 
 
     @Override
