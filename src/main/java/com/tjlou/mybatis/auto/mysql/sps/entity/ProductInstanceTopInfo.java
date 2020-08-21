@@ -32,6 +32,11 @@ public class ProductInstanceTopInfo implements Serializable, IEntity {
     @TableField("product_instance_id")
     private Long productInstanceId;
     /**
+     * 所属用户
+     */
+    @TableField("user_account_id")
+    private Long userAccountId;
+    /**
      * 创建时间
      */
     @TableField("create_time")
@@ -53,6 +58,15 @@ public class ProductInstanceTopInfo implements Serializable, IEntity {
 
     public ProductInstanceTopInfo setProductInstanceId(Long productInstanceId) {
         this.productInstanceId = productInstanceId;
+        return this;
+    }
+
+    public Long getUserAccountId() {
+        return userAccountId;
+    }
+
+    public ProductInstanceTopInfo setUserAccountId(Long userAccountId) {
+        this.userAccountId = userAccountId;
         return this;
     }
 
@@ -78,6 +92,11 @@ public class ProductInstanceTopInfo implements Serializable, IEntity {
      * 所属拍品
      */
     public static final String PRODUCT_INSTANCE_ID = "product_instance_id";
+
+    /**
+     * 所属用户
+     */
+    public static final String USER_ACCOUNT_ID = "user_account_id";
 
     /**
      * 创建时间
