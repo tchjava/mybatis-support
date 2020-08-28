@@ -63,6 +63,10 @@ public class StoreTaskScheduleInfo implements Serializable, IEntity {
      */
     @TableField("body_id")
     private Long bodyId;
+    /**
+     * 是否被回收 0-正常  1-回收
+     */
+    private Integer del;
 
 
     public Long getId() {
@@ -148,6 +152,15 @@ public class StoreTaskScheduleInfo implements Serializable, IEntity {
         return this;
     }
 
+    public Integer getDel() {
+        return del;
+    }
+
+    public StoreTaskScheduleInfo setDel(Integer del) {
+        this.del = del;
+        return this;
+    }
+
     /**
      * 表名
      */
@@ -196,6 +209,11 @@ public class StoreTaskScheduleInfo implements Serializable, IEntity {
      * 主体标识
      */
     public static final String BODY_ID = "body_id";
+
+    /**
+     * 是否被回收 0-正常  1-回收
+     */
+    public static final String DEL = "del";
 
 
     @Override
