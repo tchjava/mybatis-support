@@ -64,6 +64,11 @@ public class AuctionSystemMessageInfo implements Serializable, IEntity {
      */
     @TableField("message_type")
     private Integer messageType;
+    /**
+     * 消息编号
+     */
+    @TableField("message_code")
+    private String messageCode;
 
 
     public Long getId() {
@@ -155,6 +160,17 @@ public class AuctionSystemMessageInfo implements Serializable, IEntity {
         return this;
     }
 
+    public String getMessageCode() {
+        return messageCode;
+    }
+
+    public AuctionSystemMessageInfo setMessageCode(String messageCode) {
+        if (messageCode != null)
+            messageCode = messageCode.trim();
+        this.messageCode = messageCode;
+        return this;
+    }
+
     /**
      * 表名
      */
@@ -203,6 +219,11 @@ public class AuctionSystemMessageInfo implements Serializable, IEntity {
      * 消息类型 1-个人 2-所有用户 4-所有商家
      */
     public static final String MESSAGE_TYPE = "message_type";
+
+    /**
+     * 消息编号
+     */
+    public static final String MESSAGE_CODE = "message_code";
 
 
     @Override
