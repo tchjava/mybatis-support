@@ -9,7 +9,7 @@ import com.baomidou.mybatisplus.mapper.BaseMapper;
  * </p>
  *
  * @author Gaby
- * @since 2020-07-18
+ * @since 2020-09-02
  */
 public interface TaskScheduleInfoMapper extends BaseMapper<TaskScheduleInfo> {
 

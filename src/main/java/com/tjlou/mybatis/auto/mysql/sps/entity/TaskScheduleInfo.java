@@ -15,7 +15,7 @@ import java.util.Date;
  * </p>
  *
  * @author Gaby
- * @since 2020-07-18
+ * @since 2020-09-02
  */
 @TableName("task_schedule_info")
 public class TaskScheduleInfo implements Serializable, IEntity {
@@ -58,6 +58,10 @@ public class TaskScheduleInfo implements Serializable, IEntity {
      */
     @TableField("host_name")
     private Integer hostName;
+    /**
+     * 是否被回收 0-未被回收 1-已回收
+     */
+    private Integer del;
 
 
     public Long getId() {
@@ -134,6 +138,15 @@ public class TaskScheduleInfo implements Serializable, IEntity {
         return this;
     }
 
+    public Integer getDel() {
+        return del;
+    }
+
+    public TaskScheduleInfo setDel(Integer del) {
+        this.del = del;
+        return this;
+    }
+
     /**
      * 表名
      */
@@ -177,6 +190,11 @@ public class TaskScheduleInfo implements Serializable, IEntity {
      * 主机名 默认值： 1
      */
     public static final String HOST_NAME = "host_name";
+
+    /**
+     * 是否被回收 0-未被回收 1-已回收
+     */
+    public static final String DEL = "del";
 
 
     @Override

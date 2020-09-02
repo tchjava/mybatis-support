@@ -9,7 +9,7 @@ import com.baomidou.mybatisplus.service.IService;
  * </p>
  *
  * @author Gaby
- * @since 2020-07-18
+ * @since 2020-09-02
  */
 public interface TaskScheduleInfoService extends IService<TaskScheduleInfo> {
 
