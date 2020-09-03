@@ -14,7 +14,7 @@ import java.io.Serializable;
  * </p>
  *
  * @author Gaby
- * @since 2020-08-31
+ * @since 2020-09-03
  */
 @TableName("auction_official_ext_info")
 public class AuctionOfficialExtInfo implements Serializable, IEntity {
@@ -43,6 +43,10 @@ public class AuctionOfficialExtInfo implements Serializable, IEntity {
      * 视频地址
      */
     private String video;
+    /**
+     * 拓展信息(包含移动端的跳转信息)
+     */
+    private String params;
 
 
     public Long getId() {
@@ -96,6 +100,17 @@ public class AuctionOfficialExtInfo implements Serializable, IEntity {
         return this;
     }
 
+    public String getParams() {
+        return params;
+    }
+
+    public AuctionOfficialExtInfo setParams(String params) {
+        if (params != null)
+            params = params.trim();
+        this.params = params;
+        return this;
+    }
+
     /**
      * 表名
      */
@@ -124,6 +139,11 @@ public class AuctionOfficialExtInfo implements Serializable, IEntity {
      * 视频地址
      */
     public static final String VIDEO = "video";
+
+    /**
+     * 拓展信息(包含移动端的跳转信息)
+     */
+    public static final String PARAMS = "params";
 
 
     @Override
