@@ -15,10 +15,11 @@ import java.util.Date;
  * </p>
  *
  * @author Gaby
- * @since 2020-07-12
+ * @since 2020-09-04
  */
 @TableName("strategy_info")
 public class StrategyInfo implements Serializable, IEntity {
+
 
     /**
      * 主键
@@ -77,6 +78,11 @@ public class StrategyInfo implements Serializable, IEntity {
      */
     @TableField("system_type")
     private Integer systemType;
+    /**
+     * 是否隐藏
+     */
+    private Integer hide;
+
 
     public Long getId() {
         return id;
@@ -198,6 +204,15 @@ public class StrategyInfo implements Serializable, IEntity {
         return this;
     }
 
+    public Integer getHide() {
+        return hide;
+    }
+
+    public StrategyInfo setHide(Integer hide) {
+        this.hide = hide;
+        return this;
+    }
+
     /**
      * 表名
      */
@@ -261,6 +276,12 @@ public class StrategyInfo implements Serializable, IEntity {
      * 系统类型 1-超级仓库 2-拍卖
      */
     public static final String SYSTEM_TYPE = "system_type";
+
+    /**
+     * 是否隐藏
+     */
+    public static final String HIDE = "hide";
+
 
     @Override
     public StrategyInfo pkVal(Serializable val) {
