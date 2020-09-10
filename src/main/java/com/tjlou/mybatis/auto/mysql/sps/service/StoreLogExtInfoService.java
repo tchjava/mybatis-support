@@ -9,7 +9,7 @@ import com.baomidou.mybatisplus.service.IService;
  * </p>
  *
  * @author Gaby
- * @since 2020-08-27
+ * @since 2020-09-10
  */
 public interface StoreLogExtInfoService extends IService<StoreLogExtInfo> {
 

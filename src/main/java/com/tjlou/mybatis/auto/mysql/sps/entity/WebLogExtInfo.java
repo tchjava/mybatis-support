@@ -10,14 +10,14 @@ import java.io.Serializable;
 
 /**
  * <p>
- * 请求日志拓展信息表(新)
+ * 请求日志拓展信息表(公众号)
  * </p>
  *
  * @author Gaby
  * @since 2020-09-10
  */
-@TableName("store_log_ext_info")
-public class StoreLogExtInfo implements Serializable, IEntity {
+@TableName("web_log_ext_info")
+public class WebLogExtInfo implements Serializable, IEntity {
 
 
     /**
@@ -44,7 +44,7 @@ public class StoreLogExtInfo implements Serializable, IEntity {
         return id;
     }
 
-    public StoreLogExtInfo setId(Long id) {
+    public WebLogExtInfo setId(Long id) {
         this.id = id;
         return this;
     }
@@ -53,7 +53,7 @@ public class StoreLogExtInfo implements Serializable, IEntity {
         return logId;
     }
 
-    public StoreLogExtInfo setLogId(Long logId) {
+    public WebLogExtInfo setLogId(Long logId) {
         this.logId = logId;
         return this;
     }
@@ -62,7 +62,7 @@ public class StoreLogExtInfo implements Serializable, IEntity {
         return params;
     }
 
-    public StoreLogExtInfo setParams(String params) {
+    public WebLogExtInfo setParams(String params) {
         if (params != null)
             params = params.trim();
         this.params = params;
@@ -73,7 +73,7 @@ public class StoreLogExtInfo implements Serializable, IEntity {
         return message;
     }
 
-    public StoreLogExtInfo setMessage(String message) {
+    public WebLogExtInfo setMessage(String message) {
         if (message != null)
             message = message.trim();
         this.message = message;
@@ -83,7 +83,7 @@ public class StoreLogExtInfo implements Serializable, IEntity {
     /**
      * 表名
      */
-    public static final String TABLE_NAME = "store_log_ext_info";
+    public static final String TABLE_NAME = "web_log_ext_info";
     /**
      * 主键
      */
@@ -106,7 +106,7 @@ public class StoreLogExtInfo implements Serializable, IEntity {
 
 
     @Override
-    public StoreLogExtInfo pkVal(Serializable val) {
+    public WebLogExtInfo pkVal(Serializable val) {
         this.id = Long.valueOf(val.toString());
         return this;
     }
