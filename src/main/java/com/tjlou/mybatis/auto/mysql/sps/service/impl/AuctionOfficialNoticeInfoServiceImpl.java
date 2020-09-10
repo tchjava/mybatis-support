@@ -12,7 +12,7 @@ import org.springframework.stereotype.Service;
  * </p>
  *
  * @author Gaby
- * @since 2020-08-31
+ * @since 2020-09-10
  */
 @Service
 public class AuctionOfficialNoticeInfoServiceImpl extends ServiceImpl<AuctionOfficialNoticeInfoMapper, AuctionOfficialNoticeInfo> implements AuctionOfficialNoticeInfoService {

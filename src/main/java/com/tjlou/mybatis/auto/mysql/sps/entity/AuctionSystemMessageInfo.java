@@ -15,7 +15,7 @@ import java.util.Date;
  * </p>
  *
  * @author Gaby
- * @since 2020-09-01
+ * @since 2020-09-10
  */
 @TableName("auction_system_message_info")
 public class AuctionSystemMessageInfo implements Serializable, IEntity {
@@ -69,6 +69,11 @@ public class AuctionSystemMessageInfo implements Serializable, IEntity {
      */
     @TableField("message_code")
     private String messageCode;
+    /**
+     * 动作类型
+     */
+    @TableField("action_type")
+    private Integer actionType;
 
 
     public Long getId() {
@@ -171,6 +176,15 @@ public class AuctionSystemMessageInfo implements Serializable, IEntity {
         return this;
     }
 
+    public Integer getActionType() {
+        return actionType;
+    }
+
+    public AuctionSystemMessageInfo setActionType(Integer actionType) {
+        this.actionType = actionType;
+        return this;
+    }
+
     /**
      * 表名
      */
@@ -224,6 +238,11 @@ public class AuctionSystemMessageInfo implements Serializable, IEntity {
      * 消息编号
      */
     public static final String MESSAGE_CODE = "message_code";
+
+    /**
+     * 动作类型
+     */
+    public static final String ACTION_TYPE = "action_type";
 
 
     @Override
