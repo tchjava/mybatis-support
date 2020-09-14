@@ -15,7 +15,7 @@ import java.util.Date;
  * </p>
  *
  * @author Gaby
- * @since 2020-06-18
+ * @since 2020-09-14
  */
 @TableName("auction_balance_log")
 public class AuctionBalanceLog implements Serializable, IEntity {
@@ -42,7 +42,7 @@ public class AuctionBalanceLog implements Serializable, IEntity {
     @TableField("source_id")
     private Long sourceId;
     /**
-     * 变动类型 1-交易 2-赔偿(收入) 4-待收款 8-冻结 16-提现中 32-已提现 64-购物 128-赔偿(支出) 256-退款  512-退还 1024-消保金 2048-充值 4096-保证金
+     * 变动类型 1-交易 2-赔偿(收入) 4-待收款 8-冻结 16-提现中 32-已提现 64-购物 128-赔偿(支出) 256-退款  512-退还 1024-消保金 2048-充值 4096-保证金 8192-开通代理  16384-其他(支出)
      */
     @TableField("change_type")
     private Long changeType;
@@ -71,12 +71,12 @@ public class AuctionBalanceLog implements Serializable, IEntity {
      */
     private String comment;
     /**
-     * 状态 00A-收入 00C-支出  00D-待支付  00E-已退款  00Z-失效
+     * 状态 00A-收入 00C-支出  00D-待支付  00E-已退款  00F-已违约 00Z-失效
      */
     private String status;
     /**
-     * 解释类型  1-拍品货款  2-待收货-拍品货款  3-退款拍品货款 4-支付-买家保证金 5-退还-买家保证金
-     * 6-提现中 7-已到账
+     * 解释类型  1-拍品货款  2-待收货-拍品货款  3-退款拍品货款 4-支付-买家保证金 5-退还-买家保证金 6-提现中 7-已到账 8-支付-店铺消保金 9-退还-店铺消保金 10-待支付-买家保证金 11-违约-买家保证金 12-开通代理
+     * 13-赔偿-买家保证金
      */
     @TableField("explain_type")
     private Integer explainType;
@@ -100,6 +100,11 @@ public class AuctionBalanceLog implements Serializable, IEntity {
      */
     @TableField("pay_type")
     private Integer payType;
+    /**
+     * 业务数据
+     */
+    @TableField("bss_attach")
+    private String bssAttach;
 
 
     public Long getId() {
@@ -256,6 +261,17 @@ public class AuctionBalanceLog implements Serializable, IEntity {
         return this;
     }
 
+    public String getBssAttach() {
+        return bssAttach;
+    }
+
+    public AuctionBalanceLog setBssAttach(String bssAttach) {
+        if (bssAttach != null)
+            bssAttach = bssAttach.trim();
+        this.bssAttach = bssAttach;
+        return this;
+    }
+
     /**
      * 表名
      */
@@ -281,7 +297,7 @@ public class AuctionBalanceLog implements Serializable, IEntity {
     public static final String SOURCE_ID = "source_id";
 
     /**
-     * 变动类型 1-交易 2-赔偿(收入) 4-待收款 8-冻结 16-提现中 32-已提现 64-购物 128-赔偿(支出) 256-退款  512-退还 1024-消保金 2048-充值 4096-保证金
+     * 变动类型 1-交易 2-赔偿(收入) 4-待收款 8-冻结 16-提现中 32-已提现 64-购物 128-赔偿(支出) 256-退款  512-退还 1024-消保金 2048-充值 4096-保证金 8192-开通代理  16384-其他(支出)
      */
     public static final String CHANGE_TYPE = "change_type";
 
@@ -311,13 +327,13 @@ public class AuctionBalanceLog implements Serializable, IEntity {
     public static final String COMMENT = "comment";
 
     /**
-     * 状态 00A-收入 00C-支出  00D-待支付  00E-已退款  00Z-失效
+     * 状态 00A-收入 00C-支出  00D-待支付  00E-已退款  00F-已违约 00Z-失效
      */
     public static final String STATUS = "status";
 
     /**
-     * 解释类型  1-拍品货款  2-待收货-拍品货款  3-退款拍品货款 4-支付-买家保证金 5-退还-买家保证金
-     * 6-提现中 7-已到账
+     * 解释类型  1-拍品货款  2-待收货-拍品货款  3-退款拍品货款 4-支付-买家保证金 5-退还-买家保证金 6-提现中 7-已到账 8-支付-店铺消保金 9-退还-店铺消保金 10-待支付-买家保证金 11-违约-买家保证金 12-开通代理
+     * 13-赔偿-买家保证金
      */
     public static final String EXPLAIN_TYPE = "explain_type";
 
@@ -340,6 +356,11 @@ public class AuctionBalanceLog implements Serializable, IEntity {
      * 支付方式 1-微信支付 2-余额支付
      */
     public static final String PAY_TYPE = "pay_type";
+
+    /**
+     * 业务数据
+     */
+    public static final String BSS_ATTACH = "bss_attach";
 
 
     @Override
