@@ -1,11 +1,13 @@
 package com.tjlou.mybatis.auto.mysql.sps.entity;
 
+import com.baomidou.mybatisplus.annotations.TableField;
 import com.baomidou.mybatisplus.annotations.TableId;
 import com.baomidou.mybatisplus.annotations.TableName;
 import com.baomidou.mybatisplus.enums.IdType;
 import com.tjlou.mybatis.base.entity.IEntity;
 
 import java.io.Serializable;
+import java.util.Date;
 
 /**
  * <p>
@@ -13,7 +15,7 @@ import java.io.Serializable;
  * </p>
  *
  * @author Gaby
- * @since 2020-09-17
+ * @since 2020-09-21
  */
 @TableName("auction_byte_run_log")
 public class AuctionByteRunLog implements Serializable, IEntity {
@@ -48,6 +50,11 @@ public class AuctionByteRunLog implements Serializable, IEntity {
      * 详细信息
      */
     private String message;
+    /**
+     * 创建时间
+     */
+    @TableField("create_time")
+    private Date createTime;
 
 
     public Long getId() {
@@ -123,6 +130,15 @@ public class AuctionByteRunLog implements Serializable, IEntity {
         return this;
     }
 
+    public Date getCreateTime() {
+        return createTime;
+    }
+
+    public AuctionByteRunLog setCreateTime(Date createTime) {
+        this.createTime = createTime;
+        return this;
+    }
+
     /**
      * 表名
      */
@@ -161,6 +177,11 @@ public class AuctionByteRunLog implements Serializable, IEntity {
      * 详细信息
      */
     public static final String MESSAGE = "message";
+
+    /**
+     * 创建时间
+     */
+    public static final String CREATE_TIME = "create_time";
 
 
     @Override
