@@ -15,7 +15,7 @@ import java.util.Date;
  * </p>
  *
  * @author Gaby
- * @since 2020-09-16
+ * @since 2020-09-21
  */
 @TableName("auction_chat_log")
 public class AuctionChatLog implements Serializable, IEntity {
@@ -35,6 +35,21 @@ public class AuctionChatLog implements Serializable, IEntity {
      */
     @TableField("create_time")
     private Date createTime;
+    /**
+     * 发送方环信标识
+     */
+    @TableField("from_hx_id")
+    private String fromHxId;
+    /**
+     * 接收方环信标识
+     */
+    @TableField("to_hx_id")
+    private String toHxId;
+    /**
+     * 内部店铺
+     */
+    @TableField("inside_shop")
+    private String insideShop;
 
 
     public Long getId() {
@@ -66,6 +81,39 @@ public class AuctionChatLog implements Serializable, IEntity {
         return this;
     }
 
+    public String getFromHxId() {
+        return fromHxId;
+    }
+
+    public AuctionChatLog setFromHxId(String fromHxId) {
+        if (fromHxId != null)
+            fromHxId = fromHxId.trim();
+        this.fromHxId = fromHxId;
+        return this;
+    }
+
+    public String getToHxId() {
+        return toHxId;
+    }
+
+    public AuctionChatLog setToHxId(String toHxId) {
+        if (toHxId != null)
+            toHxId = toHxId.trim();
+        this.toHxId = toHxId;
+        return this;
+    }
+
+    public String getInsideShop() {
+        return insideShop;
+    }
+
+    public AuctionChatLog setInsideShop(String insideShop) {
+        if (insideShop != null)
+            insideShop = insideShop.trim();
+        this.insideShop = insideShop;
+        return this;
+    }
+
     /**
      * 表名
      */
@@ -84,6 +132,21 @@ public class AuctionChatLog implements Serializable, IEntity {
      * 创建时间
      */
     public static final String CREATE_TIME = "create_time";
+
+    /**
+     * 发送方环信标识
+     */
+    public static final String FROM_HX_ID = "from_hx_id";
+
+    /**
+     * 接收方环信标识
+     */
+    public static final String TO_HX_ID = "to_hx_id";
+
+    /**
+     * 内部店铺
+     */
+    public static final String INSIDE_SHOP = "inside_shop";
 
 
     @Override
