@@ -54,6 +54,10 @@ public class AuctionChatLog implements Serializable, IEntity {
      * 店铺 ',' 隔开
      */
     private String shop;
+    /**
+     * 所属ab对话，a与b的环信标识 字典排序
+     */
+    private String belong;
 
 
     public Long getId() {
@@ -129,6 +133,17 @@ public class AuctionChatLog implements Serializable, IEntity {
         return this;
     }
 
+    public String getBelong() {
+        return belong;
+    }
+
+    public AuctionChatLog setBelong(String belong) {
+        if (belong != null)
+            belong = belong.trim();
+        this.belong = belong;
+        return this;
+    }
+
     /**
      * 表名
      */
@@ -167,6 +182,11 @@ public class AuctionChatLog implements Serializable, IEntity {
      * 店铺 ',' 隔开
      */
     public static final String SHOP = "shop";
+
+    /**
+     * 所属ab对话，a与b的环信标识 字典排序
+     */
+    public static final String BELONG = "belong";
 
 
     @Override
