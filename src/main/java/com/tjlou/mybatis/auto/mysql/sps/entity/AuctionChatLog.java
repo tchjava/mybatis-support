@@ -15,7 +15,7 @@ import java.util.Date;
  * </p>
  *
  * @author Gaby
- * @since 2020-09-21
+ * @since 2020-09-22
  */
 @TableName("auction_chat_log")
 public class AuctionChatLog implements Serializable, IEntity {
@@ -50,6 +50,10 @@ public class AuctionChatLog implements Serializable, IEntity {
      */
     @TableField("inside_shop")
     private String insideShop;
+    /**
+     * 店铺 ',' 隔开
+     */
+    private String shop;
 
 
     public Long getId() {
@@ -114,6 +118,17 @@ public class AuctionChatLog implements Serializable, IEntity {
         return this;
     }
 
+    public String getShop() {
+        return shop;
+    }
+
+    public AuctionChatLog setShop(String shop) {
+        if (shop != null)
+            shop = shop.trim();
+        this.shop = shop;
+        return this;
+    }
+
     /**
      * 表名
      */
@@ -147,6 +162,11 @@ public class AuctionChatLog implements Serializable, IEntity {
      * 内部店铺
      */
     public static final String INSIDE_SHOP = "inside_shop";
+
+    /**
+     * 店铺 ',' 隔开
+     */
+    public static final String SHOP = "shop";
 
 
     @Override
