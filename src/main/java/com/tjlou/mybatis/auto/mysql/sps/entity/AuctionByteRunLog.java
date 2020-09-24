@@ -15,7 +15,7 @@ import java.util.Date;
  * </p>
  *
  * @author Gaby
- * @since 2020-09-21
+ * @since 2020-09-24
  */
 @TableName("auction_byte_run_log")
 public class AuctionByteRunLog implements Serializable, IEntity {
@@ -55,6 +55,11 @@ public class AuctionByteRunLog implements Serializable, IEntity {
      */
     @TableField("create_time")
     private Date createTime;
+    /**
+     * 事件类型
+     */
+    @TableField("event_type")
+    private Integer eventType;
 
 
     public Long getId() {
@@ -139,6 +144,15 @@ public class AuctionByteRunLog implements Serializable, IEntity {
         return this;
     }
 
+    public Integer getEventType() {
+        return eventType;
+    }
+
+    public AuctionByteRunLog setEventType(Integer eventType) {
+        this.eventType = eventType;
+        return this;
+    }
+
     /**
      * 表名
      */
@@ -182,6 +196,11 @@ public class AuctionByteRunLog implements Serializable, IEntity {
      * 创建时间
      */
     public static final String CREATE_TIME = "create_time";
+
+    /**
+     * 事件类型
+     */
+    public static final String EVENT_TYPE = "event_type";
 
 
     @Override
