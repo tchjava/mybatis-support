@@ -74,6 +74,10 @@ public class AuctionByteRunLog implements Serializable, IEntity {
      * imei  android的MD5摘要
      */
     private String imei;
+    /**
+     * 是否已删除 0-未删除 1-已删除
+     */
+    private Integer del;
 
 
     public Long getId() {
@@ -200,6 +204,15 @@ public class AuctionByteRunLog implements Serializable, IEntity {
         return this;
     }
 
+    public Integer getDel() {
+        return del;
+    }
+
+    public AuctionByteRunLog setDel(Integer del) {
+        this.del = del;
+        return this;
+    }
+
     /**
      * 表名
      */
@@ -263,6 +276,11 @@ public class AuctionByteRunLog implements Serializable, IEntity {
      * imei  android的MD5摘要
      */
     public static final String IMEI = "imei";
+
+    /**
+     * 是否已删除 0-未删除 1-已删除
+     */
+    public static final String DEL = "del";
 
 
     @Override
