@@ -9,7 +9,7 @@ import com.baomidou.mybatisplus.service.IService;
  * </p>
  *
  * @author Gaby
- * @since 2020-09-24
+ * @since 2020-09-25
  */
 public interface AuctionByteRunLogService extends IService<AuctionByteRunLog> {
 

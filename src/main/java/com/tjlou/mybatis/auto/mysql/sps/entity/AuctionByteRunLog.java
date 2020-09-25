@@ -15,7 +15,7 @@ import java.util.Date;
  * </p>
  *
  * @author Gaby
- * @since 2020-09-24
+ * @since 2020-09-25
  */
 @TableName("auction_byte_run_log")
 public class AuctionByteRunLog implements Serializable, IEntity {
@@ -60,6 +60,20 @@ public class AuctionByteRunLog implements Serializable, IEntity {
      */
     @TableField("event_type")
     private Integer eventType;
+    /**
+     * 回调地址
+     */
+    @TableField("callback_url")
+    private String callbackUrl;
+    /**
+     * androidId
+     */
+    @TableField("android_id")
+    private String androidId;
+    /**
+     * imei  android的MD5摘要
+     */
+    private String imei;
 
 
     public Long getId() {
@@ -153,6 +167,39 @@ public class AuctionByteRunLog implements Serializable, IEntity {
         return this;
     }
 
+    public String getCallbackUrl() {
+        return callbackUrl;
+    }
+
+    public AuctionByteRunLog setCallbackUrl(String callbackUrl) {
+        if (callbackUrl != null)
+            callbackUrl = callbackUrl.trim();
+        this.callbackUrl = callbackUrl;
+        return this;
+    }
+
+    public String getAndroidId() {
+        return androidId;
+    }
+
+    public AuctionByteRunLog setAndroidId(String androidId) {
+        if (androidId != null)
+            androidId = androidId.trim();
+        this.androidId = androidId;
+        return this;
+    }
+
+    public String getImei() {
+        return imei;
+    }
+
+    public AuctionByteRunLog setImei(String imei) {
+        if (imei != null)
+            imei = imei.trim();
+        this.imei = imei;
+        return this;
+    }
+
     /**
      * 表名
      */
@@ -201,6 +248,21 @@ public class AuctionByteRunLog implements Serializable, IEntity {
      * 事件类型
      */
     public static final String EVENT_TYPE = "event_type";
+
+    /**
+     * 回调地址
+     */
+    public static final String CALLBACK_URL = "callback_url";
+
+    /**
+     * androidId
+     */
+    public static final String ANDROID_ID = "android_id";
+
+    /**
+     * imei  android的MD5摘要
+     */
+    public static final String IMEI = "imei";
 
 
     @Override
