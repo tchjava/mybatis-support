@@ -12,7 +12,7 @@ import org.springframework.stereotype.Service;
  * </p>
  *
  * @author Gaby
- * @since 2020-09-25
+ * @since 2020-10-07
  */
 @Service
 public class SubsidiesBoonClickCountInfoServiceImpl extends ServiceImpl<SubsidiesBoonClickCountInfoMapper, SubsidiesBoonClickCountInfo> implements SubsidiesBoonClickCountInfoService {

@@ -15,7 +15,7 @@ import java.util.Date;
  * </p>
  *
  * @author Gaby
- * @since 2020-09-25
+ * @since 2020-10-07
  */
 @TableName("subsidies_boon_click_count_info")
 public class SubsidiesBoonClickCountInfo implements Serializable, IEntity {
@@ -36,6 +36,16 @@ public class SubsidiesBoonClickCountInfo implements Serializable, IEntity {
      */
     @TableField("dimension_1")
     private String dimension1;
+    /**
+     * 访问人数
+     */
+    @TableField("dimension_2")
+    private Integer dimension2;
+    /**
+     * 访问次数
+     */
+    @TableField("dimension_3")
+    private Integer dimension3;
 
 
     public Long getId() {
@@ -67,6 +77,24 @@ public class SubsidiesBoonClickCountInfo implements Serializable, IEntity {
         return this;
     }
 
+    public Integer getDimension2() {
+        return dimension2;
+    }
+
+    public SubsidiesBoonClickCountInfo setDimension2(Integer dimension2) {
+        this.dimension2 = dimension2;
+        return this;
+    }
+
+    public Integer getDimension3() {
+        return dimension3;
+    }
+
+    public SubsidiesBoonClickCountInfo setDimension3(Integer dimension3) {
+        this.dimension3 = dimension3;
+        return this;
+    }
+
     /**
      * 表名
      */
@@ -85,6 +113,16 @@ public class SubsidiesBoonClickCountInfo implements Serializable, IEntity {
      * 每天的不同来源、不同点击类型的人数
      */
     public static final String DIMENSION_1 = "dimension_1";
+
+    /**
+     * 访问人数
+     */
+    public static final String DIMENSION_2 = "dimension_2";
+
+    /**
+     * 访问次数
+     */
+    public static final String DIMENSION_3 = "dimension_3";
 
 
     @Override

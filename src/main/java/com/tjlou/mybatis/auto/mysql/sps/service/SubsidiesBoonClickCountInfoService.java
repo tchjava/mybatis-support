@@ -9,7 +9,7 @@ import com.baomidou.mybatisplus.service.IService;
  * </p>
  *
  * @author Gaby
- * @since 2020-09-25
+ * @since 2020-10-07
  */
 public interface SubsidiesBoonClickCountInfoService extends IService<SubsidiesBoonClickCountInfo> {
 
