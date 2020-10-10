@@ -15,7 +15,7 @@ import java.util.Date;
  * </p>
  *
  * @author Gaby
- * @since 2020-09-29
+ * @since 2020-10-10
  */
 @TableName("auction_check_up_info")
 public class AuctionCheckUpInfo implements Serializable, IEntity {
@@ -45,6 +45,7 @@ public class AuctionCheckUpInfo implements Serializable, IEntity {
     private Date checkTime;
     /**
      * 鉴定状态 1-申请鉴定  2-已发出  4-已完成  8-已退回
+     * 16-待支付 32-鉴定中 128-退款关闭
      */
     @TableField("check_status")
     private Long checkStatus;
@@ -113,6 +114,25 @@ public class AuctionCheckUpInfo implements Serializable, IEntity {
      */
     @TableField("return_time")
     private Date returnTime;
+    /**
+     * 鉴定中心地址-邮政编码
+     */
+    @TableField("receiver_code")
+    private String receiverCode;
+    /**
+     * 鉴定中心地址-电话
+     */
+    @TableField("receiver_mobile")
+    private String receiverMobile;
+    /**
+     * 鉴定中心地址-收货人
+     */
+    private String receiver;
+    /**
+     * 鉴定中心地址-收货地址
+     */
+    @TableField("receiver_area_name")
+    private String receiverAreaName;
 
 
     public Long getId() {
@@ -302,6 +322,50 @@ public class AuctionCheckUpInfo implements Serializable, IEntity {
         return this;
     }
 
+    public String getReceiverCode() {
+        return receiverCode;
+    }
+
+    public AuctionCheckUpInfo setReceiverCode(String receiverCode) {
+        if (receiverCode != null)
+            receiverCode = receiverCode.trim();
+        this.receiverCode = receiverCode;
+        return this;
+    }
+
+    public String getReceiverMobile() {
+        return receiverMobile;
+    }
+
+    public AuctionCheckUpInfo setReceiverMobile(String receiverMobile) {
+        if (receiverMobile != null)
+            receiverMobile = receiverMobile.trim();
+        this.receiverMobile = receiverMobile;
+        return this;
+    }
+
+    public String getReceiver() {
+        return receiver;
+    }
+
+    public AuctionCheckUpInfo setReceiver(String receiver) {
+        if (receiver != null)
+            receiver = receiver.trim();
+        this.receiver = receiver;
+        return this;
+    }
+
+    public String getReceiverAreaName() {
+        return receiverAreaName;
+    }
+
+    public AuctionCheckUpInfo setReceiverAreaName(String receiverAreaName) {
+        if (receiverAreaName != null)
+            receiverAreaName = receiverAreaName.trim();
+        this.receiverAreaName = receiverAreaName;
+        return this;
+    }
+
     /**
      * 表名
      */
@@ -330,6 +394,7 @@ public class AuctionCheckUpInfo implements Serializable, IEntity {
 
     /**
      * 鉴定状态 1-申请鉴定  2-已发出  4-已完成  8-已退回
+     * 16-待支付 32-鉴定中 128-退款关闭
      */
     public static final String CHECK_STATUS = "check_status";
 
@@ -397,6 +462,26 @@ public class AuctionCheckUpInfo implements Serializable, IEntity {
      * 退回时间
      */
     public static final String RETURN_TIME = "return_time";
+
+    /**
+     * 鉴定中心地址-邮政编码
+     */
+    public static final String RECEIVER_CODE = "receiver_code";
+
+    /**
+     * 鉴定中心地址-电话
+     */
+    public static final String RECEIVER_MOBILE = "receiver_mobile";
+
+    /**
+     * 鉴定中心地址-收货人
+     */
+    public static final String RECEIVER = "receiver";
+
+    /**
+     * 鉴定中心地址-收货地址
+     */
+    public static final String RECEIVER_AREA_NAME = "receiver_area_name";
 
 
     @Override
