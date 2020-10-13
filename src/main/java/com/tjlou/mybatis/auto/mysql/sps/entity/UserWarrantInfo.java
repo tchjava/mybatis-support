@@ -15,7 +15,7 @@ import java.util.Date;
  * </p>
  *
  * @author Gaby
- * @since 2020-06-10
+ * @since 2020-10-13
  */
 @TableName("user_warrant_info")
 public class UserWarrantInfo implements Serializable, IEntity {
@@ -51,6 +51,11 @@ public class UserWarrantInfo implements Serializable, IEntity {
      */
     @TableField("credit_limit")
     private Long creditLimit;
+    /**
+     * 扩展内容
+     */
+    @TableField("extend_content")
+    private String extendContent;
 
 
     public Long getId() {
@@ -118,6 +123,17 @@ public class UserWarrantInfo implements Serializable, IEntity {
         return this;
     }
 
+    public String getExtendContent() {
+        return extendContent;
+    }
+
+    public UserWarrantInfo setExtendContent(String extendContent) {
+        if (extendContent != null)
+            extendContent = extendContent.trim();
+        this.extendContent = extendContent;
+        return this;
+    }
+
     /**
      * 表名
      */
@@ -153,6 +169,11 @@ public class UserWarrantInfo implements Serializable, IEntity {
      * 信用额度 默认与可用余额一致
      */
     public static final String CREDIT_LIMIT = "credit_limit";
+
+    /**
+     * 扩展内容
+     */
+    public static final String EXTEND_CONTENT = "extend_content";
 
 
     @Override
