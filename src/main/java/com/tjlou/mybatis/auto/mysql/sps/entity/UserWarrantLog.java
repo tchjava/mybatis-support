@@ -15,7 +15,7 @@ import java.util.Date;
  * </p>
  *
  * @author Gaby
- * @since 2020-10-13
+ * @since 2020-10-14
  */
 @TableName("user_warrant_log")
 public class UserWarrantLog implements Serializable, IEntity {
@@ -89,6 +89,11 @@ public class UserWarrantLog implements Serializable, IEntity {
      */
     @TableField("pay_type")
     private Integer payType;
+    /**
+     * 冻结到期时间
+     */
+    @TableField("thaw_time")
+    private Date thawTime;
 
 
     public Long getId() {
@@ -227,6 +232,15 @@ public class UserWarrantLog implements Serializable, IEntity {
         return this;
     }
 
+    public Date getThawTime() {
+        return thawTime;
+    }
+
+    public UserWarrantLog setThawTime(Date thawTime) {
+        this.thawTime = thawTime;
+        return this;
+    }
+
     /**
      * 表名
      */
@@ -300,6 +314,11 @@ public class UserWarrantLog implements Serializable, IEntity {
      * 支付类型 1-微信支付 2-余额支付
      */
     public static final String PAY_TYPE = "pay_type";
+
+    /**
+     * 冻结到期时间
+     */
+    public static final String THAW_TIME = "thaw_time";
 
 
     @Override
