@@ -37,6 +37,11 @@ public class UserWarrantLog implements Serializable, IEntity {
     @TableField("warrant_id")
     private Long warrantId;
     /**
+     * 来源标识
+     */
+    @TableField("source_id")
+    private Long sourceId;
+    /**
      * 变动金额 单位:分
      */
     @TableField("change_num")
@@ -47,6 +52,11 @@ public class UserWarrantLog implements Serializable, IEntity {
     @TableField("change_type")
     private Integer changeType;
     /**
+     * 变动名称
+     */
+    @TableField("change_name")
+    private String changeName;
+    /**
      * 变动时间
      */
     @TableField("change_time")
@@ -56,10 +66,10 @@ public class UserWarrantLog implements Serializable, IEntity {
      */
     private String status;
     /**
-     * 创建时间
+     * 解释类型
      */
-    @TableField("create_time")
-    private Date createTime;
+    @TableField("explain_type")
+    private Integer explainType;
     /**
      * 退款时间
      */
@@ -84,6 +94,11 @@ public class UserWarrantLog implements Serializable, IEntity {
      */
     @TableField("refund_code")
     private String refundCode;
+    /**
+     * 业务单号
+     */
+    @TableField("trade_no")
+    private String tradeNo;
     /**
      * 支付类型 1-微信支付 2-余额支付
      */
@@ -123,6 +138,15 @@ public class UserWarrantLog implements Serializable, IEntity {
         return this;
     }
 
+    public Long getSourceId() {
+        return sourceId;
+    }
+
+    public UserWarrantLog setSourceId(Long sourceId) {
+        this.sourceId = sourceId;
+        return this;
+    }
+
     public Long getChangeNum() {
         return changeNum;
     }
@@ -138,6 +162,17 @@ public class UserWarrantLog implements Serializable, IEntity {
 
     public UserWarrantLog setChangeType(Integer changeType) {
         this.changeType = changeType;
+        return this;
+    }
+
+    public String getChangeName() {
+        return changeName;
+    }
+
+    public UserWarrantLog setChangeName(String changeName) {
+        if (changeName != null)
+            changeName = changeName.trim();
+        this.changeName = changeName;
         return this;
     }
 
@@ -161,12 +196,12 @@ public class UserWarrantLog implements Serializable, IEntity {
         return this;
     }
 
-    public Date getCreateTime() {
-        return createTime;
+    public Integer getExplainType() {
+        return explainType;
     }
 
-    public UserWarrantLog setCreateTime(Date createTime) {
-        this.createTime = createTime;
+    public UserWarrantLog setExplainType(Integer explainType) {
+        this.explainType = explainType;
         return this;
     }
 
@@ -223,6 +258,17 @@ public class UserWarrantLog implements Serializable, IEntity {
         return this;
     }
 
+    public String getTradeNo() {
+        return tradeNo;
+    }
+
+    public UserWarrantLog setTradeNo(String tradeNo) {
+        if (tradeNo != null)
+            tradeNo = tradeNo.trim();
+        this.tradeNo = tradeNo;
+        return this;
+    }
+
     public Integer getPayType() {
         return payType;
     }
@@ -261,6 +307,11 @@ public class UserWarrantLog implements Serializable, IEntity {
     public static final String WARRANT_ID = "warrant_id";
 
     /**
+     * 来源标识
+     */
+    public static final String SOURCE_ID = "source_id";
+
+    /**
      * 变动金额 单位:分
      */
     public static final String CHANGE_NUM = "change_num";
@@ -269,6 +320,11 @@ public class UserWarrantLog implements Serializable, IEntity {
      * 变动类型 1-缴纳成功 2-退消
      */
     public static final String CHANGE_TYPE = "change_type";
+
+    /**
+     * 变动名称
+     */
+    public static final String CHANGE_NAME = "change_name";
 
     /**
      * 变动时间
@@ -281,9 +337,9 @@ public class UserWarrantLog implements Serializable, IEntity {
     public static final String STATUS = "status";
 
     /**
-     * 创建时间
+     * 解释类型
      */
-    public static final String CREATE_TIME = "create_time";
+    public static final String EXPLAIN_TYPE = "explain_type";
 
     /**
      * 退款时间
@@ -309,6 +365,11 @@ public class UserWarrantLog implements Serializable, IEntity {
      * 退款单号
      */
     public static final String REFUND_CODE = "refund_code";
+
+    /**
+     * 业务单号
+     */
+    public static final String TRADE_NO = "trade_no";
 
     /**
      * 支付类型 1-微信支付 2-余额支付

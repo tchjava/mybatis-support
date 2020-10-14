@@ -15,7 +15,7 @@ import java.util.Date;
  * </p>
  *
  * @author Gaby
- * @since 2020-10-13
+ * @since 2020-10-14
  */
 @TableName("user_warrant_info")
 public class UserWarrantInfo implements Serializable, IEntity {
@@ -32,6 +32,11 @@ public class UserWarrantInfo implements Serializable, IEntity {
      * 总额
      */
     private Long balance;
+    /**
+     * 冻结额度
+     */
+    @TableField("thaw_balance")
+    private Long thawBalance;
     /**
      * 创建时间
      */
@@ -82,6 +87,15 @@ public class UserWarrantInfo implements Serializable, IEntity {
 
     public UserWarrantInfo setBalance(Long balance) {
         this.balance = balance;
+        return this;
+    }
+
+    public Long getThawBalance() {
+        return thawBalance;
+    }
+
+    public UserWarrantInfo setThawBalance(Long thawBalance) {
+        this.thawBalance = thawBalance;
         return this;
     }
 
@@ -149,6 +163,11 @@ public class UserWarrantInfo implements Serializable, IEntity {
      * 总额
      */
     public static final String BALANCE = "balance";
+
+    /**
+     * 冻结额度
+     */
+    public static final String THAW_BALANCE = "thaw_balance";
 
     /**
      * 创建时间
