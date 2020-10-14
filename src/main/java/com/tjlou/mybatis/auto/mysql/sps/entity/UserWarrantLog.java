@@ -47,7 +47,7 @@ public class UserWarrantLog implements Serializable, IEntity {
     @TableField("change_num")
     private Long changeNum;
     /**
-     * 变动类型 1-缴纳成功 2-退消
+     * 变动类型 1-缴纳 2-退消
      */
     @TableField("change_type")
     private Integer changeType;
@@ -66,7 +66,7 @@ public class UserWarrantLog implements Serializable, IEntity {
      */
     private String status;
     /**
-     * 解释类型
+     * 解释类型  1-开通假一赔三服务
      */
     @TableField("explain_type")
     private Integer explainType;
@@ -79,11 +79,6 @@ public class UserWarrantLog implements Serializable, IEntity {
      * 备注
      */
     private String comment;
-    /**
-     * 缴纳单号
-     */
-    @TableField("warrant_no")
-    private String warrantNo;
     /**
      * 交易号
      */
@@ -225,17 +220,6 @@ public class UserWarrantLog implements Serializable, IEntity {
         return this;
     }
 
-    public String getWarrantNo() {
-        return warrantNo;
-    }
-
-    public UserWarrantLog setWarrantNo(String warrantNo) {
-        if (warrantNo != null)
-            warrantNo = warrantNo.trim();
-        this.warrantNo = warrantNo;
-        return this;
-    }
-
     public String getTransactionId() {
         return transactionId;
     }
@@ -317,7 +301,7 @@ public class UserWarrantLog implements Serializable, IEntity {
     public static final String CHANGE_NUM = "change_num";
 
     /**
-     * 变动类型 1-缴纳成功 2-退消
+     * 变动类型 1-缴纳 2-退消
      */
     public static final String CHANGE_TYPE = "change_type";
 
@@ -337,7 +321,7 @@ public class UserWarrantLog implements Serializable, IEntity {
     public static final String STATUS = "status";
 
     /**
-     * 解释类型
+     * 解释类型  1-开通假一赔三服务
      */
     public static final String EXPLAIN_TYPE = "explain_type";
 
@@ -350,11 +334,6 @@ public class UserWarrantLog implements Serializable, IEntity {
      * 备注
      */
     public static final String COMMENT = "comment";
-
-    /**
-     * 缴纳单号
-     */
-    public static final String WARRANT_NO = "warrant_no";
 
     /**
      * 交易号
