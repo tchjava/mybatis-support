@@ -15,7 +15,7 @@ import java.util.Date;
  * </p>
  *
  * @author Gaby
- * @since 2020-10-14
+ * @since 2020-10-15
  */
 @TableName("user_warrant_info")
 public class UserWarrantInfo implements Serializable, IEntity {
@@ -61,6 +61,11 @@ public class UserWarrantInfo implements Serializable, IEntity {
      */
     @TableField("extend_content")
     private String extendContent;
+    /**
+     * 开通的服务或满足条件
+     */
+    @TableField("open_service")
+    private Long openService;
 
 
     public Long getId() {
@@ -148,6 +153,15 @@ public class UserWarrantInfo implements Serializable, IEntity {
         return this;
     }
 
+    public Long getOpenService() {
+        return openService;
+    }
+
+    public UserWarrantInfo setOpenService(Long openService) {
+        this.openService = openService;
+        return this;
+    }
+
     /**
      * 表名
      */
@@ -193,6 +207,11 @@ public class UserWarrantInfo implements Serializable, IEntity {
      * 扩展内容
      */
     public static final String EXTEND_CONTENT = "extend_content";
+
+    /**
+     * 开通的服务或满足条件
+     */
+    public static final String OPEN_SERVICE = "open_service";
 
 
     @Override
