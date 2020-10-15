@@ -14,7 +14,7 @@ import java.io.Serializable;
  * </p>
  *
  * @author Gaby
- * @since 2020-10-13
+ * @since 2020-10-15
  */
 @TableName("auction_supplier_ensure_info")
 public class AuctionSupplierEnsureInfo implements Serializable, IEntity {
@@ -48,6 +48,14 @@ public class AuctionSupplierEnsureInfo implements Serializable, IEntity {
      */
     @TableField("service_code")
     private Integer serviceCode;
+    /**
+     * 排序
+     */
+    private Integer sort;
+    /**
+     * 阈值金额
+     */
+    private Long money;
 
 
     public Long getId() {
@@ -108,6 +116,24 @@ public class AuctionSupplierEnsureInfo implements Serializable, IEntity {
         return this;
     }
 
+    public Integer getSort() {
+        return sort;
+    }
+
+    public AuctionSupplierEnsureInfo setSort(Integer sort) {
+        this.sort = sort;
+        return this;
+    }
+
+    public Long getMoney() {
+        return money;
+    }
+
+    public AuctionSupplierEnsureInfo setMoney(Long money) {
+        this.money = money;
+        return this;
+    }
+
     /**
      * 表名
      */
@@ -141,6 +167,16 @@ public class AuctionSupplierEnsureInfo implements Serializable, IEntity {
      * 业务识别码  1-假一赔三  2-退货包邮
      */
     public static final String SERVICE_CODE = "service_code";
+
+    /**
+     * 排序
+     */
+    public static final String SORT = "sort";
+
+    /**
+     * 阈值金额
+     */
+    public static final String MONEY = "money";
 
 
     @Override
