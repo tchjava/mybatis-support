@@ -9,7 +9,7 @@ import com.baomidou.mybatisplus.service.IService;
  * </p>
  *
  * @author Gaby
- * @since 2020-10-14
+ * @since 2020-10-15
  */
 public interface UserWarrantLogService extends IService<UserWarrantLog> {
 

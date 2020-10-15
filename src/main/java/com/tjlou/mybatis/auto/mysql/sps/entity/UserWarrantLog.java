@@ -15,7 +15,7 @@ import java.util.Date;
  * </p>
  *
  * @author Gaby
- * @since 2020-10-14
+ * @since 2020-10-15
  */
 @TableName("user_warrant_log")
 public class UserWarrantLog implements Serializable, IEntity {
@@ -104,6 +104,10 @@ public class UserWarrantLog implements Serializable, IEntity {
      */
     @TableField("thaw_time")
     private Date thawTime;
+    /**
+     * 拓展数据 json字段
+     */
+    private String attach;
 
 
     public Long getId() {
@@ -271,6 +275,17 @@ public class UserWarrantLog implements Serializable, IEntity {
         return this;
     }
 
+    public String getAttach() {
+        return attach;
+    }
+
+    public UserWarrantLog setAttach(String attach) {
+        if (attach != null)
+            attach = attach.trim();
+        this.attach = attach;
+        return this;
+    }
+
     /**
      * 表名
      */
@@ -359,6 +374,11 @@ public class UserWarrantLog implements Serializable, IEntity {
      * 冻结到期时间
      */
     public static final String THAW_TIME = "thaw_time";
+
+    /**
+     * 拓展数据 json字段
+     */
+    public static final String ATTACH = "attach";
 
 
     @Override
