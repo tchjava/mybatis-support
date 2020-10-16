@@ -15,7 +15,7 @@ import java.util.Date;
  * </p>
  *
  * @author Gaby
- * @since 2020-10-15
+ * @since 2020-10-16
  */
 @TableName("user_warrant_log")
 public class UserWarrantLog implements Serializable, IEntity {
@@ -108,6 +108,10 @@ public class UserWarrantLog implements Serializable, IEntity {
      * 拓展数据 json字段
      */
     private String attach;
+    /**
+     * 剩余金额(单位:分)
+     */
+    private Long balance;
 
 
     public Long getId() {
@@ -286,6 +290,15 @@ public class UserWarrantLog implements Serializable, IEntity {
         return this;
     }
 
+    public Long getBalance() {
+        return balance;
+    }
+
+    public UserWarrantLog setBalance(Long balance) {
+        this.balance = balance;
+        return this;
+    }
+
     /**
      * 表名
      */
@@ -379,6 +392,11 @@ public class UserWarrantLog implements Serializable, IEntity {
      * 拓展数据 json字段
      */
     public static final String ATTACH = "attach";
+
+    /**
+     * 剩余金额(单位:分)
+     */
+    public static final String BALANCE = "balance";
 
 
     @Override
