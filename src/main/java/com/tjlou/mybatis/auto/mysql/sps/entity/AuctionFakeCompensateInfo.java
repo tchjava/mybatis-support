@@ -78,6 +78,11 @@ public class AuctionFakeCompensateInfo implements Serializable, IEntity {
      */
     @TableField("user_account_id")
     private Long userAccountId;
+    /**
+     * 预计到达时间
+     */
+    @TableField("expect_arrive_time")
+    private Date expectArriveTime;
 
 
     public Long getId() {
@@ -192,6 +197,15 @@ public class AuctionFakeCompensateInfo implements Serializable, IEntity {
         return this;
     }
 
+    public Date getExpectArriveTime() {
+        return expectArriveTime;
+    }
+
+    public AuctionFakeCompensateInfo setExpectArriveTime(Date expectArriveTime) {
+        this.expectArriveTime = expectArriveTime;
+        return this;
+    }
+
     /**
      * 表名
      */
@@ -255,6 +269,11 @@ public class AuctionFakeCompensateInfo implements Serializable, IEntity {
      * 申请人
      */
     public static final String USER_ACCOUNT_ID = "user_account_id";
+
+    /**
+     * 预计到达时间
+     */
+    public static final String EXPECT_ARRIVE_TIME = "expect_arrive_time";
 
 
     @Override
