@@ -73,6 +73,11 @@ public class AuctionFakeCompensateInfo implements Serializable, IEntity {
      */
     @TableField("prefix_refund_status")
     private Long prefixRefundStatus;
+    /**
+     * 申请人
+     */
+    @TableField("user_account_id")
+    private Long userAccountId;
 
 
     public Long getId() {
@@ -178,6 +183,15 @@ public class AuctionFakeCompensateInfo implements Serializable, IEntity {
         return this;
     }
 
+    public Long getUserAccountId() {
+        return userAccountId;
+    }
+
+    public AuctionFakeCompensateInfo setUserAccountId(Long userAccountId) {
+        this.userAccountId = userAccountId;
+        return this;
+    }
+
     /**
      * 表名
      */
@@ -236,6 +250,11 @@ public class AuctionFakeCompensateInfo implements Serializable, IEntity {
      * 申请前的订单售后状态
      */
     public static final String PREFIX_REFUND_STATUS = "prefix_refund_status";
+
+    /**
+     * 申请人
+     */
+    public static final String USER_ACCOUNT_ID = "user_account_id";
 
 
     @Override
