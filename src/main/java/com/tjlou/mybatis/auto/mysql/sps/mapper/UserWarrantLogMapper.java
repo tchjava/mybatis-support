@@ -9,7 +9,7 @@ import com.baomidou.mybatisplus.mapper.BaseMapper;
  * </p>
  *
  * @author Gaby
- * @since 2020-10-16
+ * @since 2020-10-17
  */
 public interface UserWarrantLogMapper extends BaseMapper<UserWarrantLog> {
 

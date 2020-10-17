@@ -12,7 +12,7 @@ import org.springframework.stereotype.Service;
  * </p>
  *
  * @author Gaby
- * @since 2020-10-16
+ * @since 2020-10-17
  */
 @Service
 public class UserWarrantLogServiceImpl extends ServiceImpl<UserWarrantLogMapper, UserWarrantLog> implements UserWarrantLogService {

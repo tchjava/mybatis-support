@@ -15,11 +15,10 @@ import java.util.Date;
  * </p>
  *
  * @author Gaby
- * @since 2020-10-16
+ * @since 2020-10-17
  */
 @TableName("user_warrant_log")
 public class UserWarrantLog implements Serializable, IEntity {
-
 
     /**
      * 主键
@@ -47,7 +46,7 @@ public class UserWarrantLog implements Serializable, IEntity {
     @TableField("change_num")
     private Long changeNum;
     /**
-     * 变动类型 1-缴纳 2-退消
+     * 变动类型 1-缴纳 2-退消 4-支出
      */
     @TableField("change_type")
     private Integer changeType;
@@ -62,7 +61,7 @@ public class UserWarrantLog implements Serializable, IEntity {
     @TableField("change_time")
     private Date changeTime;
     /**
-     * 状态  00A-已缴纳  00B-待审核 00C-待支付-临时态  00Z-失效
+     * 状态  00A-已缴纳  00B-待审核 00D-待支付-临时态  00Z-失效
      */
     private String status;
     /**
@@ -112,7 +111,11 @@ public class UserWarrantLog implements Serializable, IEntity {
      * 剩余金额(单位:分)
      */
     private Long balance;
-
+    /**
+     * 跳转类型 1-订单详情 2-拍品详情
+     */
+    @TableField("skip_type")
+    private Integer skipType;
 
     public Long getId() {
         return id;
@@ -299,6 +302,15 @@ public class UserWarrantLog implements Serializable, IEntity {
         return this;
     }
 
+    public Integer getSkipType() {
+        return skipType;
+    }
+
+    public UserWarrantLog setSkipType(Integer skipType) {
+        this.skipType = skipType;
+        return this;
+    }
+
     /**
      * 表名
      */
@@ -329,7 +341,7 @@ public class UserWarrantLog implements Serializable, IEntity {
     public static final String CHANGE_NUM = "change_num";
 
     /**
-     * 变动类型 1-缴纳 2-退消
+     * 变动类型 1-缴纳 2-退消 4-支出
      */
     public static final String CHANGE_TYPE = "change_type";
 
@@ -344,7 +356,7 @@ public class UserWarrantLog implements Serializable, IEntity {
     public static final String CHANGE_TIME = "change_time";
 
     /**
-     * 状态  00A-已缴纳  00B-待审核 00C-待支付-临时态  00Z-失效
+     * 状态  00A-已缴纳  00B-待审核 00D-待支付-临时态  00Z-失效
      */
     public static final String STATUS = "status";
 
@@ -398,6 +410,10 @@ public class UserWarrantLog implements Serializable, IEntity {
      */
     public static final String BALANCE = "balance";
 
+    /**
+     * 跳转类型 1-订单详情 2-拍品详情
+     */
+    public static final String SKIP_TYPE = "skip_type";
 
     @Override
     public UserWarrantLog pkVal(Serializable val) {
