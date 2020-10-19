@@ -15,7 +15,7 @@ import java.util.Date;
  * </p>
  *
  * @author Gaby
- * @since 2020-06-08
+ * @since 2020-10-19
  */
 @TableName("auction_product_instance")
 public class AuctionProductInstance implements Serializable, IEntity {
@@ -152,6 +152,11 @@ public class AuctionProductInstance implements Serializable, IEntity {
      * 是否包退  1-包退 0-不包退
      */
     private Integer refund;
+    /**
+     * 是否显示退货包邮标签
+     */
+    @TableField("refund_freight_flag")
+    private Integer refundFreightFlag;
 
 
     public Long getId() {
@@ -405,6 +410,15 @@ public class AuctionProductInstance implements Serializable, IEntity {
         return this;
     }
 
+    public Integer getRefundFreightFlag() {
+        return refundFreightFlag;
+    }
+
+    public AuctionProductInstance setRefundFreightFlag(Integer refundFreightFlag) {
+        this.refundFreightFlag = refundFreightFlag;
+        return this;
+    }
+
     /**
      * 表名
      */
@@ -543,6 +557,11 @@ public class AuctionProductInstance implements Serializable, IEntity {
      * 是否包退  1-包退 0-不包退
      */
     public static final String REFUND = "refund";
+
+    /**
+     * 是否显示退货包邮标签
+     */
+    public static final String REFUND_FREIGHT_FLAG = "refund_freight_flag";
 
 
     @Override

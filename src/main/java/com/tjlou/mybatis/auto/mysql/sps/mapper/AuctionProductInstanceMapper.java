@@ -9,7 +9,7 @@ import com.baomidou.mybatisplus.mapper.BaseMapper;
  * </p>
  *
  * @author Gaby
- * @since 2020-06-08
+ * @since 2020-10-19
  */
 public interface AuctionProductInstanceMapper extends BaseMapper<AuctionProductInstance> {
 
