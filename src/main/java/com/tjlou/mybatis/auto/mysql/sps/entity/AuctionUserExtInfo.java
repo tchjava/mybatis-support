@@ -16,7 +16,7 @@ import java.util.Date;
  * </p>
  *
  * @author Gaby
- * @since 2020-08-14
+ * @since 2020-10-20
  */
 @TableName("auction_user_ext_info")
 public class AuctionUserExtInfo implements Serializable, IEntity {
@@ -160,6 +160,11 @@ public class AuctionUserExtInfo implements Serializable, IEntity {
      */
     @TableField("default_rate")
     private BigDecimal defaultRate;
+    /**
+     * 主营类目
+     */
+    @TableField("major_business")
+    private Long majorBusiness;
 
 
     public Long getId() {
@@ -455,6 +460,15 @@ public class AuctionUserExtInfo implements Serializable, IEntity {
         return this;
     }
 
+    public Long getMajorBusiness() {
+        return majorBusiness;
+    }
+
+    public AuctionUserExtInfo setMajorBusiness(Long majorBusiness) {
+        this.majorBusiness = majorBusiness;
+        return this;
+    }
+
     /**
      * 表名
      */
@@ -603,6 +617,11 @@ public class AuctionUserExtInfo implements Serializable, IEntity {
      * 违约率
      */
     public static final String DEFAULT_RATE = "default_rate";
+
+    /**
+     * 主营类目
+     */
+    public static final String MAJOR_BUSINESS = "major_business";
 
 
     @Override

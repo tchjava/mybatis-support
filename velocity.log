@@ -56,3 +56,45 @@
 2020-10-19 17:32:22,949 - ResourceManager : found ./service.java.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
 2020-10-19 17:32:22,953 - ResourceManager : found ./serviceImpl.java.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
 2020-10-19 17:32:22,957 - ResourceManager : found /templates/controller.java.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2020-10-20 16:28:41,419 - Log4JLogChute initialized using file 'velocity.log'
+2020-10-20 16:28:41,420 - Initializing Velocity, Calling init()...
+2020-10-20 16:28:41,420 - Starting Apache Velocity v1.7 (compiled: 2010-11-19 12:14:37)
+2020-10-20 16:28:41,420 - Default Properties File: org\apache\velocity\runtime\defaults\velocity.properties
+2020-10-20 16:28:41,420 - Trying to use logger class org.apache.velocity.runtime.log.AvalonLogChute
+2020-10-20 16:28:41,420 - Target log system for org.apache.velocity.runtime.log.AvalonLogChute is not available (java.lang.NoClassDefFoundError: org/apache/log/format/Formatter).  Falling back to next log system...
+2020-10-20 16:28:41,421 - Trying to use logger class org.apache.velocity.runtime.log.Log4JLogChute
+2020-10-20 16:28:41,421 - Using logger class org.apache.velocity.runtime.log.Log4JLogChute
+2020-10-20 16:28:41,432 - ResourceLoader instantiated: org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2020-10-20 16:28:41,452 - ResourceCache: initialized (class org.apache.velocity.runtime.resource.ResourceCacheImpl) with class java.util.Collections$SynchronizedMap cache map.
+2020-10-20 16:28:41,465 - Loaded System Directive: org.apache.velocity.runtime.directive.Stop
+2020-10-20 16:28:41,467 - Loaded System Directive: org.apache.velocity.runtime.directive.Define
+2020-10-20 16:28:41,468 - Loaded System Directive: org.apache.velocity.runtime.directive.Break
+2020-10-20 16:28:41,474 - Loaded System Directive: org.apache.velocity.runtime.directive.Evaluate
+2020-10-20 16:28:41,475 - Loaded System Directive: org.apache.velocity.runtime.directive.Literal
+2020-10-20 16:28:41,476 - Loaded System Directive: org.apache.velocity.runtime.directive.Macro
+2020-10-20 16:28:41,478 - Loaded System Directive: org.apache.velocity.runtime.directive.Parse
+2020-10-20 16:28:41,479 - Loaded System Directive: org.apache.velocity.runtime.directive.Include
+2020-10-20 16:28:41,482 - Loaded System Directive: org.apache.velocity.runtime.directive.Foreach
+2020-10-20 16:28:41,544 - Created '20' parsers.
+2020-10-20 16:28:41,562 - Velocimacro : "velocimacro.library" is not set.  Trying default library: VM_global_library.vm
+2020-10-20 16:28:41,562 - Could not load resource 'VM_global_library.vm' from ResourceLoader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader: ClasspathResourceLoader Error: cannot find resource VM_global_library.vm
+2020-10-20 16:28:41,562 - Velocimacro : Default library not found.
+2020-10-20 16:28:41,562 - Velocimacro : allowInline = true : VMs can be defined inline in templates
+2020-10-20 16:28:41,562 - Velocimacro : allowInlineToOverride = false : VMs defined inline may NOT replace previous VM definitions
+2020-10-20 16:28:41,563 - Velocimacro : allowInlineLocal = false : VMs defined inline will be global in scope if allowed.
+2020-10-20 16:28:41,563 - Velocimacro : autoload off : VM system will not automatically reload global library macros
+2020-10-20 16:28:41,623 - ResourceManager : found ./my.entity.java.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2020-10-20 16:28:41,658 - ResourceManager : found ./mapper.java.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2020-10-20 16:28:41,669 - ResourceManager : found ./service.java.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2020-10-20 16:28:41,678 - ResourceManager : found ./serviceImpl.java.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2020-10-20 16:28:41,696 - ResourceManager : found /templates/controller.java.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2020-10-20 16:28:41,704 - ResourceManager : found ./my.entity.java.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2020-10-20 16:28:41,735 - ResourceManager : found ./mapper.java.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2020-10-20 16:28:41,741 - ResourceManager : found ./service.java.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2020-10-20 16:28:41,754 - ResourceManager : found ./serviceImpl.java.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2020-10-20 16:28:41,768 - ResourceManager : found /templates/controller.java.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2020-10-20 16:28:41,794 - ResourceManager : found ./my.entity.java.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2020-10-20 16:28:41,823 - ResourceManager : found ./mapper.java.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2020-10-20 16:28:41,831 - ResourceManager : found ./service.java.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2020-10-20 16:28:41,843 - ResourceManager : found ./serviceImpl.java.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2020-10-20 16:28:41,874 - ResourceManager : found /templates/controller.java.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
