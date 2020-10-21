@@ -15,7 +15,7 @@ import java.util.Date;
  * </p>
  *
  * @author Gaby
- * @since 2020-10-20
+ * @since 2020-10-21
  */
 @TableName("auction_brand_site_info")
 public class AuctionBrandSiteInfo implements Serializable, IEntity {
@@ -32,7 +32,7 @@ public class AuctionBrandSiteInfo implements Serializable, IEntity {
     @TableField("user_account_id")
     private Long userAccountId;
     /**
-     * 状态  1-未满足 2-申请中 4-通过
+     * 状态  1-未满足 2-申请中 4-通过  8-已拒绝
      */
     private Long status;
     /**
@@ -60,6 +60,11 @@ public class AuctionBrandSiteInfo implements Serializable, IEntity {
      */
     @TableField("reject_time")
     private Date rejectTime;
+    /**
+     * 拒绝理由
+     */
+    @TableField("reject_reason")
+    private String rejectReason;
 
 
     public Long getId() {
@@ -136,6 +141,17 @@ public class AuctionBrandSiteInfo implements Serializable, IEntity {
         return this;
     }
 
+    public String getRejectReason() {
+        return rejectReason;
+    }
+
+    public AuctionBrandSiteInfo setRejectReason(String rejectReason) {
+        if (rejectReason != null)
+            rejectReason = rejectReason.trim();
+        this.rejectReason = rejectReason;
+        return this;
+    }
+
     /**
      * 表名
      */
@@ -151,7 +167,7 @@ public class AuctionBrandSiteInfo implements Serializable, IEntity {
     public static final String USER_ACCOUNT_ID = "user_account_id";
 
     /**
-     * 状态  1-未满足 2-申请中 4-通过
+     * 状态  1-未满足 2-申请中 4-通过  8-已拒绝
      */
     public static final String STATUS = "status";
 
@@ -179,6 +195,11 @@ public class AuctionBrandSiteInfo implements Serializable, IEntity {
      * 拒绝时间
      */
     public static final String REJECT_TIME = "reject_time";
+
+    /**
+     * 拒绝理由
+     */
+    public static final String REJECT_REASON = "reject_reason";
 
 
     @Override
