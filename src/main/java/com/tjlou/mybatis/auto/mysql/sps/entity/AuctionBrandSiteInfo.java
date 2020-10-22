@@ -15,7 +15,7 @@ import java.util.Date;
  * </p>
  *
  * @author Gaby
- * @since 2020-10-21
+ * @since 2020-10-22
  */
 @TableName("auction_brand_site_info")
 public class AuctionBrandSiteInfo implements Serializable, IEntity {
@@ -65,6 +65,11 @@ public class AuctionBrandSiteInfo implements Serializable, IEntity {
      */
     @TableField("reject_reason")
     private String rejectReason;
+    /**
+     * 过期时间
+     */
+    @TableField("expire_time")
+    private Date expireTime;
 
 
     public Long getId() {
@@ -152,6 +157,15 @@ public class AuctionBrandSiteInfo implements Serializable, IEntity {
         return this;
     }
 
+    public Date getExpireTime() {
+        return expireTime;
+    }
+
+    public AuctionBrandSiteInfo setExpireTime(Date expireTime) {
+        this.expireTime = expireTime;
+        return this;
+    }
+
     /**
      * 表名
      */
@@ -200,6 +214,11 @@ public class AuctionBrandSiteInfo implements Serializable, IEntity {
      * 拒绝理由
      */
     public static final String REJECT_REASON = "reject_reason";
+
+    /**
+     * 过期时间
+     */
+    public static final String EXPIRE_TIME = "expire_time";
 
 
     @Override
