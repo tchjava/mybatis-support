@@ -15,7 +15,7 @@ import java.util.Date;
  * </p>
  *
  * @author Gaby
- * @since 2020-10-15
+ * @since 2020-10-23
  */
 @TableName("user_warrant_info")
 public class UserWarrantInfo implements Serializable, IEntity {
@@ -66,6 +66,11 @@ public class UserWarrantInfo implements Serializable, IEntity {
      */
     @TableField("open_service")
     private Long openService;
+    /**
+     * 可申请解冻时间
+     */
+    @TableField("thaw_time")
+    private Date thawTime;
 
 
     public Long getId() {
@@ -162,6 +167,15 @@ public class UserWarrantInfo implements Serializable, IEntity {
         return this;
     }
 
+    public Date getThawTime() {
+        return thawTime;
+    }
+
+    public UserWarrantInfo setThawTime(Date thawTime) {
+        this.thawTime = thawTime;
+        return this;
+    }
+
     /**
      * 表名
      */
@@ -212,6 +226,11 @@ public class UserWarrantInfo implements Serializable, IEntity {
      * 开通的服务或满足条件
      */
     public static final String OPEN_SERVICE = "open_service";
+
+    /**
+     * 可申请解冻时间
+     */
+    public static final String THAW_TIME = "thaw_time";
 
 
     @Override
