@@ -43,9 +43,14 @@ public class AuctionAdvertPlaceInfo implements Serializable, IEntity {
      */
     private Integer enable;
     /**
-     * 拥有广告id [1,2]
+     * 所属广告
      */
-    private String advert;
+    @TableField("advert_id")
+    private Long advertId;
+    /**
+     * 排序
+     */
+    private Integer sort;
 
 
     public Long getId() {
@@ -93,14 +98,21 @@ public class AuctionAdvertPlaceInfo implements Serializable, IEntity {
         return this;
     }
 
-    public String getAdvert() {
-        return advert;
+    public Long getAdvertId() {
+        return advertId;
     }
 
-    public AuctionAdvertPlaceInfo setAdvert(String advert) {
-        if (advert != null)
-            advert = advert.trim();
-        this.advert = advert;
+    public AuctionAdvertPlaceInfo setAdvertId(Long advertId) {
+        this.advertId = advertId;
+        return this;
+    }
+
+    public Integer getSort() {
+        return sort;
+    }
+
+    public AuctionAdvertPlaceInfo setSort(Integer sort) {
+        this.sort = sort;
         return this;
     }
 
@@ -134,9 +146,14 @@ public class AuctionAdvertPlaceInfo implements Serializable, IEntity {
     public static final String ENABLE = "enable";
 
     /**
-     * 拥有广告id [1,2]
+     * 所属广告
      */
-    public static final String ADVERT = "advert";
+    public static final String ADVERT_ID = "advert_id";
+
+    /**
+     * 排序
+     */
+    public static final String SORT = "sort";
 
 
     @Override
