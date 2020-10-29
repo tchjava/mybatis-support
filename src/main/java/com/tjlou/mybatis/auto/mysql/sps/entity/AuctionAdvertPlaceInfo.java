@@ -31,10 +31,6 @@ public class AuctionAdvertPlaceInfo implements Serializable, IEntity {
     @TableField("category_id")
     private Long categoryId;
     /**
-     * 所属楼层
-     */
-    private Integer floor;
-    /**
      * 所属样式
      */
     private Long style;
@@ -42,11 +38,6 @@ public class AuctionAdvertPlaceInfo implements Serializable, IEntity {
      * 状态 1-开启 0-禁用
      */
     private Integer enable;
-    /**
-     * 所属广告
-     */
-    @TableField("advert_id")
-    private Long advertId;
     /**
      * 排序
      */
@@ -71,15 +62,6 @@ public class AuctionAdvertPlaceInfo implements Serializable, IEntity {
         return this;
     }
 
-    public Integer getFloor() {
-        return floor;
-    }
-
-    public AuctionAdvertPlaceInfo setFloor(Integer floor) {
-        this.floor = floor;
-        return this;
-    }
-
     public Long getStyle() {
         return style;
     }
@@ -95,15 +77,6 @@ public class AuctionAdvertPlaceInfo implements Serializable, IEntity {
 
     public AuctionAdvertPlaceInfo setEnable(Integer enable) {
         this.enable = enable;
-        return this;
-    }
-
-    public Long getAdvertId() {
-        return advertId;
-    }
-
-    public AuctionAdvertPlaceInfo setAdvertId(Long advertId) {
-        this.advertId = advertId;
         return this;
     }
 
@@ -131,11 +104,6 @@ public class AuctionAdvertPlaceInfo implements Serializable, IEntity {
     public static final String CATEGORY_ID = "category_id";
 
     /**
-     * 所属楼层
-     */
-    public static final String FLOOR = "floor";
-
-    /**
      * 所属样式
      */
     public static final String STYLE = "style";
@@ -144,11 +112,6 @@ public class AuctionAdvertPlaceInfo implements Serializable, IEntity {
      * 状态 1-开启 0-禁用
      */
     public static final String ENABLE = "enable";
-
-    /**
-     * 所属广告
-     */
-    public static final String ADVERT_ID = "advert_id";
 
     /**
      * 排序
