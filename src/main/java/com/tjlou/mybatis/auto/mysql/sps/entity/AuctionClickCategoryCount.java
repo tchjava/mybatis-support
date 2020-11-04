@@ -15,7 +15,7 @@ import java.util.Date;
  * </p>
  *
  * @author Gaby
- * @since 2020-11-03
+ * @since 2020-11-04
  */
 @TableName("auction_click_category_count")
 public class AuctionClickCategoryCount implements Serializable, IEntity {
@@ -26,6 +26,11 @@ public class AuctionClickCategoryCount implements Serializable, IEntity {
      */
     @TableId(value = "id", type = IdType.AUTO)
     private Long id;
+    /**
+     * 拍品标识
+     */
+    @TableField("instance_id")
+    private Long instanceId;
     /**
      * 二级分类
      */
@@ -63,6 +68,15 @@ public class AuctionClickCategoryCount implements Serializable, IEntity {
 
     public AuctionClickCategoryCount setId(Long id) {
         this.id = id;
+        return this;
+    }
+
+    public Long getInstanceId() {
+        return instanceId;
+    }
+
+    public AuctionClickCategoryCount setInstanceId(Long instanceId) {
+        this.instanceId = instanceId;
         return this;
     }
 
@@ -128,6 +142,11 @@ public class AuctionClickCategoryCount implements Serializable, IEntity {
      * 主键
      */
     public static final String ID = "id";
+
+    /**
+     * 拍品标识
+     */
+    public static final String INSTANCE_ID = "instance_id";
 
     /**
      * 二级分类

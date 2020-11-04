@@ -15,7 +15,7 @@ import java.util.Date;
  * </p>
  *
  * @author Gaby
- * @since 2020-06-03
+ * @since 2020-11-04
  */
 @TableName("category_info")
 public class CategoryInfo implements Serializable, IEntity {
@@ -57,6 +57,11 @@ public class CategoryInfo implements Serializable, IEntity {
      * 范围 1-超级仓库  2-拍卖
      */
     private Integer type;
+    /**
+     * 近x天点击的商品数量
+     */
+    @TableField("product__click_num")
+    private Integer productClickNum;
 
 
     public Long getId() {
@@ -150,6 +155,15 @@ public class CategoryInfo implements Serializable, IEntity {
         return this;
     }
 
+    public Integer getProductClickNum() {
+        return productClickNum;
+    }
+
+    public CategoryInfo setProductClickNum(Integer productClickNum) {
+        this.productClickNum = productClickNum;
+        return this;
+    }
+
     /**
      * 表名
      */
@@ -195,6 +209,11 @@ public class CategoryInfo implements Serializable, IEntity {
      * 范围 1-超级仓库  2-拍卖
      */
     public static final String TYPE = "type";
+
+    /**
+     * 近x天点击的商品数量
+     */
+    public static final String PRODUCT__CLICK_NUM = "product__click_num";
 
 
     @Override
