@@ -14,7 +14,7 @@ import java.io.Serializable;
  * </p>
  *
  * @author Gaby
- * @since 2020-11-03
+ * @since 2020-11-05
  */
 @TableName("auction_product_weight_info")
 public class AuctionProductWeightInfo implements Serializable, IEntity {
@@ -31,6 +31,11 @@ public class AuctionProductWeightInfo implements Serializable, IEntity {
      * 权重值
      */
     private Double weight;
+    /**
+     * 综合权重值
+     */
+    @TableField("multiple_weight")
+    private Double multipleWeight;
     /**
      * 维度1:拍品访问人数
      */
@@ -107,6 +112,15 @@ public class AuctionProductWeightInfo implements Serializable, IEntity {
 
     public AuctionProductWeightInfo setWeight(Double weight) {
         this.weight = weight;
+        return this;
+    }
+
+    public Double getMultipleWeight() {
+        return multipleWeight;
+    }
+
+    public AuctionProductWeightInfo setMultipleWeight(Double multipleWeight) {
+        this.multipleWeight = multipleWeight;
         return this;
     }
 
@@ -215,6 +229,11 @@ public class AuctionProductWeightInfo implements Serializable, IEntity {
      * 权重值
      */
     public static final String WEIGHT = "weight";
+
+    /**
+     * 综合权重值
+     */
+    public static final String MULTIPLE_WEIGHT = "multiple_weight";
 
     /**
      * 维度1:拍品访问人数

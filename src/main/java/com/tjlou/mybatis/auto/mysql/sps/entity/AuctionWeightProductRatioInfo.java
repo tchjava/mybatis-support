@@ -14,7 +14,7 @@ import java.io.Serializable;
  * </p>
  *
  * @author Gaby
- * @since 2020-11-03
+ * @since 2020-11-05
  */
 @TableName("auction_weight_product_ratio_info")
 public class AuctionWeightProductRatioInfo implements Serializable, IEntity {
@@ -26,9 +26,7 @@ public class AuctionWeightProductRatioInfo implements Serializable, IEntity {
     @TableId(value = "id", type = IdType.AUTO)
     private Long id;
     /**
-     * 系数类型   1-拍品访问人数  2-拍品访问次数
-     * 3-拍品分享人数 4-拍品分享进入人数 5-拍品出价人数
-     * 6.拍品出价次数 7.拍品被收藏人数
+     * 系数类型   1-拍品访问人数  2-拍品访问次数            3-拍品分享人数 4-拍品分享进入人数 5-拍品出价人数 6.拍品出价次数 7.拍品被收藏人数
      */
     @TableField("ratio_type")
     private Integer ratioType;
@@ -76,9 +74,7 @@ public class AuctionWeightProductRatioInfo implements Serializable, IEntity {
     public static final String ID = "id";
 
     /**
-     * 系数类型   1-拍品访问人数  2-拍品访问次数
-     * 3-拍品分享人数 4-拍品分享进入人数 5-拍品出价人数
-     * 6.拍品出价次数 7.拍品被收藏人数
+     * 系数类型   1-拍品访问人数  2-拍品访问次数            3-拍品分享人数 4-拍品分享进入人数 5-拍品出价人数 6.拍品出价次数 7.拍品被收藏人数
      */
     public static final String RATIO_TYPE = "ratio_type";
 

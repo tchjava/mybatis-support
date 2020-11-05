@@ -7,17 +7,18 @@ import com.baomidou.mybatisplus.enums.IdType;
 import com.tjlou.mybatis.base.entity.IEntity;
 
 import java.io.Serializable;
+import java.util.Date;
 
 /**
  * <p>
- * 拍卖-店铺权重信息表
+ * 拍卖-店铺单日权重日志表
  * </p>
  *
  * @author Gaby
  * @since 2020-11-05
  */
-@TableName("auction_shop_weight_info")
-public class AuctionShopWeightInfo implements Serializable, IEntity {
+@TableName("auction_shop_weight_day_log")
+public class AuctionShopWeightDayLog implements Serializable, IEntity {
 
 
     /**
@@ -26,7 +27,7 @@ public class AuctionShopWeightInfo implements Serializable, IEntity {
     @TableId(value = "id", type = IdType.AUTO)
     private Long id;
     /**
-     * 所属店铺
+     * 所属用户
      */
     @TableField("user_account_id")
     private Long userAccountId;
@@ -34,6 +35,11 @@ public class AuctionShopWeightInfo implements Serializable, IEntity {
      * 权重值
      */
     private Double weight;
+    /**
+     * 创建时间
+     */
+    @TableField("create_time")
+    private Date createTime;
     /**
      * 店铺首页被分享的人数
      */
@@ -45,22 +51,22 @@ public class AuctionShopWeightInfo implements Serializable, IEntity {
     @TableField("dimension_2")
     private Integer dimension2;
     /**
-     * 永久二维码访问的人数
+     * 通过永久二维码访问的人数
      */
     @TableField("dimension_3")
     private Integer dimension3;
     /**
-     * 商品二维码访问的人数
+     * 通过商品二维码访问的人数
      */
     @TableField("dimension_4")
     private Integer dimension4;
     /**
-     * 店铺首页分享进入的人数
+     * 店铺首页分享链接访问的人数
      */
     @TableField("dimension_5")
     private Integer dimension5;
     /**
-     * 商品分享进入的人数
+     * 商品分享链接访问的人数
      */
     @TableField("dimension_6")
     private Integer dimension6;
@@ -75,7 +81,7 @@ public class AuctionShopWeightInfo implements Serializable, IEntity {
     @TableField("dimension_8")
     private Integer dimension8;
     /**
-     * 店铺付款成交笔数
+     * 店铺付款成交比数
      */
     @TableField("dimension_9")
     private Integer dimension9;
@@ -95,17 +101,17 @@ public class AuctionShopWeightInfo implements Serializable, IEntity {
     @TableField("dimension_12")
     private Integer dimension12;
     /**
-     * 暂未使用
+     * 预留
      */
     @TableField("dimension_13")
     private Integer dimension13;
     /**
-     * 暂未使用
+     * 预留
      */
     @TableField("dimension_14")
     private Integer dimension14;
     /**
-     * 暂未使用
+     * 预留
      */
     @TableField("dimension_15")
     private Integer dimension15;
@@ -115,7 +121,7 @@ public class AuctionShopWeightInfo implements Serializable, IEntity {
         return id;
     }
 
-    public AuctionShopWeightInfo setId(Long id) {
+    public AuctionShopWeightDayLog setId(Long id) {
         this.id = id;
         return this;
     }
@@ -124,7 +130,7 @@ public class AuctionShopWeightInfo implements Serializable, IEntity {
         return userAccountId;
     }
 
-    public AuctionShopWeightInfo setUserAccountId(Long userAccountId) {
+    public AuctionShopWeightDayLog setUserAccountId(Long userAccountId) {
         this.userAccountId = userAccountId;
         return this;
     }
@@ -133,8 +139,17 @@ public class AuctionShopWeightInfo implements Serializable, IEntity {
         return weight;
     }
 
-    public AuctionShopWeightInfo setWeight(Double weight) {
+    public AuctionShopWeightDayLog setWeight(Double weight) {
         this.weight = weight;
+        return this;
+    }
+
+    public Date getCreateTime() {
+        return createTime;
+    }
+
+    public AuctionShopWeightDayLog setCreateTime(Date createTime) {
+        this.createTime = createTime;
         return this;
     }
 
@@ -142,7 +157,7 @@ public class AuctionShopWeightInfo implements Serializable, IEntity {
         return dimension1;
     }
 
-    public AuctionShopWeightInfo setDimension1(Integer dimension1) {
+    public AuctionShopWeightDayLog setDimension1(Integer dimension1) {
         this.dimension1 = dimension1;
         return this;
     }
@@ -151,7 +166,7 @@ public class AuctionShopWeightInfo implements Serializable, IEntity {
         return dimension2;
     }
 
-    public AuctionShopWeightInfo setDimension2(Integer dimension2) {
+    public AuctionShopWeightDayLog setDimension2(Integer dimension2) {
         this.dimension2 = dimension2;
         return this;
     }
@@ -160,7 +175,7 @@ public class AuctionShopWeightInfo implements Serializable, IEntity {
         return dimension3;
     }
 
-    public AuctionShopWeightInfo setDimension3(Integer dimension3) {
+    public AuctionShopWeightDayLog setDimension3(Integer dimension3) {
         this.dimension3 = dimension3;
         return this;
     }
@@ -169,7 +184,7 @@ public class AuctionShopWeightInfo implements Serializable, IEntity {
         return dimension4;
     }
 
-    public AuctionShopWeightInfo setDimension4(Integer dimension4) {
+    public AuctionShopWeightDayLog setDimension4(Integer dimension4) {
         this.dimension4 = dimension4;
         return this;
     }
@@ -178,7 +193,7 @@ public class AuctionShopWeightInfo implements Serializable, IEntity {
         return dimension5;
     }
 
-    public AuctionShopWeightInfo setDimension5(Integer dimension5) {
+    public AuctionShopWeightDayLog setDimension5(Integer dimension5) {
         this.dimension5 = dimension5;
         return this;
     }
@@ -187,7 +202,7 @@ public class AuctionShopWeightInfo implements Serializable, IEntity {
         return dimension6;
     }
 
-    public AuctionShopWeightInfo setDimension6(Integer dimension6) {
+    public AuctionShopWeightDayLog setDimension6(Integer dimension6) {
         this.dimension6 = dimension6;
         return this;
     }
@@ -196,7 +211,7 @@ public class AuctionShopWeightInfo implements Serializable, IEntity {
         return dimension7;
     }
 
-    public AuctionShopWeightInfo setDimension7(Long dimension7) {
+    public AuctionShopWeightDayLog setDimension7(Long dimension7) {
         this.dimension7 = dimension7;
         return this;
     }
@@ -205,7 +220,7 @@ public class AuctionShopWeightInfo implements Serializable, IEntity {
         return dimension8;
     }
 
-    public AuctionShopWeightInfo setDimension8(Integer dimension8) {
+    public AuctionShopWeightDayLog setDimension8(Integer dimension8) {
         this.dimension8 = dimension8;
         return this;
     }
@@ -214,7 +229,7 @@ public class AuctionShopWeightInfo implements Serializable, IEntity {
         return dimension9;
     }
 
-    public AuctionShopWeightInfo setDimension9(Integer dimension9) {
+    public AuctionShopWeightDayLog setDimension9(Integer dimension9) {
         this.dimension9 = dimension9;
         return this;
     }
@@ -223,7 +238,7 @@ public class AuctionShopWeightInfo implements Serializable, IEntity {
         return dimension10;
     }
 
-    public AuctionShopWeightInfo setDimension10(Long dimension10) {
+    public AuctionShopWeightDayLog setDimension10(Long dimension10) {
         this.dimension10 = dimension10;
         return this;
     }
@@ -232,7 +247,7 @@ public class AuctionShopWeightInfo implements Serializable, IEntity {
         return dimension11;
     }
 
-    public AuctionShopWeightInfo setDimension11(Long dimension11) {
+    public AuctionShopWeightDayLog setDimension11(Long dimension11) {
         this.dimension11 = dimension11;
         return this;
     }
@@ -241,7 +256,7 @@ public class AuctionShopWeightInfo implements Serializable, IEntity {
         return dimension12;
     }
 
-    public AuctionShopWeightInfo setDimension12(Integer dimension12) {
+    public AuctionShopWeightDayLog setDimension12(Integer dimension12) {
         this.dimension12 = dimension12;
         return this;
     }
@@ -250,7 +265,7 @@ public class AuctionShopWeightInfo implements Serializable, IEntity {
         return dimension13;
     }
 
-    public AuctionShopWeightInfo setDimension13(Integer dimension13) {
+    public AuctionShopWeightDayLog setDimension13(Integer dimension13) {
         this.dimension13 = dimension13;
         return this;
     }
@@ -259,7 +274,7 @@ public class AuctionShopWeightInfo implements Serializable, IEntity {
         return dimension14;
     }
 
-    public AuctionShopWeightInfo setDimension14(Integer dimension14) {
+    public AuctionShopWeightDayLog setDimension14(Integer dimension14) {
         this.dimension14 = dimension14;
         return this;
     }
@@ -268,7 +283,7 @@ public class AuctionShopWeightInfo implements Serializable, IEntity {
         return dimension15;
     }
 
-    public AuctionShopWeightInfo setDimension15(Integer dimension15) {
+    public AuctionShopWeightDayLog setDimension15(Integer dimension15) {
         this.dimension15 = dimension15;
         return this;
     }
@@ -276,14 +291,14 @@ public class AuctionShopWeightInfo implements Serializable, IEntity {
     /**
      * 表名
      */
-    public static final String TABLE_NAME = "auction_shop_weight_info";
+    public static final String TABLE_NAME = "auction_shop_weight_day_log";
     /**
      * 主键
      */
     public static final String ID = "id";
 
     /**
-     * 所属店铺
+     * 所属用户
      */
     public static final String USER_ACCOUNT_ID = "user_account_id";
 
@@ -291,6 +306,11 @@ public class AuctionShopWeightInfo implements Serializable, IEntity {
      * 权重值
      */
     public static final String WEIGHT = "weight";
+
+    /**
+     * 创建时间
+     */
+    public static final String CREATE_TIME = "create_time";
 
     /**
      * 店铺首页被分享的人数
@@ -303,22 +323,22 @@ public class AuctionShopWeightInfo implements Serializable, IEntity {
     public static final String DIMENSION_2 = "dimension_2";
 
     /**
-     * 永久二维码访问的人数
+     * 通过永久二维码访问的人数
      */
     public static final String DIMENSION_3 = "dimension_3";
 
     /**
-     * 商品二维码访问的人数
+     * 通过商品二维码访问的人数
      */
     public static final String DIMENSION_4 = "dimension_4";
 
     /**
-     * 店铺首页分享进入的人数
+     * 店铺首页分享链接访问的人数
      */
     public static final String DIMENSION_5 = "dimension_5";
 
     /**
-     * 商品分享进入的人数
+     * 商品分享链接访问的人数
      */
     public static final String DIMENSION_6 = "dimension_6";
 
@@ -333,7 +353,7 @@ public class AuctionShopWeightInfo implements Serializable, IEntity {
     public static final String DIMENSION_8 = "dimension_8";
 
     /**
-     * 店铺付款成交笔数
+     * 店铺付款成交比数
      */
     public static final String DIMENSION_9 = "dimension_9";
 
@@ -353,23 +373,23 @@ public class AuctionShopWeightInfo implements Serializable, IEntity {
     public static final String DIMENSION_12 = "dimension_12";
 
     /**
-     * 暂未使用
+     * 预留
      */
     public static final String DIMENSION_13 = "dimension_13";
 
     /**
-     * 暂未使用
+     * 预留
      */
     public static final String DIMENSION_14 = "dimension_14";
 
     /**
-     * 暂未使用
+     * 预留
      */
     public static final String DIMENSION_15 = "dimension_15";
 
 
     @Override
-    public AuctionShopWeightInfo pkVal(Serializable val) {
+    public AuctionShopWeightDayLog pkVal(Serializable val) {
         this.id = Long.valueOf(val.toString());
         return this;
     }
