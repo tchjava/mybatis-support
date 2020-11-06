@@ -7,6 +7,7 @@ import com.baomidou.mybatisplus.enums.IdType;
 import com.tjlou.mybatis.base.entity.IEntity;
 
 import java.io.Serializable;
+import java.util.Date;
 
 /**
  * <p>
@@ -84,6 +85,11 @@ public class AuctionProductWeightDayLog implements Serializable, IEntity {
      */
     @TableField("dimension_10")
     private Integer dimension10;
+    /**
+     * 创建时间
+     */
+    @TableField("create_time")
+    private Date createTime;
 
 
     public Long getId() {
@@ -203,6 +209,15 @@ public class AuctionProductWeightDayLog implements Serializable, IEntity {
         return this;
     }
 
+    public Date getCreateTime() {
+        return createTime;
+    }
+
+    public AuctionProductWeightDayLog setCreateTime(Date createTime) {
+        this.createTime = createTime;
+        return this;
+    }
+
     /**
      * 表名
      */
@@ -271,6 +286,11 @@ public class AuctionProductWeightDayLog implements Serializable, IEntity {
      * 预留
      */
     public static final String DIMENSION_10 = "dimension_10";
+
+    /**
+     * 创建时间
+     */
+    public static final String CREATE_TIME = "create_time";
 
 
     @Override
