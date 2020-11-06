@@ -12,7 +12,7 @@ import org.springframework.stereotype.Service;
  * </p>
  *
  * @author Gaby
- * @since 2020-11-05
+ * @since 2020-11-06
  */
 @Service
 public class AuctionShopWeightInfoServiceImpl extends ServiceImpl<AuctionShopWeightInfoMapper, AuctionShopWeightInfo> implements AuctionShopWeightInfoService {

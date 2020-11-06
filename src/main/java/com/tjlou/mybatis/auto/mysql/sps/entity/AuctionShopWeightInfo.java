@@ -14,7 +14,7 @@ import java.io.Serializable;
  * </p>
  *
  * @author Gaby
- * @since 2020-11-05
+ * @since 2020-11-06
  */
 @TableName("auction_shop_weight_info")
 public class AuctionShopWeightInfo implements Serializable, IEntity {
@@ -34,6 +34,10 @@ public class AuctionShopWeightInfo implements Serializable, IEntity {
      * 权重值
      */
     private Double weight;
+    /**
+     * 此行是否被执行  1-执行 0-未执行
+     */
+    private Integer lock;
     /**
      * 店铺首页被分享的人数
      */
@@ -135,6 +139,15 @@ public class AuctionShopWeightInfo implements Serializable, IEntity {
 
     public AuctionShopWeightInfo setWeight(Double weight) {
         this.weight = weight;
+        return this;
+    }
+
+    public Integer getLock() {
+        return lock;
+    }
+
+    public AuctionShopWeightInfo setLock(Integer lock) {
+        this.lock = lock;
         return this;
     }
 
@@ -291,6 +304,11 @@ public class AuctionShopWeightInfo implements Serializable, IEntity {
      * 权重值
      */
     public static final String WEIGHT = "weight";
+
+    /**
+     * 此行是否被执行  1-执行 0-未执行
+     */
+    public static final String LOCK = "lock";
 
     /**
      * 店铺首页被分享的人数
