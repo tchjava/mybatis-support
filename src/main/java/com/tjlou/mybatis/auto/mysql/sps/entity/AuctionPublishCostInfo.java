@@ -36,6 +36,11 @@ public class AuctionPublishCostInfo implements Serializable, IEntity {
     @TableField("year_num")
     private Integer yearNum;
     /**
+     * 支付金额(单位:分)
+     */
+    @TableField("pay_money")
+    private Long payMoney;
+    /**
      * 推荐人佣金
      */
     @TableField("recommend_money")
@@ -71,6 +76,15 @@ public class AuctionPublishCostInfo implements Serializable, IEntity {
 
     public AuctionPublishCostInfo setYearNum(Integer yearNum) {
         this.yearNum = yearNum;
+        return this;
+    }
+
+    public Long getPayMoney() {
+        return payMoney;
+    }
+
+    public AuctionPublishCostInfo setPayMoney(Long payMoney) {
+        this.payMoney = payMoney;
         return this;
     }
 
@@ -110,6 +124,11 @@ public class AuctionPublishCostInfo implements Serializable, IEntity {
      * 年份
      */
     public static final String YEAR_NUM = "year_num";
+
+    /**
+     * 支付金额(单位:分)
+     */
+    public static final String PAY_MONEY = "pay_money";
 
     /**
      * 推荐人佣金
