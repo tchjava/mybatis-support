@@ -14,7 +14,7 @@ import java.io.Serializable;
  * </p>
  *
  * @author Gaby
- * @since 2020-08-20
+ * @since 2020-11-13
  */
 @TableName("auction_user_info")
 public class AuctionUserInfo implements Serializable, IEntity {
@@ -35,6 +35,16 @@ public class AuctionUserInfo implements Serializable, IEntity {
      */
     @TableField("personal_sign")
     private String personalSign;
+    /**
+     * 专属粉丝发布数量
+     */
+    @TableField("fans_publish_num")
+    private Integer fansPublishNum;
+    /**
+     * 购买的发布数量
+     */
+    @TableField("buy_publish_num")
+    private Integer buyPublishNum;
 
 
     public Long getId() {
@@ -66,6 +76,24 @@ public class AuctionUserInfo implements Serializable, IEntity {
         return this;
     }
 
+    public Integer getFansPublishNum() {
+        return fansPublishNum;
+    }
+
+    public AuctionUserInfo setFansPublishNum(Integer fansPublishNum) {
+        this.fansPublishNum = fansPublishNum;
+        return this;
+    }
+
+    public Integer getBuyPublishNum() {
+        return buyPublishNum;
+    }
+
+    public AuctionUserInfo setBuyPublishNum(Integer buyPublishNum) {
+        this.buyPublishNum = buyPublishNum;
+        return this;
+    }
+
     /**
      * 表名
      */
@@ -84,6 +112,16 @@ public class AuctionUserInfo implements Serializable, IEntity {
      * 个性签名
      */
     public static final String PERSONAL_SIGN = "personal_sign";
+
+    /**
+     * 专属粉丝发布数量
+     */
+    public static final String FANS_PUBLISH_NUM = "fans_publish_num";
+
+    /**
+     * 购买的发布数量
+     */
+    public static final String BUY_PUBLISH_NUM = "buy_publish_num";
 
 
     @Override
