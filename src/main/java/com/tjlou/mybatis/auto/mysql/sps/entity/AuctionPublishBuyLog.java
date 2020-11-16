@@ -15,7 +15,7 @@ import java.util.Date;
  * </p>
  *
  * @author Gaby
- * @since 2020-11-13
+ * @since 2020-11-16
  */
 @TableName("auction_publish_buy_log")
 public class AuctionPublishBuyLog implements Serializable, IEntity {
@@ -75,6 +75,10 @@ public class AuctionPublishBuyLog implements Serializable, IEntity {
      */
     @TableField("transaction_id")
     private String transactionId;
+    /**
+     * 状态 1-成功  2-失效
+     */
+    private Integer status;
 
 
     public Long getId() {
@@ -182,6 +186,15 @@ public class AuctionPublishBuyLog implements Serializable, IEntity {
         return this;
     }
 
+    public Integer getStatus() {
+        return status;
+    }
+
+    public AuctionPublishBuyLog setStatus(Integer status) {
+        this.status = status;
+        return this;
+    }
+
     /**
      * 表名
      */
@@ -240,6 +253,11 @@ public class AuctionPublishBuyLog implements Serializable, IEntity {
      * 交易号
      */
     public static final String TRANSACTION_ID = "transaction_id";
+
+    /**
+     * 状态 1-成功  2-失效
+     */
+    public static final String STATUS = "status";
 
 
     @Override

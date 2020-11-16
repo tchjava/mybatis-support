@@ -9,7 +9,7 @@ import com.baomidou.mybatisplus.service.IService;
  * </p>
  *
  * @author Gaby
- * @since 2020-11-13
+ * @since 2020-11-16
  */
 public interface AuctionPublishBuyLogService extends IService<AuctionPublishBuyLog> {
 
