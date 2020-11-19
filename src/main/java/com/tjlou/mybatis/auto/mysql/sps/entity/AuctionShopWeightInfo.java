@@ -37,6 +37,7 @@ public class AuctionShopWeightInfo implements Serializable, IEntity {
     /**
      * 此行是否被执行  1-执行 0-未执行
      */
+    @TableField("`lock`")
     private Integer lock;
     /**
      * 店铺首页被分享的人数
@@ -308,7 +309,7 @@ public class AuctionShopWeightInfo implements Serializable, IEntity {
     /**
      * 此行是否被执行  1-执行 0-未执行
      */
-    public static final String LOCK = "lock";
+    public static final String LOCK = "`lock`";
 
     /**
      * 店铺首页被分享的人数
