@@ -14,7 +14,7 @@ import java.io.Serializable;
  * </p>
  *
  * @author Gaby
- * @since 2020-07-03
+ * @since 2020-12-01
  */
 @TableName("auction_user_online_info")
 public class AuctionUserOnlineInfo implements Serializable, IEntity {
@@ -35,11 +35,11 @@ public class AuctionUserOnlineInfo implements Serializable, IEntity {
      */
     private Integer mp;
     /**
-     * 移动端H5
+     * 电脑端H5
      */
     private Integer h5;
     /**
-     * 电脑端H5
+     * (弃用字段)
      */
     private Integer pc;
     /**
@@ -54,6 +54,11 @@ public class AuctionUserOnlineInfo implements Serializable, IEntity {
      * 公众号
      */
     private Integer web;
+    /**
+     * 百度小程序
+     */
+    @TableField("baidu_mp")
+    private Integer baiduMp;
 
 
     public Long getId() {
@@ -128,6 +133,15 @@ public class AuctionUserOnlineInfo implements Serializable, IEntity {
         return this;
     }
 
+    public Integer getBaiduMp() {
+        return baiduMp;
+    }
+
+    public AuctionUserOnlineInfo setBaiduMp(Integer baiduMp) {
+        this.baiduMp = baiduMp;
+        return this;
+    }
+
     /**
      * 表名
      */
@@ -148,12 +162,12 @@ public class AuctionUserOnlineInfo implements Serializable, IEntity {
     public static final String MP = "mp";
 
     /**
-     * 移动端H5
+     * 电脑端H5
      */
     public static final String H5 = "h5";
 
     /**
-     * 电脑端H5
+     * (弃用字段)
      */
     public static final String PC = "pc";
 
@@ -171,6 +185,11 @@ public class AuctionUserOnlineInfo implements Serializable, IEntity {
      * 公众号
      */
     public static final String WEB = "web";
+
+    /**
+     * 百度小程序
+     */
+    public static final String BAIDU_MP = "baidu_mp";
 
 
     @Override
