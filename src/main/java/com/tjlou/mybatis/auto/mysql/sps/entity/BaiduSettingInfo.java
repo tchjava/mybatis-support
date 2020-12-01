@@ -52,6 +52,10 @@ public class BaiduSettingInfo implements Serializable, IEntity {
      */
     @TableField("pay_pub_secret")
     private String payPubSecret;
+    /**
+     * 项目类型 1-超级仓库  2-拍卖
+     */
+    private Integer type;
 
 
     public Long getId() {
@@ -129,6 +133,15 @@ public class BaiduSettingInfo implements Serializable, IEntity {
         return this;
     }
 
+    public Integer getType() {
+        return type;
+    }
+
+    public BaiduSettingInfo setType(Integer type) {
+        this.type = type;
+        return this;
+    }
+
     /**
      * 表名
      */
@@ -164,6 +177,11 @@ public class BaiduSettingInfo implements Serializable, IEntity {
      * 百度收银台平台公钥
      */
     public static final String PAY_PUB_SECRET = "pay_pub_secret";
+
+    /**
+     * 项目类型 1-超级仓库  2-拍卖
+     */
+    public static final String TYPE = "type";
 
 
     @Override
