@@ -16,7 +16,7 @@ import java.util.Date;
  * </p>
  *
  * @author Gaby
- * @since 2020-10-20
+ * @since 2020-12-02
  */
 @TableName("auction_user_ext_info")
 public class AuctionUserExtInfo implements Serializable, IEntity {
@@ -165,6 +165,11 @@ public class AuctionUserExtInfo implements Serializable, IEntity {
      */
     @TableField("major_business")
     private Long majorBusiness;
+    /**
+     * 百度小程序静默登陆token
+     */
+    @TableField("bd_mp_token")
+    private String bdMpToken;
 
 
     public Long getId() {
@@ -469,6 +474,17 @@ public class AuctionUserExtInfo implements Serializable, IEntity {
         return this;
     }
 
+    public String getBdMpToken() {
+        return bdMpToken;
+    }
+
+    public AuctionUserExtInfo setBdMpToken(String bdMpToken) {
+        if (bdMpToken != null)
+            bdMpToken = bdMpToken.trim();
+        this.bdMpToken = bdMpToken;
+        return this;
+    }
+
     /**
      * 表名
      */
@@ -622,6 +638,11 @@ public class AuctionUserExtInfo implements Serializable, IEntity {
      * 主营类目
      */
     public static final String MAJOR_BUSINESS = "major_business";
+
+    /**
+     * 百度小程序静默登陆token
+     */
+    public static final String BD_MP_TOKEN = "bd_mp_token";
 
 
     @Override
