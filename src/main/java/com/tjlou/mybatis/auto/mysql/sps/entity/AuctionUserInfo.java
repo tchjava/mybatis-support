@@ -14,7 +14,7 @@ import java.io.Serializable;
  * </p>
  *
  * @author Gaby
- * @since 2020-11-13
+ * @since 2020-12-05
  */
 @TableName("auction_user_info")
 public class AuctionUserInfo implements Serializable, IEntity {
@@ -45,6 +45,11 @@ public class AuctionUserInfo implements Serializable, IEntity {
      */
     @TableField("buy_publish_num")
     private Integer buyPublishNum;
+    /**
+     * 最后登录信息
+     */
+    @TableField("last_login_json")
+    private String lastLoginJson;
 
 
     public Long getId() {
@@ -94,6 +99,17 @@ public class AuctionUserInfo implements Serializable, IEntity {
         return this;
     }
 
+    public String getLastLoginJson() {
+        return lastLoginJson;
+    }
+
+    public AuctionUserInfo setLastLoginJson(String lastLoginJson) {
+        if (lastLoginJson != null)
+            lastLoginJson = lastLoginJson.trim();
+        this.lastLoginJson = lastLoginJson;
+        return this;
+    }
+
     /**
      * 表名
      */
@@ -122,6 +138,11 @@ public class AuctionUserInfo implements Serializable, IEntity {
      * 购买的发布数量
      */
     public static final String BUY_PUBLISH_NUM = "buy_publish_num";
+
+    /**
+     * 最后登录信息
+     */
+    public static final String LAST_LOGIN_JSON = "last_login_json";
 
 
     @Override
