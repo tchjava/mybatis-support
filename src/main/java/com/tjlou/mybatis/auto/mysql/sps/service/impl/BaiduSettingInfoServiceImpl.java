@@ -12,7 +12,7 @@ import org.springframework.stereotype.Service;
  * </p>
  *
  * @author Gaby
- * @since 2020-12-01
+ * @since 2020-12-07
  */
 @Service
 public class BaiduSettingInfoServiceImpl extends ServiceImpl<BaiduSettingInfoMapper, BaiduSettingInfo> implements BaiduSettingInfoService {

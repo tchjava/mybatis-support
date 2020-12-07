@@ -9,7 +9,7 @@ import com.baomidou.mybatisplus.service.IService;
  * </p>
  *
  * @author Gaby
- * @since 2020-12-01
+ * @since 2020-12-07
  */
 public interface BaiduSettingInfoService extends IService<BaiduSettingInfo> {
 

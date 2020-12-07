@@ -14,7 +14,7 @@ import java.io.Serializable;
  * </p>
  *
  * @author Gaby
- * @since 2020-12-01
+ * @since 2020-12-07
  */
 @TableName("baidu_setting_info")
 public class BaiduSettingInfo implements Serializable, IEntity {
@@ -52,6 +52,11 @@ public class BaiduSettingInfo implements Serializable, IEntity {
      */
     @TableField("pay_pub_secret")
     private String payPubSecret;
+    /**
+     * 百度收银台平台私钥
+     */
+    @TableField("pay_private_secret")
+    private String payPrivateSecret;
     /**
      * 项目类型 1-超级仓库  2-拍卖
      */
@@ -133,6 +138,17 @@ public class BaiduSettingInfo implements Serializable, IEntity {
         return this;
     }
 
+    public String getPayPrivateSecret() {
+        return payPrivateSecret;
+    }
+
+    public BaiduSettingInfo setPayPrivateSecret(String payPrivateSecret) {
+        if (payPrivateSecret != null)
+            payPrivateSecret = payPrivateSecret.trim();
+        this.payPrivateSecret = payPrivateSecret;
+        return this;
+    }
+
     public Integer getType() {
         return type;
     }
@@ -177,6 +193,11 @@ public class BaiduSettingInfo implements Serializable, IEntity {
      * 百度收银台平台公钥
      */
     public static final String PAY_PUB_SECRET = "pay_pub_secret";
+
+    /**
+     * 百度收银台平台私钥
+     */
+    public static final String PAY_PRIVATE_SECRET = "pay_private_secret";
 
     /**
      * 项目类型 1-超级仓库  2-拍卖
