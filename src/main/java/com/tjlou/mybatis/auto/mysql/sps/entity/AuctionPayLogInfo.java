@@ -15,7 +15,7 @@ import java.util.Date;
  * </p>
  *
  * @author Gaby
- * @since 2020-07-13
+ * @since 2020-12-14
  */
 @TableName("auction_pay_log_info")
 public class AuctionPayLogInfo implements Serializable, IEntity {
@@ -55,6 +55,10 @@ public class AuctionPayLogInfo implements Serializable, IEntity {
      */
     @TableField("pay_type")
     private Integer payType;
+    /**
+     * 拓展数据[详细的交易相关信息]
+     */
+    private String attach;
 
 
     public Long getId() {
@@ -124,6 +128,17 @@ public class AuctionPayLogInfo implements Serializable, IEntity {
         return this;
     }
 
+    public String getAttach() {
+        return attach;
+    }
+
+    public AuctionPayLogInfo setAttach(String attach) {
+        if (attach != null)
+            attach = attach.trim();
+        this.attach = attach;
+        return this;
+    }
+
     /**
      * 表名
      */
@@ -162,6 +177,11 @@ public class AuctionPayLogInfo implements Serializable, IEntity {
      * 支付类型  1-微信支付  2-余额支付
      */
     public static final String PAY_TYPE = "pay_type";
+
+    /**
+     * 拓展数据[详细的交易相关信息]
+     */
+    public static final String ATTACH = "attach";
 
 
     @Override
