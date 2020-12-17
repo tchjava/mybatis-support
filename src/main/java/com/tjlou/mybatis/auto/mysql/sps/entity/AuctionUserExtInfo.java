@@ -16,7 +16,7 @@ import java.util.Date;
  * </p>
  *
  * @author Gaby
- * @since 2020-12-02
+ * @since 2020-12-17
  */
 @TableName("auction_user_ext_info")
 public class AuctionUserExtInfo implements Serializable, IEntity {
@@ -170,6 +170,11 @@ public class AuctionUserExtInfo implements Serializable, IEntity {
      */
     @TableField("bd_mp_token")
     private String bdMpToken;
+    /**
+     * 搜索屏蔽 0-正常 1-屏蔽
+     */
+    @TableField("search_shield")
+    private Integer searchShield;
 
 
     public Long getId() {
@@ -485,6 +490,15 @@ public class AuctionUserExtInfo implements Serializable, IEntity {
         return this;
     }
 
+    public Integer getSearchShield() {
+        return searchShield;
+    }
+
+    public AuctionUserExtInfo setSearchShield(Integer searchShield) {
+        this.searchShield = searchShield;
+        return this;
+    }
+
     /**
      * 表名
      */
@@ -643,6 +657,11 @@ public class AuctionUserExtInfo implements Serializable, IEntity {
      * 百度小程序静默登陆token
      */
     public static final String BD_MP_TOKEN = "bd_mp_token";
+
+    /**
+     * 搜索屏蔽 0-正常 1-屏蔽
+     */
+    public static final String SEARCH_SHIELD = "search_shield";
 
 
     @Override
