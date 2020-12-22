@@ -14,7 +14,7 @@ import java.io.Serializable;
  * </p>
  *
  * @author Gaby
- * @since 2020-12-05
+ * @since 2020-12-22
  */
 @TableName("auction_user_info")
 public class AuctionUserInfo implements Serializable, IEntity {
@@ -50,6 +50,16 @@ public class AuctionUserInfo implements Serializable, IEntity {
      */
     @TableField("last_login_json")
     private String lastLoginJson;
+    /**
+     * 联系电话
+     */
+    @TableField("contact_phone")
+    private String contactPhone;
+    /**
+     * 微信号
+     */
+    @TableField("contact_wx")
+    private String contactWx;
 
 
     public Long getId() {
@@ -110,6 +120,28 @@ public class AuctionUserInfo implements Serializable, IEntity {
         return this;
     }
 
+    public String getContactPhone() {
+        return contactPhone;
+    }
+
+    public AuctionUserInfo setContactPhone(String contactPhone) {
+        if (contactPhone != null)
+            contactPhone = contactPhone.trim();
+        this.contactPhone = contactPhone;
+        return this;
+    }
+
+    public String getContactWx() {
+        return contactWx;
+    }
+
+    public AuctionUserInfo setContactWx(String contactWx) {
+        if (contactWx != null)
+            contactWx = contactWx.trim();
+        this.contactWx = contactWx;
+        return this;
+    }
+
     /**
      * 表名
      */
@@ -143,6 +175,16 @@ public class AuctionUserInfo implements Serializable, IEntity {
      * 最后登录信息
      */
     public static final String LAST_LOGIN_JSON = "last_login_json";
+
+    /**
+     * 联系电话
+     */
+    public static final String CONTACT_PHONE = "contact_phone";
+
+    /**
+     * 微信号
+     */
+    public static final String CONTACT_WX = "contact_wx";
 
 
     @Override
