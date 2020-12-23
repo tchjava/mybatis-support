@@ -14,7 +14,7 @@ import java.io.Serializable;
  * </p>
  *
  * @author Gaby
- * @since 2020-12-22
+ * @since 2020-12-23
  */
 @TableName("auction_user_info")
 public class AuctionUserInfo implements Serializable, IEntity {
@@ -60,6 +60,11 @@ public class AuctionUserInfo implements Serializable, IEntity {
      */
     @TableField("contact_wx")
     private String contactWx;
+    /**
+     * 正在上拍的拍品数量
+     */
+    @TableField("upper_product_num")
+    private Integer upperProductNum;
 
 
     public Long getId() {
@@ -142,6 +147,15 @@ public class AuctionUserInfo implements Serializable, IEntity {
         return this;
     }
 
+    public Integer getUpperProductNum() {
+        return upperProductNum;
+    }
+
+    public AuctionUserInfo setUpperProductNum(Integer upperProductNum) {
+        this.upperProductNum = upperProductNum;
+        return this;
+    }
+
     /**
      * 表名
      */
@@ -185,6 +199,11 @@ public class AuctionUserInfo implements Serializable, IEntity {
      * 微信号
      */
     public static final String CONTACT_WX = "contact_wx";
+
+    /**
+     * 正在上拍的拍品数量
+     */
+    public static final String UPPER_PRODUCT_NUM = "upper_product_num";
 
 
     @Override
