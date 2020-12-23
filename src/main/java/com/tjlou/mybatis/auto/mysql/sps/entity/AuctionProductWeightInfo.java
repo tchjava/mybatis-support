@@ -14,7 +14,7 @@ import java.io.Serializable;
  * </p>
  *
  * @author Gaby
- * @since 2020-11-05
+ * @since 2020-12-23
  */
 @TableName("auction_product_weight_info")
 public class AuctionProductWeightInfo implements Serializable, IEntity {
@@ -72,10 +72,10 @@ public class AuctionProductWeightInfo implements Serializable, IEntity {
     @TableField("dimension_7")
     private Integer dimension7;
     /**
-     * 维度8:未知
+     * 维度8:保证金金额
      */
     @TableField("dimension_8")
-    private Integer dimension8;
+    private Long dimension8;
     /**
      * 维度9:未知
      */
@@ -187,11 +187,11 @@ public class AuctionProductWeightInfo implements Serializable, IEntity {
         return this;
     }
 
-    public Integer getDimension8() {
+    public Long getDimension8() {
         return dimension8;
     }
 
-    public AuctionProductWeightInfo setDimension8(Integer dimension8) {
+    public AuctionProductWeightInfo setDimension8(Long dimension8) {
         this.dimension8 = dimension8;
         return this;
     }
@@ -271,7 +271,7 @@ public class AuctionProductWeightInfo implements Serializable, IEntity {
     public static final String DIMENSION_7 = "dimension_7";
 
     /**
-     * 维度8:未知
+     * 维度8:保证金金额
      */
     public static final String DIMENSION_8 = "dimension_8";
 
