@@ -14,7 +14,7 @@ import java.io.Serializable;
  * </p>
  *
  * @author Gaby
- * @since 2020-11-06
+ * @since 2020-12-23
  */
 @TableName("auction_shop_weight_info")
 public class AuctionShopWeightInfo implements Serializable, IEntity {
@@ -37,7 +37,6 @@ public class AuctionShopWeightInfo implements Serializable, IEntity {
     /**
      * 此行是否被执行  1-执行 0-未执行
      */
-    @TableField("`lock`")
     private Integer lock;
     /**
      * 店铺首页被分享的人数
@@ -100,10 +99,10 @@ public class AuctionShopWeightInfo implements Serializable, IEntity {
     @TableField("dimension_12")
     private Integer dimension12;
     /**
-     * 暂未使用
+     * 保证金
      */
     @TableField("dimension_13")
-    private Integer dimension13;
+    private Long dimension13;
     /**
      * 暂未使用
      */
@@ -260,11 +259,11 @@ public class AuctionShopWeightInfo implements Serializable, IEntity {
         return this;
     }
 
-    public Integer getDimension13() {
+    public Long getDimension13() {
         return dimension13;
     }
 
-    public AuctionShopWeightInfo setDimension13(Integer dimension13) {
+    public AuctionShopWeightInfo setDimension13(Long dimension13) {
         this.dimension13 = dimension13;
         return this;
     }
@@ -309,7 +308,7 @@ public class AuctionShopWeightInfo implements Serializable, IEntity {
     /**
      * 此行是否被执行  1-执行 0-未执行
      */
-    public static final String LOCK = "`lock`";
+    public static final String LOCK = "lock";
 
     /**
      * 店铺首页被分享的人数
@@ -372,7 +371,7 @@ public class AuctionShopWeightInfo implements Serializable, IEntity {
     public static final String DIMENSION_12 = "dimension_12";
 
     /**
-     * 暂未使用
+     * 保证金
      */
     public static final String DIMENSION_13 = "dimension_13";
 

@@ -9,7 +9,7 @@ import com.baomidou.mybatisplus.mapper.BaseMapper;
  * </p>
  *
  * @author Gaby
- * @since 2020-11-06
+ * @since 2020-12-23
  */
 public interface AuctionShopWeightInfoMapper extends BaseMapper<AuctionShopWeightInfo> {
 
