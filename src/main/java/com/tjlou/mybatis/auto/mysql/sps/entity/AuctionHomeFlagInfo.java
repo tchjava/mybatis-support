@@ -14,7 +14,7 @@ import java.io.Serializable;
  * </p>
  *
  * @author Gaby
- * @since 2020-10-29
+ * @since 2021-01-07
  */
 @TableName("auction_home_flag_info")
 public class AuctionHomeFlagInfo implements Serializable, IEntity {
@@ -35,7 +35,7 @@ public class AuctionHomeFlagInfo implements Serializable, IEntity {
     @TableField("sub_title")
     private String subTitle;
     /**
-     * 标签类型  1-推荐  2-品牌馆 3-百亿补贴 4-假一赔三 5-退货包邮
+     * 标签类型  1-推荐  2-品牌馆 3-百亿补贴 4-假一赔三 5-退货包邮  6-精选
      */
     @TableField("flag_type")
     private Integer flagType;
@@ -43,6 +43,20 @@ public class AuctionHomeFlagInfo implements Serializable, IEntity {
      * 排序
      */
     private Integer sort;
+    /**
+     * 状态  00A-有效 00Z-失效
+     */
+    private String status;
+    /**
+     * 已点击图片
+     */
+    @TableField("click_pic")
+    private String clickPic;
+    /**
+     * 未点击图片
+     */
+    @TableField("unclick_pic")
+    private String unclickPic;
 
 
     public Long getId() {
@@ -94,6 +108,39 @@ public class AuctionHomeFlagInfo implements Serializable, IEntity {
         return this;
     }
 
+    public String getStatus() {
+        return status;
+    }
+
+    public AuctionHomeFlagInfo setStatus(String status) {
+        if (status != null)
+            status = status.trim();
+        this.status = status;
+        return this;
+    }
+
+    public String getClickPic() {
+        return clickPic;
+    }
+
+    public AuctionHomeFlagInfo setClickPic(String clickPic) {
+        if (clickPic != null)
+            clickPic = clickPic.trim();
+        this.clickPic = clickPic;
+        return this;
+    }
+
+    public String getUnclickPic() {
+        return unclickPic;
+    }
+
+    public AuctionHomeFlagInfo setUnclickPic(String unclickPic) {
+        if (unclickPic != null)
+            unclickPic = unclickPic.trim();
+        this.unclickPic = unclickPic;
+        return this;
+    }
+
     /**
      * 表名
      */
@@ -114,7 +161,7 @@ public class AuctionHomeFlagInfo implements Serializable, IEntity {
     public static final String SUB_TITLE = "sub_title";
 
     /**
-     * 标签类型  1-推荐  2-品牌馆 3-百亿补贴 4-假一赔三 5-退货包邮
+     * 标签类型  1-推荐  2-品牌馆 3-百亿补贴 4-假一赔三 5-退货包邮  6-精选
      */
     public static final String FLAG_TYPE = "flag_type";
 
@@ -122,6 +169,21 @@ public class AuctionHomeFlagInfo implements Serializable, IEntity {
      * 排序
      */
     public static final String SORT = "sort";
+
+    /**
+     * 状态  00A-有效 00Z-失效
+     */
+    public static final String STATUS = "status";
+
+    /**
+     * 已点击图片
+     */
+    public static final String CLICK_PIC = "click_pic";
+
+    /**
+     * 未点击图片
+     */
+    public static final String UNCLICK_PIC = "unclick_pic";
 
 
     @Override
