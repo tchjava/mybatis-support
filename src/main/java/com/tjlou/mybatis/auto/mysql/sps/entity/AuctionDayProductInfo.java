@@ -58,8 +58,8 @@ public class AuctionDayProductInfo implements Serializable, IEntity {
     /**
      * 加价幅度(单位:分)
      */
-    @TableField("markup_price")
-    private Long markupPrice;
+    @TableField("markup_range")
+    private Long markupRange;
     /**
      * 状态 1-审核中  2-已上架  4-未通过审核  8-已结束
      */
@@ -156,12 +156,12 @@ public class AuctionDayProductInfo implements Serializable, IEntity {
         return this;
     }
 
-    public Long getMarkupPrice() {
-        return markupPrice;
+    public Long getMarkupRange() {
+        return markupRange;
     }
 
-    public AuctionDayProductInfo setMarkupPrice(Long markupPrice) {
-        this.markupPrice = markupPrice;
+    public AuctionDayProductInfo setMarkupRange(Long markupRange) {
+        this.markupRange = markupRange;
         return this;
     }
 
@@ -263,7 +263,7 @@ public class AuctionDayProductInfo implements Serializable, IEntity {
     /**
      * 加价幅度(单位:分)
      */
-    public static final String MARKUP_PRICE = "markup_price";
+    public static final String MARKUP_RANGE = "markup_range";
 
     /**
      * 状态 1-审核中  2-已上架  4-未通过审核  8-已结束
