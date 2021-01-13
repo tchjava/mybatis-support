@@ -1,5 +1,6 @@
 package com.tjlou.mybatis.auto.mysql.sps.entity;
 
+import com.baomidou.mybatisplus.annotations.TableField;
 import com.baomidou.mybatisplus.annotations.TableId;
 import com.baomidou.mybatisplus.annotations.TableName;
 import com.baomidou.mybatisplus.enums.IdType;
@@ -29,6 +30,11 @@ public class AuctionDayCountdownInfo implements Serializable, IEntity {
      */
     private Long countdown;
     /**
+     * 倒计时文本
+     */
+    @TableField("countdown_text")
+    private String countdownText;
+    /**
      * 状态 00A-有效 00Z-失效
      */
     private String status;
@@ -49,6 +55,17 @@ public class AuctionDayCountdownInfo implements Serializable, IEntity {
 
     public AuctionDayCountdownInfo setCountdown(Long countdown) {
         this.countdown = countdown;
+        return this;
+    }
+
+    public String getCountdownText() {
+        return countdownText;
+    }
+
+    public AuctionDayCountdownInfo setCountdownText(String countdownText) {
+        if (countdownText != null)
+            countdownText = countdownText.trim();
+        this.countdownText = countdownText;
         return this;
     }
 
@@ -76,6 +93,11 @@ public class AuctionDayCountdownInfo implements Serializable, IEntity {
      * 倒计时(单位:秒)
      */
     public static final String COUNTDOWN = "countdown";
+
+    /**
+     * 倒计时文本
+     */
+    public static final String COUNTDOWN_TEXT = "countdown_text";
 
     /**
      * 状态 00A-有效 00Z-失效

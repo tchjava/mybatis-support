@@ -15,7 +15,7 @@ import java.util.Date;
  * </p>
  *
  * @author Gaby
- * @since 2021-01-12
+ * @since 2021-01-13
  */
 @TableName("auction_day_product_info")
 public class AuctionDayProductInfo implements Serializable, IEntity {
@@ -87,6 +87,11 @@ public class AuctionDayProductInfo implements Serializable, IEntity {
      */
     @TableField("modify_time")
     private Date modifyTime;
+    /**
+     * 拒绝理由
+     */
+    @TableField("reject_reason")
+    private String rejectReason;
 
 
     public Long getId() {
@@ -221,6 +226,17 @@ public class AuctionDayProductInfo implements Serializable, IEntity {
         return this;
     }
 
+    public String getRejectReason() {
+        return rejectReason;
+    }
+
+    public AuctionDayProductInfo setRejectReason(String rejectReason) {
+        if (rejectReason != null)
+            rejectReason = rejectReason.trim();
+        this.rejectReason = rejectReason;
+        return this;
+    }
+
     /**
      * 表名
      */
@@ -294,6 +310,11 @@ public class AuctionDayProductInfo implements Serializable, IEntity {
      * 修改时间
      */
     public static final String MODIFY_TIME = "modify_time";
+
+    /**
+     * 拒绝理由
+     */
+    public static final String REJECT_REASON = "reject_reason";
 
 
     @Override
