@@ -42,12 +42,18 @@ public class AuctionDayInstanceUserLog implements Serializable, IEntity {
     /**
      * 状态说明
      */
+    @TableField("status_name")
     private String statusName;
     /**
      * 最新的出价价格
      */
     @TableField("newest_price")
     private Long newestPrice;
+    /**
+     * 出价次数
+     */
+    @TableField("bid_num")
+    private Integer bidNum;
 
 
     public Long getId() {
@@ -106,6 +112,15 @@ public class AuctionDayInstanceUserLog implements Serializable, IEntity {
         return this;
     }
 
+    public Integer getBidNum() {
+        return bidNum;
+    }
+
+    public AuctionDayInstanceUserLog setBidNum(Integer bidNum) {
+        this.bidNum = bidNum;
+        return this;
+    }
+
     /**
      * 表名
      */
@@ -139,6 +154,11 @@ public class AuctionDayInstanceUserLog implements Serializable, IEntity {
      * 最新的出价价格
      */
     public static final String NEWEST_PRICE = "newest_price";
+
+    /**
+     * 出价次数
+     */
+    public static final String BID_NUM = "bid_num";
 
 
     @Override
