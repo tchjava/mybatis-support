@@ -7,6 +7,7 @@ import com.baomidou.mybatisplus.enums.IdType;
 import com.tjlou.mybatis.base.entity.IEntity;
 
 import java.io.Serializable;
+import java.util.Date;
 
 /**
  * <p>
@@ -14,7 +15,7 @@ import java.io.Serializable;
  * </p>
  *
  * @author Gaby
- * @since 2021-01-14
+ * @since 2021-01-15
  */
 @TableName("auction_day_instance_look_log")
 public class AuctionDayInstanceLookLog implements Serializable, IEntity {
@@ -39,7 +40,7 @@ public class AuctionDayInstanceLookLog implements Serializable, IEntity {
      * 创建时间
      */
     @TableField("create_time")
-    private Long createTime;
+    private Date createTime;
 
 
     public Long getId() {
@@ -69,11 +70,11 @@ public class AuctionDayInstanceLookLog implements Serializable, IEntity {
         return this;
     }
 
-    public Long getCreateTime() {
+    public Date getCreateTime() {
         return createTime;
     }
 
-    public AuctionDayInstanceLookLog setCreateTime(Long createTime) {
+    public AuctionDayInstanceLookLog setCreateTime(Date createTime) {
         this.createTime = createTime;
         return this;
     }
