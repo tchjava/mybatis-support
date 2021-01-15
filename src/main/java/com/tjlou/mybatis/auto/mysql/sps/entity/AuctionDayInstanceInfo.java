@@ -15,7 +15,7 @@ import java.util.Date;
  * </p>
  *
  * @author Gaby
- * @since 2021-01-14
+ * @since 2021-01-15
  */
 @TableName("auction_day_instance_info")
 public class AuctionDayInstanceInfo implements Serializable, IEntity {
@@ -55,6 +55,11 @@ public class AuctionDayInstanceInfo implements Serializable, IEntity {
      */
     @TableField("start_price")
     private Long startPrice;
+    /**
+     * 领先价
+     */
+    @TableField("current_price")
+    private Long currentPrice;
     /**
      * 封顶价
      */
@@ -180,6 +185,15 @@ public class AuctionDayInstanceInfo implements Serializable, IEntity {
 
     public AuctionDayInstanceInfo setStartPrice(Long startPrice) {
         this.startPrice = startPrice;
+        return this;
+    }
+
+    public Long getCurrentPrice() {
+        return currentPrice;
+    }
+
+    public AuctionDayInstanceInfo setCurrentPrice(Long currentPrice) {
+        this.currentPrice = currentPrice;
         return this;
     }
 
@@ -333,6 +347,11 @@ public class AuctionDayInstanceInfo implements Serializable, IEntity {
      * 起拍价
      */
     public static final String START_PRICE = "start_price";
+
+    /**
+     * 领先价
+     */
+    public static final String CURRENT_PRICE = "current_price";
 
     /**
      * 封顶价
