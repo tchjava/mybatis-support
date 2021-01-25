@@ -1,5 +1,6 @@
 package com.tjlou.mybatis.auto.mysql.sps.entity;
 
+import com.baomidou.mybatisplus.annotations.TableField;
 import com.baomidou.mybatisplus.annotations.TableId;
 import com.baomidou.mybatisplus.annotations.TableName;
 import com.baomidou.mybatisplus.enums.IdType;
@@ -28,6 +29,11 @@ public class IpWhiteInfo implements Serializable, IEntity {
      * ip地址
      */
     private String ip;
+    /**
+     * 是否全校验
+     */
+    @TableField("all_validate")
+    private Integer allValidate;
 
 
     public Long getId() {
@@ -50,6 +56,15 @@ public class IpWhiteInfo implements Serializable, IEntity {
         return this;
     }
 
+    public Integer getAllValidate() {
+        return allValidate;
+    }
+
+    public IpWhiteInfo setAllValidate(Integer allValidate) {
+        this.allValidate = allValidate;
+        return this;
+    }
+
     /**
      * 表名
      */
@@ -63,6 +78,11 @@ public class IpWhiteInfo implements Serializable, IEntity {
      * ip地址
      */
     public static final String IP = "ip";
+
+    /**
+     * 是否全校验
+     */
+    public static final String ALL_VALIDATE = "all_validate";
 
 
     @Override
