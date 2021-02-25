@@ -1,7 +1,8 @@
 package   com.tjlou.mybatis.auto.mysql.sps.service;
 
-import com.tjlou.mybatis.auto.mysql.sps.entity.AuctionDayInstanceInfo;
+import com.baomidou.mybatisplus.mapper.EntityWrapper;
 import com.baomidou.mybatisplus.service.IService;
+import com.tjlou.mybatis.auto.mysql.sps.entity.AuctionDayInstanceInfo;
 
 /**
  * <p>
@@ -13,4 +14,13 @@ import com.baomidou.mybatisplus.service.IService;
  */
 public interface AuctionDayInstanceInfoService extends IService<AuctionDayInstanceInfo> {
 
+    /**
+     * 仅有一条数据
+     * @param wrapper
+     * @return
+     */
+    default AuctionDayInstanceInfo getOnly(EntityWrapper<AuctionDayInstanceInfo> wrapper){
+        wrapper.last("limit 1");
+        return this.selectOne(wrapper);
+    };
 }

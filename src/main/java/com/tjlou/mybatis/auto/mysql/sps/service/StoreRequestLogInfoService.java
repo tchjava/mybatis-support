@@ -1,7 +1,8 @@
 package   com.tjlou.mybatis.auto.mysql.sps.service;
 
-import com.tjlou.mybatis.auto.mysql.sps.entity.StoreRequestLogInfo;
+import com.baomidou.mybatisplus.mapper.EntityWrapper;
 import com.baomidou.mybatisplus.service.IService;
+import com.tjlou.mybatis.auto.mysql.sps.entity.StoreRequestLogInfo;
 
 /**
  * <p>
@@ -13,4 +14,13 @@ import com.baomidou.mybatisplus.service.IService;
  */
 public interface StoreRequestLogInfoService extends IService<StoreRequestLogInfo> {
 
+    /**
+     * 仅有一条数据
+     * @param wrapper
+     * @return
+     */
+    default StoreRequestLogInfo getOnly(EntityWrapper<StoreRequestLogInfo> wrapper){
+        wrapper.last("limit 1");
+        return this.selectOne(wrapper);
+    };
 }

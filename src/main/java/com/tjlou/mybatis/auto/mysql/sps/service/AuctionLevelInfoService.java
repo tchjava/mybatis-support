@@ -1,7 +1,8 @@
 package   com.tjlou.mybatis.auto.mysql.sps.service;
 
-import com.tjlou.mybatis.auto.mysql.sps.entity.AuctionLevelInfo;
+import com.baomidou.mybatisplus.mapper.EntityWrapper;
 import com.baomidou.mybatisplus.service.IService;
+import com.tjlou.mybatis.auto.mysql.sps.entity.AuctionLevelInfo;
 
 /**
  * <p>
@@ -13,4 +14,13 @@ import com.baomidou.mybatisplus.service.IService;
  */
 public interface AuctionLevelInfoService extends IService<AuctionLevelInfo> {
 
+    /**
+     * 仅有一条数据
+     * @param wrapper
+     * @return
+     */
+    default AuctionLevelInfo getOnly(EntityWrapper<AuctionLevelInfo> wrapper){
+        wrapper.last("limit 1");
+        return this.selectOne(wrapper);
+    };
 }

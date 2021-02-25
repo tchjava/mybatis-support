@@ -1,7 +1,8 @@
 package   com.tjlou.mybatis.auto.mysql.sps.service;
 
-import com.tjlou.mybatis.auto.mysql.sps.entity.AuctionAdvertPlaceInfo;
+import com.baomidou.mybatisplus.mapper.EntityWrapper;
 import com.baomidou.mybatisplus.service.IService;
+import com.tjlou.mybatis.auto.mysql.sps.entity.AuctionAdvertPlaceInfo;
 
 /**
  * <p>
@@ -13,4 +14,13 @@ import com.baomidou.mybatisplus.service.IService;
  */
 public interface AuctionAdvertPlaceInfoService extends IService<AuctionAdvertPlaceInfo> {
 
+    /**
+     * 仅有一条数据
+     * @param wrapper
+     * @return
+     */
+    default AuctionAdvertPlaceInfo getOnly(EntityWrapper<AuctionAdvertPlaceInfo> wrapper){
+        wrapper.last("limit 1");
+        return this.selectOne(wrapper);
+    };
 }
