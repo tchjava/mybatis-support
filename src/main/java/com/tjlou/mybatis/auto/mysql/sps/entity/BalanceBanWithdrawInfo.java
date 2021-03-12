@@ -21,28 +21,26 @@ public class BalanceBanWithdrawInfo implements Serializable, IEntity {
 
 
     @TableId(value = "id", type = IdType.AUTO)
-    private Integer id;
+    private Long id;
     @TableField("user_account_id")
-    private Integer userAccountId;
+    private Long userAccountId;
     private String reason;
 
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public BalanceBanWithdrawInfo setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
-        return this;
     }
 
-    public Integer getUserAccountId() {
+    public Long getUserAccountId() {
         return userAccountId;
     }
 
-    public BalanceBanWithdrawInfo setUserAccountId(Integer userAccountId) {
+    public void setUserAccountId(Long userAccountId) {
         this.userAccountId = userAccountId;
-        return this;
     }
 
     public String getReason() {
@@ -69,7 +67,7 @@ public class BalanceBanWithdrawInfo implements Serializable, IEntity {
 
     @Override
     public BalanceBanWithdrawInfo pkVal(Serializable val) {
-        this.id = Integer.valueOf(val.toString());
+        this.id = Long.valueOf(val.toString());
         return this;
     }
 }
