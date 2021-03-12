@@ -12,7 +12,7 @@ import org.springframework.stereotype.Service;
  * </p>
  *
  * @author Gaby
- * @since 2021-02-26
+ * @since 2021-03-12
  */
 @Service
 public class StoreRecommendPlatformInfoServiceImpl extends ServiceImpl<StoreRecommendPlatformInfoMapper, StoreRecommendPlatformInfo> implements StoreRecommendPlatformInfoService {

@@ -14,7 +14,7 @@ import java.io.Serializable;
  * </p>
  *
  * @author Gaby
- * @since 2021-02-26
+ * @since 2021-03-12
  */
 @TableName("store_recommend_platform_info")
 public class StoreRecommendPlatformInfo implements Serializable, IEntity {
