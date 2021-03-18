@@ -1,6 +1,6 @@
 package   com.tjlou.mybatis.auto.mysql.sps.service;
 
-import com.baomidou.mybatisplus.mapper.EntityWrapper;
+import com.baomidou.mybatisplus.mapper.Wrapper;
 import com.baomidou.mybatisplus.service.IService;
 import com.tjlou.mybatis.auto.mysql.sps.entity.BalanceBanWithdrawInfo;
 
@@ -19,7 +19,7 @@ public interface BalanceBanWithdrawInfoService extends IService<BalanceBanWithdr
      * @param wrapper
      * @return
      */
-    default BalanceBanWithdrawInfo getOnly(EntityWrapper<BalanceBanWithdrawInfo> wrapper){
+    default BalanceBanWithdrawInfo getOnly(Wrapper<BalanceBanWithdrawInfo> wrapper){
         wrapper.last("limit 1");
         return this.selectOne(wrapper);
     };

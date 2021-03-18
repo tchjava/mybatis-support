@@ -1,6 +1,6 @@
 package   com.tjlou.mybatis.auto.mysql.sps.service;
 
-import com.baomidou.mybatisplus.mapper.EntityWrapper;
+import com.baomidou.mybatisplus.mapper.Wrapper;
 import com.baomidou.mybatisplus.service.IService;
 import com.tjlou.mybatis.auto.mysql.sps.entity.UserWxGrantInfo;
 
@@ -19,7 +19,7 @@ public interface UserWxGrantInfoService extends IService<UserWxGrantInfo> {
      * @param wrapper
      * @return
      */
-    default UserWxGrantInfo getOnly(EntityWrapper<UserWxGrantInfo> wrapper){
+    default UserWxGrantInfo getOnly(Wrapper<UserWxGrantInfo> wrapper){
         wrapper.last("limit 1");
         return this.selectOne(wrapper);
     };

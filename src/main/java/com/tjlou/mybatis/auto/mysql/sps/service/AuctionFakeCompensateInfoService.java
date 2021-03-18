@@ -1,6 +1,6 @@
 package   com.tjlou.mybatis.auto.mysql.sps.service;
 
-import com.baomidou.mybatisplus.mapper.EntityWrapper;
+import com.baomidou.mybatisplus.mapper.Wrapper;
 import com.baomidou.mybatisplus.service.IService;
 import com.tjlou.mybatis.auto.mysql.sps.entity.AuctionFakeCompensateInfo;
 
@@ -19,7 +19,7 @@ public interface AuctionFakeCompensateInfoService extends IService<AuctionFakeCo
      * @param wrapper
      * @return
      */
-    default AuctionFakeCompensateInfo getOnly(EntityWrapper<AuctionFakeCompensateInfo> wrapper){
+    default AuctionFakeCompensateInfo getOnly(Wrapper<AuctionFakeCompensateInfo> wrapper){
         wrapper.last("limit 1");
         return this.selectOne(wrapper);
     };
