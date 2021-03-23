@@ -1,6 +1,6 @@
 package   com.tjlou.mybatis.auto.mysql.sps.service;
 
-import com.baomidou.mybatisplus.mapper.EntityWrapper;
+import com.baomidou.mybatisplus.mapper.Wrapper;
 import com.baomidou.mybatisplus.service.IService;
 import com.tjlou.mybatis.auto.mysql.sps.entity.UserWarrantSuccess;
 
@@ -19,7 +19,7 @@ public interface UserWarrantSuccessService extends IService<UserWarrantSuccess> 
      * @param wrapper
      * @return
      */
-    default UserWarrantSuccess getOnly(EntityWrapper<UserWarrantSuccess> wrapper){
+    default UserWarrantSuccess getOnly(Wrapper<UserWarrantSuccess> wrapper){
         wrapper.last("limit 1");
         return this.selectOne(wrapper);
     };

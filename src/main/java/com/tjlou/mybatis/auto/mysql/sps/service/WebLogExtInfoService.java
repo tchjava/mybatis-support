@@ -1,6 +1,6 @@
 package   com.tjlou.mybatis.auto.mysql.sps.service;
 
-import com.baomidou.mybatisplus.mapper.EntityWrapper;
+import com.baomidou.mybatisplus.mapper.Wrapper;
 import com.baomidou.mybatisplus.service.IService;
 import com.tjlou.mybatis.auto.mysql.sps.entity.WebLogExtInfo;
 
@@ -19,7 +19,7 @@ public interface WebLogExtInfoService extends IService<WebLogExtInfo> {
      * @param wrapper
      * @return
      */
-    default WebLogExtInfo getOnly(EntityWrapper<WebLogExtInfo> wrapper){
+    default WebLogExtInfo getOnly(Wrapper<WebLogExtInfo> wrapper){
         wrapper.last("limit 1");
         return this.selectOne(wrapper);
     };

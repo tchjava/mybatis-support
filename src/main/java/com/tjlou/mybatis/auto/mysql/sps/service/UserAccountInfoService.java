@@ -1,6 +1,6 @@
 package   com.tjlou.mybatis.auto.mysql.sps.service;
 
-import com.baomidou.mybatisplus.mapper.EntityWrapper;
+import com.baomidou.mybatisplus.mapper.Wrapper;
 import com.baomidou.mybatisplus.service.IService;
 import com.tjlou.mybatis.auto.mysql.sps.entity.UserAccountInfo;
 
@@ -19,7 +19,7 @@ public interface UserAccountInfoService extends IService<UserAccountInfo> {
      * @param wrapper
      * @return
      */
-    default UserAccountInfo getOnly(EntityWrapper<UserAccountInfo> wrapper){
+    default UserAccountInfo getOnly(Wrapper<UserAccountInfo> wrapper){
         wrapper.last("limit 1");
         return this.selectOne(wrapper);
     };

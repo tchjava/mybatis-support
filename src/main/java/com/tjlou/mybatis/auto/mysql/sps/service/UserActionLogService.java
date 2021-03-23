@@ -1,6 +1,6 @@
 package   com.tjlou.mybatis.auto.mysql.sps.service;
 
-import com.baomidou.mybatisplus.mapper.EntityWrapper;
+import com.baomidou.mybatisplus.mapper.Wrapper;
 import com.baomidou.mybatisplus.service.IService;
 import com.tjlou.mybatis.auto.mysql.sps.entity.UserActionLog;
 
@@ -19,7 +19,7 @@ public interface UserActionLogService extends IService<UserActionLog> {
      * @param wrapper
      * @return
      */
-    default UserActionLog getOnly(EntityWrapper<UserActionLog> wrapper){
+    default UserActionLog getOnly(Wrapper<UserActionLog> wrapper){
         wrapper.last("limit 1");
         return this.selectOne(wrapper);
     };

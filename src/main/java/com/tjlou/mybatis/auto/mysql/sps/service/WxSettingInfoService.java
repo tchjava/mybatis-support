@@ -1,6 +1,6 @@
 package   com.tjlou.mybatis.auto.mysql.sps.service;
 
-import com.baomidou.mybatisplus.mapper.EntityWrapper;
+import com.baomidou.mybatisplus.mapper.Wrapper;
 import com.baomidou.mybatisplus.service.IService;
 import com.tjlou.mybatis.auto.mysql.sps.entity.WxSettingInfo;
 
@@ -19,7 +19,7 @@ public interface WxSettingInfoService extends IService<WxSettingInfo> {
      * @param wrapper
      * @return
      */
-    default WxSettingInfo getOnly(EntityWrapper<WxSettingInfo> wrapper){
+    default WxSettingInfo getOnly(Wrapper<WxSettingInfo> wrapper){
         wrapper.last("limit 1");
         return this.selectOne(wrapper);
     };

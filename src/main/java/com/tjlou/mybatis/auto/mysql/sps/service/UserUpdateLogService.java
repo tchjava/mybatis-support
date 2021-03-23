@@ -1,6 +1,6 @@
 package   com.tjlou.mybatis.auto.mysql.sps.service;
 
-import com.baomidou.mybatisplus.mapper.EntityWrapper;
+import com.baomidou.mybatisplus.mapper.Wrapper;
 import com.baomidou.mybatisplus.service.IService;
 import com.tjlou.mybatis.auto.mysql.sps.entity.UserUpdateLog;
 
@@ -19,7 +19,7 @@ public interface UserUpdateLogService extends IService<UserUpdateLog> {
      * @param wrapper
      * @return
      */
-    default UserUpdateLog getOnly(EntityWrapper<UserUpdateLog> wrapper){
+    default UserUpdateLog getOnly(Wrapper<UserUpdateLog> wrapper){
         wrapper.last("limit 1");
         return this.selectOne(wrapper);
     };

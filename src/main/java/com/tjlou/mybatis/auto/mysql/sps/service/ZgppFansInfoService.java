@@ -1,6 +1,6 @@
 package   com.tjlou.mybatis.auto.mysql.sps.service;
 
-import com.baomidou.mybatisplus.mapper.EntityWrapper;
+import com.baomidou.mybatisplus.mapper.Wrapper;
 import com.baomidou.mybatisplus.service.IService;
 import com.tjlou.mybatis.auto.mysql.sps.entity.ZgppFansInfo;
 
@@ -19,7 +19,7 @@ public interface ZgppFansInfoService extends IService<ZgppFansInfo> {
      * @param wrapper
      * @return
      */
-    default ZgppFansInfo getOnly(EntityWrapper<ZgppFansInfo> wrapper){
+    default ZgppFansInfo getOnly(Wrapper<ZgppFansInfo> wrapper){
         wrapper.last("limit 1");
         return this.selectOne(wrapper);
     };

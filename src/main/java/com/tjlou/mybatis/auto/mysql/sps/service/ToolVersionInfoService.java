@@ -1,6 +1,6 @@
 package   com.tjlou.mybatis.auto.mysql.sps.service;
 
-import com.baomidou.mybatisplus.mapper.EntityWrapper;
+import com.baomidou.mybatisplus.mapper.Wrapper;
 import com.baomidou.mybatisplus.service.IService;
 import com.tjlou.mybatis.auto.mysql.sps.entity.ToolVersionInfo;
 
@@ -19,7 +19,7 @@ public interface ToolVersionInfoService extends IService<ToolVersionInfo> {
      * @param wrapper
      * @return
      */
-    default ToolVersionInfo getOnly(EntityWrapper<ToolVersionInfo> wrapper){
+    default ToolVersionInfo getOnly(Wrapper<ToolVersionInfo> wrapper){
         wrapper.last("limit 1");
         return this.selectOne(wrapper);
     };

@@ -1,6 +1,6 @@
 package   com.tjlou.mybatis.auto.mysql.sps.service;
 
-import com.baomidou.mybatisplus.mapper.EntityWrapper;
+import com.baomidou.mybatisplus.mapper.Wrapper;
 import com.baomidou.mybatisplus.service.IService;
 import com.tjlou.mybatis.auto.mysql.sps.entity.UserTokenInfo;
 
@@ -19,7 +19,7 @@ public interface UserTokenInfoService extends IService<UserTokenInfo> {
      * @param wrapper
      * @return
      */
-    default UserTokenInfo getOnly(EntityWrapper<UserTokenInfo> wrapper){
+    default UserTokenInfo getOnly(Wrapper<UserTokenInfo> wrapper){
         wrapper.last("limit 1");
         return this.selectOne(wrapper);
     };

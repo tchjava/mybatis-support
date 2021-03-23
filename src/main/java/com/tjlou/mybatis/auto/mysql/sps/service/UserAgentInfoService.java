@@ -1,6 +1,6 @@
 package   com.tjlou.mybatis.auto.mysql.sps.service;
 
-import com.baomidou.mybatisplus.mapper.EntityWrapper;
+import com.baomidou.mybatisplus.mapper.Wrapper;
 import com.baomidou.mybatisplus.service.IService;
 import com.tjlou.mybatis.auto.mysql.sps.entity.UserAgentInfo;
 
@@ -19,7 +19,7 @@ public interface UserAgentInfoService extends IService<UserAgentInfo> {
      * @param wrapper
      * @return
      */
-    default UserAgentInfo getOnly(EntityWrapper<UserAgentInfo> wrapper){
+    default UserAgentInfo getOnly(Wrapper<UserAgentInfo> wrapper){
         wrapper.last("limit 1");
         return this.selectOne(wrapper);
     };
