@@ -15,7 +15,7 @@ import java.util.Date;
  * </p>
  *
  * @author Gaby
- * @since 2020-06-21
+ * @since 2021-03-23
  */
 @TableName("user_account_info")
 public class UserAccountInfo implements Serializable, IEntity {
@@ -144,6 +144,11 @@ public class UserAccountInfo implements Serializable, IEntity {
      */
     @TableField("h5_token")
     private String h5Token;
+    /**
+     * 贡献值
+     */
+    @TableField("contribute_value")
+    private Long contributeValue;
 
 
     public Long getId() {
@@ -434,6 +439,15 @@ public class UserAccountInfo implements Serializable, IEntity {
         return this;
     }
 
+    public Long getContributeValue() {
+        return contributeValue;
+    }
+
+    public UserAccountInfo setContributeValue(Long contributeValue) {
+        this.contributeValue = contributeValue;
+        return this;
+    }
+
     /**
      * 表名
      */
@@ -574,6 +588,11 @@ public class UserAccountInfo implements Serializable, IEntity {
      * h5静默所需token
      */
     public static final String H5_TOKEN = "h5_token";
+
+    /**
+     * 贡献值
+     */
+    public static final String CONTRIBUTE_VALUE = "contribute_value";
 
 
     @Override
