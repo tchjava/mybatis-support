@@ -118,6 +118,9 @@ public class AuctionDayInstanceInfo implements Serializable, IEntity {
     @TableField("end_time")
     private Date endTime;
 
+    @TableField("start_time")
+    private Date startTime;
+
 
     public Long getId() {
         return id;
@@ -309,6 +312,14 @@ public class AuctionDayInstanceInfo implements Serializable, IEntity {
         return this;
     }
 
+    public Date getStartTime() {
+        return startTime;
+    }
+
+    public void setStartTime(Date startTime) {
+        this.startTime = startTime;
+    }
+
     /**
      * 表名
      */
@@ -412,6 +423,7 @@ public class AuctionDayInstanceInfo implements Serializable, IEntity {
      * 结束时间
      */
     public static final String END_TIME = "end_time";
+    public static final String START_TIME = "start_time";
 
 
     @Override
