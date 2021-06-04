@@ -121,6 +121,12 @@ public class AuctionDayInstanceInfo implements Serializable, IEntity {
     @TableField("start_time")
     private Date startTime;
 
+    @TableField("end_small_account")
+    private Integer endSmallAccount;
+
+    @TableField("small_bid_second")
+    private Integer smallBidSecond;
+
 
     public Long getId() {
         return id;
@@ -320,6 +326,22 @@ public class AuctionDayInstanceInfo implements Serializable, IEntity {
         this.startTime = startTime;
     }
 
+    public Integer getEndSmallAccount() {
+        return endSmallAccount;
+    }
+
+    public void setEndSmallAccount(Integer endSmallAccount) {
+        this.endSmallAccount = endSmallAccount;
+    }
+
+    public Integer getSmallBidSecond() {
+        return smallBidSecond;
+    }
+
+    public void setSmallBidSecond(Integer smallBidSecond) {
+        this.smallBidSecond = smallBidSecond;
+    }
+
     /**
      * 表名
      */
@@ -418,6 +440,10 @@ public class AuctionDayInstanceInfo implements Serializable, IEntity {
      * 修改时间
      */
     public static final String MODIFY_TIME = "modify_time";
+    public static final String END_SMALL_ACCOUNT = "end_small_account";
+    public static final String SMALL_BID_SECOND = "small_bid_second";
+
+
 
     /**
      * 结束时间
