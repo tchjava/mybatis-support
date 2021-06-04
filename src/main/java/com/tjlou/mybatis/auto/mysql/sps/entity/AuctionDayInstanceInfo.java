@@ -124,8 +124,11 @@ public class AuctionDayInstanceInfo implements Serializable, IEntity {
     @TableField("end_small_account")
     private Integer endSmallAccount;
 
-    @TableField("small_bid_second")
-    private Integer smallBidSecond;
+    @TableField("small_bid_second_start")
+    private Integer smallBidSecondStart;
+
+    @TableField("small_bid_second_end")
+    private Integer smallBidSecondEnd;
 
 
     public Long getId() {
@@ -334,12 +337,20 @@ public class AuctionDayInstanceInfo implements Serializable, IEntity {
         this.endSmallAccount = endSmallAccount;
     }
 
-    public Integer getSmallBidSecond() {
-        return smallBidSecond;
+    public Integer getSmallBidSecondStart() {
+        return smallBidSecondStart;
     }
 
-    public void setSmallBidSecond(Integer smallBidSecond) {
-        this.smallBidSecond = smallBidSecond;
+    public void setSmallBidSecondStart(Integer smallBidSecondStart) {
+        this.smallBidSecondStart = smallBidSecondStart;
+    }
+
+    public Integer getSmallBidSecondEnd() {
+        return smallBidSecondEnd;
+    }
+
+    public void setSmallBidSecondEnd(Integer smallBidSecondEnd) {
+        this.smallBidSecondEnd = smallBidSecondEnd;
     }
 
     /**
@@ -441,7 +452,8 @@ public class AuctionDayInstanceInfo implements Serializable, IEntity {
      */
     public static final String MODIFY_TIME = "modify_time";
     public static final String END_SMALL_ACCOUNT = "end_small_account";
-    public static final String SMALL_BID_SECOND = "small_bid_second";
+    public static final String SMALL_BID_SECOND_START = "small_bid_second_start";
+    public static final String SMALL_BID_SECOND_END = "small_bid_second_end";
 
 
 
