@@ -93,6 +93,9 @@ public class AuctionDayProductInfo implements Serializable, IEntity {
     @TableField("reject_reason")
     private String rejectReason;
 
+    @TableField("auto_check")
+    private Integer autoCheck;
+
 
     public Long getId() {
         return id;
@@ -237,6 +240,14 @@ public class AuctionDayProductInfo implements Serializable, IEntity {
         return this;
     }
 
+    public Integer getAutoCheck() {
+        return autoCheck;
+    }
+
+    public void setAutoCheck(Integer autoCheck) {
+        this.autoCheck = autoCheck;
+    }
+
     /**
      * 表名
      */
@@ -315,6 +326,7 @@ public class AuctionDayProductInfo implements Serializable, IEntity {
      * 拒绝理由
      */
     public static final String REJECT_REASON = "reject_reason";
+    public static final String AUTO_CHECK = "auto_check";
 
 
     @Override
