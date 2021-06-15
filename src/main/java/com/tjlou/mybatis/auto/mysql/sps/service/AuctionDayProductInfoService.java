@@ -1,6 +1,6 @@
 package   com.tjlou.mybatis.auto.mysql.sps.service;
 
-import com.baomidou.mybatisplus.mapper.EntityWrapper;
+import com.baomidou.mybatisplus.mapper.Wrapper;
 import com.baomidou.mybatisplus.service.IService;
 import com.tjlou.mybatis.auto.mysql.sps.entity.AuctionDayProductInfo;
 
@@ -19,7 +19,7 @@ public interface AuctionDayProductInfoService extends IService<AuctionDayProduct
      * @param wrapper
      * @return
      */
-    default AuctionDayProductInfo getOnly(EntityWrapper<AuctionDayProductInfo> wrapper){
+    default AuctionDayProductInfo getOnly(Wrapper<AuctionDayProductInfo> wrapper){
         wrapper.last("limit 1");
         return this.selectOne(wrapper);
     };
