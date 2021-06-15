@@ -15,7 +15,7 @@ import java.util.Date;
  * </p>
  *
  * @author Gaby
- * @since 2021-01-15
+ * @since 2021-06-15
  */
 @TableName("auction_day_instance_info")
 public class AuctionDayInstanceInfo implements Serializable, IEntity {
@@ -117,18 +117,31 @@ public class AuctionDayInstanceInfo implements Serializable, IEntity {
      */
     @TableField("end_time")
     private Date endTime;
-
+    /**
+     * 开始时间
+     */
     @TableField("start_time")
     private Date startTime;
-
+    /**
+     * 是否小号出最后一手
+     */
     @TableField("end_small_account")
     private Integer endSmallAccount;
-
+    /**
+     * 结束前几秒出开始区间
+     */
     @TableField("small_bid_second_start")
     private Integer smallBidSecondStart;
-
+    /**
+     * 结束前几秒出开始区间
+     */
     @TableField("small_bid_second_end")
     private Integer smallBidSecondEnd;
+    /**
+     * 小号目标价格
+     */
+    @TableField("small_target_price")
+    private Long smallTargetPrice;
 
 
     public Long getId() {
@@ -325,32 +338,45 @@ public class AuctionDayInstanceInfo implements Serializable, IEntity {
         return startTime;
     }
 
-    public void setStartTime(Date startTime) {
+    public AuctionDayInstanceInfo setStartTime(Date startTime) {
         this.startTime = startTime;
+        return this;
     }
 
     public Integer getEndSmallAccount() {
         return endSmallAccount;
     }
 
-    public void setEndSmallAccount(Integer endSmallAccount) {
+    public AuctionDayInstanceInfo setEndSmallAccount(Integer endSmallAccount) {
         this.endSmallAccount = endSmallAccount;
+        return this;
     }
 
     public Integer getSmallBidSecondStart() {
         return smallBidSecondStart;
     }
 
-    public void setSmallBidSecondStart(Integer smallBidSecondStart) {
+    public AuctionDayInstanceInfo setSmallBidSecondStart(Integer smallBidSecondStart) {
         this.smallBidSecondStart = smallBidSecondStart;
+        return this;
     }
 
     public Integer getSmallBidSecondEnd() {
         return smallBidSecondEnd;
     }
 
-    public void setSmallBidSecondEnd(Integer smallBidSecondEnd) {
+    public AuctionDayInstanceInfo setSmallBidSecondEnd(Integer smallBidSecondEnd) {
         this.smallBidSecondEnd = smallBidSecondEnd;
+        return this;
+    }
+
+    public Long getSmallTargetPrice() {
+        return smallTargetPrice;
+    }
+
+    public AuctionDayInstanceInfo setSmallTargetPrice(Long smallTargetPrice) {
+        this.smallTargetPrice = smallTargetPrice;
+        return this;
     }
 
     /**
@@ -451,17 +477,36 @@ public class AuctionDayInstanceInfo implements Serializable, IEntity {
      * 修改时间
      */
     public static final String MODIFY_TIME = "modify_time";
-    public static final String END_SMALL_ACCOUNT = "end_small_account";
-    public static final String SMALL_BID_SECOND_START = "small_bid_second_start";
-    public static final String SMALL_BID_SECOND_END = "small_bid_second_end";
-
-
 
     /**
      * 结束时间
      */
     public static final String END_TIME = "end_time";
+
+    /**
+     * 开始时间
+     */
     public static final String START_TIME = "start_time";
+
+    /**
+     * 是否小号出最后一手
+     */
+    public static final String END_SMALL_ACCOUNT = "end_small_account";
+
+    /**
+     * 结束前几秒出开始区间
+     */
+    public static final String SMALL_BID_SECOND_START = "small_bid_second_start";
+
+    /**
+     * 结束前几秒出开始区间
+     */
+    public static final String SMALL_BID_SECOND_END = "small_bid_second_end";
+
+    /**
+     * 小号目标价格
+     */
+    public static final String SMALL_TARGET_PRICE = "small_target_price";
 
 
     @Override

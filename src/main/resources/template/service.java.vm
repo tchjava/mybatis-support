@@ -18,7 +18,7 @@ public interface ${table.serviceName} extends ${superServiceClass}<${entity}> {
      * @param wrapper
      * @return
      */
-    default ${entity} getOnly(EntityWrapper<${entity}> wrapper){
+    default ${entity} getOnly(Wrapper<${entity}> wrapper){
         wrapper.last("limit 1");
         return this.selectOne(wrapper);
     };

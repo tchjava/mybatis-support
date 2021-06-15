@@ -1,8 +1,8 @@
 package   com.tjlou.mybatis.auto.mysql.sps.service;
 
 import com.baomidou.mybatisplus.mapper.Wrapper;
-import com.baomidou.mybatisplus.service.IService;
 import com.tjlou.mybatis.auto.mysql.sps.entity.AuctionDayInstanceInfo;
+import com.baomidou.mybatisplus.service.IService;
 
 /**
  * <p>
@@ -10,7 +10,7 @@ import com.tjlou.mybatis.auto.mysql.sps.entity.AuctionDayInstanceInfo;
  * </p>
  *
  * @author Gaby
- * @since 2021-01-15
+ * @since 2021-06-15
  */
 public interface AuctionDayInstanceInfoService extends IService<AuctionDayInstanceInfo> {
 
