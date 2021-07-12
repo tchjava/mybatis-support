@@ -14,7 +14,7 @@ import java.io.Serializable;
  * </p>
  *
  * @author Gaby
- * @since 2020-11-04
+ * @since 2021-07-12
  */
 @TableName("auction_advert_place_info")
 public class AuctionAdvertPlaceInfo implements Serializable, IEntity {
@@ -43,10 +43,15 @@ public class AuctionAdvertPlaceInfo implements Serializable, IEntity {
      */
     private Integer sort;
     /**
-     * 模块类型  1-首页 2-精选  3-关注
+     * 模块类型  1-首页 2-精选  3-关注  4-品牌馆
      */
     @TableField("module_type")
     private Integer moduleType;
+    /**
+     * 客户端显示 -1-默认所有端显示  &运算进行判断
+     */
+    @TableField("client_view")
+    private Integer clientView;
 
 
     public Long getId() {
@@ -103,6 +108,15 @@ public class AuctionAdvertPlaceInfo implements Serializable, IEntity {
         return this;
     }
 
+    public Integer getClientView() {
+        return clientView;
+    }
+
+    public AuctionAdvertPlaceInfo setClientView(Integer clientView) {
+        this.clientView = clientView;
+        return this;
+    }
+
     /**
      * 表名
      */
@@ -133,9 +147,14 @@ public class AuctionAdvertPlaceInfo implements Serializable, IEntity {
     public static final String SORT = "sort";
 
     /**
-     * 模块类型  1-首页 2-精选  3-关注
+     * 模块类型  1-首页 2-精选  3-关注  4-品牌馆
      */
     public static final String MODULE_TYPE = "module_type";
+
+    /**
+     * 客户端显示 -1-默认所有端显示  &运算进行判断
+     */
+    public static final String CLIENT_VIEW = "client_view";
 
 
     @Override
